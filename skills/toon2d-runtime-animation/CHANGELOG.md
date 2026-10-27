@@ -3,7 +3,17 @@
 Every change made because a cold agent stumbled is logged here with the evidence. The evals themselves
 (`evals/tasks`, `evals/run-evals.mjs`) are not changed to make a run pass.
 
-## 0.1.0 (2026-10-27) — first release candidate
+## Unreleased (0.2.0)
+
+- Jump cut regression tests (#2): tap at impulse applies exactly one cut, hold keeps full `jumpV`, mid-air release
+  cuts once; both engine copies (starter template and `docs/play`) are covered (`tests/jump-cut.test.mjs`, repo root).
+- Take-off lean (#3): SKILL.md non-negotiable, review-rubric Motion note and a "Dive take-off" pitfall give torso-pitch
+  targets (crouch 5–30° forward; first 8 airborne ticks within 30° forward / 15° back, unwound to ≤ 15°) and a crouch
+  depth floor (hip drop ≥ 15 % of standing hip height). New advisory `scripts/takeoff.mjs` measures them; it is not
+  part of `score.mjs`, so the score total is unchanged. No engine clamp (the starter already passes).
+- Changelog: the historical 30/30 / 28/28 figures below are relabelled as internal-aggregator results.
+
+## 0.1.0 (2026-10-27) — first release
 
 - Version bump to **0.1.0** (Apache-2.0 / CC BY 4.0 / CC0 licensing at repo root).
 - Starter take-off crouch (4–6 tick squat before jump impulse, speed-scaled, buffered) and face-slide clamp (`face-clamp.js`).
@@ -11,6 +21,10 @@ Every change made because a cold agent stumbled is logged here with the evidence
 - Pre-release iterations below (v1.0–v1.6) are preserved as historical notes.
 
 ## Pre-release iterations
+
+Historical notes. The **30/30** (G1) and **28/28** (G2) figures below came from an internal aggregator that ran on
+top of `score.mjs` during pre-release iterations; they are not the public claim. The public v0.1.0 claim is
+`score.mjs` **15/15** on cold G1 runs (Codex, Claude Code and Grok).
 
 ## v1.0 (pre-eval, author self-checks)
 - Starter passes `score.mjs` 15/15 (pixel) and 13/13 (smooth); `ap=0` fails `idle.alive` (checks discriminate).
@@ -42,7 +56,7 @@ Every change made because a cold agent stumbled is logged here with the evidence
 - SKILL.md workflow step 0: run `doctor.mjs`.
 
 ### cold run A result (Codex CLI, gpt-6.1-sol, reasoning high, cold, 14 min)
-- Hidden grader `evals/run-evals.mjs G1`: **PASS 30/30** (historical internal aggregator; public claim is score.mjs 15/15) (slip max 0.222 px/tick, joints 1.000, idle 0.0762,
+- Hidden grader `evals/run-evals.mjs G1`: PASS 30/30 (historical internal aggregator, not the public claim) (slip max 0.222 px/tick, joints 1.000, idle 0.0762,
   7 strong expressions, pixel x3 nearest 1.0000, sheet clean, 0 marker px).
 - Rubric (agent self / independent sub-reviewer / my review): puppet 3/3/3, appeal 3/3/3, readability 3/3/3,
   motion 3/3/3, face 4/4/3. Worst tell all agree on: single-view mirrored head/torso through the turn.
@@ -59,13 +73,13 @@ Every change made because a cold agent stumbled is logged here with the evidence
 - `recipe-cutout-skeletal.md`: arm re-cut costs vs drawn in-betweens (prior cutout prototype arm-cut lessons).
 
 ## v1.3 (after cold run D, judge review)
-- G2 codex: hidden grader **PASS 28/28**; but `sheet-run.png` shows the coat hanging nearly straight down at full
+- G2 codex: hidden grader PASS 28/28 (historical internal aggregator); but `sheet-run.png` shows the coat hanging nearly straight down at full
   run (a banner, not a trailing coat), and its first coat was a thin ribbon (its own reviewer caught that).
   Fix (skill text, not eval): `pitfalls.md` Rigid coat row + new "Coats, skirts, long tails" section in
   `recipe-cutout-skeletal.md` (world-space chain, speed drag via restAngle/wind, widen toward hem, settle time).
 
 ## v1.4 (after cold run E, judge review)
-- G2 Claude Code (`claude -p`, claude-opus-5-5, 44 turns, $1.81, 7.6 min): hidden grader **PASS 28/28**, same brief
+- G2 Claude Code (`claude -p`, claude-opus-5-5, 44 turns, $1.81, 7.6 min): hidden grader PASS 28/28 (historical internal aggregator), same brief
   and same skill bytes as cold run D (diff verified).
 - Stumble: both cold agents hand-built expression takes (codex G1 `face-take.js`; claude edited its copy of the
   generated `face-core.js` to add `anticipate`/`overshoot`). Fix: the take envelope is now in the starter and the
@@ -86,8 +100,8 @@ Every change made because a cold agent stumbled is logged here with the evidence
   findings-inbox updated to match.
 
 ## v1.6 (after matched pair cold run B / cold run C, same skill v1.4 bytes + same brief)
-- Results: codex **G1 PASS 30/30** (14 min; no CHROME_PATH override, no ENOTEMPTY: doctor + cdp fixes held);
-  claude **G1 PASS 30/30** (62 turns, $2.93, 16.4 min; no browser/cleanup issues). Both spawned an independent
+- Results (historical internal aggregator): codex G1 PASS 30/30 (14 min; no CHROME_PATH override, no ENOTEMPTY: doctor + cdp fixes held);
+  claude G1 PASS 30/30 (62 turns, $2.93, 16.4 min; no browser/cleanup issues). Both spawned an independent
   reviewer sub-agent (v1.4 SKILL text); in v1.0 the claude run had skipped it. Both kept the face clear in the air
   and the expressions inside the skin (v1.1 fixes).
 - New stumbles → pitfalls rows: "No take-off crouch" (claude's reviewer, both passes), "Face slides off the head on

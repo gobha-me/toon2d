@@ -22,6 +22,8 @@ measuring it; the scripts prove a result instead of trusting a screenshot.
    bone lengths from the markers, palette merged, face anchor placed).
 4. **Gate continuously**: `node <skill>/scripts/lint.mjs <project>` then
    `node <skill>/scripts/score.mjs <project> --out <project>/shots` (all checks must PASS).
+   After any jump/pose change also run `node <skill>/scripts/takeoff.mjs <project>` (take-off lean and crouch depth;
+   advisory, not part of the score).
 5. **Capture and look**: `node <skill>/scripts/capture.mjs <project> --out <project>/shots`, then open the GIFs and
    `sheet-*.png` and score them with [reference/review-rubric.md](reference/review-rubric.md). Numbers passing ≠ good;
    the rubric catches what metrics can't (appeal, readability).
@@ -50,6 +52,9 @@ Hybrids are normal: rigged body + hand-drawn smear frames on attacks; frame-by-f
 - **Pixel mode**: draw into a small buffer (320×180), quantize to the palette with an alpha cut, draw the pixel
   face *after* quantizing, upscale by an integer factor with nearest-neighbour. Never let the browser/GPU filter it.
 - **Joints**: round caps / overlap discs at every joint; cut parts along the silhouette, never a box.
+- **Take-off lean**: torso pitch (spine bone vs vertical, + = toward facing) 5–30° forward at the deepest crouch,
+  never past 30° forward or 15° back on the first 8 airborne ticks, and back to ≤ 15° by the 8th. Hip drops ≥ 15 % of
+  standing hip height. A 40–45° lean on launch reads as a dive, not a jump. Check: `scripts/takeoff.mjs`.
 - **Timing**: hold the upper body on 2s for runs (3s reads choppy); feet and IK always run every tick.
 - **Faces**: expression changes are *takes* (anticipate → overshoot → settle), never plain crossfades. The starter's
   reactions already support it: `{ expr, weight, fadeIn, hold, fadeOut, overshoot, settle, anticipate: { expr, weight, hold } }`
@@ -63,7 +68,7 @@ Hybrids are normal: rigged body + hand-drawn smear frames on attacks; frame-by-f
 
 - `templates/starter/`: runnable reference (index.html, main.js, rig.json, expressions.json, engine/*.js).
 - `scripts/`: `doctor.mjs`, `lint.mjs`, `validate-rig.mjs`, `validate-expressions.mjs`, `sheet-markers.mjs`, `capture.mjs`,
-  `score.mjs`, `serve.mjs` (`lib/` = CDP driver, PNG/GIF codecs, image metrics).
+  `score.mjs`, `takeoff.mjs`, `serve.mjs` (`lib/` = CDP driver, PNG/GIF codecs, image metrics).
 - `reference/`: [harness-contract.md](reference/harness-contract.md) (the `window.__toon` API the scripts drive),
   [runtime-core.md](reference/runtime-core.md), recipes, [pitfalls.md](reference/pitfalls.md),
   [review-rubric.md](reference/review-rubric.md), [godot-notes.md](reference/godot-notes.md),

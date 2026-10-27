@@ -6,8 +6,8 @@ The skill's internal pre-release iteration notes (cold-eval driven) live under
 
 ## 0.1.0 — 2026-10-27
 
-First public-candidate release of the **toon2d-runtime-animation** skill (repo remains
-GitHub Pages workflow stays manual until public release).
+First public release of the **toon2d-runtime-animation** skill. The repository is public and the
+static demo is live on GitHub Pages: https://gobha-me.github.io/toon2d/
 
 ### Added
 - Apache-2.0 `LICENSE` for code and skill; `LICENSE-ART` / `NOTICE` for CC BY 4.0
@@ -16,13 +16,18 @@ GitHub Pages workflow stays manual until public release).
 - Skill bundle at `skills/toon2d-runtime-animation` (starter template, lint/score/capture/doctor,
   recipes, pitfalls, anti-puppet + expression-rig subskills)
 - Lifelike face-flow prototype at `prototypes/lifelike` (F2 optical-flow morph default)
-- Cold-run proof captures under `evals/runs` (Codex and Claude; G1 30/30, G2 28/28)
+- Historical cold run captures under `evals/runs` (Codex and Claude; pre-release iterations)
 - Starter take-off crouch and face-slide clamp
-- Static demo under `docs/` (field guide, playable starter, lifelike bust) + manual-only Pages workflow
+- Static demo under `docs/` (field guide, playable starter, lifelike bust) + GitHub Pages workflow (deploys `docs/` on pushes to `master` that change it)
 
 ### Proven
-- Codex and Claude cold runs: G1 **30/30**, G2 **28/28**, independent rubric ~**3/5**
-- Grok cold run and lifelike **G3** task: not yet run on this candidate
+Cold G1 runs on the v0.1.0 skill package, scored with the shipped `score.mjs`:
+
+- Codex 0.163.0 (`gpt-6.1-sol`, high): G1 **15/15**
+- Grok 1.0.67 (`grok-4.7`, high): G1 **15/15**
+- Claude Code 2.1.311 (`claude-opus-5-5`): G1 **15/15**
+
+The lifelike face task **G3** is a plan-text lint, not a cold motion proof.
 
 ### Known gaps
 - Single side-view parts (turns still puppet-like without 3/4 / front art)
@@ -31,7 +36,9 @@ GitHub Pages workflow stays manual until public release).
 
 ### Pre-release history (internal skill iterations v1.0–v1.6)
 
-Summarized from the skill CHANGELOG; evidence was cold evals, not eval edits.
+Summarized from the skill CHANGELOG; evidence was cold evals, not eval edits. The **30/30** / **28/28**
+figures below came from an internal aggregator on top of `score.mjs`; they are historical, not the
+current public claim (see Proven above).
 
 - **v1.0** — Starter self-checks (score 15/15 pixel); body scales with leg length; flat feet when
   grounded; sheet palette preserved; face-anchor hint from sheet markers.

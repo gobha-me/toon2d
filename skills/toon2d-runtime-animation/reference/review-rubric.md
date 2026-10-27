@@ -12,6 +12,11 @@ reference bar (SoR4/Hades/Children of Morta)".
 | **Motion** | Skating, pops, floaty or robotic timing | Planted feet, smooth transitions, some stiffness | Weight, anticipation, squash/stretch, overlap; speed changes feel physical | `run.gif`, `runjump.gif`, `jump.gif`, score feet.* |
 | **Face** | Unreadable or static | Blink + 3 distinguishable expressions | Expressions read instantly at game scale, takes not crossfades, reacts to gameplay | `expressions.png/.gif`, `idle.gif` |
 
+**Take-off (part of Motion):** on `sheet-jump.png` / `sheet-runjump.png`, the crouch leans the torso 5–30° forward
+with a visible hip drop (≥ 15 % of standing hip height). The first airborne frames stay within 30° forward and
+straighten to ≤ 15° within about 8 ticks. A launch frame at 40°+ reads as a dive: cap Motion at 2 and name the frame.
+`node <skill>/scripts/takeoff.mjs <project>` measures this (advisory; not part of score.mjs).
+
 Report: a table with score + one-sentence evidence per axis, the single worst tell, and the next fix.
 Example: `Motion 3 - feet planted (slip 0.12 px/tick) but landing has no squash (jump.gif frames 40-44)`.
 

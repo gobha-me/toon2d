@@ -21,8 +21,12 @@ jobs:
         with:
           node-version: '22'
           cache: npm
-      - run: npm ci
+      - name: Install
+        id: install
+        run: npm ci
       - name: Lint
         run: npm run lint
       - name: Test
+        # Run tests even when lint fails, so one run reports both.
+        if: ${{ !cancelled() && steps.install.outcome == 'success' }}
         run: npm test

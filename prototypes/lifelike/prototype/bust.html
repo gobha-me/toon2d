@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bust widget: embeddable face</title>
+<style>
+  body { margin: 0; background: #15171b; color: #dde1e8; font: 14px/1.45 system-ui, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 18px; }
+  .row { display: flex; gap: 18px; align-items: flex-start; flex-wrap: wrap; }
+  canvas { width: 256px; height: 256px; border-radius: 10px; background: #0e0f12; }
+  button { background: #262a31; color: #dde1e8; border: 1px solid #3a3f49; border-radius: 6px; padding: 4px 9px; margin: 2px; cursor: pointer; }
+  pre { background: #0e0f12; padding: 8px; border-radius: 6px; height: 120px; overflow: auto; font-size: 12px; }
+  a { color: #9cc3ff; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Bust widget</h1>
+  <p>The face from the <a href="index.html">lifelike prototype</a> as a small reusable module: <code>bust.js</code>, one canvas, an event API. A fictional AI-generated character.</p>
+  <div class="row">
+    <canvas id="bust" width="256" height="256"></canvas>
+    <div>
+      <div><button data-call="setExpression" data-arg="neutral">neutral</button><button data-call="setExpression" data-arg="happy">happy</button><button data-call="setExpression" data-arg="angry">angry</button><button data-call="setExpression" data-arg="sad">sad</button><button data-call="setExpression" data-arg="surprised">surprised</button><button data-call="setExpression" data-arg="distressed">distressed</button></div>
+      <div><button data-call="say" data-arg="0.7">say</button><button data-call="yell" data-arg="0.9">yell</button><button data-call="project" data-arg="0.85">project</button><button data-call="interject" data-arg="0.9">interject</button><button data-call="quiet">quiet</button></div>
+      <div><button data-call="hit" data-arg="0.35">hit 0.35</button><button data-call="hit" data-arg="1">hit 1.0</button><button data-call="hurting" data-arg="0.8">hurting 0.8</button><button data-call="hurting" data-arg="0">not hurting</button></div>
+      <div><button data-call="breath" data-arg="1">winded</button><button data-call="breath" data-arg="0">calm</button><button data-call="distract" data-arg="0.8">distracted</button><button data-call="distract" data-arg="0">attentive</button></div>
+      <pre id="log"></pre>
+    </div>
+  </div>
+  <pre>import { createBust } from './bust.js';
+const bust = await createBust(canvas);
+bust.setExpression('angry').yell(0.9);
+game.on('damage', (d) => bust.hit(d.amount / 50));
+bust.on('hit', (e) => console.log(e));</pre>
+</main>
+<script type="module">
+  import { createBust } from './bust.js';
+  const bust = await createBust(document.getElementById('bust'));
+  window.bust = bust;
+  const log = document.getElementById('log');
+  for (const ev of ['expression', 'speech', 'hit', 'hurting', 'breath', 'distract']) {
+    bust.on(ev, (e) => { log.textContent = `${e.t.toFixed(2)}s ${ev} ${JSON.stringify(e)}\n` + log.textContent; });
+  }
+  for (const b of document.querySelectorAll('[data-call]')) {
+    b.addEventListener('click', () => {
+      const a = b.dataset.arg;
+      bust[b.dataset.call](a === undefined ? undefined : isNaN(a) ? a : Number(a));
+    });
+  }
+</script>
+</body>
+</html>

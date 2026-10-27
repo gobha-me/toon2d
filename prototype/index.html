@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>toon2d — expressive runtime rig prototype</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <div class="stage">
+    <canvas id="game" width="960" height="540" tabindex="0" aria-label="game canvas"></canvas>
+    <div class="help">
+      <b>←/→ or A/D</b> run · <b>Space/W/↑</b> hold to charge, release to jump · <b>mouse</b> look target ·
+      <b>B</b> bones · <b>F</b> face panel · <b>R</b> respawn
+    </div>
+  </div>
+  <aside id="panel" class="panel hidden"></aside>
+</main>
+<script type="module" src="main.js"></script>
+</body>
+</html>

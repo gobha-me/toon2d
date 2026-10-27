@@ -1,0 +1,160 @@
+{
+  "task": "G1",
+  "project": "evals/runs/cold-run-b/out",
+  "pass": true,
+  "passed": 30,
+  "total": 30,
+  "checks": [
+    {
+      "id": "files.index.html",
+      "pass": true,
+      "detail": "present"
+    },
+    {
+      "id": "files.rig.json",
+      "pass": true,
+      "detail": "present"
+    },
+    {
+      "id": "files.expressions.json",
+      "pass": true,
+      "detail": "present"
+    },
+    {
+      "id": "files.NOTES.md",
+      "pass": true,
+      "detail": "present"
+    },
+    {
+      "id": "lint",
+      "pass": true,
+      "detail": "17 files clean"
+    },
+    {
+      "id": "validate.rig",
+      "pass": true,
+      "detail": "ok (0 warnings)"
+    },
+    {
+      "id": "validate.expressions",
+      "pass": true,
+      "detail": "7 strong expressions"
+    },
+    {
+      "id": "score.contract.api",
+      "pass": true,
+      "detail": "all methods present"
+    },
+    {
+      "id": "score.determinism",
+      "pass": true,
+      "detail": "frame hash 8887f22d vs 8887f22d"
+    },
+    {
+      "id": "score.states.visited",
+      "pass": true,
+      "detail": "visited: idle, run, turn, jump, fall, land (need idle, run, turn, jump|fall, land)"
+    },
+    {
+      "id": "score.turn.not_instant",
+      "pass": true,
+      "detail": "turn runs (ticks): 10, facing flips: 2"
+    },
+    {
+      "id": "score.feet.slip",
+      "pass": true,
+      "detail": "mean 0.002 p95 0 max 0.451 px/tick (limits 0.35/1/3)"
+    },
+    {
+      "id": "score.feet.planted",
+      "pass": true,
+      "detail": "1174 planted foot-ticks, 0 planted while floating"
+    },
+    {
+      "id": "score.gaps.connected",
+      "pass": true,
+      "detail": "worst largest-blob share 1.000 at  (min 0.97)"
+    },
+    {
+      "id": "score.gaps.joints_covered",
+      "pass": true,
+      "detail": "joint samples on opaque pixels 1.000 (min 0.95); misses {}"
+    },
+    {
+      "id": "score.idle.alive",
+      "pass": true,
+      "detail": "mean diff 0.0776 (min 0.01), distinct 1.00 (min 0.3)"
+    },
+    {
+      "id": "score.face.blink",
+      "pass": true,
+      "detail": "min eye open in 6 s idle: 0.00"
+    },
+    {
+      "id": "score.face.expressions",
+      "pass": true,
+      "detail": "7 expressions change eyes+brows+mouth params and >= 4% head pixels (7 distinct); happy:4.51/0.213 angry:5.36/0.276 sad:5.86/0.435 surprised:4.76/0.443 smug:4.14/0.203 hurt:5.49/0.457 determined:3.91/0.405"
+    },
+    {
+      "id": "score.antipuppet.toggle",
+      "pass": true,
+      "detail": "on vs off run diff 0.438 (min 0.04)"
+    },
+    {
+      "id": "score.pixel.mode",
+      "pass": true,
+      "detail": "mode pixel, buffer 320x180, k 2"
+    },
+    {
+      "id": "score.pixel.no_filter_blur",
+      "pass": true,
+      "detail": "on-screen 640px / buffer 320px = x2; nearest-upscale match 1.0000 (min 0.98)"
+    },
+    {
+      "id": "score.console.clean",
+      "pass": true,
+      "detail": "no console errors"
+    },
+    {
+      "id": "capture.frames",
+      "pass": true,
+      "detail": "6 non-trivial GIFs in evals/runs/cold-run-b/eval/capture"
+    },
+    {
+      "id": "sprites.declared",
+      "pass": true,
+      "detail": "rig.sheet true, 11 bones with sprites (min 8)"
+    },
+    {
+      "id": "sprites.sheet_clean",
+      "pass": true,
+      "detail": "0 marker pixels left in sheet.clean.png (quantizing would recolour them, not hide them)"
+    },
+    {
+      "id": "mode.pixel_default",
+      "pass": true,
+      "detail": "default view {\"mode\":\"pixel\",\"W\":320,\"H\":180,\"s\":1,\"k\":2,\"camX\":0,\"camY\":0,\"canvas\":\"#game\"}"
+    },
+    {
+      "id": "antipuppet.default_on",
+      "pass": true,
+      "detail": "flags {\"ap\":true,\"idle\":true,\"breath\":true,\"overlap\":true,\"asym\":true,\"turn\":true,\"caps\":true,\"hold\":true,\"feetswap\":true,\"timing\":\"twos\"}"
+    },
+    {
+      "id": "sprites.rendered",
+      "pass": true,
+      "detail": "fixture jacket px 58 (min 25), hair px 87 (min 10)"
+    },
+    {
+      "id": "sprites.scale",
+      "pass": true,
+      "detail": "character height 48 buffer px (fixture parts imply ~40-52)"
+    },
+    {
+      "id": "sprites.markers_hidden",
+      "pass": true,
+      "detail": "0 marker-coloured px across 12 run/jump frames"
+    }
+  ],
+  "at": "2026-10-26T22:29:01.274Z"
+}

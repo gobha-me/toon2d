@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>toon2d demo</title>
+<style>
+  body { margin: 0; font: 16px/1.45 system-ui, sans-serif; background: #15131c; color: #e9e6f2; }
+  main { max-width: 820px; margin: 0 auto; padding: 28px 18px 64px; }
+  a { color: #9fc4ff; }
+  h1 { font-size: 28px; margin: 0 0 8px; }
+  .cards { display: grid; gap: 14px; margin-top: 22px; }
+  .card { display: block; padding: 16px 18px; border: 1px solid #333; border-radius: 10px; background: #1b1824; text-decoration: none; color: inherit; }
+  .card:hover { border-color: #5a6a9a; }
+  .card b { color: #fff; }
+  .k { color: #aaa; font-size: 14px; }
+  code { background: #0e0f12; padding: 1px 6px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>toon2d demo</h1>
+  <p class="k">Static Pages-ready preview of the open-source runtime 2D animation skill (v0.1 candidate). No network calls; open via <code>npm run serve:docs</code> or any static file server.</p>
+  <div class="cards">
+    <a class="card" href="guide.html"><b>Styles &amp; techniques field guide</b><br><span class="k">Animated clips of toon / chibi / cel / ink / pixel plus ON vs OFF technique pairs.</span></a>
+    <a class="card" href="play/"><b>Playable starter character</b><br><span class="k">Cutout rig with take-off crouch and face-slide clamp. Arrows/WASD move, Space jump, 1–8 expressions, P anti-puppet, T timing.</span></a>
+    <a class="card" href="lifelike/bust.html"><b>Lifelike bust (F2 face-flow)</b><br><span class="k">Embeddable AI-portrait widget: expressions, speech intents, pain, breath, eyes-only distraction.</span></a>
+    <a class="card" href="https://github.com/gobha-me/toon2d"><b>Repository</b><br><span class="k">Skill bundle, provenance, and cold-run proof.</span></a>
+  </div>
+  <p class="k" style="margin-top:28px">Licenses: code/skill Apache-2.0 · hand-made art CC BY 4.0 · AI samples CC0 1.0. Lifelike samples: <b>Generated with Grok Imagine (SpaceXAI)</b> (see <a href="https://github.com/gobha-me/toon2d/blob/master/PROVENANCE.md">PROVENANCE.md</a>; <a href="https://x.ai/legal/faq">xAI FAQ</a>).</p>
+</main>
+</body>
+</html>

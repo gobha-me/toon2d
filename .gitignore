@@ -1,0 +1,13 @@
+node_modules/
+dist/
+*.log
+
+# import-branch / local tooling
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+.chrome*/
+.playwright*/
+.cache/
+toon2d-skill-*.tgz

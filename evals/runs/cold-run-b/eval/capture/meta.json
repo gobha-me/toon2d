@@ -1,0 +1,63 @@
+{
+  "query": "",
+  "view": {
+    "mode": "pixel",
+    "W": 320,
+    "H": 180,
+    "s": 1,
+    "k": 2,
+    "camX": 0,
+    "camY": 0,
+    "canvas": "#game"
+  },
+  "segments": {
+    "idle": {
+      "frames": 90,
+      "states": [
+        "idle"
+      ]
+    },
+    "run": {
+      "frames": 75,
+      "states": [
+        "run"
+      ]
+    },
+    "turn": {
+      "frames": 23,
+      "states": [
+        "turn",
+        "run"
+      ]
+    },
+    "jump": {
+      "frames": 38,
+      "states": [
+        "jump",
+        "fall",
+        "land",
+        "idle"
+      ]
+    },
+    "runjump": {
+      "frames": 35,
+      "states": [
+        "jump",
+        "fall",
+        "land",
+        "run"
+      ]
+    }
+  },
+  "expressions": [
+    "neutral",
+    "happy",
+    "angry",
+    "sad",
+    "surprised",
+    "smug",
+    "hurt",
+    "determined"
+  ],
+  "errors": []
+}

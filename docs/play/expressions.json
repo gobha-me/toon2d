@@ -1,0 +1,312 @@
+{
+  "params": [
+    {
+      "name": "eyeOpenL",
+      "min": 0,
+      "max": 1.3,
+      "def": 1,
+      "rate": 14
+    },
+    {
+      "name": "eyeOpenR",
+      "min": 0,
+      "max": 1.3,
+      "def": 1,
+      "rate": 14
+    },
+    {
+      "name": "eyeSmileL",
+      "min": 0,
+      "max": 1,
+      "def": 0,
+      "rate": 10
+    },
+    {
+      "name": "eyeSmileR",
+      "min": 0,
+      "max": 1,
+      "def": 0,
+      "rate": 10
+    },
+    {
+      "name": "eyeShut",
+      "min": 0,
+      "max": 1,
+      "def": 0,
+      "rate": 16
+    },
+    {
+      "name": "pupilX",
+      "min": -1,
+      "max": 1,
+      "def": 0,
+      "rate": 18
+    },
+    {
+      "name": "pupilY",
+      "min": -1,
+      "max": 1,
+      "def": 0,
+      "rate": 18
+    },
+    {
+      "name": "pupilSize",
+      "min": 0.4,
+      "max": 1.4,
+      "def": 1,
+      "rate": 10
+    },
+    {
+      "name": "browAngleL",
+      "min": -1,
+      "max": 1,
+      "def": 0,
+      "rate": 12
+    },
+    {
+      "name": "browAngleR",
+      "min": -1,
+      "max": 1,
+      "def": 0,
+      "rate": 12
+    },
+    {
+      "name": "browHeight",
+      "min": -1,
+      "max": 1,
+      "def": 0,
+      "rate": 12
+    },
+    {
+      "name": "mouthOpen",
+      "min": 0,
+      "max": 1,
+      "def": 0,
+      "rate": 16
+    },
+    {
+      "name": "mouthCurve",
+      "min": -1,
+      "max": 1,
+      "def": 0.25,
+      "rate": 10
+    },
+    {
+      "name": "mouthWidth",
+      "min": 0.3,
+      "max": 1.6,
+      "def": 1,
+      "rate": 10
+    },
+    {
+      "name": "mouthSmirk",
+      "min": -1,
+      "max": 1,
+      "def": 0,
+      "rate": 8
+    },
+    {
+      "name": "blush",
+      "min": 0,
+      "max": 1,
+      "def": 0,
+      "rate": 2.5
+    },
+    {
+      "name": "sweat",
+      "min": 0,
+      "max": 1,
+      "def": 0,
+      "rate": 4
+    },
+    {
+      "name": "angerMark",
+      "min": 0,
+      "max": 1,
+      "def": 0,
+      "rate": 6
+    },
+    {
+      "name": "tears",
+      "min": 0,
+      "max": 1,
+      "def": 0,
+      "rate": 3
+    },
+    {
+      "name": "gloom",
+      "min": 0,
+      "max": 1,
+      "def": 0,
+      "rate": 3
+    },
+    {
+      "name": "sparkle",
+      "min": 0,
+      "max": 1,
+      "def": 0,
+      "rate": 6
+    },
+    {
+      "name": "headTilt",
+      "min": -1,
+      "max": 1,
+      "def": 0,
+      "rate": 6
+    }
+  ],
+  "expressions": {
+    "neutral": {},
+    "happy": {
+      "eyeSmileL": 0.85,
+      "eyeSmileR": 0.85,
+      "browHeight": 0.35,
+      "browAngleL": -0.15,
+      "browAngleR": -0.15,
+      "mouthOpen": 0.55,
+      "mouthCurve": 1,
+      "mouthWidth": 1.15,
+      "blush": 0.55,
+      "headTilt": 0.25
+    },
+    "angry": {
+      "browAngleL": 0.9,
+      "browAngleR": 0.9,
+      "browHeight": -0.5,
+      "eyeOpenL": 0.75,
+      "eyeOpenR": 0.75,
+      "mouthCurve": -0.7,
+      "mouthOpen": 0.25,
+      "mouthWidth": 0.9,
+      "angerMark": 1,
+      "pupilSize": 0.8
+    },
+    "sad": {
+      "browAngleL": -0.85,
+      "browAngleR": -0.85,
+      "browHeight": 0.2,
+      "eyeOpenL": 0.7,
+      "eyeOpenR": 0.7,
+      "pupilY": 0.3,
+      "mouthCurve": -0.8,
+      "mouthOpen": 0.05,
+      "mouthWidth": 0.7,
+      "tears": 0.7,
+      "gloom": 0.8,
+      "headTilt": -0.3
+    },
+    "surprised": {
+      "eyeOpenL": 1.25,
+      "eyeOpenR": 1.25,
+      "pupilSize": 0.55,
+      "browHeight": 1,
+      "browAngleL": -0.2,
+      "browAngleR": -0.2,
+      "mouthOpen": 0.85,
+      "mouthWidth": 0.5,
+      "mouthCurve": 0,
+      "sweat": 0.7
+    },
+    "smug": {
+      "eyeOpenL": 0.55,
+      "eyeOpenR": 0.62,
+      "eyeSmileL": 0.25,
+      "eyeSmileR": 0.25,
+      "browAngleL": -0.35,
+      "browAngleR": 0.4,
+      "browHeight": 0.1,
+      "mouthCurve": 0.6,
+      "mouthSmirk": 0.9,
+      "mouthWidth": 0.9,
+      "blush": 0.2,
+      "headTilt": 0.4
+    },
+    "hurt": {
+      "eyeShut": 1,
+      "browAngleL": -0.7,
+      "browAngleR": -0.7,
+      "browHeight": -0.2,
+      "mouthOpen": 0.5,
+      "mouthCurve": -0.6,
+      "mouthWidth": 1.2,
+      "sweat": 1,
+      "tears": 0.4
+    },
+    "determined": {
+      "browAngleL": 0.55,
+      "browAngleR": 0.55,
+      "browHeight": -0.25,
+      "eyeOpenL": 0.66,
+      "eyeOpenR": 0.66,
+      "pupilSize": 0.9,
+      "mouthOpen": 0.0,
+      "mouthCurve": -0.2,
+      "mouthWidth": 0.75,
+      "sparkle": 1
+    }
+  },
+  "reactions": {
+    "hurt": {
+      "expr": "hurt",
+      "weight": 1,
+      "fadeIn": 0.04,
+      "hold": 0.7,
+      "fadeOut": 0.4,
+      "line": "Ouch!"
+    },
+    "apexHigh": {
+      "expr": "surprised",
+      "weight": 1,
+      "fadeIn": 0.06,
+      "hold": 0.5,
+      "fadeOut": 0.3,
+      "line": "Whoa!",
+      "overshoot": 0.2
+    },
+    "landHard": {
+      "expr": "hurt",
+      "weight": 0.5,
+      "fadeIn": 0.03,
+      "hold": 0.18,
+      "fadeOut": 0.3,
+      "line": "Oof."
+    },
+    "gem": {
+      "expr": "happy",
+      "weight": 1,
+      "fadeIn": 0.08,
+      "hold": 0.8,
+      "fadeOut": 0.5,
+      "line": "Yay!",
+      "overshoot": 0.25,
+      "anticipate": {
+        "expr": "surprised",
+        "weight": 0.5,
+        "hold": 0.06
+      }
+    },
+    "chargeFull": {
+      "expr": "determined",
+      "weight": 0.6,
+      "fadeIn": 0.05,
+      "hold": 0.3,
+      "fadeOut": 0.2,
+      "line": "Here goes!"
+    },
+    "bigJump": {
+      "expr": "happy",
+      "weight": 0.6,
+      "fadeIn": 0.05,
+      "hold": 0.3,
+      "fadeOut": 0.3
+    },
+    "respawn": {
+      "expr": "sad",
+      "weight": 1,
+      "fadeIn": 0.1,
+      "hold": 1,
+      "fadeOut": 0.6,
+      "line": "Not again..."
+    }
+  }
+}

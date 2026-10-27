@@ -1,0 +1,21 @@
+{
+  "name": "lifelike-proto",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Lifelike AI art animated three ways (cutout, skinned mesh, AI frames) + face warp/morph/crossfade",
+  "scripts": {
+    "serve": "node scripts/serve.mjs prototype 8080",
+    "lint": "eslint --max-warnings=0 .",
+    "dist": "node scripts/dist.mjs",
+    "shots": "node scripts/shots.mjs work/raw",
+    "prep": ".venv/bin/python tools/cut_body.py && .venv/bin/python tools/prep_face.py && .venv/bin/python tools/prep_walk.py"
+  },
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "eslint": "^9.39.5",
+    "globals": "^17.13.0",
+    "playwright-core": "^1.64.1"
+  }
+}

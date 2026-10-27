@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>toon2d runtime animation starter</title>
+<link rel="icon" href="data:,">
+<style>
+  html, body { margin: 0; background: #111; color: #ccc; font: 13px system-ui, sans-serif; }
+  main { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 8px; }
+  /* belt and braces: the canvas is already sized in exact device px, this keeps any CSS scaling crisp */
+  #game { image-rendering: pixelated; image-rendering: crisp-edges; display: block; }
+  .err { color: #f66; white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<main>
+  <canvas id="game" tabindex="0" aria-label="game canvas"></canvas>
+  <div id="hud"></div>
+  <div>←/→ A/D run · Space/W jump (hold = higher) · P anti-puppet · T timing · 1-8 expressions, 0 auto · H hurt</div>
+</main>
+<script type="module" src="main.js"></script>
+</body>
+</html>

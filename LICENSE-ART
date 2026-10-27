@@ -1,0 +1,40 @@
+# Sample art and documentation licenses
+
+This file covers **sample art, media, and documentation** shipped in this repository.
+**Code and the skill** (SKILL.md, scripts, engine JavaScript, JSON schemas used by the
+runtime) are under the Apache License 2.0; see `LICENSE`.
+
+## Hand-made and code-drawn sample art; documentation
+
+Copyright 2026 the toon2d contributors.
+
+Hand-made art, procedurally / code-drawn sample art (for example the Vex fixture and
+canvas-painted toon prototypes), screenshots and capture GIFs derived from those, and
+the human-authored documentation Markdown are licensed under the
+**Creative Commons Attribution 4.0 International License (CC BY 4.0)**.
+
+You are free to share and adapt that material for any purpose, even commercially, as
+long as you give appropriate credit, provide a link to the license, and indicate if
+changes were made. Full legal code:
+
+https://creativecommons.org/licenses/by/4.0/legalcode
+
+A human-readable summary:
+
+https://creativecommons.org/licenses/by/4.0/
+
+## AI-generated sample art
+
+AI-generated source stills and derivatives built only from those stills (atlases,
+expression crops, capture GIFs of the lifelike prototype, and similar) are dedicated
+to the public domain under **CC0 1.0 Universal**.
+
+https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+https://creativecommons.org/publicdomain/zero/1.0/
+
+Each AI-generated source file is listed in `PROVENANCE.md` with its generation model, date (and the source of that date), tool, and prompt status. Lifelike `src/` stills are credited **Generated with Grok Imagine (SpaceXAI)** under CC0 1.0; see https://x.ai/legal/faq and https://x.ai/legal/terms-of-service (user owns outputs; attribution to Grok required).
+
+## What does not ship
+
+Nothing derived from any private project is included in this repository.

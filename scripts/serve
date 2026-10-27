@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Serve the static demo (docs/) with zero dependencies.
+# Usage: ./scripts/serve [port]
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+PORT="${1:-8080}"
+DIR="${SERVE_DIR:-$ROOT/docs}"
+cd "$DIR"
+echo "serving $DIR at http://127.0.0.1:$PORT/"
+exec python3 -m http.server "$PORT" --bind 127.0.0.1

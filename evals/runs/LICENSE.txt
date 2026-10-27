@@ -1,0 +1,2 @@
+Eval capture media of the code-drawn Vex / starter character is CC BY 4.0.
+Harness scripts and JSON logs are Apache-2.0. See /LICENSE, /LICENSE-ART, /PROVENANCE.md.

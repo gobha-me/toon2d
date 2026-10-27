@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+<title>Lifelike AI art, animated: three ways</title>
+<style>
+  body { margin: 0; background: #0c0d10; color: #d8dbe2; font: 14px/1.45 system-ui, sans-serif; }
+  main { max-width: 1240px; margin: 0 auto; padding: 18px; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  h2 { font-size: 16px; margin: 22px 0 6px; }
+  p { margin: 4px 0; color: #a9aebb; max-width: 1100px; }
+  .stage { position: relative; display: inline-block; background: #17191e; border-radius: 6px; }
+  .labels { display: grid; grid-template-columns: repeat(3, 1fr); font-size: 13px; }
+  .labels div { padding: 6px 10px; border-bottom: 1px solid #262a31; }
+  .labels b { color: #fff; }
+  .sliders label { margin-left: 4px; }
+  .sliders input[type=range] { width: 110px; vertical-align: middle; }
+  select { background: #22262e; color: #d8dbe2; border: 1px solid #343a45; }
+  .labels span { color: #8f95a3; display: block; font-size: 12px; }
+  canvas { display: block; }
+  .bar { margin: 8px 0; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+  button { background: #22262e; color: #d8dbe2; border: 1px solid #343a45; border-radius: 4px; padding: 4px 10px; cursor: pointer; }
+  button.on { background: #3b6df0; border-color: #3b6df0; color: #fff; }
+  label { margin-left: 10px; color: #a9aebb; }
+  #exprNow { margin-left: 10px; color: #ffd27a; }
+  table { border-collapse: collapse; margin-top: 6px; font-size: 13px; }
+  td, th { border: 1px solid #2a2e36; padding: 4px 8px; text-align: left; }
+  th { background: #191c22; }
+  a { color: #8fb0ff; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Lifelike AI art, animated: three ways</h1>
+  <p>All three methods use the same AI-generated, fictional character. The body is one side-view image cut into parts. The face is one portrait, plus AI-made expression and eyes-closed versions of it. Everything renders live in WebGL. Turn on <i>debug</i> to see the bones, the mesh and the masks.</p>
+
+  <h2>Body: gameplay sprite</h2>
+  <div class="bar">
+    <button data-gait="idle">idle</button><button data-gait="walk">walk</button><button data-gait="run">run</button>
+    <label><input type="checkbox" id="debug"> debug (bones / mesh / masks)</label>
+    <label><input type="checkbox" id="blendC"> C: crossfade between frames</label>
+  </div>
+  <div class="stage" id="bodyStage">
+    <div class="labels">
+      <div><b>A. Cutout parts on a skeleton</b><span>Rigid pieces rotate at the joints, with painted fills where the arm hid the jacket</span></div>
+      <div><b>B. Skinned mesh (Live2D-style)</b><span>Whole-limb textures bend at the joints, plus breathing and hair sway</span></div>
+      <div><b>C. AI-generated frames</b><span>6 walk poses from a second AI image, played as a flipbook</span></div>
+    </div>
+    <canvas id="body" width="1200" height="440"></canvas>
+  </div>
+
+  <h2>Face: the expression "gambit" (flow morph)</h2>
+  <p>One AI portrait plus 10 AI versions of the same character: happy, angry, sad, surprised, distressed, winded, yelling, projecting and pain. The versions are aligned and morphed with optical flow. Blinks, eye movement and breathing are procedural. F2 (flow morph) is the default; F1, F3 and F4 stay selectable in the view menu. Distracted is eyes only: the gaze wanders around the room while the head keeps its idle sway. The head-turn versions were rejected and are only in the "rejected" view.</p>
+  <div class="bar">
+    <button data-expr="auto">gambit reel</button>
+    <button data-expr="neutral">neutral</button><button data-expr="happy">happy</button><button data-expr="angry">angry</button>
+    <button data-expr="sad">sad</button><button data-expr="surprised">surprised</button><button data-expr="distressed">distressed</button>
+    <span id="exprNow"></span>
+  </div>
+  <div class="bar sliders">
+    <b>blend</b>
+    <label>happy <input type="range" data-w="happy" min="0" max="1" step="0.05"></label>
+    <label>angry <input type="range" data-w="angry" min="0" max="1" step="0.05"></label>
+    <label>sad <input type="range" data-w="sad" min="0" max="1" step="0.05"></label>
+    <label>surprised <input type="range" data-w="surprised" min="0" max="1" step="0.05"></label>
+    <label>distressed <input type="range" data-w="distressed" min="0" max="1" step="0.05"></label>
+  </div>
+  <div class="bar sliders">
+    <b>behaviour</b>
+    <label>breathing: calm <input type="range" id="breath" min="0" max="1" step="0.05"> winded</label>
+    <label>distracted <input type="range" id="distract" min="0" max="1" step="0.05"></label>
+    <button data-glance="-1">glance left</button><button data-glance="1">glance right</button>
+    <label><input type="checkbox" id="takes" checked> squint take before surprise</label>
+  </div>
+  <div class="bar sliders">
+    <b>speech</b>
+    <button data-speech="off">quiet</button><button data-speech="talk">talking</button><button data-speech="yell">angry yelling</button>
+    <button data-speech="project">projecting (noisy room)</button><button data-speech="interject">interject</button>
+    <label>volume <input type="range" id="volume" min="0" max="1" step="0.05"></label>
+    <label><input type="checkbox" id="talk"> talk</label>
+  </div>
+  <div class="bar sliders">
+    <b>pain</b>
+    <button data-hit="0.35">hit: light</button><button data-hit="0.7">hit: medium</button><button data-hit="1">hit: heavy</button>
+    <label>hurting <input type="range" id="hurt" min="0" max="1" step="0.05"></label>
+  </div>
+  <div class="bar">
+    <b>presets</b>
+    <button data-preset="distressed+winded">distressed + winded</button><button data-preset="happy+distracted">happy + distracted</button>
+    <button data-preset="sad+surprised">sad + surprised</button><button data-preset="angry+winded">angry + winded</button>
+    <label>view <select id="view"></select></label>
+    <label>morph <select id="fix"><option value="0">v1 (lips double)</option><option value="1">fixed flow</option><option value="2">fixed + short mouth dissolve</option></select></label>
+  </div>
+  <p>The same face as a small embeddable module with an event API: <a href="bust.html">bust widget</a> (<code>bust.js</code>).</p>
+  <div class="stage" id="faceStage">
+    <div class="labels">
+      <div><b>P</b><span></span></div>
+      <div><b>Q</b><span></span></div>
+      <div><b>R</b><span></span></div>
+    </div>
+    <canvas id="face" width="1200" height="400"></canvas>
+  </div>
+
+  <h2>What to look for</h2>
+  <table>
+    <tr><th></th><th>Works</th><th>Breaks</th></tr>
+    <tr><td>A cutout</td><td>Cheap, stays sharp, fully controllable, any number of moves</td><td>Lighting baked into the pixels rotates with each piece. Seams at the knees and elbows. Hidden areas had to be painted in, and the torso fill repeats the pocket</td></tr>
+    <tr><td>B mesh</td><td>Smooth joints, breathing and hair sway. Feels the most alive</td><td>The texture stretches and pinches at the knees (the "candy-wrapper" twist), and a photo-real knee bends like rubber</td></tr>
+    <tr><td>C AI frames</td><td>Real cloth folds and weight in every frame</td><td>Only 6 frames, a 10% head bob, the size drifts between frames, the near/far leg is ambiguous, there is no idle or run, and each new move needs another AI batch</td></tr>
+    <tr><td>F1-F4 face</td><td>F1 = hand-built warp rig, F2 = flow morph between AI versions, F3 = plain crossfade, F4 = F2 for the expression plus a flow-driven mouth warp for speech with the real teeth/tongue switched in. F2 is the default (user verdict: F2 wins most, F4 fails quite a bit)</td><td>F2 ghosts teeth and tongue when talking; F3 doubles everything mid-change; F1 cannot make new wrinkles</td></tr>
+    <tr><td>Face morph</td><td>Real wrinkles, teeth and flush come from the AI versions. Expressions blend by region: brows from one, mouth from another</td><td>Hair differs between the AI versions, so it is masked out of expressions. Head turns have to include the hair, and it changes texture as she turns</td></tr>
+  </table>
+</main>
+<script type="module" src="main.js"></script>
+</body>
+</html>

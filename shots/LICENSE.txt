@@ -1,0 +1,3 @@
+Media in this directory (PNG/GIF captures of code-drawn toon prototypes) is
+CC BY 4.0. See /LICENSE-ART and /PROVENANCE.md.
+Code that produced these captures is Apache-2.0; see /LICENSE.

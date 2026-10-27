@@ -1,0 +1,230 @@
+{
+  "checks": [
+    {
+      "id": "contract.api",
+      "pass": true,
+      "required": true,
+      "detail": "all methods present"
+    },
+    {
+      "id": "determinism",
+      "pass": true,
+      "required": true,
+      "detail": "frame hash 4fb228c4 vs 4fb228c4"
+    },
+    {
+      "id": "states.visited",
+      "pass": true,
+      "required": true,
+      "detail": "visited: idle, run, turn, jump, fall, land (need idle, run, turn, jump|fall, land)"
+    },
+    {
+      "id": "turn.not_instant",
+      "pass": true,
+      "required": true,
+      "detail": "turn runs (ticks): 10, facing flips: 2"
+    },
+    {
+      "id": "feet.slip",
+      "pass": true,
+      "required": true,
+      "detail": "mean 0.001 p95 0 max 0.222 px/tick (limits 0.35/1/3)"
+    },
+    {
+      "id": "feet.planted",
+      "pass": true,
+      "required": true,
+      "detail": "1174 planted foot-ticks, 0 planted while floating"
+    },
+    {
+      "id": "gaps.connected",
+      "pass": true,
+      "required": true,
+      "detail": "worst largest-blob share 1.000 at  (min 0.97)"
+    },
+    {
+      "id": "gaps.joints_covered",
+      "pass": true,
+      "required": true,
+      "detail": "joint samples on opaque pixels 1.000 (min 0.95); misses {}"
+    },
+    {
+      "id": "idle.alive",
+      "pass": true,
+      "required": true,
+      "detail": "mean diff 0.0762 (min 0.01), distinct 1.00 (min 0.3)"
+    },
+    {
+      "id": "face.blink",
+      "pass": true,
+      "required": true,
+      "detail": "min eye open in 6 s idle: 0.00"
+    },
+    {
+      "id": "face.expressions",
+      "pass": true,
+      "required": true,
+      "detail": "7 expressions change eyes+brows+mouth params and >= 4% head pixels (7 distinct); happy:4.6/0.243 angry:5.3/0.33 sad:6/0.466 surprised:4.65/0.459 smug:4.13/0.226 hurt:5.55/0.464 determined:3.75/0.438"
+    },
+    {
+      "id": "antipuppet.toggle",
+      "pass": true,
+      "required": true,
+      "detail": "on vs off run diff 0.423 (min 0.04)"
+    },
+    {
+      "id": "pixel.mode",
+      "pass": true,
+      "required": true,
+      "detail": "mode pixel, buffer 320x180, k 3"
+    },
+    {
+      "id": "pixel.no_filter_blur",
+      "pass": true,
+      "required": true,
+      "detail": "on-screen 960px / buffer 320px = x3; nearest-upscale match 1.0000 (min 0.98)"
+    },
+    {
+      "id": "console.clean",
+      "pass": true,
+      "required": true,
+      "detail": "no console errors"
+    }
+  ],
+  "metrics": {
+    "view": {
+      "mode": "pixel",
+      "W": 320,
+      "H": 180,
+      "s": 1,
+      "k": 3,
+      "camX": 0,
+      "camY": 0,
+      "canvas": "#game"
+    },
+    "states": [
+      "idle",
+      "run",
+      "turn",
+      "jump",
+      "fall",
+      "land"
+    ],
+    "turnTicks": [
+      10
+    ],
+    "footSlip": {
+      "mean": 0.001,
+      "p95": 0,
+      "max": 0.222,
+      "plantedTicks": 1174,
+      "floating": 0
+    },
+    "gaps": {
+      "worstMainComponent": 1,
+      "worstAt": "",
+      "jointCover": 1,
+      "misses": {}
+    },
+    "idle": {
+      "diffMean": 0.0762,
+      "distinct": 1
+    },
+    "expressions": [
+      {
+        "name": "happy",
+        "l1": 4.6,
+        "groups": [
+          "eyes",
+          "brows",
+          "mouth",
+          "marks"
+        ],
+        "pixels": 0.243,
+        "hash": "200e0bf0"
+      },
+      {
+        "name": "angry",
+        "l1": 5.3,
+        "groups": [
+          "eyes",
+          "brows",
+          "mouth",
+          "marks"
+        ],
+        "pixels": 0.33,
+        "hash": "d477b572"
+      },
+      {
+        "name": "sad",
+        "l1": 6,
+        "groups": [
+          "eyes",
+          "brows",
+          "mouth",
+          "marks"
+        ],
+        "pixels": 0.466,
+        "hash": "ef53ea3c"
+      },
+      {
+        "name": "surprised",
+        "l1": 4.65,
+        "groups": [
+          "eyes",
+          "brows",
+          "mouth",
+          "marks"
+        ],
+        "pixels": 0.459,
+        "hash": "166d316c"
+      },
+      {
+        "name": "smug",
+        "l1": 4.13,
+        "groups": [
+          "eyes",
+          "brows",
+          "mouth",
+          "marks"
+        ],
+        "pixels": 0.226,
+        "hash": "40c28372"
+      },
+      {
+        "name": "hurt",
+        "l1": 5.55,
+        "groups": [
+          "eyes",
+          "brows",
+          "mouth",
+          "marks"
+        ],
+        "pixels": 0.464,
+        "hash": "b308746e"
+      },
+      {
+        "name": "determined",
+        "l1": 3.75,
+        "groups": [
+          "eyes",
+          "brows",
+          "mouth",
+          "marks"
+        ],
+        "pixels": 0.438,
+        "hash": "21063010"
+      }
+    ],
+    "antiPuppetDiff": 0.423,
+    "upscale": {
+      "screenW": 960,
+      "bufferW": 320,
+      "k": 3,
+      "match": 1
+    }
+  },
+  "pass": true,
+  "passed": 15,
+  "total": 15
+}

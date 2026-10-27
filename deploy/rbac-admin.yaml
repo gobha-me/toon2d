@@ -1,0 +1,49 @@
+# ONE-TIME, applied by a cluster admin (the demo-deployer service account cannot create
+# namespaces or anything inside demo):
+#   kubectl apply -f deploy/rbac-admin.yaml
+# Grants the demo-deployer SA rights ONLY inside the demo namespace.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: demo
+  labels:
+    app.kubernetes.io/part-of: demo
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: demo-deployer
+  namespace: demo
+rules:
+  - apiGroups: [""]
+    resources: [configmaps, services]
+    verbs: [get, list, watch, create, update, patch, delete]
+  - apiGroups: [""]
+    resources: [pods, pods/log, events]
+    verbs: [get, list, watch]
+  - apiGroups: [apps]
+    resources: [deployments]
+    verbs: [get, list, watch, create, update, patch, delete]
+  - apiGroups: [apps]
+    resources: [replicasets]
+    verbs: [get, list, watch]
+  - apiGroups: [networking.k8s.io]
+    resources: [ingresses]
+    verbs: [get, list, watch, create, update, patch, delete]
+  - apiGroups: [traefik.io]
+    resources: [middlewares]
+    verbs: [get, list, watch, create, update, patch, delete]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: demo-deployer
+  namespace: demo
+subjects:
+  - kind: ServiceAccount
+    name: demo-deployer
+    namespace: demo-deployer
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: demo-deployer

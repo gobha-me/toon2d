@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "units": "world px = 1 buffer px in pixel mode (320x180 buffer)",
+  "palette": {
+    "line": "#1d1630", "skin": "#f3c6a2", "skinShade": "#d99a80", "hair": "#3b2b63", "hairHi": "#5b4a8c",
+    "top": "#e0524a", "topShade": "#a8333c", "pants": "#2e3f70", "pantsShade": "#222c52",
+    "shoe": "#f2efe6", "scarf": "#f4b53c", "eye": "#1d1630", "iris": "#3a7bd5", "white": "#ffffff",
+    "mouth": "#7a2234", "blush": "#ef8a8a", "sweat": "#7fd0ff", "anger": "#e0303a"
+  },
+  "bones": [
+    { "name": "hip", "parent": null, "len": 0, "rest": 0 },
+    { "name": "spine", "parent": "hip", "len": 12, "rest": -90, "at": [0, 0] },
+    { "name": "head", "parent": "spine", "len": 10, "rest": 0, "at": [13, 0] },
+    { "name": "armUB", "parent": "spine", "len": 7, "rest": 180, "at": [11, 0.5] },
+    { "name": "armLB", "parent": "armUB", "len": 6.5, "rest": 0, "at": [7, 0] },
+    { "name": "armUF", "parent": "spine", "len": 7, "rest": 180, "at": [11, -0.5] },
+    { "name": "armLF", "parent": "armUF", "len": 6.5, "rest": 0, "at": [7, 0] },
+    { "name": "legUB", "parent": "hip", "len": 10, "rest": 90, "at": [-1, 0] },
+    { "name": "legLB", "parent": "legUB", "len": 10, "rest": 0, "at": [10, 0] },
+    { "name": "legUF", "parent": "hip", "len": 10, "rest": 90, "at": [1, 0] },
+    { "name": "legLF", "parent": "legUF", "len": 10, "rest": 0, "at": [10, 0] }
+  ],
+  "draw": {
+    "order": ["scarf", "armB", "legB", "legF", "torso", "head", "armF"],
+    "limbs": {
+      "armB": { "bones": ["armUB", "armLB"], "w": [3.4, 3], "color": "top", "end": "hand", "far": true },
+      "armF": { "bones": ["armUF", "armLF"], "w": [3.6, 3.2], "color": "top", "end": "hand" },
+      "legB": { "bones": ["legUB", "legLB"], "w": [4.4, 3.8], "color": "pants", "end": "foot", "far": true },
+      "legF": { "bones": ["legUF", "legLF"], "w": [4.6, 4], "color": "pants", "end": "foot" }
+    },
+    "torso": { "bone": "spine", "w": 9, "color": "top" },
+    "head": { "bone": "head", "radius": 7, "along": 5 },
+    "face": { "bone": "head", "along": 5, "perp": 0 }
+  }
+}

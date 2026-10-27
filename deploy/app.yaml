@@ -1,0 +1,50 @@
+# nginx serving the flat ConfigMap `demo-site` (created by deploy.sh from dist/).
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo
+  namespace: demo
+  labels: { app: demo }
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: demo }
+  template:
+    metadata:
+      labels: { app: demo }
+    spec:
+      automountServiceAccountToken: false
+      containers:
+        - name: nginx
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
+              name: http
+          resources:
+            requests: { cpu: 10m, memory: 16Mi }
+            limits: { cpu: 100m, memory: 64Mi }
+          readinessProbe:
+            httpGet: { path: /index.html, port: http }
+            periodSeconds: 10
+          volumeMounts:
+            - name: site
+              mountPath: /usr/share/nginx/html
+              readOnly: true
+      volumes:
+        - name: site
+          configMap:
+            name: demo-site
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo
+  namespace: demo
+  labels: { app: demo }
+spec:
+  type: ClusterIP
+  selector: { app: demo }
+  ports:
+    - name: http
+      port: 80
+      targetPort: http

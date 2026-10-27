@@ -1,0 +1,32 @@
+# GitHub Pages deploy for the static demo in docs/.
+#
+# DISABLED while the repository is private / pre-release:
+# - trigger is workflow_dispatch only (no push, no schedule)
+# - do NOT enable Pages in repo Settings until the public v0.1 gate
+# - maintainers will flip this on at public release
+#
+# To publish later: enable Pages (GitHub Actions source), then run this workflow.
+name: pages
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - id: deployment
+        uses: actions/deploy-pages@v4

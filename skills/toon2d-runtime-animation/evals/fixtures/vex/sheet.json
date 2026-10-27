@@ -1,0 +1,83 @@
+{
+ "image": "sheet.png",
+ "units": "1 px = 1 game px (pixel mode, 320x180 buffer)",
+ "markers": {
+  "pivot": "#FF00FF",
+  "tip": "#00FFFF",
+  "face": "#FFFF00"
+ },
+ "parts": {
+  "head": {
+   "rect": [
+    2,
+    2,
+    17,
+    18
+   ]
+  },
+  "torso": {
+   "rect": [
+    22,
+    2,
+    12,
+    17
+   ]
+  },
+  "upper_arm": {
+   "rect": [
+    37,
+    2,
+    6,
+    11
+   ]
+  },
+  "fore_arm": {
+   "rect": [
+    46,
+    2,
+    5,
+    10
+   ]
+  },
+  "hand": {
+   "rect": [
+    54,
+    2,
+    6,
+    6
+   ]
+  },
+  "thigh": {
+   "rect": [
+    63,
+    2,
+    7,
+    13
+   ]
+  },
+  "shin": {
+   "rect": [
+    73,
+    2,
+    6,
+    13
+   ]
+  },
+  "foot": {
+   "rect": [
+    82,
+    2,
+    10,
+    7
+   ]
+  },
+  "coat_tail": {
+   "rect": [
+    95,
+    2,
+    8,
+    11
+   ]
+  }
+ }
+}

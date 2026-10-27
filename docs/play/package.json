@@ -1,0 +1,12 @@
+{
+  "name": "toon2d-starter",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "serve": "node ${TOON2D_SKILL:-../../skills/toon2d-runtime-animation}/scripts/serve.mjs .",
+    "lint": "node ${TOON2D_SKILL:-../../skills/toon2d-runtime-animation}/scripts/lint.mjs .",
+    "check": "node ${TOON2D_SKILL:-../../skills/toon2d-runtime-animation}/scripts/score.mjs . --out shots",
+    "capture": "node ${TOON2D_SKILL:-../../skills/toon2d-runtime-animation}/scripts/capture.mjs . --out shots"
+  },
+  "//": "Set TOON2D_SKILL to the skill bundle dir when the project is not served from docs/play next to the skill."
+}

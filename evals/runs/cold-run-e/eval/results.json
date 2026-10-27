@@ -1,0 +1,150 @@
+{
+  "task": "G2",
+  "project": "evals/runs/cold-run-e/out",
+  "pass": true,
+  "passed": 28,
+  "total": 28,
+  "checks": [
+    {
+      "id": "files.index.html",
+      "pass": true,
+      "detail": "present"
+    },
+    {
+      "id": "files.rig.json",
+      "pass": true,
+      "detail": "present"
+    },
+    {
+      "id": "files.expressions.json",
+      "pass": true,
+      "detail": "present"
+    },
+    {
+      "id": "files.NOTES.md",
+      "pass": true,
+      "detail": "present"
+    },
+    {
+      "id": "lint",
+      "pass": true,
+      "detail": "17 files clean"
+    },
+    {
+      "id": "validate.rig",
+      "pass": true,
+      "detail": "ok (0 warnings)"
+    },
+    {
+      "id": "validate.expressions",
+      "pass": true,
+      "detail": "8 strong expressions"
+    },
+    {
+      "id": "score.contract.api",
+      "pass": true,
+      "detail": "all methods present"
+    },
+    {
+      "id": "score.determinism",
+      "pass": true,
+      "detail": "frame hash 9cceff47 vs 9cceff47"
+    },
+    {
+      "id": "score.states.visited",
+      "pass": true,
+      "detail": "visited: idle, run, turn, jump, fall, land (need idle, run, turn, jump|fall, land)"
+    },
+    {
+      "id": "score.turn.not_instant",
+      "pass": true,
+      "detail": "turn runs (ticks): 10, facing flips: 2"
+    },
+    {
+      "id": "score.feet.slip",
+      "pass": true,
+      "detail": "mean 0.001 p95 0 max 0.438 px/tick (limits 0.35/1/3)"
+    },
+    {
+      "id": "score.feet.planted",
+      "pass": true,
+      "detail": "1146 planted foot-ticks, 0 planted while floating"
+    },
+    {
+      "id": "score.gaps.connected",
+      "pass": true,
+      "detail": "worst largest-blob share 1.000 at  (min 0.97)"
+    },
+    {
+      "id": "score.gaps.joints_covered",
+      "pass": true,
+      "detail": "joint samples on opaque pixels 1.000 (min 0.95); misses {}"
+    },
+    {
+      "id": "score.idle.alive",
+      "pass": true,
+      "detail": "mean diff 0.1606 (min 0.01), distinct 1.00 (min 0.3)"
+    },
+    {
+      "id": "score.face.blink",
+      "pass": true,
+      "detail": "min eye open in 6 s idle: 0.00"
+    },
+    {
+      "id": "score.face.expressions",
+      "pass": true,
+      "detail": "8 expressions change eyes+brows+mouth params and >= 4% head pixels (8 distinct); happy:4.51/0.279 angry:5.36/0.274 sad:5.86/0.22 surprised:4.76/0.272 smug:4.14/0.234 hurt:5.49/0.286 determined:3.91/0.242 scheming:6.48/0.249"
+    },
+    {
+      "id": "score.antipuppet.toggle",
+      "pass": true,
+      "detail": "on vs off run diff 0.458 (min 0.04)"
+    },
+    {
+      "id": "score.console.clean",
+      "pass": true,
+      "detail": "no console errors"
+    },
+    {
+      "id": "capture.frames",
+      "pass": true,
+      "detail": "6 non-trivial GIFs in evals/runs/cold-run-e/eval/capture"
+    },
+    {
+      "id": "expr.scheming",
+      "pass": true,
+      "detail": "present, moves eyes+brows+mouth"
+    },
+    {
+      "id": "expr.pickup_reaction",
+      "pass": true,
+      "detail": "{\"expr\":\"scheming\",\"weight\":1,\"fadeIn\":0.05,\"hold\":1.4,\"fadeOut\":0.6,\"line\":\"Heh heh...\",\"anticipate\":{\"expr\":\"surprised\",\"weight\":0.7,\"hold\":0.08},\"overshoot\":0.3}"
+    },
+    {
+      "id": "coat.exposed",
+      "pass": true,
+      "detail": "3 coat* joints in state().joints"
+    },
+    {
+      "id": "expr.pickup_drives_face",
+      "pass": true,
+      "detail": "L1 to scheming before 6.16 after 1.42"
+    },
+    {
+      "id": "coat.secondary_motion",
+      "pass": true,
+      "detail": "coat tip x rel. hip: range 6.00 px over 40 ticks after stop (min 1.5); late range 4.25"
+    },
+    {
+      "id": "coat.settles",
+      "pass": true,
+      "detail": "late range 4.25 < total 6.00 (springs must damp)"
+    },
+    {
+      "id": "godot.notes",
+      "pass": true,
+      "detail": "missing: none"
+    }
+  ],
+  "at": "2026-10-26T22:10:44.907Z"
+}

@@ -1,0 +1,174 @@
+{
+ "keys": [
+  {
+   "name": "smile",
+   "kind": "face",
+   "inliers": 583,
+   "scale": 0.939,
+   "body_err": 12.4,
+   "nose_dx": 0.8,
+   "flow_p99": 18.4,
+   "flow_max": 29.9
+  },
+  {
+   "name": "angry",
+   "kind": "face",
+   "inliers": 258,
+   "scale": 0.965,
+   "body_err": 14.9,
+   "nose_dx": 5.4,
+   "flow_p99": 20.5,
+   "flow_max": 22.6
+  },
+  {
+   "name": "surprised",
+   "kind": "face",
+   "inliers": 465,
+   "scale": 0.927,
+   "body_err": 12.4,
+   "nose_dx": -0.6,
+   "flow_p99": 20.0,
+   "flow_max": 23.9,
+   "mouth": [
+    216,
+    277,
+    299,
+    344
+   ],
+   "opening": [
+    231,
+    290,
+    284,
+    331
+   ]
+  },
+  {
+   "name": "sad",
+   "kind": "face",
+   "inliers": 287,
+   "scale": 0.926,
+   "body_err": 14.3,
+   "nose_dx": -1.0,
+   "flow_p99": 22.6,
+   "flow_max": 25.3
+  },
+  {
+   "name": "distressed",
+   "kind": "face",
+   "inliers": 241,
+   "scale": 1.007,
+   "body_err": 10.1,
+   "nose_dx": -0.4,
+   "flow_p99": 16.8,
+   "flow_max": 27.2
+  },
+  {
+   "name": "winded",
+   "kind": "face",
+   "inliers": 146,
+   "scale": 1.004,
+   "body_err": 11.7,
+   "nose_dx": -0.5,
+   "flow_p99": 18.6,
+   "flow_max": 20.8
+  },
+  {
+   "name": "turnL1",
+   "kind": "head",
+   "inliers": 255,
+   "scale": 1.001,
+   "body_err": 11.6,
+   "nose_dx": -1.1,
+   "flow_p99": 23.2,
+   "flow_max": 26.5
+  },
+  {
+   "name": "turnL2",
+   "kind": "head",
+   "inliers": 76,
+   "scale": 1.025,
+   "body_err": 10.2,
+   "nose_dx": -47.3,
+   "flow_p99": 45.9,
+   "flow_max": 49.8
+  },
+  {
+   "name": "turnR1",
+   "kind": "head",
+   "inliers": 341,
+   "scale": 1.006,
+   "body_err": 5.1,
+   "nose_dx": 31.7,
+   "flow_p99": 31.3,
+   "flow_max": 32.8
+  },
+  {
+   "name": "turnR2",
+   "kind": "head",
+   "inliers": 35,
+   "scale": 1.039,
+   "body_err": 11.1,
+   "nose_dx": 52.0,
+   "flow_p99": 51.0,
+   "flow_max": 54.6
+  },
+  {
+   "name": "yell",
+   "kind": "mouth",
+   "inliers": 119,
+   "scale": 1.008,
+   "body_err": 17.6,
+   "nose_dx": 1.0,
+   "flow_p99": 33.2,
+   "flow_max": 40.9,
+   "mouth": [
+    218,
+    268,
+    302,
+    344
+   ],
+   "opening": [
+    233,
+    281,
+    287,
+    332
+   ]
+  },
+  {
+   "name": "project",
+   "kind": "mouth",
+   "inliers": 130,
+   "scale": 0.974,
+   "body_err": 14.8,
+   "nose_dx": -1.1,
+   "flow_p99": 29.3,
+   "flow_max": 34.2,
+   "mouth": [
+    210,
+    271,
+    305,
+    337
+   ],
+   "opening": [
+    225,
+    284,
+    290,
+    324
+   ]
+  },
+  {
+   "name": "pain",
+   "kind": "face",
+   "inliers": 79,
+   "scale": 1.021,
+   "body_err": 11.4,
+   "nose_dx": -2.7,
+   "flow_p99": 13.2,
+   "flow_max": 22.8
+  }
+ ],
+ "atlasCols": 4,
+ "atlasRows": 4,
+ "flowTile": 128,
+ "flowScale": 2.0
+}

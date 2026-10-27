@@ -1,0 +1,14 @@
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+*.log
+.DS_Store
+# bulk AI generation dumps kept on the box only
+work/raw*/
+work/eyes/
+work/eyes2/
+# browser / capture junk
+.chrome*/
+.playwright*/
+.cache/

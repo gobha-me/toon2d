@@ -24,16 +24,18 @@ export function extractMarkers(img, meta) {
   for (const [name, p] of Object.entries(meta.parts)) {
     const [rx, ry, rw, rh] = p.rect;
     const found = {};
-    for (let y = ry; y < ry + rh; y++)
+    for (let y = ry; y < ry + rh; y++) {
       for (let x = rx; x < rx + rw; x++) {
         const i = at(x, y);
         if (data[i + 3] < 250) continue;
-        for (const [k, c] of Object.entries(cols))
+        for (const [k, c] of Object.entries(cols)) {
           if (data[i] === c[0] && data[i + 1] === c[1] && data[i + 2] === c[2]) {
             (found[k] ||= []).push([x + 0.5, y + 0.5]);
             marked.push([x, y]);
           }
+        }
       }
+    }
     const rec = { rect: p.rect };
     for (const k of ['pivot', 'tip', 'face']) {
       const f = found[k] || [];
@@ -58,7 +60,7 @@ export function extractMarkers(img, meta) {
   const isMarker = new Set(marked.map(([x, y]) => y * W + x));
   for (const [x, y] of marked) {
     const votes = new Map();
-    for (let dy = -1; dy <= 1; dy++)
+    for (let dy = -1; dy <= 1; dy++) {
       for (let dx = -1; dx <= 1; dx++) {
         if (!dx && !dy) continue;
         const nx = x + dx;
@@ -69,6 +71,7 @@ export function extractMarkers(img, meta) {
         const key = data.slice(i, i + 4).join(',');
         votes.set(key, (votes.get(key) || 0) + 1);
       }
+    }
     const best = [...votes].sort((a, b) => b[1] - a[1])[0];
     const i = at(x, y);
     if (best) best[0].split(',').forEach((v, j) => (clean[i + j] = +v));

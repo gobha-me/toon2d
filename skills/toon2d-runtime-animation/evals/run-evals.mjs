@@ -75,8 +75,9 @@ async function withPage(query, fn) {
 
 const countColour = (img, rgb, tol = 10) => {
   let n = 0;
-  for (let i = 0; i < img.data.length; i += 4)
+  for (let i = 0; i < img.data.length; i += 4) {
     if (img.data[i + 3] > 200 && Math.abs(img.data[i] - rgb[0]) <= tol && Math.abs(img.data[i + 1] - rgb[1]) <= tol && Math.abs(img.data[i + 2] - rgb[2]) <= tol) n++;
+  }
   return n;
 };
 
@@ -102,7 +103,7 @@ async function G1() {
     const teal = countColour(img, [30, 170, 160]);
     const hair = countColour(img, [230, 232, 240]);
     add('sprites.rendered', teal >= 25 && hair >= 10, `fixture jacket px ${teal} (min 25), hair px ${hair} (min 10)`);
-    let ys = [];
+    const ys = [];
     for (let y = 0; y < img.h; y++) for (let x = 0; x < img.w; x++) if (img.data[(y * img.w + x) * 4 + 3] > 0) ys.push(y);
     const h = ys.length ? Math.max(...ys) - Math.min(...ys) + 1 : 0;
     add('sprites.scale', h >= 34 && h <= 62, `character height ${h} buffer px (fixture parts imply ~40-52)`);

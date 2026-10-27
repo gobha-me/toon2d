@@ -7,6 +7,7 @@
   "scripts": {
     "serve": "bash scripts/serve 8080",
     "lint": "eslint --max-warnings=0 .",
+    "test": "node --test tests/",
     "dist": "node scripts/dist.mjs",
     "shots": "node scripts/shots.mjs",
     "deploy": "bash deploy/deploy.sh",

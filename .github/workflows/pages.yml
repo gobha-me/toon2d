@@ -1,13 +1,13 @@
 # GitHub Pages deploy for the static demo in docs/.
-#
-# DISABLED while the repository is private / pre-release:
-# - trigger is workflow_dispatch only (no push, no schedule)
-# - do NOT enable Pages in repo Settings until the public v0.1 gate
-# - maintainers will flip this on at public release
-#
-# To publish later: enable Pages (GitHub Actions source), then run this workflow.
+# Pages source: GitHub Actions. Deploys on pushes to master that touch docs/
+# (or this workflow), and on manual dispatch.
 name: pages
 on:
+  push:
+    branches: [master]
+    paths:
+      - 'docs/**'
+      - '.github/workflows/pages.yml'
   workflow_dispatch:
 permissions:
   contents: read

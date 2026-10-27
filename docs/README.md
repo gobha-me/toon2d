@@ -17,4 +17,4 @@ Serve locally from the repo root:
 npm run serve:docs
 ```
 
-GitHub Pages: see `.github/workflows/pages.yml` (manual `workflow_dispatch` only; do not enable Pages while the repo is private).
+GitHub Pages: https://gobha-me.github.io/toon2d/, deployed by `.github/workflows/pages.yml` on pushes to `master` that touch `docs/`.

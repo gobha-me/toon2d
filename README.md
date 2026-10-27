@@ -101,7 +101,7 @@ Full workflow, pipeline chooser, recipes, and pitfalls: start at
 | `prototype/` | Browser cutout-rig playground used while developing the recipes |
 | `prototypes/lifelike/` | Lifelike AI-portrait face-flow experiments (F2 default). Sample stills: **Generated with Grok Imagine (SpaceXAI)** (CC0 1.0; see PROVENANCE.md) |
 | `evals/runs/` | Cold-run captures (Codex / Claude) used as proof |
-| `docs/` | Static demo (field guide, playable starter, lifelike bust). Serve with `./scripts/serve`. Pages workflow is manual-only until public release |
+| `docs/` | Static demo (field guide, playable starter, lifelike bust). Live at https://gobha-me.github.io/toon2d/; serve locally with `./scripts/serve` |
 
 ## Proven (cold runs)
 
@@ -120,7 +120,7 @@ Older **30/30** / **28/28** figures cited in historical `evals/runs/` NOTES used
 - Single side-view parts: turns still read as a mirrored flat puppet until drawn 3/4 / front parts exist
 - No phoneme / viseme lip-sync yet (talking is lip-flap + expression morph)
 - House art style definition → **v0.2**
-- Demo URL: serve `docs/` locally with `./scripts/serve`; GitHub Pages workflow is manual-only until public release
+- Demo URL: https://gobha-me.github.io/toon2d/ (or serve `docs/` locally with `./scripts/serve`)
 
 ## Version
 

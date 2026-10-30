@@ -6,61 +6,58 @@ Godot **4.7.2.stable.official.ed1daf0bf**, Linux first. This is a working rigid-
 cutout prototype made from supplied Grok Imagine artwork. No new AI generation,
 hand painting, paid service or network asset fetch was used.
 
+## V2 body-part kit
+
+The current HD rig has 21 manifest-driven joints and 24 textured parts, including
+separate elbows, hands, knees and feet. `body_parts.yml` owns the pivots, parents,
+limits and overlap. [gap-report.json](gap-report.json) records the source audit:
+all 14 required slots are scripted for this character. No generation was needed.
+The current evidence and remaining plan work are recorded in
+[NOTES.md](NOTES.md#body-part-kit-v2).
+
+The checked-in `renders/`, `comparisons/` and earlier diagnostic images show the
+**historical PoC**, before v2. Current review images are under `validation/v2/review-final/`.
+
 ## Run and rebuild
 
-**Repository layout note.** This folder is a copy of a standalone working tree. The
-tools and tests expect that tree's layout, with `tools/` (shipped here as
-`prototypes/imagine-cutout/tools/`), `src/` (the supplied Grok Imagine Segments
-exports and reference clip, *not* committed; see `provenance/` for their sidecars)
-and a Python `.venv` (Pillow, NumPy, OpenCV-headless) at the root, next to
-`prototypes/imagine-cutout/`. To regenerate, create a work directory, copy
-`prototypes/imagine-cutout/tools` to `<work>/tools`, this folder to
-`<work>/prototypes/imagine-cutout`, put the source exports in `<work>/src`, and run
-the commands below from `<work>`. `heavy-run` is a local concurrency wrapper (two
-render slots); on another machine, drop it or substitute your own. The Godot
-project alone needs none of this: it already contains its runtime textures and
-opens directly with `godot --path prototypes/imagine-cutout`. The test suite runs
-in place with `TEST_PYTHON=<python with Pillow+NumPy> prototypes/imagine-cutout/tests/run_tests.sh`
-(`heavy-run`, Godot and Xvfb on PATH); the mutant run additionally needs `<work>/src`.
-
-**Per-frame dumps are not committed.** To keep this PR small, the per-frame PNG
-folders under `renders/{hd,pixel}/` (`idle/`, `aim/`, `fire/`, `cooldown/`,
-`keyposes/`, `joint_extremes/`) and the eight MP4 review videos (lossy duplicates of
-the GIFs) are omitted; the contact sheets, per-joint close-ups (`joint_closeups/`),
-GIFs, `manifest.json` and logs are kept. `./tools/render_sheet` regenerates every
-frame and MP4 (as listed in `renders/manifest.json`) from the checked-in project.
-References below to MP4s and to the 306 PNGs describe that full regenerated output.
+Open this folder as a Godot project. From the repository root:
 
 ```bash
-# Interactive HD preview on a desktop with DISPLAY; Space fires, Tab switches.
-# Keys 1/2/3/4 select idle/aim/fire/cooldown.
-./tools/run heavy-run godot --path prototypes/imagine-cutout
-
-# Start pixel directly. It uses a 128×144 logical viewport and nearest filtering.
-./tools/run heavy-run godot --path prototypes/imagine-cutout res://scenes/pixel.tscn
-
-# Display-free smoke run of the actual HD scene.
-./tools/run heavy-run godot --headless --path prototypes/imagine-cutout --quit-after 48
-
-# Recover/match parts, matte, extend joints and create pixel assets.
-./tools/run heavy-run ./.venv/bin/python tools/prep_parts.py --pixel 120 --overlap-px 12 --defringe-px 2
-
-# Import, bake, capture via Xvfb, and encode all eight MP4s and eight GIFs.
-./tools/render_sheet
-
-# Repackage existing PNG captures without rerunning Godot.
-./tools/render_sheet --skip-capture
+prototypes/imagine-cutout/tools/run heavy-run godot --path prototypes/imagine-cutout
 ```
 
-`tools/run` checks America/New_York quiet hours (23:55–03:00) and 5 GiB free space,
-creates `TMPDIR=/tmp/tween-<runid>`, and removes it using `trap EXIT`. XDG data,
-configuration and cache paths stay under this workspace's ignored `work/`.
-Worker pools/encoders are capped at two; heavy jobs run through `heavy-run`.
-Exit 75 means retry later; the shared coordination directory must be left alone.
-The render utility imports/builds/captures a temporary project under TMPDIR,
-excluding `tests/`, `TESTS.md` and `mutants.log`. It copies back only authored
-scenes, texture imports/cache and render outputs, so editor-generated files never
-land in the independently owned test tree.
+Space plays aim/fire/cooldown; 1–4 select a clip, Tab opens the compatibility
+pixel scene. V2 does not create or reprocess pixel bitmap assets. That scene uses
+regions of the existing textures and palette-colour runtime joint backing.
+
+For authoring, change into this folder and set `TOON_PYTHON` to an **existing**
+Python with Pillow, NumPy and OpenCV; no install is needed. Preparation is
+repeatable from the retained, provenance-labelled `parts/kit-inputs/` crops:
+
+```bash
+tools/run heavy-run "$TOON_PYTHON" tools/prep_v2.py
+tools/run heavy-run "$TOON_PYTHON" tools/build_v2.py --capture
+TEST_PYTHON="$TOON_PYTHON" tools/run "$TOON_PYTHON" tools/validate_v2.py full
+```
+
+`validate_v2.py` runs the committed tests unchanged in disposable copies, using
+their existing `heavy-run` guards for every Godot import and render, one at a
+time. Evidence goes to `validation/v2/`; the independently owned `tests/` tree is
+never imported or written in this workspace. A public clone explicitly skips
+source-based mutant c because raw Segments exports are not committed. Supply
+`--source <read-only-src-tree>` to validate that trial too; its results go to
+`validation/v2-sourced/`.
+
+To repeat the source audit, run `tools/gap_finder.py --source <raw-hd-directory>
+--output <report.json>` with the same Python. The original source-preparation
+route, `tools/prep_parts.py --source <raw-hd-directory>`, also resolves this
+packaged layout and hands off to v2. Its legacy reference pipeline produces
+pixel assets too; the v2-only rebuild above leaves existing pixel files intact.
+
+`tools/run` enforces 23:55–03:00 America/New_York quiet hours and at least 5 GiB
+free space. Scratch and XDG state stay under a trapped `/tmp/tween-*` directory.
+Workers stay capped at two. A `heavy-run` exit 75 requires waiting and retrying.
+The tools write `.gen.json` directly with truthful prompt/model/date information.
 
 ## Preparation and rig
 
@@ -71,7 +68,7 @@ matches everywhere. Residual alpha from the original minus aligned known parts
 seeds the missing-part recovery. Bbox/colour/row heuristics recover the face,
 human left sleeve/hand and gun from `original.png`.
 
-**OVERLAP_PX defaults to 12 HD pixels.** `--overlap-px 0` also completes successfully;
+**Overlap comes from the manifest (12 HD pixels for these limbs).** `--overlap-px 0` also completes successfully;
 `diagnostics/zero-overlap-hd.png` retains the earlier fix1 zero-overlap example,
 not the current fix2 acceptance evidence. Internal seam edges are dilated
 and painted with nearest retained colour, with explicit joint gates. Split seams
@@ -94,9 +91,9 @@ still receives no dilation and remains one fixed rigid sprite per mode.
 3× nearest on magenta. Bright painted interior highlights are not all removed;
 the heuristic can also darken genuine highlights very close to an edge.
 
-The scenes contain a native `Skeleton2D`, 17 `Bone2D`s, 20 rigid `Sprite2D` parts,
+The v2 scenes contain a native `Skeleton2D`, 21 `Bone2D`s, 24 rigid `Sprite2D` parts,
 and an `AnimationPlayer`. Bones cover hip, torso, head, hair, collar, coat plus
-three hem sections, mech upper/fore/hand, left arm, two legs and two boots.
+three hem sections, upper/lower arms and hands, thighs, knees/shins and two boots.
 `parts.json` stores each part's pivot, parent bone, z order, trim offset, rotation
 limits, classification and `source`. The source gun was in the human hand: it is
 transplanted to the mech hand by translation in preparation.

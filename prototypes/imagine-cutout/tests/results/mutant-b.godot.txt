@@ -1,7 +1,6 @@
-COMMAND ['godot', '--headless', '--path', '/tmp/tween-tests-20261030T163350-794152/suite-7girgngr/prototype', '--editor', '--import']
-heavy-run: memory ok: working set 11.72 GiB (memory.current 12.75 GiB - inactive_file 1.04 GiB), limit 13 GiB
-heavy-run: memory ok: working set 11.72 GiB (memory.current 12.75 GiB - inactive_file 1.04 GiB), limit 13 GiB
-heavy-run: holding slot1 on <render-host>, hard stop in 40845s (11:55 PM ET)
+COMMAND ['godot', '--single-threaded-scene', '--headless', '--path', '<TMPDIR>/suite-sczgb5mt/prototype', '--editor', '--import']
+heavy-run: memory ok: working set 6.45 GiB (memory.current 14.68 GiB - inactive_file 8.23 GiB), limit 13 GiB
+heavy-run: memory ok: working set 6.46 GiB (memory.current 14.69 GiB - inactive_file 8.23 GiB), limit 13 GiB
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 
 [   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
@@ -13,12 +12,13 @@ Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 [  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
 [92m[ DONE ][39m [1mfirst_scan_filesystem[22m
 [0m
-[   0% ] [90m[1mupdate_scripts_classes[22m | Started Registering global classes... (5 steps)[39m[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | Started Registering global classes... (6 steps)[39m[0m
 [   0% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
-[  16% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
-[  33% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
-[  50% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
-[  66% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  14% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  28% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  42% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  57% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  71% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
 [92m[ DONE ][39m [1mupdate_scripts_classes[22m
 [0m
 [   0% ] [90m[1m_update_scan_actions[22m | Started Scanning actions... (40 steps)[39m[0m
@@ -160,10 +160,9 @@ Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 [0m
 
 EXIT 0
-COMMAND ['godot', '--headless', '--path', '/tmp/tween-tests-20261030T163350-794152/suite-7girgngr/prototype', '--script', 'res://tests/check_rig.gd', '--', 'observe', '/tmp/tween-tests-20261030T163350-794152/suite-7girgngr/captures']
-heavy-run: memory ok: working set 11.72 GiB (memory.current 12.75 GiB - inactive_file 1.04 GiB), limit 13 GiB
-heavy-run: memory ok: working set 11.72 GiB (memory.current 12.75 GiB - inactive_file 1.04 GiB), limit 13 GiB
-heavy-run: holding slot1 on <render-host>, hard stop in 40842s (11:55 PM ET)
+COMMAND ['godot', '--single-threaded-scene', '--headless', '--path', '<TMPDIR>/suite-sczgb5mt/prototype', '--script', 'res://tests/check_rig.gd', '--', 'observe', '<TMPDIR>/suite-sczgb5mt/captures']
+heavy-run: memory ok: working set 6.47 GiB (memory.current 14.71 GiB - inactive_file 8.23 GiB), limit 13 GiB
+heavy-run: memory ok: working set 6.47 GiB (memory.current 14.70 GiB - inactive_file 8.23 GiB), limit 13 GiB
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 
 WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
@@ -568,10 +567,9 @@ WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skel
          [1] run (res://tests/check_rig.gd:233)
 
 EXIT 0
-COMMAND ['xvfb-run', '-a', 'godot', '--path', '/tmp/tween-tests-20261030T163350-794152/suite-7girgngr/prototype', '--audio-driver', 'Dummy', '--script', 'res://tests/check_rig.gd', '--', 'render', '/tmp/tween-tests-20261030T163350-794152/suite-7girgngr/captures']
-heavy-run: memory ok: working set 11.72 GiB (memory.current 12.75 GiB - inactive_file 1.04 GiB), limit 13 GiB
-heavy-run: memory ok: working set 11.72 GiB (memory.current 12.75 GiB - inactive_file 1.04 GiB), limit 13 GiB
-heavy-run: holding slot1 on <render-host>, hard stop in 40842s (11:55 PM ET)
+COMMAND ['xvfb-run', '-a', 'godot', '--single-threaded-scene', '--path', '<TMPDIR>/suite-sczgb5mt/prototype', '--audio-driver', 'Dummy', '--script', 'res://tests/check_rig.gd', '--', 'render', '<TMPDIR>/suite-sczgb5mt/captures']
+heavy-run: memory ok: working set 6.47 GiB (memory.current 14.71 GiB - inactive_file 8.23 GiB), limit 13 GiB
+heavy-run: memory ok: working set 6.47 GiB (memory.current 14.71 GiB - inactive_file 8.23 GiB), limit 13 GiB
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 WARNING: Could not set V-Sync mode, as changing V-Sync mode is not supported by the graphics driver.
      at: set_use_vsync (platform/linuxbsd/x11/gl_manager_x11.cpp:372)

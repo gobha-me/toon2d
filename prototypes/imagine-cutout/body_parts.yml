@@ -1,0 +1,738 @@
+{
+  "schema_version": 1,
+  "format_note": "JSON-compatible YAML 1.2; no additional parser dependency.",
+  "units": "HD source pixels and local degrees",
+  "source_canvas_px": [
+    1152,
+    1728
+  ],
+  "joints": [
+    {
+      "name": "hip",
+      "parent": null,
+      "pivot": [
+        580,
+        680
+      ],
+      "rotation_limits_deg": [
+        -3,
+        3
+      ],
+      "pivot_reason": "Frozen source-pixel pivot from the committed PoC parts.json.",
+      "limit_reasons": [
+        "PoC authored minimum; preserves the reviewed articulation envelope.",
+        "PoC authored maximum; preserves the reviewed articulation envelope."
+      ],
+      "basis": "PoC"
+    },
+    {
+      "name": "torso",
+      "parent": "hip",
+      "pivot": [
+        560,
+        390
+      ],
+      "rotation_limits_deg": [
+        -4,
+        4
+      ],
+      "pivot_reason": "Frozen source-pixel pivot from the committed PoC parts.json.",
+      "limit_reasons": [
+        "PoC authored minimum; preserves the reviewed articulation envelope.",
+        "PoC authored maximum; preserves the reviewed articulation envelope."
+      ],
+      "basis": "PoC"
+    },
+    {
+      "name": "head",
+      "parent": "torso",
+      "pivot": [
+        562,
+        251
+      ],
+      "rotation_limits_deg": [
+        -8,
+        8
+      ],
+      "pivot_reason": "Frozen source-pixel pivot from the committed PoC parts.json.",
+      "limit_reasons": [
+        "PoC authored minimum; preserves the reviewed articulation envelope.",
+        "PoC authored maximum; preserves the reviewed articulation envelope."
+      ],
+      "basis": "PoC"
+    },
+    {
+      "name": "hair",
+      "parent": "head",
+      "pivot": [
+        565,
+        112
+      ],
+      "rotation_limits_deg": [
+        -5,
+        5
+      ],
+      "pivot_reason": "Frozen source-pixel pivot from the committed PoC parts.json.",
+      "limit_reasons": [
+        "PoC authored minimum; preserves the reviewed articulation envelope.",
+        "PoC authored maximum; preserves the reviewed articulation envelope."
+      ],
+      "basis": "PoC"
+    },
+    {
+      "name": "collar",
+      "parent": "torso",
+      "pivot": [
+        560,
+        290
+      ],
+      "rotation_limits_deg": [
+        -4,
+        4
+      ],
+      "pivot_reason": "Frozen source-pixel pivot from the committed PoC parts.json.",
+      "limit_reasons": [
+        "PoC authored minimum; preserves the reviewed articulation envelope.",
+        "PoC authored maximum; preserves the reviewed articulation envelope."
+      ],
+      "basis": "PoC"
+    },
+    {
+      "name": "coat",
+      "parent": "torso",
+      "pivot": [
+        560,
+        410
+      ],
+      "rotation_limits_deg": [
+        -3,
+        3
+      ],
+      "pivot_reason": "Frozen source-pixel pivot from the committed PoC parts.json.",
+      "limit_reasons": [
+        "PoC authored minimum; preserves the reviewed articulation envelope.",
+        "PoC authored maximum; preserves the reviewed articulation envelope."
+      ],
+      "basis": "PoC"
+    },
+    {
+      "name": "hem_left",
+      "parent": "coat",
+      "pivot": [
+        418,
+        700
+      ],
+      "rotation_limits_deg": [
+        -8,
+        8
+      ],
+      "pivot_reason": "Frozen source-pixel pivot from the committed PoC parts.json.",
+      "limit_reasons": [
+        "PoC authored minimum; preserves the reviewed articulation envelope.",
+        "PoC authored maximum; preserves the reviewed articulation envelope."
+      ],
+      "basis": "PoC"
+    },
+    {
+      "name": "hem_center",
+      "parent": "coat",
+      "pivot": [
+        563,
+        700
+      ],
+      "rotation_limits_deg": [
+        -6,
+        6
+      ],
+      "pivot_reason": "Frozen source-pixel pivot from the committed PoC parts.json.",
+      "limit_reasons": [
+        "PoC authored minimum; preserves the reviewed articulation envelope.",
+        "PoC authored maximum; preserves the reviewed articulation envelope."
+      ],
+      "basis": "PoC"
+    },
+    {
+      "name": "hem_right",
+      "parent": "coat",
+      "pivot": [
+        724,
+        700
+      ],
+      "rotation_limits_deg": [
+        -8,
+        8
+      ],
+      "pivot_reason": "Frozen source-pixel pivot from the committed PoC parts.json.",
+      "limit_reasons": [
+        "PoC authored minimum; preserves the reviewed articulation envelope.",
+        "PoC authored maximum; preserves the reviewed articulation envelope."
+      ],
+      "basis": "PoC"
+    },
+    {
+      "name": "right_upper",
+      "parent": "torso",
+      "pivot": [
+        383,
+        488
+      ],
+      "rotation_limits_deg": [
+        -12,
+        85
+      ],
+      "pivot_reason": "Frozen source-pixel pivot from the committed PoC parts.json.",
+      "limit_reasons": [
+        "PoC authored minimum; preserves the reviewed articulation envelope.",
+        "PoC authored maximum; preserves the reviewed articulation envelope."
+      ],
+      "basis": "PoC"
+    },
+    {
+      "name": "right_fore",
+      "parent": "right_upper",
+      "pivot": [
+        350,
+        587
+      ],
+      "rotation_limits_deg": [
+        -18,
+        20
+      ],
+      "pivot_reason": "Frozen source-pixel pivot from the committed PoC parts.json.",
+      "limit_reasons": [
+        "PoC authored minimum; preserves the reviewed articulation envelope.",
+        "PoC authored maximum; preserves the reviewed articulation envelope."
+      ],
+      "basis": "PoC"
+    },
+    {
+      "name": "right_hand",
+      "parent": "right_fore",
+      "pivot": [
+        330,
+        790
+      ],
+      "rotation_limits_deg": [
+        -12,
+        12
+      ],
+      "pivot_reason": "Frozen source-pixel pivot from the committed PoC parts.json.",
+      "limit_reasons": [
+        "PoC authored minimum; preserves the reviewed articulation envelope.",
+        "PoC authored maximum; preserves the reviewed articulation envelope."
+      ],
+      "basis": "PoC"
+    },
+    {
+      "name": "left_arm",
+      "parent": "torso",
+      "pivot": [
+        704,
+        365
+      ],
+      "rotation_limits_deg": [
+        -8,
+        8
+      ],
+      "pivot_reason": "Frozen source-pixel pivot from the committed PoC parts.json.",
+      "limit_reasons": [
+        "PoC authored minimum; preserves the reviewed articulation envelope.",
+        "PoC authored maximum; preserves the reviewed articulation envelope."
+      ],
+      "basis": "PoC"
+    },
+    {
+      "name": "leg_left",
+      "parent": "hip",
+      "pivot": [
+        535,
+        708
+      ],
+      "rotation_limits_deg": [
+        -7,
+        7
+      ],
+      "pivot_reason": "Frozen source-pixel pivot from the committed PoC parts.json.",
+      "limit_reasons": [
+        "PoC authored minimum; preserves the reviewed articulation envelope.",
+        "PoC authored maximum; preserves the reviewed articulation envelope."
+      ],
+      "basis": "PoC"
+    },
+    {
+      "name": "leg_right",
+      "parent": "hip",
+      "pivot": [
+        640,
+        708
+      ],
+      "rotation_limits_deg": [
+        -7,
+        7
+      ],
+      "pivot_reason": "Frozen source-pixel pivot from the committed PoC parts.json.",
+      "limit_reasons": [
+        "PoC authored minimum; preserves the reviewed articulation envelope.",
+        "PoC authored maximum; preserves the reviewed articulation envelope."
+      ],
+      "basis": "PoC"
+    },
+    {
+      "name": "boot_left",
+      "parent": "knee_left",
+      "pivot": [
+        424,
+        1360
+      ],
+      "rotation_limits_deg": [
+        -6,
+        6
+      ],
+      "pivot_reason": "Frozen source-pixel pivot from the committed PoC parts.json.",
+      "limit_reasons": [
+        "PoC authored minimum; preserves the reviewed articulation envelope.",
+        "PoC authored maximum; preserves the reviewed articulation envelope."
+      ],
+      "basis": "PoC pivot and limits; v2 knee parent"
+    },
+    {
+      "name": "boot_right",
+      "parent": "knee_right",
+      "pivot": [
+        672,
+        1340
+      ],
+      "rotation_limits_deg": [
+        -6,
+        6
+      ],
+      "pivot_reason": "Frozen source-pixel pivot from the committed PoC parts.json.",
+      "limit_reasons": [
+        "PoC authored minimum; preserves the reviewed articulation envelope.",
+        "PoC authored maximum; preserves the reviewed articulation envelope."
+      ],
+      "basis": "PoC pivot and limits; v2 knee parent"
+    },
+    {
+      "name": "left_fore",
+      "parent": "left_arm",
+      "pivot": [
+        728,
+        594
+      ],
+      "rotation_limits_deg": [
+        -18,
+        20
+      ],
+      "pivot_reason": "Proposed v2 elbow along the existing human sleeve; conservative match to right elbow.",
+      "limit_reasons": [
+        "Proposed v2 minimum: conservative match to the PoC opposite joint.",
+        "Proposed v2 maximum: conservative match to the PoC opposite joint."
+      ],
+      "basis": "v2 proposal; absent from PoC"
+    },
+    {
+      "name": "left_hand",
+      "parent": "left_fore",
+      "pivot": [
+        735,
+        790
+      ],
+      "rotation_limits_deg": [
+        -12,
+        12
+      ],
+      "pivot_reason": "Proposed v2 wrist at the end of the human sleeve; match right wrist range.",
+      "limit_reasons": [
+        "Proposed v2 minimum: conservative match to the PoC opposite joint.",
+        "Proposed v2 maximum: conservative match to the PoC opposite joint."
+      ],
+      "basis": "v2 proposal; absent from PoC"
+    },
+    {
+      "name": "knee_left",
+      "parent": "leg_left",
+      "pivot": [
+        480,
+        1034
+      ],
+      "rotation_limits_deg": [
+        0,
+        75
+      ],
+      "pivot_reason": "Proposed v2 knee midway along the existing thigh-to-ankle span; flexion only.",
+      "limit_reasons": [
+        "Proposed v2 minimum: no knee hyperextension.",
+        "Proposed v2 maximum: moderate knee bend before garment deformation is required."
+      ],
+      "basis": "v2 proposal; absent from PoC"
+    },
+    {
+      "name": "knee_right",
+      "parent": "leg_right",
+      "pivot": [
+        656,
+        1024
+      ],
+      "rotation_limits_deg": [
+        0,
+        75
+      ],
+      "pivot_reason": "Proposed v2 knee midway along the existing thigh-to-ankle span; flexion only.",
+      "limit_reasons": [
+        "Proposed v2 minimum: no knee hyperextension.",
+        "Proposed v2 maximum: moderate knee bend before garment deformation is required."
+      ],
+      "basis": "v2 proposal; absent from PoC"
+    }
+  ],
+  "slots": [
+    {
+      "slot": "head_face",
+      "part": "head",
+      "bone": "head",
+      "parent_bone": "torso",
+      "part_parent_bone": "head",
+      "pivot": [
+        562,
+        251
+      ],
+      "joint_limits_deg": [
+        -8,
+        8
+      ],
+      "overlap_px": 12,
+      "limit_reasons": [
+        "PoC authored minimum; preserves the reviewed articulation envelope.",
+        "PoC authored maximum; preserves the reviewed articulation envelope."
+      ],
+      "overlap_reason": "PoC 12 source-pixel seam backing, frozen without widening.",
+      "basis": "PoC"
+    },
+    {
+      "slot": "upper_arm_left",
+      "part": "left_arm",
+      "bone": "left_arm",
+      "parent_bone": "torso",
+      "part_parent_bone": "left_arm",
+      "pivot": [
+        704,
+        365
+      ],
+      "joint_limits_deg": [
+        -8,
+        8
+      ],
+      "overlap_px": 12,
+      "limit_reasons": [
+        "PoC authored minimum; preserves the reviewed articulation envelope.",
+        "PoC authored maximum; preserves the reviewed articulation envelope."
+      ],
+      "overlap_reason": "PoC 12 source-pixel seam backing, frozen without widening.",
+      "basis": "PoC"
+    },
+    {
+      "slot": "lower_arm_left",
+      "part": "left_fore",
+      "bone": "left_fore",
+      "parent_bone": "left_arm",
+      "part_parent_bone": "left_fore",
+      "pivot": [
+        728,
+        594
+      ],
+      "joint_limits_deg": [
+        -18,
+        20
+      ],
+      "overlap_px": 12,
+      "limit_reasons": [
+        "Proposed v2 minimum: conservative match to the PoC opposite joint.",
+        "Proposed v2 maximum: conservative match to the PoC opposite joint."
+      ],
+      "overlap_reason": "Proposed v2 12 source-pixel seam backing, matching the existing limbs.",
+      "basis": "v2 proposal; absent from PoC"
+    },
+    {
+      "slot": "hand_left",
+      "part": "left_hand",
+      "bone": "left_hand",
+      "parent_bone": "left_fore",
+      "part_parent_bone": "left_hand",
+      "pivot": [
+        735,
+        790
+      ],
+      "joint_limits_deg": [
+        -12,
+        12
+      ],
+      "overlap_px": 12,
+      "limit_reasons": [
+        "Proposed v2 minimum: conservative match to the PoC opposite joint.",
+        "Proposed v2 maximum: conservative match to the PoC opposite joint."
+      ],
+      "overlap_reason": "Proposed v2 12 source-pixel seam backing, matching the existing limbs.",
+      "basis": "v2 proposal; absent from PoC"
+    },
+    {
+      "slot": "upper_arm_right",
+      "part": "right_upper",
+      "bone": "right_upper",
+      "parent_bone": "torso",
+      "part_parent_bone": "right_upper",
+      "pivot": [
+        383,
+        488
+      ],
+      "joint_limits_deg": [
+        -12,
+        85
+      ],
+      "overlap_px": 12,
+      "limit_reasons": [
+        "PoC authored minimum; preserves the reviewed articulation envelope.",
+        "PoC authored maximum; preserves the reviewed articulation envelope."
+      ],
+      "overlap_reason": "PoC 12 source-pixel seam backing, frozen without widening.",
+      "basis": "PoC"
+    },
+    {
+      "slot": "lower_arm_right",
+      "part": "right_fore",
+      "bone": "right_fore",
+      "parent_bone": "right_upper",
+      "part_parent_bone": "right_fore",
+      "pivot": [
+        350,
+        587
+      ],
+      "joint_limits_deg": [
+        -18,
+        20
+      ],
+      "overlap_px": 12,
+      "limit_reasons": [
+        "PoC authored minimum; preserves the reviewed articulation envelope.",
+        "PoC authored maximum; preserves the reviewed articulation envelope."
+      ],
+      "overlap_reason": "PoC 12 source-pixel seam backing, frozen without widening.",
+      "basis": "PoC"
+    },
+    {
+      "slot": "hand_right",
+      "part": "right_hand",
+      "bone": "right_hand",
+      "parent_bone": "right_fore",
+      "part_parent_bone": "right_hand",
+      "pivot": [
+        330,
+        790
+      ],
+      "joint_limits_deg": [
+        -12,
+        12
+      ],
+      "overlap_px": 12,
+      "limit_reasons": [
+        "PoC authored minimum; preserves the reviewed articulation envelope.",
+        "PoC authored maximum; preserves the reviewed articulation envelope."
+      ],
+      "overlap_reason": "PoC 12 source-pixel seam backing, frozen without widening.",
+      "basis": "PoC"
+    },
+    {
+      "slot": "upper_leg_left",
+      "part": "leg_left",
+      "bone": "leg_left",
+      "parent_bone": "hip",
+      "part_parent_bone": "leg_left",
+      "pivot": [
+        535,
+        708
+      ],
+      "joint_limits_deg": [
+        -7,
+        7
+      ],
+      "overlap_px": 12,
+      "limit_reasons": [
+        "PoC authored minimum; preserves the reviewed articulation envelope.",
+        "PoC authored maximum; preserves the reviewed articulation envelope."
+      ],
+      "overlap_reason": "PoC 12 source-pixel seam backing, frozen without widening.",
+      "basis": "PoC"
+    },
+    {
+      "slot": "lower_leg_left",
+      "part": "shin_left",
+      "bone": "knee_left",
+      "parent_bone": "leg_left",
+      "part_parent_bone": "knee_left",
+      "pivot": [
+        480,
+        1034
+      ],
+      "joint_limits_deg": [
+        0,
+        75
+      ],
+      "overlap_px": 12,
+      "limit_reasons": [
+        "Proposed v2 minimum: no knee hyperextension.",
+        "Proposed v2 maximum: moderate knee bend before garment deformation is required."
+      ],
+      "overlap_reason": "Proposed v2 12 source-pixel seam backing, matching the existing limbs.",
+      "basis": "v2 proposal; absent from PoC"
+    },
+    {
+      "slot": "foot_left",
+      "part": "boot_left",
+      "bone": "boot_left",
+      "parent_bone": "knee_left",
+      "part_parent_bone": "boot_left",
+      "pivot": [
+        424,
+        1360
+      ],
+      "joint_limits_deg": [
+        -6,
+        6
+      ],
+      "overlap_px": 12,
+      "limit_reasons": [
+        "PoC authored minimum; preserves the reviewed articulation envelope.",
+        "PoC authored maximum; preserves the reviewed articulation envelope."
+      ],
+      "overlap_reason": "PoC 12 source-pixel seam backing, frozen without widening.",
+      "basis": "PoC pivot and limits; v2 knee parent"
+    },
+    {
+      "slot": "upper_leg_right",
+      "part": "leg_right",
+      "bone": "leg_right",
+      "parent_bone": "hip",
+      "part_parent_bone": "leg_right",
+      "pivot": [
+        640,
+        708
+      ],
+      "joint_limits_deg": [
+        -7,
+        7
+      ],
+      "overlap_px": 12,
+      "limit_reasons": [
+        "PoC authored minimum; preserves the reviewed articulation envelope.",
+        "PoC authored maximum; preserves the reviewed articulation envelope."
+      ],
+      "overlap_reason": "PoC 12 source-pixel seam backing, frozen without widening.",
+      "basis": "PoC"
+    },
+    {
+      "slot": "lower_leg_right",
+      "part": "shin_right",
+      "bone": "knee_right",
+      "parent_bone": "leg_right",
+      "part_parent_bone": "knee_right",
+      "pivot": [
+        656,
+        1024
+      ],
+      "joint_limits_deg": [
+        0,
+        75
+      ],
+      "overlap_px": 12,
+      "limit_reasons": [
+        "Proposed v2 minimum: no knee hyperextension.",
+        "Proposed v2 maximum: moderate knee bend before garment deformation is required."
+      ],
+      "overlap_reason": "Proposed v2 12 source-pixel seam backing, matching the existing limbs.",
+      "basis": "v2 proposal; absent from PoC"
+    },
+    {
+      "slot": "foot_right",
+      "part": "boot_right",
+      "bone": "boot_right",
+      "parent_bone": "knee_right",
+      "part_parent_bone": "boot_right",
+      "pivot": [
+        672,
+        1340
+      ],
+      "joint_limits_deg": [
+        -6,
+        6
+      ],
+      "overlap_px": 12,
+      "limit_reasons": [
+        "PoC authored minimum; preserves the reviewed articulation envelope.",
+        "PoC authored maximum; preserves the reviewed articulation envelope."
+      ],
+      "overlap_reason": "PoC 12 source-pixel seam backing, frozen without widening.",
+      "basis": "PoC pivot and limits; v2 knee parent"
+    },
+    {
+      "slot": "held_prop_gun",
+      "part": "gun",
+      "bone": "right_hand",
+      "parent_bone": "right_fore",
+      "part_parent_bone": "right_hand",
+      "pivot": [
+        330,
+        790
+      ],
+      "joint_limits_deg": [
+        -12,
+        12
+      ],
+      "overlap_px": 0,
+      "limit_reasons": [
+        "PoC authored minimum; preserves the reviewed articulation envelope.",
+        "PoC authored maximum; preserves the reviewed articulation envelope."
+      ],
+      "overlap_reason": "PoC rigid held prop: no seam dilation; the textured grip is fixed to the hand.",
+      "basis": "PoC"
+    }
+  ],
+  "tolerances": {
+    "pivot_px": 0.001,
+    "pivot_reason": "PoC Float32 geometry tolerance; one thousandth of a native pixel.",
+    "limit_deg": 1e-06,
+    "limit_reason": "Float32 serialized joint-limit metadata rounding only.",
+    "radius_px": 32,
+    "radius_reason": "Same frozen local seam disk as PoC test 5.",
+    "alpha_threshold": 128,
+    "alpha_reason": "Same frozen half-opaque reference silhouette as PoC test 5.",
+    "background_rgb": [
+      255,
+      0,
+      255
+    ],
+    "background_channel_tolerance": 3,
+    "background_reason": "Same frozen framebuffer conversion tolerance as PoC test 5.",
+    "allowed_gap_pixels": 0,
+    "gap_reason": "Any uncovered native pixel in the stencil rejects the pose."
+  },
+  "facing": {
+    "head_part": "head",
+    "head_intrinsic_axis": [
+      1,
+      0
+    ],
+    "head_axis_reason": "The committed HD head artwork looks toward image right; frozen after visual inspection.",
+    "weapon_part": "gun",
+    "grip_texture_px": [
+      7,
+      41
+    ],
+    "muzzle_texture_px": [
+      85,
+      284
+    ],
+    "weapon_axis_reason": "PoC grip/muzzle rig markers minus the committed hand pivot and gun sprite offset.",
+    "axis_epsilon": 1e-06,
+    "epsilon_reason": "Numerical zero test only; a vertical direction is unobservable and fails."
+  }
+}

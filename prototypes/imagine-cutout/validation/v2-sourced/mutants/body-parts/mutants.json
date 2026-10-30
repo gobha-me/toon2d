@@ -1,0 +1,47 @@
+[
+  {
+    "mutant": "e",
+    "kind": "missing_slot",
+    "expected_test": "completeness",
+    "files_changed": ["scenes/hd.tscn"],
+    "status": "KILLED",
+    "new_failure_cases": ["slot/head_face"],
+    "worsened_joints": [],
+    "observed_red_tests": ["completeness", "facing"]
+  },
+  {
+    "mutant": "f",
+    "kind": "flipped_facing",
+    "expected_test": "facing",
+    "files_changed": ["scenes/hd.tscn"],
+    "status": "KILLED",
+    "new_failure_cases": ["facing/aim/0", "facing/aim/1", "facing/aim/10", "facing/aim/2", "facing/aim/3", "facing/aim/4", "facing/aim/5", "facing/aim/6", "facing/aim/7", "facing/aim/8", "facing/aim/9", "facing/cooldown/0", "facing/cooldown/1", "facing/cooldown/10", "facing/cooldown/11", "facing/cooldown/12", "facing/cooldown/13", "facing/cooldown/14", "facing/cooldown/2", "facing/cooldown/3", "facing/cooldown/4", "facing/cooldown/5", "facing/cooldown/6", "facing/cooldown/7", "facing/cooldown/8", "facing/cooldown/9", "facing/fire/0", "facing/fire/1", "facing/fire/2", "facing/fire/3", "facing/fire/4", "facing/fire/5", "facing/fire/6", "facing/idle/0", "facing/idle/1", "facing/idle/10", "facing/idle/11", "facing/idle/12", "facing/idle/13", "facing/idle/14", "facing/idle/15", "facing/idle/16", "facing/idle/17", "facing/idle/18", "facing/idle/19", "facing/idle/2", "facing/idle/20", "facing/idle/21", "facing/idle/22", "facing/idle/23", "facing/idle/24", "facing/idle/25", "facing/idle/26", "facing/idle/27", "facing/idle/28", "facing/idle/29", "facing/idle/3", "facing/idle/30", "facing/idle/31", "facing/idle/32", "facing/idle/33", "facing/idle/34", "facing/idle/35", "facing/idle/36", "facing/idle/37", "facing/idle/38", "facing/idle/39", "facing/idle/4", "facing/idle/40", "facing/idle/41", "facing/idle/42", "facing/idle/43", "facing/idle/44", "facing/idle/45", "facing/idle/46", "facing/idle/47", "facing/idle/48", "facing/idle/5", "facing/idle/6", "facing/idle/7", "facing/idle/8", "facing/idle/9"],
+    "worsened_joints": [],
+    "observed_red_tests": ["facing"]
+  },
+  {
+    "mutant": "g",
+    "kind": "removed_knee",
+    "expected_test": "completeness",
+    "files_changed": ["scenes/hd.tscn"],
+    "status": "KILLED",
+    "new_failure_cases": ["bone/knee_left", "parent/boot_left", "pivot/boot_left", "slot/lower_leg_left/parent"],
+    "worsened_joints": [],
+    "observed_red_tests": ["completeness", "per_joint"]
+  },
+  {
+    "mutant": "h",
+    "kind": "zero_overlap",
+    "expected_test": "per_joint",
+    "files_changed": ["parts/hd/right_fore.png", "parts.json"],
+    "removed_overlap_pixels": 1127,
+    "meaning": "zero shared rest alpha between right upper/lower arm; no source regeneration claimed",
+    "status": "KILLED",
+    "new_failure_cases": ["single/right_fore/max/right_fore", "single/right_fore/min/right_fore"],
+    "worsened_joints": [
+      {"pose": "single/right_fore/min", "joint": "right_fore", "before": 0, "after": 124},
+      {"pose": "single/right_fore/max", "joint": "right_fore", "before": 0, "after": 140}
+    ],
+    "observed_red_tests": ["completeness", "per_joint"]
+  }
+]

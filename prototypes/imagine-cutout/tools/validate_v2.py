@@ -49,7 +49,7 @@ def main():
                           'sys.exit(0 if r["passed"] else 1)'],
             }
             if mode == 'quick':
-                env.update(TMPDIR=tmp, XDG_DATA_HOME=tmp+'/data', XDG_CONFIG_HOME=tmp+'/config', XDG_CACHE_HOME=tmp+'/cache')
+                env.update(TMPDIR=tmp, XDG_DATA_HOME=tmp+'/xdg-data', XDG_CONFIG_HOME=tmp+'/xdg-config', XDG_CACHE_HOME=tmp+'/xdg-cache')
             command = commands[mode]
             start = datetime.now(timezone.utc).isoformat()
             log = destination / (mode+'.txt')

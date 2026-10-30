@@ -18,8 +18,8 @@ License files: `LICENSE` (Apache-2.0 for code/skill), `LICENSE-ART` (CC BY 4.0 h
 
 - Hand-made / code-drawn / derived-from-code-drawn (tracked media rows): **227** (CC BY 4.0)
 - AI-generated source stills: **22** (CC0 1.0; 21× Grok Imagine via cursor `GenerateImage`, 1× local mirror derived from one of them)
-- Imagine cutout prototype (§2c): **33** Grok Imagine Segments source stills (not committed; `.gen.json` sidecars only) and **193** committed derived stills (CC0 1.0)
-- Derived from AI sources (atlases, shots, work, prototype binaries): **147** (CC0 with sources), plus the 193 imagine-cutout stills in §2c
+- Imagine cutout prototype (§2c): **33** Grok Imagine Segments source stills (not committed; `.gen.json` sidecars only) and **202** committed derived stills including v2 review/evidence (CC0 1.0)
+- Derived from AI sources (atlases, shots, work, prototype binaries): **147** (CC0 with sources), plus the 202 imagine-cutout stills in §2c
 - Private-project-derived included: **0**
 - Real-person / likeness stills included: **0** (see §2 real-person check)
 

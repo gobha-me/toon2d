@@ -1,5 +1,7 @@
 # Imagine cutout: HD and pixel PoC
 
+Generated with Grok Imagine (SpaceXAI)
+
 Godot **4.7.2.stable.official.ed1daf0bf**, Linux first. This is a working rigid-sprite
 cutout prototype made from supplied Grok Imagine artwork. No new AI generation,
 hand painting, paid service or network asset fetch was used.
@@ -217,7 +219,9 @@ Its `original.png` and flat JPG are source/matting evidence, not runtime parts.
 - `idle.mp4`, `aim.mp4`, `fire.mp4`, `cooldown.mp4`: four 24 fps review videos.
 - `idle.gif`, `aim.gif`, `fire.gif`, `cooldown.gif`: four looping GIFs generated
   by ffmpeg `fps=24`, `palettegen` and `paletteuse`, without dithering; pixel GIFs
-  are enlarged 6× with nearest neighbour. Their sidecars use `.gif.sidecar.json`
+  are enlarged 6× with nearest neighbour. `renders/hd/idle.gif` was re-encoded
+  for size after review (384×448, 64 colours, all 48 frames; about 0.6 MB instead
+  of 6 MB); the 768×896 PNG frames stay authoritative. Their sidecars use `.gif.sidecar.json`
   to avoid replacing the neighbouring MP4 sidecars.
 - `keyposes/`: four authored endpoint PNGs.
 - `key-pose-contact.png`: breathing, raise, recoil/flash transition and lowering.

@@ -55,7 +55,7 @@ packaged layout and hands off to v2. Its legacy reference pipeline produces
 pixel assets too; the v2-only rebuild above leaves existing pixel files intact.
 
 `tools/run` enforces 23:55–03:00 America/New_York quiet hours and at least 5 GiB
-free space. Scratch and XDG state stay under a trapped `/tmp/tween-*` directory.
+free space. Scratch and XDG state stay under a trapped temporary directory.
 Workers stay capped at two. A `heavy-run` exit 75 requires waiting and retrying.
 The tools write `.gen.json` directly with truthful prompt/model/date information.
 

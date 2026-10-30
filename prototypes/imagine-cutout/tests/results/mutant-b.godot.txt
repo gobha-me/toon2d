@@ -1,0 +1,2277 @@
+COMMAND ['godot', '--headless', '--path', '/tmp/tween-tests-20261030T163350-794152/suite-7girgngr/prototype', '--editor', '--import']
+heavy-run: memory ok: working set 11.72 GiB (memory.current 12.75 GiB - inactive_file 1.04 GiB), limit 13 GiB
+heavy-run: memory ok: working set 11.72 GiB (memory.current 12.75 GiB - inactive_file 1.04 GiB), limit 13 GiB
+heavy-run: holding slot1 on <render-host>, hard stop in 40845s (11:55 PM ET)
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | Started Registering global classes... (5 steps)[39m[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  16% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  33% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  50% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  66% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[92m[ DONE ][39m [1mupdate_scripts_classes[22m
+[0m
+[   0% ] [90m[1m_update_scan_actions[22m | Started Scanning actions... (40 steps)[39m[0m
+[   0% ] [90m[1m_update_scan_actions[22m | belt.png[39m[0m
+[   2% ] [90m[1m_update_scan_actions[22m | boot_left.png[39m[0m
+[   4% ] [90m[1m_update_scan_actions[22m | boot_right.png[39m[0m
+[   7% ] [90m[1m_update_scan_actions[22m | coat_lining.png[39m[0m
+[   9% ] [90m[1m_update_scan_actions[22m | coat_yoke.png[39m[0m
+[  12% ] [90m[1m_update_scan_actions[22m | collar.png[39m[0m
+[  14% ] [90m[1m_update_scan_actions[22m | gun.png[39m[0m
+[  17% ] [90m[1m_update_scan_actions[22m | hair.png[39m[0m
+[  19% ] [90m[1m_update_scan_actions[22m | head.png[39m[0m
+[  21% ] [90m[1m_update_scan_actions[22m | hem_center.png[39m[0m
+[  24% ] [90m[1m_update_scan_actions[22m | hem_left.png[39m[0m
+[  26% ] [90m[1m_update_scan_actions[22m | hem_right.png[39m[0m
+[  29% ] [90m[1m_update_scan_actions[22m | hip_backing.png[39m[0m
+[  31% ] [90m[1m_update_scan_actions[22m | left_arm.png[39m[0m
+[  34% ] [90m[1m_update_scan_actions[22m | leg_left.png[39m[0m
+[  36% ] [90m[1m_update_scan_actions[22m | leg_right.png[39m[0m
+[  39% ] [90m[1m_update_scan_actions[22m | right_fore.png[39m[0m
+[  41% ] [90m[1m_update_scan_actions[22m | right_hand.png[39m[0m
+[  43% ] [90m[1m_update_scan_actions[22m | right_upper.png[39m[0m
+[  46% ] [90m[1m_update_scan_actions[22m | torso.png[39m[0m
+[  48% ] [90m[1m_update_scan_actions[22m | belt.png[39m[0m
+[  51% ] [90m[1m_update_scan_actions[22m | boot_left.png[39m[0m
+[  53% ] [90m[1m_update_scan_actions[22m | boot_right.png[39m[0m
+[  56% ] [90m[1m_update_scan_actions[22m | coat_lining.png[39m[0m
+[  58% ] [90m[1m_update_scan_actions[22m | coat_yoke.png[39m[0m
+[  60% ] [90m[1m_update_scan_actions[22m | collar.png[39m[0m
+[  63% ] [90m[1m_update_scan_actions[22m | gun.png[39m[0m
+[  65% ] [90m[1m_update_scan_actions[22m | hair.png[39m[0m
+[  68% ] [90m[1m_update_scan_actions[22m | head.png[39m[0m
+[  70% ] [90m[1m_update_scan_actions[22m | hem_center.png[39m[0m
+[  73% ] [90m[1m_update_scan_actions[22m | hem_left.png[39m[0m
+[  75% ] [90m[1m_update_scan_actions[22m | hem_right.png[39m[0m
+[  78% ] [90m[1m_update_scan_actions[22m | hip_backing.png[39m[0m
+[  80% ] [90m[1m_update_scan_actions[22m | left_arm.png[39m[0m
+[  82% ] [90m[1m_update_scan_actions[22m | leg_left.png[39m[0m
+[  85% ] [90m[1m_update_scan_actions[22m | leg_right.png[39m[0m
+[  87% ] [90m[1m_update_scan_actions[22m | right_fore.png[39m[0m
+[  90% ] [90m[1m_update_scan_actions[22m | right_hand.png[39m[0m
+[  92% ] [90m[1m_update_scan_actions[22m | right_upper.png[39m[0m
+[  95% ] [90m[1m_update_scan_actions[22m | torso.png[39m[0m
+[92m[ DONE ][39m [1m_update_scan_actions[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (40 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   2% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   4% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   7% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   9% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  12% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  14% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  17% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  19% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  21% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  24% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  26% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  29% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  31% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  34% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  36% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  39% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  41% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  43% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  46% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  48% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  51% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  53% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  56% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  58% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  60% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  63% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  65% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  68% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  70% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  73% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  75% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  78% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  80% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  82% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  85% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  87% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  90% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  92% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  95% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing pre-reimport operations...[39m[0m
+[   0% ] [90m[1mreimport[22m | belt.png[39m[0m
+[   2% ] [90m[1mreimport[22m | boot_left.png[39m[0m
+[   4% ] [90m[1mreimport[22m | boot_right.png[39m[0m
+[   7% ] [90m[1mreimport[22m | coat_lining.png[39m[0m
+[   9% ] [90m[1mreimport[22m | coat_yoke.png[39m[0m
+[  12% ] [90m[1mreimport[22m | collar.png[39m[0m
+[  14% ] [90m[1mreimport[22m | gun.png[39m[0m
+[  17% ] [90m[1mreimport[22m | hair.png[39m[0m
+[  19% ] [90m[1mreimport[22m | head.png[39m[0m
+[  21% ] [90m[1mreimport[22m | hem_center.png[39m[0m
+[  24% ] [90m[1mreimport[22m | hem_left.png[39m[0m
+[  26% ] [90m[1mreimport[22m | hem_right.png[39m[0m
+[  29% ] [90m[1mreimport[22m | hip_backing.png[39m[0m
+[  31% ] [90m[1mreimport[22m | left_arm.png[39m[0m
+[  34% ] [90m[1mreimport[22m | leg_left.png[39m[0m
+[  36% ] [90m[1mreimport[22m | leg_right.png[39m[0m
+[  39% ] [90m[1mreimport[22m | right_fore.png[39m[0m
+[  41% ] [90m[1mreimport[22m | right_hand.png[39m[0m
+[  43% ] [90m[1mreimport[22m | right_upper.png[39m[0m
+[  46% ] [90m[1mreimport[22m | torso.png[39m[0m
+[  48% ] [90m[1mreimport[22m | belt.png[39m[0m
+[  51% ] [90m[1mreimport[22m | boot_left.png[39m[0m
+[  53% ] [90m[1mreimport[22m | boot_right.png[39m[0m
+[  56% ] [90m[1mreimport[22m | coat_lining.png[39m[0m
+[  58% ] [90m[1mreimport[22m | coat_yoke.png[39m[0m
+[  60% ] [90m[1mreimport[22m | collar.png[39m[0m
+[  63% ] [90m[1mreimport[22m | gun.png[39m[0m
+[  65% ] [90m[1mreimport[22m | hair.png[39m[0m
+[  68% ] [90m[1mreimport[22m | head.png[39m[0m
+[  70% ] [90m[1mreimport[22m | hem_center.png[39m[0m
+[  73% ] [90m[1mreimport[22m | hem_left.png[39m[0m
+[  75% ] [90m[1mreimport[22m | hem_right.png[39m[0m
+[  78% ] [90m[1mreimport[22m | hip_backing.png[39m[0m
+[  80% ] [90m[1mreimport[22m | left_arm.png[39m[0m
+[  82% ] [90m[1mreimport[22m | leg_left.png[39m[0m
+[  85% ] [90m[1mreimport[22m | leg_right.png[39m[0m
+[  87% ] [90m[1mreimport[22m | right_fore.png[39m[0m
+[  90% ] [90m[1mreimport[22m | right_hand.png[39m[0m
+[  92% ] [90m[1mreimport[22m | right_upper.png[39m[0m
+[  95% ] [90m[1mreimport[22m | torso.png[39m[0m
+[  97% ] [90m[1mreimport[22m | Finalizing Asset Import...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (40 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing post-reimport operations...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started Loading editor (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Loading editor layout...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Loading docks...[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+
+EXIT 0
+COMMAND ['godot', '--headless', '--path', '/tmp/tween-tests-20261030T163350-794152/suite-7girgngr/prototype', '--script', 'res://tests/check_rig.gd', '--', 'observe', '/tmp/tween-tests-20261030T163350-794152/suite-7girgngr/captures']
+heavy-run: memory ok: working set 11.72 GiB (memory.current 12.75 GiB - inactive_file 1.04 GiB), limit 13 GiB
+heavy-run: memory ok: working set 11.72 GiB (memory.current 12.75 GiB - inactive_file 1.04 GiB), limit 13 GiB
+heavy-run: holding slot1 on <render-host>, hard stop in 40842s (11:55 PM ET)
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] make_rig (res://tests/check_rig.gd:40)
+         [1] observe (res://tests/check_rig.gd:84)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] make_rig (res://tests/check_rig.gd:40)
+         [1] observe (res://tests/check_rig.gd:84)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] make_rig (res://tests/check_rig.gd:40)
+         [1] observe (res://tests/check_rig.gd:84)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] make_rig (res://tests/check_rig.gd:40)
+         [1] observe (res://tests/check_rig.gd:84)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] make_rig (res://tests/check_rig.gd:40)
+         [1] observe (res://tests/check_rig.gd:84)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] make_rig (res://tests/check_rig.gd:40)
+         [1] observe (res://tests/check_rig.gd:84)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] make_rig (res://tests/check_rig.gd:40)
+         [1] observe (res://tests/check_rig.gd:84)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] make_rig (res://tests/check_rig.gd:40)
+         [1] observe (res://tests/check_rig.gd:84)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] observe (res://tests/check_rig.gd:141)
+         [2] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] observe (res://tests/check_rig.gd:146)
+         [1] run (res://tests/check_rig.gd:233)
+
+EXIT 0
+COMMAND ['xvfb-run', '-a', 'godot', '--path', '/tmp/tween-tests-20261030T163350-794152/suite-7girgngr/prototype', '--audio-driver', 'Dummy', '--script', 'res://tests/check_rig.gd', '--', 'render', '/tmp/tween-tests-20261030T163350-794152/suite-7girgngr/captures']
+heavy-run: memory ok: working set 11.72 GiB (memory.current 12.75 GiB - inactive_file 1.04 GiB), limit 13 GiB
+heavy-run: memory ok: working set 11.72 GiB (memory.current 12.75 GiB - inactive_file 1.04 GiB), limit 13 GiB
+heavy-run: holding slot1 on <render-host>, hard stop in 40842s (11:55 PM ET)
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: Could not set V-Sync mode, as changing V-Sync mode is not supported by the graphics driver.
+     at: set_use_vsync (platform/linuxbsd/x11/gl_manager_x11.cpp:372)
+OpenGL API 4.5 (Core Profile) Mesa 25.2.8-0ubuntu0.24.04.4 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)
+
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] make_rig (res://tests/check_rig.gd:40)
+         [1] joint_captures (res://tests/check_rig.gd:192)
+         [2] run (res://tests/check_rig.gd:231)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] make_rig (res://tests/check_rig.gd:40)
+         [1] joint_captures (res://tests/check_rig.gd:192)
+         [2] run (res://tests/check_rig.gd:231)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] make_rig (res://tests/check_rig.gd:40)
+         [1] joint_captures (res://tests/check_rig.gd:192)
+         [2] run (res://tests/check_rig.gd:231)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] make_rig (res://tests/check_rig.gd:40)
+         [1] joint_captures (res://tests/check_rig.gd:192)
+         [2] run (res://tests/check_rig.gd:231)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] run (res://tests/check_rig.gd:231)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] run (res://tests/check_rig.gd:231)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] run (res://tests/check_rig.gd:231)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] run (res://tests/check_rig.gd:231)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] make_rig (res://tests/check_rig.gd:40)
+         [1] joint_captures (res://tests/check_rig.gd:192)
+         [2] run (res://tests/check_rig.gd:231)
+         [3] joint_captures (res://tests/check_rig.gd:226)
+         [4] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] make_rig (res://tests/check_rig.gd:40)
+         [1] joint_captures (res://tests/check_rig.gd:192)
+         [2] run (res://tests/check_rig.gd:231)
+         [3] joint_captures (res://tests/check_rig.gd:226)
+         [4] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] make_rig (res://tests/check_rig.gd:40)
+         [1] joint_captures (res://tests/check_rig.gd:192)
+         [2] run (res://tests/check_rig.gd:231)
+         [3] joint_captures (res://tests/check_rig.gd:226)
+         [4] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] make_rig (res://tests/check_rig.gd:40)
+         [1] joint_captures (res://tests/check_rig.gd:192)
+         [2] run (res://tests/check_rig.gd:231)
+         [3] joint_captures (res://tests/check_rig.gd:226)
+         [4] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] run (res://tests/check_rig.gd:231)
+         [3] joint_captures (res://tests/check_rig.gd:226)
+         [4] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] run (res://tests/check_rig.gd:231)
+         [3] joint_captures (res://tests/check_rig.gd:226)
+         [4] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] run (res://tests/check_rig.gd:231)
+         [3] joint_captures (res://tests/check_rig.gd:226)
+         [4] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] run (res://tests/check_rig.gd:231)
+         [3] joint_captures (res://tests/check_rig.gd:226)
+         [4] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
+     at: _update_caches (scene/animation/animation_mixer.cpp:725)
+     GDScript backtrace (most recent call first):
+         [0] restore_rest (res://tests/check_rig.gd:49)
+         [1] joint_captures (res://tests/check_rig.gd:196)
+         [2] capture (res://tests/check_rig.gd:173)
+
+EXIT 0

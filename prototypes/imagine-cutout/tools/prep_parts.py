@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Deterministic cutout preparation. No learned models, drawing or AI calls.
-Run from repository root with tools/run heavy-run .venv/bin/python tools/prep_parts.py.
+Use an existing Python with OpenCV, Pillow and NumPy, under tools/run heavy-run.
 """
 from __future__ import annotations
 import argparse, json
+from datetime import datetime, timezone
 from pathlib import Path
 import cv2
 import numpy as np
@@ -11,8 +12,8 @@ from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "src/parts/raw-hd"
-DEST = ROOT / "prototypes/imagine-cutout"
-OVERLAP_PX = 12  # HD source pixels; --overlap-px 0 is explicitly supported.
+DEST = ROOT if (ROOT / "project.godot").is_file() else ROOT / "prototypes/imagine-cutout"
+# Joint overlap is read from body_parts.yml; 0 supports scratch mutant trials.
 DEFRINGE_PX = 2  # HD source pixels; RGB-only, including opaque outline pixels.
 PIXEL_EDGE_LIGHTNESS_DELTA = 32  # RGB luma steps above the interior reference.
 POST = "https://grok.com/imagine/post/dc2b1c33-d3d0-4c3e-b927-c04cc4e91c38"
@@ -22,11 +23,21 @@ cv2.setNumThreads(2)
 
 
 def sidecar(path: Path, derived: str, pixel_evidence=False, keep_extension=False):
-    data = dict(source_post_url=PIXEL_POST if pixel_evidence else POST,
-                tool="Grok Imagine", feature="Segments", model="not shown in UI",
-                date="2026-10-30", derived_from=derived,
+    post = PIXEL_POST if pixel_evidence else POST
+    source_date = "2026-10-30T14:44:48Z" if pixel_evidence else "2026-10-30T14:41:58Z"
+    source_input = derived.startswith("Read-only supplied source:")
+    outside_zip = source_input and (derived.endswith("/original.png") or derived.endswith(".jpg"))
+    proxy = "proxy from associated Segments zip entry time; this original was outside the zip; its download and generation times were not recorded"
+    data = dict(prompt="prompt not recorded", source_post_url=post, source=post.rsplit("/", 1)[-1],
+                tool="Grok Imagine (SpaceXAI)" if source_input else "Python/OpenCV/Pillow scripted derivation from Grok Imagine (SpaceXAI)",
+                feature="Segments" if source_input else "scripted cutout/assembly",
+                model="not disclosed" if source_input else "no generative model used; source model not disclosed",
+                date=source_date if source_input else datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+                date_source=(proxy if outside_zip else "Segments zip entry timestamp; generation time not recorded") if source_input else "scripted artifact creation time UTC; source generation time not recorded",
+                source_date=source_date, derived_from=derived, license="CC0 1.0",
+                credit="Generated with Grok Imagine (SpaceXAI); scripted derivation where stated",
                 rights="Original fictional art only; no real-person likeness.")
-    target = path.with_name(path.name + ".sidecar.json") if keep_extension else path.with_suffix(".sidecar.json")
+    target = path.with_name(path.name + ".gen.json") if keep_extension else path.with_suffix(".gen.json")
     target.write_text(json.dumps(data, indent=2) + "\n")
 
 
@@ -203,24 +214,21 @@ def fill_attachment(arr: np.ndarray, mask: np.ndarray) -> np.ndarray:
     return result
 
 
-# Canonical source-space rest pivots and conservative diagnostic rotation limits.
-BONES = [
- ("hip",None,(580,680),(-3,3)), ("torso","hip",(560,390),(-4,4)),
- ("head","torso",(562,251),(-8,8)), ("hair","head",(565,112),(-5,5)),
- ("collar","torso",(560,290),(-4,4)), ("coat","torso",(560,410),(-3,3)),
- ("hem_left","coat",(418,700),(-8,8)), ("hem_center","coat",(563,700),(-6,6)),
- ("hem_right","coat",(724,700),(-8,8)),
- ("right_upper","torso",(383,488),(-12,85)),
- ("right_fore","right_upper",(350,587),(-18,20)),
- ("right_hand","right_fore",(330,790),(-12,12)),
- ("left_arm","torso",(704,365),(-8,8)),
- ("leg_left","hip",(535,708),(-7,7)), ("leg_right","hip",(640,708),(-7,7)),
- ("boot_left","leg_left",(424,1360),(-6,6)), ("boot_right","leg_right",(672,1340),(-6,6)),
-]
-
-
 def prepare(args):
+    global SRC, W, H
+    SRC = args.source
     dest = args.output; dest.mkdir(parents=True, exist_ok=True)
+    manifest_path = dest / "body_parts.yml"
+    if not manifest_path.is_file():
+        manifest_path = DEST / "body_parts.yml"
+    manifest = json.loads(manifest_path.read_text())
+    W, H = manifest["source_canvas_px"]
+    BONES = [(j["name"], j["parent"], j["pivot"], j["rotation_limits_deg"]) for j in manifest["joints"]]
+    if args.overlap_px is None:
+        values = {s["overlap_px"] for s in manifest["slots"] if s["part"] != "gun"}
+        if len(values) != 1:
+            raise ValueError("raw garment preparation requires a shared manifest overlap")
+        args.overlap_px = values.pop()
     original_im, matte_report = matte_background(Image.open(SRC/"original.png"))
     original = np.array(original_im)
     matched, match_report = {}, {}
@@ -432,27 +440,49 @@ def prepare(args):
         whole.paste(im,(x+20+(460-im.width)//2,40),im); d.text((x+10,10),label,fill="white")
     save_image(whole,dest/"comparisons/whole-figure.png","Raw assembled Segments plus explicitly labelled scripted cutouts vs grid-snapped figure")
     # Source provenance mirrors: src is strictly read-only, so sidecars live here.
-    for source in sorted((ROOT/"src").rglob("*")):
+    source_root = SRC.parents[1]
+    for source in sorted(source_root.rglob("*")):
         if source.suffix.lower() not in (".png",".jpg",".webp"): continue
-        target=dest/"provenance"/source.relative_to(ROOT/"src")
+        target=dest/"provenance"/source.relative_to(source_root)
         target.parent.mkdir(parents=True,exist_ok=True)
-        sidecar(target,"Read-only supplied source: src/"+str(source.relative_to(ROOT/"src")),"raw-pixel" in str(source))
+        sidecar(target,"Read-only supplied source: src/"+str(source.relative_to(source_root)),"raw-pixel" in str(source))
     # Demonstrate that the same matting function accepts supplied flat JPG.
-    jpg=ROOT/"src/parts/raw-pixel/grok-image-e8878ac2-6b8a-4873-bae2-12b21910230e.jpg"
-    m,report=matte_background(Image.open(jpg))
-    save_image(m,dest/"diagnostics/matted-flat-jpg.png","Supplied flat JPG; same matte_background function before any quantization",True)
-    (dest/"diagnostics/matting.json").write_text(json.dumps(report,indent=2)+"\n")
+    jpg=source_root/"parts/raw-pixel/grok-image-e8878ac2-6b8a-4873-bae2-12b21910230e.jpg"
+    if jpg.is_file():
+        m,report=matte_background(Image.open(jpg))
+        save_image(m,dest/"diagnostics/matted-flat-jpg.png","Supplied flat JPG; same matte_background function before any quantization",True)
+        (dest/"diagnostics/matting.json").write_text(json.dumps(report,indent=2)+"\n")
+    # The raw-source route hands off to the same manifest-driven kit assembler.
+    # Preserve fresh carriers before splitting, including zero-overlap trials.
+    import shutil
+    from prep_v2 import prepare as prepare_kit
+    inputs = dest / "parts/kit-inputs"
+    inputs.mkdir(parents=True, exist_ok=True)
+    ledger = {}
+    for part in metadata["parts"]:
+        if part["id"] not in ("left_arm", "leg_left", "leg_right", "coat_lining", "right_hand"):
+            continue
+        name = part["id"]
+        shutil.copy2(dest / part["texture_hd"], inputs / (name + ".png"))
+        sidecar(inputs / (name + ".png"), part["derived_from"] + "; immutable pre-split input")
+        ledger[name] = {k: part[k] for k in ("derived_from", "texture_pixel", "pixel_bbox")}
+        ledger[name]["origin"] = part["bbox"][:2]
+    (inputs / "inputs.json").write_text(json.dumps(ledger, indent=2) + "\n")
+    if not (dest / "body_parts.yml").is_file():
+        shutil.copy2(manifest_path, dest / "body_parts.yml")
+    prepare_kit(dest)
     print(json.dumps(dict(parts=len(pieces),overlap_px=args.overlap_px,defringe_px=args.defringe_px,pixel_canvas=grid_size,output=str(dest))))
 
 
 if __name__ == "__main__":
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--overlap-px",type=int,default=OVERLAP_PX)
+    parser.add_argument("--source",type=Path,default=SRC,help="read-only raw HD Segments directory")
+    parser.add_argument("--overlap-px",type=int,default=None,help="default: manifest; 0 supports scratch mutant trials")
     parser.add_argument("--defringe-px",type=int,default=DEFRINGE_PX)
     parser.add_argument("--pixel",type=int,default=120,metavar="HEIGHT")
     parser.add_argument("--output",type=Path,default=DEST)
     opts=parser.parse_args()
-    if opts.overlap_px<0: parser.error("--overlap-px must be nonnegative")
+    if opts.overlap_px is not None and opts.overlap_px<0: parser.error("--overlap-px must be nonnegative")
     if opts.defringe_px<0: parser.error("--defringe-px must be nonnegative")
     if not 96<=opts.pixel<=128: parser.error("--pixel must be between 96 and 128")
     prepare(opts)

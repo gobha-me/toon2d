@@ -1,0 +1,65 @@
+{
+  "left_arm": {
+    "derived_from": "original.png: residual hand + bbox-bounded sleeve, gun excluded",
+    "texture_pixel": "parts/pixel/left_arm.png",
+    "pixel_bbox": [
+      51,
+      26,
+      61,
+      67
+    ],
+    "origin": [
+      690,
+      345
+    ]
+  },
+  "leg_left": {
+    "derived_from": "black-combat-pants.png: left; black-tactical-bodysuit.png upper-thigh underlap; cuff backing extended behind boot by OVERLAP_PX",
+    "texture_pixel": "parts/pixel/leg_left.png",
+    "pixel_bbox": [
+      28,
+      48,
+      43,
+      102
+    ],
+    "origin": [
+      380,
+      650
+    ]
+  },
+  "leg_right": {
+    "derived_from": "black-combat-pants.png: right",
+    "texture_pixel": "parts/pixel/leg_right.png",
+    "pixel_bbox": [
+      41,
+      51,
+      54,
+      100
+    ],
+    "origin": [
+      562,
+      682
+    ]
+  },
+  "coat_lining": {
+    "origin": [
+      450,
+      500
+    ],
+    "derived_from": "long-brown-trench-coat.png: hidden back lining within coat hull; amodal nearest-coat-colour completion under torso, connected to waist seam"
+  },
+  "right_hand": {
+    "derived_from": "cybernetic-arm.png: right_hand",
+    "pixel_bbox": [
+      22,
+      59,
+      28,
+      70
+    ],
+    "texture_pixel": "parts/pixel/right_hand.png",
+    "origin": [
+      293,
+      790
+    ]
+  }
+}

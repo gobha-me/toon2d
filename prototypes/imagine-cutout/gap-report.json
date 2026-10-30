@@ -28,6 +28,12 @@
       "slot": "head_face",
       "part": "head",
       "bone": "head",
+      "source_bbox": [
+        478,
+        96,
+        648,
+        287
+      ],
       "declared_in_input": true,
       "segments_slot_missing": true,
       "action": "scripted",
@@ -46,14 +52,20 @@
       "slot": "upper_arm_left",
       "part": "left_arm",
       "bone": "left_arm",
+      "source_bbox": [
+        684,
+        345,
+        785,
+        627
+      ],
       "declared_in_input": true,
       "segments_slot_missing": true,
       "action": "scripted",
       "method": "original residual-seeded cutout",
       "source": "original.png",
       "segment_pixels": 0,
-      "residual_seed_pixels": 455,
-      "original_roi_pixels": 12177,
+      "residual_seed_pixels": 826,
+      "original_roi_pixels": 16536,
       "pivot": [
         704,
         365
@@ -64,14 +76,20 @@
       "slot": "lower_arm_left",
       "part": "left_fore",
       "bone": "left_fore",
-      "declared_in_input": false,
+      "source_bbox": [
+        660,
+        562,
+        841,
+        854
+      ],
+      "declared_in_input": true,
       "segments_slot_missing": true,
       "action": "scripted",
       "method": "original residual-seeded cutout",
       "source": "original.png",
       "segment_pixels": 0,
-      "residual_seed_pixels": 9862,
-      "original_roi_pixels": 36115,
+      "residual_seed_pixels": 7924,
+      "original_roi_pixels": 41511,
       "pivot": [
         728,
         594
@@ -82,14 +100,20 @@
       "slot": "hand_left",
       "part": "left_hand",
       "bone": "left_hand",
-      "declared_in_input": false,
+      "source_bbox": [
+        660,
+        727,
+        841,
+        902
+      ],
+      "declared_in_input": true,
       "segments_slot_missing": true,
       "action": "scripted",
       "method": "original residual-seeded cutout",
       "source": "original.png",
       "segment_pixels": 0,
-      "residual_seed_pixels": 7158,
-      "original_roi_pixels": 14711,
+      "residual_seed_pixels": 10222,
+      "original_roi_pixels": 29476,
       "pivot": [
         735,
         790
@@ -100,14 +124,20 @@
       "slot": "upper_arm_right",
       "part": "right_upper",
       "bone": "right_upper",
+      "source_bbox": [
+        309,
+        484,
+        423,
+        599
+      ],
       "declared_in_input": true,
       "segments_slot_missing": false,
       "action": "scripted",
       "method": "Segments crop/split",
       "source": "cybernetic-arm.png",
-      "segment_pixels": 8092,
-      "residual_seed_pixels": 381,
-      "original_roi_pixels": 8815,
+      "segment_pixels": 9221,
+      "residual_seed_pixels": 397,
+      "original_roi_pixels": 9960,
       "pivot": [
         383,
         488
@@ -118,14 +148,20 @@
       "slot": "lower_arm_right",
       "part": "right_fore",
       "bone": "right_fore",
+      "source_bbox": [
+        298,
+        587,
+        404,
+        802
+      ],
       "declared_in_input": true,
       "segments_slot_missing": false,
       "action": "scripted",
       "method": "Segments crop/split",
       "source": "cybernetic-arm.png",
-      "segment_pixels": 15249,
-      "residual_seed_pixels": 359,
-      "original_roi_pixels": 16645,
+      "segment_pixels": 15928,
+      "residual_seed_pixels": 385,
+      "original_roi_pixels": 17587,
       "pivot": [
         350,
         587
@@ -136,14 +172,20 @@
       "slot": "hand_right",
       "part": "right_hand",
       "bone": "right_hand",
+      "source_bbox": [
+        289,
+        749,
+        383,
+        941
+      ],
       "declared_in_input": true,
       "segments_slot_missing": false,
       "action": "scripted",
       "method": "Segments crop/split",
       "source": "cybernetic-arm.png",
-      "segment_pixels": 8611,
-      "residual_seed_pixels": 765,
-      "original_roi_pixels": 10579,
+      "segment_pixels": 11083,
+      "residual_seed_pixels": 831,
+      "original_roi_pixels": 13107,
       "pivot": [
         330,
         790
@@ -154,14 +196,20 @@
       "slot": "upper_leg_left",
       "part": "leg_left",
       "bone": "leg_left",
+      "source_bbox": [
+        424,
+        650,
+        586,
+        1079
+      ],
       "declared_in_input": true,
       "segments_slot_missing": false,
       "action": "scripted",
       "method": "Segments crop/split",
       "source": "black-combat-pants.png",
-      "segment_pixels": 28185,
-      "residual_seed_pixels": 2464,
-      "original_roi_pixels": 76752,
+      "segment_pixels": 32166,
+      "residual_seed_pixels": 2486,
+      "original_roi_pixels": 69498,
       "pivot": [
         535,
         708
@@ -172,14 +220,20 @@
       "slot": "lower_leg_left",
       "part": "shin_left",
       "bone": "knee_left",
-      "declared_in_input": false,
+      "source_bbox": [
+        380,
+        990,
+        552,
+        1377
+      ],
+      "declared_in_input": true,
       "segments_slot_missing": false,
       "action": "scripted",
       "method": "Segments crop/split",
       "source": "black-combat-pants.png",
-      "segment_pixels": 28040,
-      "residual_seed_pixels": 2811,
-      "original_roi_pixels": 57803,
+      "segment_pixels": 31925,
+      "residual_seed_pixels": 2918,
+      "original_roi_pixels": 58601,
       "pivot": [
         480,
         1034
@@ -190,6 +244,12 @@
       "slot": "foot_left",
       "part": "boot_left",
       "bone": "boot_left",
+      "source_bbox": [
+        347,
+        1343,
+        474,
+        1655
+      ],
       "declared_in_input": true,
       "segments_slot_missing": false,
       "action": "scripted",
@@ -208,14 +268,20 @@
       "slot": "upper_leg_right",
       "part": "leg_right",
       "bone": "leg_right",
+      "source_bbox": [
+        562,
+        682,
+        726,
+        1075
+      ],
       "declared_in_input": true,
       "segments_slot_missing": false,
       "action": "scripted",
       "method": "Segments crop/split",
       "source": "black-combat-pants.png",
-      "segment_pixels": 45032,
-      "residual_seed_pixels": 2625,
-      "original_roi_pixels": 56088,
+      "segment_pixels": 50127,
+      "residual_seed_pixels": 3305,
+      "original_roi_pixels": 64452,
       "pivot": [
         640,
         708
@@ -226,14 +292,20 @@
       "slot": "lower_leg_right",
       "part": "shin_right",
       "bone": "knee_right",
-      "declared_in_input": false,
+      "source_bbox": [
+        594,
+        974,
+        725,
+        1347
+      ],
+      "declared_in_input": true,
       "segments_slot_missing": false,
       "action": "scripted",
       "method": "Segments crop/split",
       "source": "black-combat-pants.png",
-      "segment_pixels": 30204,
-      "residual_seed_pixels": 2514,
-      "original_roi_pixels": 46633,
+      "segment_pixels": 35401,
+      "residual_seed_pixels": 2780,
+      "original_roi_pixels": 45623,
       "pivot": [
         656,
         1024
@@ -244,6 +316,12 @@
       "slot": "foot_right",
       "part": "boot_right",
       "bone": "boot_right",
+      "source_bbox": [
+        620,
+        1315,
+        801,
+        1604
+      ],
       "declared_in_input": true,
       "segments_slot_missing": false,
       "action": "scripted",
@@ -262,14 +340,20 @@
       "slot": "held_prop_gun",
       "part": "gun",
       "bone": "right_hand",
+      "source_bbox": [
+        815,
+        818,
+        923,
+        1115
+      ],
       "declared_in_input": true,
       "segments_slot_missing": true,
       "action": "scripted",
       "method": "original residual-seeded cutout",
       "source": "original.png",
       "segment_pixels": 0,
-      "residual_seed_pixels": 779,
-      "original_roi_pixels": 29630,
+      "residual_seed_pixels": 18265,
+      "original_roi_pixels": 18265,
       "pivot": [
         330,
         790

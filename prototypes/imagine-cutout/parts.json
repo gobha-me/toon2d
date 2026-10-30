@@ -1326,7 +1326,17 @@
       "texture_hd": "parts/hd/gun.png",
       "texture_pixel": "parts/pixel/gun.png",
       "amodal_attachment_completion": false,
-      "sprite_rotation_deg": 70.29598892393038
+      "sprite_rotation_deg": 70.29598892393038,
+      "source_bbox": [
+        815,
+        818,
+        923,
+        1115
+      ],
+      "source_to_rig_translation": [
+        -492,
+        -17
+      ]
     },
     {
       "id": "right_upper",

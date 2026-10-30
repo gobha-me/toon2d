@@ -119,6 +119,7 @@ def prepare(project: Path, overlap_px: int | None = None):
             pivot = spec['pivot']
             part.update(id=name, bone=bone, parent_bone=bone, pivot=pivot,
                         bbox=list(bbox), offset=[bbox[0]-pivot[0], bbox[1]-pivot[1]],
+                        source_bbox=list(bbox), source_to_rig_translation=[0, 0],
                         rotation_limits_deg=spec['rotation_limits_deg'], joint_overlap_px=overlap,
                         derived_from=derived, texture_hd='parts/hd/' + name + '.png',
                         amodal_attachment_completion=bool(caps))
@@ -178,6 +179,8 @@ def prepare(project: Path, overlap_px: int | None = None):
         bbox = layer.getbbox()
         part = parts[backing]
         part['bbox'] = list(bbox)
+        part['source_bbox'] = list(bbox)
+        part['source_to_rig_translation'] = [0, 0]
         part['offset'] = [bbox[i]-part['pivot'][i] for i in range(2)]
         part['derived_from'] = source_spec['derived_from'] + '; automatic source-colour circular attachment backing and manifest dilation'
         save_image(layer.crop(bbox), project/part['texture_hd'], part['derived_from'])

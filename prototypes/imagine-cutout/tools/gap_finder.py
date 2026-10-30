@@ -30,10 +30,19 @@ CARRIERS = {"left_fore": "left_arm", "left_hand": "left_arm",
             "shin_left": "leg_left", "shin_right": "leg_right"}
 
 
-def audit_bounds(slot: dict, by_part: dict, joints: dict, inputs: Path, ledger: dict):
+def audit_bounds(slot: dict, by_part: dict, joints: dict, inputs: Path, ledger: dict, prepared: dict):
     part = by_part.get(slot["part"])
     if part is not None:
-        return list(part.get("source_bbox", part["bbox"]))
+        if "source_bbox" in part:
+            return list(part["source_bbox"])
+        translation = part.get("source_to_rig_translation")
+        if translation is None and slot["part"] == "gun":
+            # Older preparation ledgers record the transplant as source/rig
+            # grip landmarks. Sprite-facing rotation never changes this bbox.
+            translation = [prepared["gun_grip_rig"][i] - prepared["gun_grip_source"][i]
+                           for i in range(2)]
+        translation = translation or [0, 0]
+        return [value - translation[i % 2] for i, value in enumerate(part["bbox"])]
     # Assembly replaces an upper carrier's bbox with its upper section. Only
     # the retained pre-split input can bound a missing lower section reliably.
     carrier = CARRIERS.get(slot["part"])
@@ -89,7 +98,7 @@ def audit(source: Path, project: Path) -> dict:
     slots = []
     for slot in manifest["slots"]:
         part = slot["part"]
-        bounds = audit_bounds(slot, by_part, joints, inputs, ledger)
+        bounds = audit_bounds(slot, by_part, joints, inputs, ledger, prepared)
         roi = np.zeros_like(known)
         if bounds is not None:
             x0, y0, x1, y1 = bounds

@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-10-30T17:27:02.511992+00:00",
+  "timestamp_utc": "2026-10-30T17:33:32.022974+00:00",
   "random_n": 200,
   "seed": 20261030,
   "full_acceptance_run": false,
@@ -16,17 +16,17 @@
       "name": "required slots, bones, parents, pivots, limits and overlap",
       "passed": false,
       "errors": [
-        {"error": "wrong skeletal parent; expected knee_left", "case_id": "parent/boot_left"},
-        {"error": "wrong skeletal parent; expected knee_right", "case_id": "parent/boot_right"},
-        {"error": "required Bone2D missing or duplicated", "case_id": "bone/left_fore"},
-        {"error": "required Bone2D missing or duplicated", "case_id": "bone/left_hand"},
-        {"error": "required Bone2D missing or duplicated", "case_id": "bone/knee_left"},
-        {"error": "required Bone2D missing or duplicated", "case_id": "bone/knee_right"},
-        {"error": "missing required textured slot head", "case_id": "slot/head_face"},
-        {"error": "missing required textured slot left_fore", "case_id": "slot/lower_arm_left"},
-        {"error": "missing required textured slot left_hand", "case_id": "slot/hand_left"},
-        {"error": "missing required textured slot shin_left", "case_id": "slot/lower_leg_left"},
-        {"error": "missing required textured slot shin_right", "case_id": "slot/lower_leg_right"}
+        {"case_id": "parent/boot_left", "error": "wrong skeletal parent; expected knee_left"},
+        {"case_id": "parent/boot_right", "error": "wrong skeletal parent; expected knee_right"},
+        {"case_id": "bone/left_fore", "error": "required Bone2D missing or duplicated"},
+        {"case_id": "bone/left_hand", "error": "required Bone2D missing or duplicated"},
+        {"case_id": "bone/knee_left", "error": "required Bone2D missing or duplicated"},
+        {"case_id": "bone/knee_right", "error": "required Bone2D missing or duplicated"},
+        {"case_id": "slot/head_face", "error": "missing required textured slot head"},
+        {"case_id": "slot/lower_arm_left", "error": "missing required textured slot left_fore"},
+        {"case_id": "slot/hand_left", "error": "missing required textured slot left_hand"},
+        {"case_id": "slot/lower_leg_left", "error": "missing required textured slot shin_left"},
+        {"case_id": "slot/lower_leg_right", "error": "missing required textured slot shin_right"}
       ]
     },
     "per_joint": {
@@ -293,7 +293,7 @@
       "name": "head/face and weapon arm direction",
       "passed": false,
       "errors": [
-        {"error": "missing head/face, gun or AnimationPlayer", "case_id": "facing/required-nodes"}
+        {"case_id": "facing/required-nodes", "error": "missing head/face, gun or AnimationPlayer"}
       ],
       "samples": []
     }

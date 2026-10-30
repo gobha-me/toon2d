@@ -1,6 +1,6 @@
-COMMAND ['godot', '--single-threaded-scene', '--headless', '--path', '<TMPDIR>/body-suite-e8lmyc3r/prototype', '--editor', '--import']
-heavy-run: memory ok: working set 6.48 GiB (memory.current 13.59 GiB - inactive_file 7.11 GiB), limit 13 GiB
-heavy-run: memory ok: working set 6.48 GiB (memory.current 13.59 GiB - inactive_file 7.11 GiB), limit 13 GiB
+COMMAND ['godot', '--single-threaded-scene', '--headless', '--path', '<TMPDIR>/body-suite-abf77if3/prototype', '--editor', '--import']
+heavy-run: memory ok: working set 7.48 GiB (memory.current 15.08 GiB - inactive_file 7.60 GiB), limit 13 GiB
+heavy-run: memory ok: working set 7.48 GiB (memory.current 15.08 GiB - inactive_file 7.60 GiB), limit 13 GiB
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 
 [   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
@@ -160,16 +160,16 @@ Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 [0m
 
 EXIT 0
-COMMAND ['godot', '--single-threaded-scene', '--headless', '--path', '<TMPDIR>/body-suite-e8lmyc3r/prototype', '--script', 'res://tests/check_body_parts.gd', '--', 'observe', '<TMPDIR>/body-suite-e8lmyc3r/captures']
-heavy-run: memory ok: working set 6.47 GiB (memory.current 13.58 GiB - inactive_file 7.11 GiB), limit 13 GiB
-heavy-run: memory ok: working set 6.47 GiB (memory.current 13.58 GiB - inactive_file 7.11 GiB), limit 13 GiB
+COMMAND ['godot', '--single-threaded-scene', '--headless', '--path', '<TMPDIR>/body-suite-abf77if3/prototype', '--script', 'res://tests/check_body_parts.gd', '--', 'observe', '<TMPDIR>/body-suite-abf77if3/captures']
+heavy-run: memory ok: working set 7.46 GiB (memory.current 15.07 GiB - inactive_file 7.61 GiB), limit 13 GiB
+heavy-run: memory ok: working set 7.46 GiB (memory.current 15.07 GiB - inactive_file 7.61 GiB), limit 13 GiB
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 
 
 EXIT 0
-COMMAND ['xvfb-run', '-a', 'godot', '--single-threaded-scene', '--path', '<TMPDIR>/body-suite-e8lmyc3r/prototype', '--audio-driver', 'Dummy', '--script', 'res://tests/check_body_parts.gd', '--', 'atlas', '<TMPDIR>/body-suite-e8lmyc3r/captures']
-heavy-run: memory ok: working set 6.47 GiB (memory.current 13.58 GiB - inactive_file 7.11 GiB), limit 13 GiB
-heavy-run: memory ok: working set 6.47 GiB (memory.current 13.58 GiB - inactive_file 7.11 GiB), limit 13 GiB
+COMMAND ['xvfb-run', '-a', 'godot', '--single-threaded-scene', '--path', '<TMPDIR>/body-suite-abf77if3/prototype', '--audio-driver', 'Dummy', '--script', 'res://tests/check_body_parts.gd', '--', 'atlas', '<TMPDIR>/body-suite-abf77if3/captures']
+heavy-run: memory ok: working set 7.46 GiB (memory.current 15.07 GiB - inactive_file 7.61 GiB), limit 13 GiB
+heavy-run: memory ok: working set 7.46 GiB (memory.current 15.07 GiB - inactive_file 7.61 GiB), limit 13 GiB
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 WARNING: Could not set V-Sync mode, as changing V-Sync mode is not supported by the graphics driver.
      at: set_use_vsync (platform/linuxbsd/x11/gl_manager_x11.cpp:372)

@@ -1,6 +1,6 @@
-COMMAND ['godot', '--single-threaded-scene', '--headless', '--path', '<TMPDIR>/suite-sczgb5mt/prototype', '--editor', '--import']
-heavy-run: memory ok: working set 6.45 GiB (memory.current 14.68 GiB - inactive_file 8.23 GiB), limit 13 GiB
-heavy-run: memory ok: working set 6.46 GiB (memory.current 14.69 GiB - inactive_file 8.23 GiB), limit 13 GiB
+COMMAND ['godot', '--single-threaded-scene', '--headless', '--path', '<TMPDIR>/suite-0k05nn7z/prototype', '--editor', '--import']
+heavy-run: memory ok: working set 7.56 GiB (memory.current 15.17 GiB - inactive_file 7.60 GiB), limit 13 GiB
+heavy-run: memory ok: working set 7.57 GiB (memory.current 15.17 GiB - inactive_file 7.60 GiB), limit 13 GiB
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 
 [   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
@@ -160,9 +160,9 @@ Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 [0m
 
 EXIT 0
-COMMAND ['godot', '--single-threaded-scene', '--headless', '--path', '<TMPDIR>/suite-sczgb5mt/prototype', '--script', 'res://tests/check_rig.gd', '--', 'observe', '<TMPDIR>/suite-sczgb5mt/captures']
-heavy-run: memory ok: working set 6.47 GiB (memory.current 14.71 GiB - inactive_file 8.23 GiB), limit 13 GiB
-heavy-run: memory ok: working set 6.47 GiB (memory.current 14.70 GiB - inactive_file 8.23 GiB), limit 13 GiB
+COMMAND ['godot', '--single-threaded-scene', '--headless', '--path', '<TMPDIR>/suite-0k05nn7z/prototype', '--script', 'res://tests/check_rig.gd', '--', 'observe', '<TMPDIR>/suite-0k05nn7z/captures']
+heavy-run: memory ok: working set 7.61 GiB (memory.current 15.22 GiB - inactive_file 7.60 GiB), limit 13 GiB
+heavy-run: memory ok: working set 7.62 GiB (memory.current 15.22 GiB - inactive_file 7.60 GiB), limit 13 GiB
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 
 WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.
@@ -567,9 +567,9 @@ WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skel
          [1] run (res://tests/check_rig.gd:233)
 
 EXIT 0
-COMMAND ['xvfb-run', '-a', 'godot', '--single-threaded-scene', '--path', '<TMPDIR>/suite-sczgb5mt/prototype', '--audio-driver', 'Dummy', '--script', 'res://tests/check_rig.gd', '--', 'render', '<TMPDIR>/suite-sczgb5mt/captures']
-heavy-run: memory ok: working set 6.47 GiB (memory.current 14.71 GiB - inactive_file 8.23 GiB), limit 13 GiB
-heavy-run: memory ok: working set 6.47 GiB (memory.current 14.71 GiB - inactive_file 8.23 GiB), limit 13 GiB
+COMMAND ['xvfb-run', '-a', 'godot', '--single-threaded-scene', '--path', '<TMPDIR>/suite-0k05nn7z/prototype', '--audio-driver', 'Dummy', '--script', 'res://tests/check_rig.gd', '--', 'render', '<TMPDIR>/suite-0k05nn7z/captures']
+heavy-run: memory ok: working set 7.61 GiB (memory.current 15.22 GiB - inactive_file 7.60 GiB), limit 13 GiB
+heavy-run: memory ok: working set 7.61 GiB (memory.current 15.22 GiB - inactive_file 7.60 GiB), limit 13 GiB
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 WARNING: Could not set V-Sync mode, as changing V-Sync mode is not supported by the graphics driver.
      at: set_use_vsync (platform/linuxbsd/x11/gl_manager_x11.cpp:372)

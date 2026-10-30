@@ -1,6 +1,6 @@
-COMMAND ['godot', '--single-threaded-scene', '--headless', '--path', '<TMPDIR>/suite-13uclh96/prototype', '--editor', '--import']
-heavy-run: memory ok: working set 6.46 GiB (memory.current 14.69 GiB - inactive_file 8.23 GiB), limit 13 GiB
-heavy-run: memory ok: working set 6.46 GiB (memory.current 14.69 GiB - inactive_file 8.23 GiB), limit 13 GiB
+COMMAND ['godot', '--single-threaded-scene', '--headless', '--path', '<TMPDIR>/suite-hwl68jxm/prototype', '--editor', '--import']
+heavy-run: memory ok: working set 7.53 GiB (memory.current 15.13 GiB - inactive_file 7.60 GiB), limit 13 GiB
+heavy-run: memory ok: working set 7.53 GiB (memory.current 15.13 GiB - inactive_file 7.60 GiB), limit 13 GiB
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 
 [   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
@@ -160,16 +160,16 @@ Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 [0m
 
 EXIT 0
-COMMAND ['godot', '--single-threaded-scene', '--headless', '--path', '<TMPDIR>/suite-13uclh96/prototype', '--script', 'res://tests/check_rig.gd', '--', 'observe', '<TMPDIR>/suite-13uclh96/captures']
-heavy-run: memory ok: working set 6.46 GiB (memory.current 14.69 GiB - inactive_file 8.23 GiB), limit 13 GiB
-heavy-run: memory ok: working set 6.46 GiB (memory.current 14.69 GiB - inactive_file 8.23 GiB), limit 13 GiB
+COMMAND ['godot', '--single-threaded-scene', '--headless', '--path', '<TMPDIR>/suite-hwl68jxm/prototype', '--script', 'res://tests/check_rig.gd', '--', 'observe', '<TMPDIR>/suite-hwl68jxm/captures']
+heavy-run: memory ok: working set 7.53 GiB (memory.current 15.13 GiB - inactive_file 7.60 GiB), limit 13 GiB
+heavy-run: memory ok: working set 7.53 GiB (memory.current 15.13 GiB - inactive_file 7.60 GiB), limit 13 GiB
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 
 
 EXIT 0
-COMMAND ['xvfb-run', '-a', 'godot', '--single-threaded-scene', '--path', '<TMPDIR>/suite-13uclh96/prototype', '--audio-driver', 'Dummy', '--script', 'res://tests/check_rig.gd', '--', 'render', '<TMPDIR>/suite-13uclh96/captures']
-heavy-run: memory ok: working set 6.46 GiB (memory.current 14.69 GiB - inactive_file 8.23 GiB), limit 13 GiB
-heavy-run: memory ok: working set 6.46 GiB (memory.current 14.69 GiB - inactive_file 8.23 GiB), limit 13 GiB
+COMMAND ['xvfb-run', '-a', 'godot', '--single-threaded-scene', '--path', '<TMPDIR>/suite-hwl68jxm/prototype', '--audio-driver', 'Dummy', '--script', 'res://tests/check_rig.gd', '--', 'render', '<TMPDIR>/suite-hwl68jxm/captures']
+heavy-run: memory ok: working set 7.53 GiB (memory.current 15.13 GiB - inactive_file 7.60 GiB), limit 13 GiB
+heavy-run: memory ok: working set 7.53 GiB (memory.current 15.13 GiB - inactive_file 7.60 GiB), limit 13 GiB
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 WARNING: Could not set V-Sync mode, as changing V-Sync mode is not supported by the graphics driver.
      at: set_use_vsync (platform/linuxbsd/x11/gl_manager_x11.cpp:372)

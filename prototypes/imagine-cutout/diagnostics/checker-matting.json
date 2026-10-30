@@ -1,0 +1,10 @@
+{
+  "input_mode": "RGB",
+  "background": "baked-checkerboard",
+  "border_grey_modes": [
+    252,
+    212
+  ],
+  "enclosed_background_islands": 1,
+  "removed_pixels": 1413739
+}

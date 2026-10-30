@@ -1,0 +1,29 @@
+; Godot 4.7.2.stable.official.ed1daf0bf -- generated assets are version pinned.
+config_version=5
+
+[application]
+config/name="Imagine Cutout / HD and Pixel PoC"
+config/description="Godot 4.7.2.stable.official.ed1daf0bf; 24 fps rigid-sprite cutout animation"
+run/main_scene="res://scenes/hd.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+
+[display]
+window/size/viewport_width=768
+window/size/viewport_height=896
+window/size/window_width_override=768
+window/size/window_height_override=896
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/default_filters/use_nearest_mipmap_filter=false
+textures/canvas_textures/default_texture_filter=1
+2d/snap/snap_2d_transforms_to_pixel=false
+2d/snap/snap_2d_vertices_to_pixel=false
+
+audio/driver/enable_input=false
+
+[threading]
+worker_pool/max_threads=2

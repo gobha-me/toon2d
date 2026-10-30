@@ -1,0 +1,18 @@
+{
+  "pixel_part_opaque_colours": 31,
+  "pixel_part_alpha_values": [
+    0,
+    255
+  ],
+  "pixel_render_max_colours_per_frame": {
+    "idle": 32,
+    "aim": 32,
+    "fire": 32,
+    "cooldown": 32
+  },
+  "default_overlap_px": 12,
+  "default_defringe_px": 2,
+  "pixel_edge_lightness_delta": 32,
+  "runtime_parts": 20,
+  "attachment_revision": "fix2"
+}

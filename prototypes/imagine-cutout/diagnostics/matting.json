@@ -1,0 +1,9 @@
+{
+  "input_mode": "RGB",
+  "background": "flat-grey",
+  "border_grey_modes": [
+    252
+  ],
+  "enclosed_background_islands": 2,
+  "removed_pixels": 1434973
+}

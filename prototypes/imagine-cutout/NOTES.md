@@ -366,3 +366,19 @@ in an intermediate capture is removed in the final captures. The retained
 [visual review](validation/v2/VISUAL-REVIEW.md) records provisional still-only
 scores and remaining source-cut shoulder edges / extreme-knee readability
 limits; numerical gap acceptance does not certify finished animation appeal.
+
+### Final recorded result
+
+The [final full source-backed run](validation/v2-sourced/SUMMARY.md) exits 0 for
+original tests, body acceptance, oracle controls and the extended mutant runner.
+All original tests 1–5 are green in both modes. Manifest/completeness, all
+22,722 HD seam observations across 1,082 poses, and 82 facing samples pass with
+zero gaps. **All eight mutants a–h are killed**, including c regenerated from
+raw exports and g removing an existing knee. Source-free development runs
+explicitly skip c; that skip is not counted as a kill.
+
+Preparation repeatability and all 20 unchanged pixel PNG hashes are recorded.
+The existing character took about 30 minutes wall time including validation,
+with no human intervention during the run. The broader plan's second character
+and the documented visual polish limits remain pending; they are not claimed
+as validated by these results. No test/manifest dispute was raised.

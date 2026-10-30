@@ -20,7 +20,7 @@ def main():
         project = Path(tmp) / 'prototype'
         shutil.copytree(PROJECT, project, ignore=shutil.ignore_patterns(
             'tests', 'validation', 'renders', 'comparisons', 'diagnostics', 'provenance', '.godot', '__pycache__'))
-        env = dict(os.environ, XDG_DATA_HOME=tmp+'/data', XDG_CONFIG_HOME=tmp+'/config', XDG_CACHE_HOME=tmp+'/cache',
+        env = dict(os.environ, XDG_DATA_HOME=tmp+'/xdg-data', XDG_CONFIG_HOME=tmp+'/xdg-config', XDG_CACHE_HOME=tmp+'/xdg-cache',
                    OMP_NUM_THREADS='2', OPENBLAS_NUM_THREADS='2', LP_NUM_THREADS='2', MAKEFLAGS='-j2')
         commands = [
             ['--headless', '--editor', '--import', '--quit'],

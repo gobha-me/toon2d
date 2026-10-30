@@ -1,0 +1,19 @@
+{
+  "prompt": "prompt not recorded",
+  "tool": "Grok Imagine (SpaceXAI)",
+  "model": "not disclosed",
+  "date": "2026-10-30T14:41:58Z",
+  "date_source": "download time; generation time not recorded",
+  "source": "dc2b1c33-d3d0-4c3e-b927-c04cc4e91c38",
+  "source_post_url": "https://grok.com/imagine/post/dc2b1c33-d3d0-4c3e-b927-c04cc4e91c38",
+  "feature": "Segments",
+  "derived_from": "Godot hd / idle (48 PNG frames, 768x896); re-encoded for size after review: ffmpeg fps=24, lanczos scale to 384x448, palettegen max_colors=64 stats_mode=diff, paletteuse dither=none, infinite GIF loop; GIF delays rounded to centiseconds",
+  "rights": "Original fictional art only; no real-person likeness.",
+  "license": "CC0 1.0",
+  "credit": "Generated with Grok Imagine (SpaceXAI)",
+  "previous_sidecar": {
+    "tool": "Grok Imagine",
+    "model": "not shown in UI",
+    "date": "2026-10-30"
+  }
+}

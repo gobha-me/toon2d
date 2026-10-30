@@ -221,8 +221,8 @@ Its `original.png` and flat JPG are source/matting evidence, not runtime parts.
   by ffmpeg `fps=24`, `palettegen` and `paletteuse`, without dithering; pixel GIFs
   are enlarged 6× with nearest neighbour. `renders/hd/idle.gif` was re-encoded
   for size after review (384×448, 64 colours, all 48 frames; about 0.6 MB instead
-  of 6 MB); the 768×896 PNG frames stay authoritative. Their sidecars use `.gif.sidecar.json`
-  to avoid replacing the neighbouring MP4 sidecars.
+  of 6 MB); the 768×896 PNG frames stay authoritative. Their provenance is in
+  `<clip>.gen.json` (the MP4s are not committed).
 - `keyposes/`: four authored endpoint PNGs.
 - `key-pose-contact.png`: breathing, raise, recoil/flash transition and lowering.
 - `joint_extremes/`: 34 PNGs, both prescribed rotation limits of every joint.
@@ -284,10 +284,15 @@ checkerboards, coloured backgrounds or grey subject pixels connected to the edge
 may need more constraints. The supplied JPG has a flat white background. The
 separate checkerboard demonstration is synthetic evidence of the same function.
 
-Every generated image/part has a `.sidecar.json`. Supplied source files remain
-read-only, so their sidecars are mirrored under `provenance/` with the same relative
-paths; `provenance/source-sha256.json` records their hashes. Provenance identifies
-Grok Imagine / Segments, model “not shown in UI”, 2026-10-30, the source post and
-the derivation. Original fictional art only; no real-person likeness.
+Every committed still has a `<name>.gen.json` sidecar (CONTRIBUTING format): prompt
+“prompt not recorded”, tool Grok Imagine (SpaceXAI), model “not disclosed”, and the
+UTC download time of its source post's Segments export as `date` (generation time was
+not recorded), plus `source` (parent post id), `derived_from` and the values of the
+earlier `*.sidecar.json` files they replace. Supplied source files remain read-only and
+uncommitted, so their `.gen.json` sidecars are mirrored under `provenance/` with the
+same relative paths; `provenance/source-sha256.json` records their hashes. Every still
+is listed in the repository `PROVENANCE.md` §2c (CC0 1.0). Original fictional art only;
+no real-person likeness. The build tools in `tools/` still emit `*.sidecar.json` when
+re-run; convert those before committing new outputs.
 
 See [NOTES.md](NOTES.md) for decisions, evidence and the duplicated per-part ledger.

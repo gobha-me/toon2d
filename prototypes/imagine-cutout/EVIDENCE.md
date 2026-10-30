@@ -41,7 +41,7 @@ The pixel attempt (a second post using the HD image as reference and asking for
 16-bit pixel art) returned a painterly image, not pixel art. Segments behaved the
 same way: hair, mech arm, coat, pants, 2 boots, collar ×2, belt, plus earring,
 shoulder patch and a text crop; head/face, left arm and gun were again missing.
-Its sidecars are in `provenance/parts/raw-pixel/`.
+Its `.gen.json` sidecars are in `provenance/parts/raw-pixel/`.
 
 ### Second data point: Luna's Imagine test (data credit: Luna)
 

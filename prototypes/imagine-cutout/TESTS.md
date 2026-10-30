@@ -202,3 +202,14 @@ real rig, every mutant is now judged against an all-green baseline.
 
 Test 5 remains a local rest-coverage check at each joint's limits, not proof
 that every combined pose is gap-free.
+
+## Issue 16: packaged mutant runner
+
+The runner resolves `tools/prep_parts.py` inside this prototype. Raw Segments
+PNGs are absent from the public clone (only provenance sidecars are committed).
+Mutant c therefore reports **SKIPPED**, naming `src/parts/raw-hd` and
+`original.png`; it is never credited as killed. A, b and d still run against
+fresh scene copies. No original assertion, coverage rule or tolerance changed.
+Godot uses one scene thread and a worker pool capped at two in scratch projects.
+Public logs replace temporary/repository/interpreter paths and omit host identity.
+Use `TEST_PYTHON=<existing Python with Pillow and NumPy>` if no local venv exists.

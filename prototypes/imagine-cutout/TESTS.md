@@ -84,7 +84,7 @@ assets only. The original JSON and test expectations remain the oracle for
 bone-removal detection. Because a baseline joint failure is possible, the mutant
 report distinguishes expected-test rejection from new/increased joint failures.
 
-## Recorded execution
+## Historical PoC execution (before this kit)
 
 Final real run: **2026-10-30T15:58:57.357715+00:00**, Godot 4.7.2; exit **1**.
 Both initial and final real runs produced the same joint counts. All frozen
@@ -370,3 +370,21 @@ historical kills cannot be mistaken for a current run.
 No paid/generation/forge operation was used. All commits are local test-lane
 commits. V2 rig implementation and source-image regeneration remain outside this
 lane; the red tests and unplantable knee mutation are the handoff to that work.
+
+### Final committed-source verification
+
+[final-fresh-clone.txt](tests/results/final-fresh-clone.txt) records a second clean
+local clone, detached at `e8a64c7b64773e33a721c6c760a58b82449a22e4`.
+The entire verification command ran under `heavy-run`, with each Godot child
+also guarded and at most two workers. Original tests **1-5 all pass** (68/68
+joint limits, zero gaps, no empty stencils); all five oracle controls pass.
+The full extended mutant run exits **0**, reproducing six kills and the two
+explicit unavailable scenarios. The committed-source HD kit baseline reproduces
+all expected reds and exactly the same 1,082-pose plan and three gap pixels.
+The current results and skipped-c evidence were copied back from that clone.
+
+Final scope verification confirms no production scene, script, tool, part,
+`parts.json` or project setting changed. Commit authors/committers and the exact
+required trailers were checked. The full change diff passes whitespace,
+private-path/host-name-pattern and redacted secret scans. No network/forge
+operation, installation, paid service, core dump or heavy-run bypass occurred.

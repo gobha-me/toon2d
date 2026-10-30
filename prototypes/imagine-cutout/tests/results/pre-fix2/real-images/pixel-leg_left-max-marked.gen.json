@@ -1,0 +1,14 @@
+{
+  "prompt": "prompt not recorded",
+  "tool": "Grok Imagine (SpaceXAI)",
+  "model": "not disclosed",
+  "date": "2026-10-30T14:41:58Z",
+  "date_source": "download time; generation time not recorded",
+  "source": "dc2b1c33-d3d0-4c3e-b927-c04cc4e91c38",
+  "source_post_url": "https://grok.com/imagine/post/dc2b1c33-d3d0-4c3e-b927-c04cc4e91c38",
+  "feature": "Segments",
+  "derived_from": "Failing-joint evidence image from the pre-fix baseline test run (commit b5b0251, before the seam fix); rendered from the prepared Segments + scripted-cutout parts; see tests/results/pre-fix2/SUMMARY.md",
+  "rights": "Original fictional art only; no real-person likeness.",
+  "license": "CC0 1.0",
+  "credit": "Generated with Grok Imagine (SpaceXAI)"
+}

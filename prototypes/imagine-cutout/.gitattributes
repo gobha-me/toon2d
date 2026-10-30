@@ -1,0 +1,8 @@
+# Binary sample art and renders for this prototype. Plain git storage (no LFS).
+*.png binary
+*.gif binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.mp4 binary
+*.zip binary

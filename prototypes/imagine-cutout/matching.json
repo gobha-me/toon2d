@@ -1,0 +1,121 @@
+{
+  "black-belt.png": {
+    "offset": [
+      517,
+      633
+    ],
+    "masked_rgb_sqdiff": 0.0
+  },
+  "black-combat-boots/black-combat-boots-1.png": {
+    "offset": [
+      623,
+      1324
+    ],
+    "masked_rgb_sqdiff": 0.007443
+  },
+  "black-combat-boots/black-combat-boots-2.png": {
+    "offset": [
+      343,
+      1353
+    ],
+    "masked_rgb_sqdiff": 0.017961
+  },
+  "black-combat-pants.png": {
+    "offset": [
+      391,
+      665
+    ],
+    "masked_rgb_sqdiff": 0.001469
+  },
+  "black-tactical-bodysuit.png": {
+    "offset": [
+      389,
+      234
+    ],
+    "masked_rgb_sqdiff": 0.000202
+  },
+  "cybernetic-arm.png": {
+    "offset": [
+      290,
+      481
+    ],
+    "masked_rgb_sqdiff": 0.00554
+  },
+  "cyberpunk-woman.png": {
+    "offset": [
+      268,
+      38
+    ],
+    "masked_rgb_sqdiff": 0.005979
+  },
+  "high-collar/high-collar-1.png": {
+    "offset": [
+      434,
+      217
+    ],
+    "masked_rgb_sqdiff": 0.026569
+  },
+  "high-collar/high-collar-2.png": {
+    "offset": [
+      500,
+      229
+    ],
+    "masked_rgb_sqdiff": 0.0
+  },
+  "illegible.png": {
+    "offset": [
+      356,
+      372
+    ],
+    "masked_rgb_sqdiff": 0.022887
+  },
+  "long-brown-trench-coat.png": {
+    "offset": [
+      265,
+      217
+    ],
+    "masked_rgb_sqdiff": 0.002621
+  },
+  "orange-glowing-accents/orange-glowing-accents-1.png": {
+    "offset": [
+      308,
+      653
+    ],
+    "masked_rgb_sqdiff": 0.0
+  },
+  "orange-glowing-accents/orange-glowing-accents-2.png": {
+    "offset": [
+      335,
+      489
+    ],
+    "masked_rgb_sqdiff": 0.0
+  },
+  "orange-glowing-accents/orange-glowing-accents-3.png": {
+    "offset": [
+      339,
+      675
+    ],
+    "masked_rgb_sqdiff": 0.0
+  },
+  "orange-glowing-accents/orange-glowing-accents-4.png": {
+    "offset": [
+      303,
+      848
+    ],
+    "masked_rgb_sqdiff": 0.183215
+  },
+  "orange-glowing-accents/orange-glowing-accents-5.png": {
+    "offset": [
+      303,
+      848
+    ],
+    "masked_rgb_sqdiff": 0.0
+  },
+  "short-black-hair.png": {
+    "offset": [
+      458,
+      39
+    ],
+    "masked_rgb_sqdiff": 0.083232
+  }
+}

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+set -euo pipefail
+printf '%s codexA %s %s\n' "$(date -Iseconds)" "$1" "$2" >> PHASE-LOG.txt

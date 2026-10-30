@@ -1,0 +1,326 @@
+{
+  "renders/hd/aim.mp4": {
+    "programs": [],
+    "streams": [
+      {
+        "width": 768,
+        "height": 896,
+        "r_frame_rate": "24/1",
+        "avg_frame_rate": "24/1",
+        "duration": "0.416667",
+        "nb_frames": "10"
+      }
+    ]
+  },
+  "renders/hd/cooldown.mp4": {
+    "programs": [],
+    "streams": [
+      {
+        "width": 768,
+        "height": 896,
+        "r_frame_rate": "24/1",
+        "avg_frame_rate": "24/1",
+        "duration": "0.583333",
+        "nb_frames": "14"
+      }
+    ]
+  },
+  "renders/hd/fire.mp4": {
+    "programs": [],
+    "streams": [
+      {
+        "width": 768,
+        "height": 896,
+        "r_frame_rate": "24/1",
+        "avg_frame_rate": "24/1",
+        "duration": "0.250000",
+        "nb_frames": "6"
+      }
+    ]
+  },
+  "renders/hd/idle.mp4": {
+    "programs": [],
+    "streams": [
+      {
+        "width": 768,
+        "height": 896,
+        "r_frame_rate": "24/1",
+        "avg_frame_rate": "24/1",
+        "duration": "2.000000",
+        "nb_frames": "48"
+      }
+    ]
+  },
+  "renders/hd/aim.gif": {
+    "width": 768,
+    "height": 896,
+    "frames": 10,
+    "frame_delays_ms": [
+      40,
+      40,
+      50,
+      40,
+      40,
+      40,
+      40,
+      40,
+      50,
+      40
+    ],
+    "total_ms": 420
+  },
+  "renders/hd/cooldown.gif": {
+    "width": 768,
+    "height": 896,
+    "frames": 14,
+    "frame_delays_ms": [
+      40,
+      40,
+      50,
+      40,
+      40,
+      40,
+      40,
+      40,
+      50,
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "total_ms": 580
+  },
+  "renders/hd/fire.gif": {
+    "width": 768,
+    "height": 896,
+    "frames": 6,
+    "frame_delays_ms": [
+      40,
+      40,
+      50,
+      40,
+      40,
+      40
+    ],
+    "total_ms": 250
+  },
+  "renders/hd/idle.gif": {
+    "width": 768,
+    "height": 896,
+    "frames": 48,
+    "frame_delays_ms": [
+      40,
+      40,
+      50,
+      40,
+      40,
+      40,
+      40,
+      40,
+      50,
+      40,
+      40,
+      40,
+      40,
+      40,
+      50,
+      40,
+      40,
+      40,
+      40,
+      40,
+      50,
+      40,
+      40,
+      40,
+      40,
+      40,
+      50,
+      40,
+      40,
+      40,
+      40,
+      40,
+      50,
+      40,
+      40,
+      40,
+      40,
+      40,
+      50,
+      40,
+      40,
+      40,
+      40,
+      40,
+      50,
+      40,
+      40,
+      40
+    ],
+    "total_ms": 2000
+  },
+  "renders/pixel/aim.mp4": {
+    "programs": [],
+    "streams": [
+      {
+        "width": 768,
+        "height": 864,
+        "r_frame_rate": "24/1",
+        "avg_frame_rate": "24/1",
+        "duration": "0.416667",
+        "nb_frames": "10"
+      }
+    ]
+  },
+  "renders/pixel/cooldown.mp4": {
+    "programs": [],
+    "streams": [
+      {
+        "width": 768,
+        "height": 864,
+        "r_frame_rate": "24/1",
+        "avg_frame_rate": "24/1",
+        "duration": "0.583333",
+        "nb_frames": "14"
+      }
+    ]
+  },
+  "renders/pixel/fire.mp4": {
+    "programs": [],
+    "streams": [
+      {
+        "width": 768,
+        "height": 864,
+        "r_frame_rate": "24/1",
+        "avg_frame_rate": "24/1",
+        "duration": "0.250000",
+        "nb_frames": "6"
+      }
+    ]
+  },
+  "renders/pixel/idle.mp4": {
+    "programs": [],
+    "streams": [
+      {
+        "width": 768,
+        "height": 864,
+        "r_frame_rate": "24/1",
+        "avg_frame_rate": "24/1",
+        "duration": "2.000000",
+        "nb_frames": "48"
+      }
+    ]
+  },
+  "renders/pixel/aim.gif": {
+    "width": 768,
+    "height": 864,
+    "frames": 10,
+    "frame_delays_ms": [
+      40,
+      40,
+      50,
+      40,
+      40,
+      40,
+      40,
+      40,
+      50,
+      40
+    ],
+    "total_ms": 420
+  },
+  "renders/pixel/cooldown.gif": {
+    "width": 768,
+    "height": 864,
+    "frames": 14,
+    "frame_delays_ms": [
+      40,
+      40,
+      50,
+      40,
+      40,
+      40,
+      40,
+      40,
+      50,
+      40,
+      40,
+      40,
+      40,
+      40
+    ],
+    "total_ms": 580
+  },
+  "renders/pixel/fire.gif": {
+    "width": 768,
+    "height": 864,
+    "frames": 6,
+    "frame_delays_ms": [
+      40,
+      40,
+      50,
+      40,
+      40,
+      40
+    ],
+    "total_ms": 250
+  },
+  "renders/pixel/idle.gif": {
+    "width": 768,
+    "height": 864,
+    "frames": 48,
+    "frame_delays_ms": [
+      40,
+      40,
+      50,
+      40,
+      40,
+      40,
+      40,
+      40,
+      50,
+      40,
+      40,
+      40,
+      40,
+      40,
+      50,
+      40,
+      40,
+      40,
+      40,
+      40,
+      50,
+      40,
+      40,
+      40,
+      40,
+      40,
+      50,
+      40,
+      40,
+      40,
+      40,
+      40,
+      50,
+      40,
+      40,
+      40,
+      40,
+      40,
+      50,
+      40,
+      40,
+      40,
+      40,
+      40,
+      50,
+      40,
+      40,
+      40
+    ],
+    "total_ms": 2000
+  }
+}

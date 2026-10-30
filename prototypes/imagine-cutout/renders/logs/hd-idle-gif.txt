@@ -1,0 +1,2 @@
+[Parsed_palettegen_3 @ 0x556dad4d7f40] Duped color: FF010101
+[Parsed_palettegen_3 @ 0x556dad4d7f40] Duped color: FF25211C

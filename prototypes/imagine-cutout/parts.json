@@ -1,0 +1,1186 @@
+{
+  "godot_version": "4.7.2.stable.official.ed1daf0bf",
+  "overlap_px": 12,
+  "defringe_px": 2,
+  "pixel_edge_lightness_delta": 32,
+  "pixel_height": 120,
+  "pixel_scale": 0.07421150278293136,
+  "pixel_canvas": [
+    85,
+    128
+  ],
+  "fps": 24,
+  "flash_frames": 3,
+  "canvas": [
+    1152,
+    1728
+  ],
+  "matting": {
+    "input_mode": "RGBA",
+    "background": "existing-alpha"
+  },
+  "gun_grip_source": [
+    822,
+    859
+  ],
+  "gun_muzzle_source": [
+    900,
+    1102
+  ],
+  "gun_grip_rig": [
+    330,
+    842
+  ],
+  "gun_muzzle_rig": [
+    408,
+    1085
+  ],
+  "bones": [
+    {
+      "name": "hip",
+      "parent": null,
+      "pivot": [
+        580,
+        680
+      ],
+      "rotation_limits_deg": [
+        -3,
+        3
+      ]
+    },
+    {
+      "name": "torso",
+      "parent": "hip",
+      "pivot": [
+        560,
+        390
+      ],
+      "rotation_limits_deg": [
+        -4,
+        4
+      ]
+    },
+    {
+      "name": "head",
+      "parent": "torso",
+      "pivot": [
+        562,
+        251
+      ],
+      "rotation_limits_deg": [
+        -8,
+        8
+      ]
+    },
+    {
+      "name": "hair",
+      "parent": "head",
+      "pivot": [
+        565,
+        112
+      ],
+      "rotation_limits_deg": [
+        -5,
+        5
+      ]
+    },
+    {
+      "name": "collar",
+      "parent": "torso",
+      "pivot": [
+        560,
+        290
+      ],
+      "rotation_limits_deg": [
+        -4,
+        4
+      ]
+    },
+    {
+      "name": "coat",
+      "parent": "torso",
+      "pivot": [
+        560,
+        410
+      ],
+      "rotation_limits_deg": [
+        -3,
+        3
+      ]
+    },
+    {
+      "name": "hem_left",
+      "parent": "coat",
+      "pivot": [
+        418,
+        700
+      ],
+      "rotation_limits_deg": [
+        -8,
+        8
+      ]
+    },
+    {
+      "name": "hem_center",
+      "parent": "coat",
+      "pivot": [
+        563,
+        700
+      ],
+      "rotation_limits_deg": [
+        -6,
+        6
+      ]
+    },
+    {
+      "name": "hem_right",
+      "parent": "coat",
+      "pivot": [
+        724,
+        700
+      ],
+      "rotation_limits_deg": [
+        -8,
+        8
+      ]
+    },
+    {
+      "name": "right_upper",
+      "parent": "torso",
+      "pivot": [
+        383,
+        488
+      ],
+      "rotation_limits_deg": [
+        -12,
+        85
+      ]
+    },
+    {
+      "name": "right_fore",
+      "parent": "right_upper",
+      "pivot": [
+        350,
+        587
+      ],
+      "rotation_limits_deg": [
+        -18,
+        20
+      ]
+    },
+    {
+      "name": "right_hand",
+      "parent": "right_fore",
+      "pivot": [
+        330,
+        790
+      ],
+      "rotation_limits_deg": [
+        -12,
+        12
+      ]
+    },
+    {
+      "name": "left_arm",
+      "parent": "torso",
+      "pivot": [
+        704,
+        365
+      ],
+      "rotation_limits_deg": [
+        -8,
+        8
+      ]
+    },
+    {
+      "name": "leg_left",
+      "parent": "hip",
+      "pivot": [
+        535,
+        708
+      ],
+      "rotation_limits_deg": [
+        -7,
+        7
+      ]
+    },
+    {
+      "name": "leg_right",
+      "parent": "hip",
+      "pivot": [
+        640,
+        708
+      ],
+      "rotation_limits_deg": [
+        -7,
+        7
+      ]
+    },
+    {
+      "name": "boot_left",
+      "parent": "leg_left",
+      "pivot": [
+        424,
+        1360
+      ],
+      "rotation_limits_deg": [
+        -6,
+        6
+      ]
+    },
+    {
+      "name": "boot_right",
+      "parent": "leg_right",
+      "pivot": [
+        672,
+        1340
+      ],
+      "rotation_limits_deg": [
+        -6,
+        6
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "id": "hip_backing",
+      "bone": "hip",
+      "z_order": -3,
+      "classification": "Segments-split",
+      "source": "segments",
+      "derived_from": "black-tactical-bodysuit.png: fixed pelvis backing behind both thigh seams",
+      "parent_bone": "hip",
+      "pivot": [
+        580,
+        680
+      ],
+      "offset": [
+        -90,
+        -50
+      ],
+      "bbox": [
+        490,
+        630,
+        720,
+        780
+      ],
+      "pixel_pivot": [
+        43,
+        50
+      ],
+      "pixel_bbox": [
+        36,
+        47,
+        53,
+        58
+      ],
+      "pixel_offset": [
+        -7,
+        -3
+      ],
+      "rotation_limits_deg": [
+        -3,
+        3
+      ],
+      "joint_overlap_px": 12,
+      "defringe_px": 2,
+      "attachment_note": "black-tactical-bodysuit.png: fixed pelvis backing behind both thigh seams",
+      "texture_hd": "parts/hd/hip_backing.png",
+      "texture_pixel": "parts/pixel/hip_backing.png",
+      "amodal_attachment_completion": false
+    },
+    {
+      "id": "coat_lining",
+      "bone": "coat",
+      "z_order": -2,
+      "classification": "Segments-split",
+      "source": "segments",
+      "derived_from": "long-brown-trench-coat.png: hidden back lining within coat hull; amodal nearest-coat-colour completion under torso, connected to waist seam",
+      "parent_bone": "coat",
+      "pivot": [
+        560,
+        410
+      ],
+      "offset": [
+        -110,
+        90
+      ],
+      "bbox": [
+        450,
+        500,
+        770,
+        712
+      ],
+      "pixel_pivot": [
+        42,
+        30
+      ],
+      "pixel_bbox": [
+        33,
+        37,
+        57,
+        53
+      ],
+      "pixel_offset": [
+        -9,
+        7
+      ],
+      "rotation_limits_deg": [
+        -3,
+        3
+      ],
+      "joint_overlap_px": 12,
+      "defringe_px": 2,
+      "attachment_note": "long-brown-trench-coat.png: hidden back lining within coat hull; amodal nearest-coat-colour completion under torso, connected to waist seam",
+      "texture_hd": "parts/hd/coat_lining.png",
+      "texture_pixel": "parts/pixel/coat_lining.png",
+      "amodal_attachment_completion": true
+    },
+    {
+      "id": "hem_center",
+      "bone": "hem_center",
+      "z_order": -1,
+      "classification": "Segments-split",
+      "source": "segments",
+      "derived_from": "long-brown-trench-coat.png: lower center; hidden upper back panel completed to actual waist seam at y=700 with nearest original back-tail colour",
+      "parent_bone": "hem_center",
+      "pivot": [
+        563,
+        700
+      ],
+      "offset": [
+        -57,
+        -12
+      ],
+      "bbox": [
+        506,
+        688,
+        630,
+        1267
+      ],
+      "pixel_pivot": [
+        42,
+        52
+      ],
+      "pixel_bbox": [
+        37,
+        51,
+        46,
+        94
+      ],
+      "pixel_offset": [
+        -5,
+        -1
+      ],
+      "rotation_limits_deg": [
+        -6,
+        6
+      ],
+      "joint_overlap_px": 12,
+      "defringe_px": 2,
+      "attachment_note": "long-brown-trench-coat.png: lower center; hidden upper back panel completed to actual waist seam at y=700 with nearest original back-tail colour",
+      "texture_hd": "parts/hd/hem_center.png",
+      "texture_pixel": "parts/pixel/hem_center.png",
+      "amodal_attachment_completion": true
+    },
+    {
+      "id": "torso",
+      "bone": "torso",
+      "z_order": 0,
+      "classification": "Segments-split",
+      "source": "segments",
+      "derived_from": "black-tactical-bodysuit.png: torso plus under-belt hip backing",
+      "parent_bone": "torso",
+      "pivot": [
+        560,
+        390
+      ],
+      "offset": [
+        -58,
+        -151
+      ],
+      "bbox": [
+        502,
+        239,
+        712,
+        762
+      ],
+      "pixel_pivot": [
+        42,
+        29
+      ],
+      "pixel_bbox": [
+        37,
+        18,
+        53,
+        56
+      ],
+      "pixel_offset": [
+        -5,
+        -11
+      ],
+      "rotation_limits_deg": [
+        -4,
+        4
+      ],
+      "joint_overlap_px": 12,
+      "defringe_px": 2,
+      "attachment_note": "black-tactical-bodysuit.png: torso plus under-belt hip backing",
+      "texture_hd": "parts/hd/torso.png",
+      "texture_pixel": "parts/pixel/torso.png",
+      "amodal_attachment_completion": false
+    },
+    {
+      "id": "leg_left",
+      "bone": "leg_left",
+      "z_order": 1,
+      "classification": "Segments-merged",
+      "source": "segments",
+      "derived_from": "black-combat-pants.png: left; black-tactical-bodysuit.png upper-thigh underlap; cuff backing extended behind boot by OVERLAP_PX",
+      "parent_bone": "leg_left",
+      "pivot": [
+        535,
+        708
+      ],
+      "offset": [
+        -155,
+        -58
+      ],
+      "bbox": [
+        380,
+        650,
+        586,
+        1377
+      ],
+      "pixel_pivot": [
+        40,
+        53
+      ],
+      "pixel_bbox": [
+        28,
+        48,
+        43,
+        102
+      ],
+      "pixel_offset": [
+        -12,
+        -5
+      ],
+      "rotation_limits_deg": [
+        -7,
+        7
+      ],
+      "joint_overlap_px": 12,
+      "defringe_px": 2,
+      "attachment_note": "black-combat-pants.png: left; black-tactical-bodysuit.png upper-thigh underlap; cuff backing extended behind boot by OVERLAP_PX",
+      "texture_hd": "parts/hd/leg_left.png",
+      "texture_pixel": "parts/pixel/leg_left.png",
+      "amodal_attachment_completion": false
+    },
+    {
+      "id": "leg_right",
+      "bone": "leg_right",
+      "z_order": 1,
+      "classification": "Segments-split",
+      "source": "segments",
+      "derived_from": "black-combat-pants.png: right",
+      "parent_bone": "leg_right",
+      "pivot": [
+        640,
+        708
+      ],
+      "offset": [
+        -78,
+        -26
+      ],
+      "bbox": [
+        562,
+        682,
+        726,
+        1347
+      ],
+      "pixel_pivot": [
+        47,
+        53
+      ],
+      "pixel_bbox": [
+        41,
+        51,
+        54,
+        100
+      ],
+      "pixel_offset": [
+        -6,
+        -2
+      ],
+      "rotation_limits_deg": [
+        -7,
+        7
+      ],
+      "joint_overlap_px": 12,
+      "defringe_px": 2,
+      "attachment_note": "black-combat-pants.png: right",
+      "texture_hd": "parts/hd/leg_right.png",
+      "texture_pixel": "parts/pixel/leg_right.png",
+      "amodal_attachment_completion": false
+    },
+    {
+      "id": "boot_left",
+      "bone": "boot_left",
+      "z_order": 4,
+      "classification": "Segments-usable",
+      "source": "segments",
+      "derived_from": "black-combat-boots-2.png",
+      "parent_bone": "boot_left",
+      "pivot": [
+        424,
+        1360
+      ],
+      "offset": [
+        -77,
+        -17
+      ],
+      "bbox": [
+        347,
+        1343,
+        474,
+        1655
+      ],
+      "pixel_pivot": [
+        31,
+        101
+      ],
+      "pixel_bbox": [
+        26,
+        99,
+        35,
+        123
+      ],
+      "pixel_offset": [
+        -5,
+        -2
+      ],
+      "rotation_limits_deg": [
+        -6,
+        6
+      ],
+      "joint_overlap_px": 12,
+      "defringe_px": 2,
+      "attachment_note": "black-combat-boots-2.png",
+      "texture_hd": "parts/hd/boot_left.png",
+      "texture_pixel": "parts/pixel/boot_left.png",
+      "amodal_attachment_completion": false
+    },
+    {
+      "id": "boot_right",
+      "bone": "boot_right",
+      "z_order": 4,
+      "classification": "Segments-usable",
+      "source": "segments",
+      "derived_from": "black-combat-boots-1.png",
+      "parent_bone": "boot_right",
+      "pivot": [
+        672,
+        1340
+      ],
+      "offset": [
+        -52,
+        -25
+      ],
+      "bbox": [
+        620,
+        1315,
+        801,
+        1604
+      ],
+      "pixel_pivot": [
+        50,
+        99
+      ],
+      "pixel_bbox": [
+        46,
+        97,
+        59,
+        119
+      ],
+      "pixel_offset": [
+        -4,
+        -2
+      ],
+      "rotation_limits_deg": [
+        -6,
+        6
+      ],
+      "joint_overlap_px": 12,
+      "defringe_px": 2,
+      "attachment_note": "black-combat-boots-1.png",
+      "texture_hd": "parts/hd/boot_right.png",
+      "texture_pixel": "parts/pixel/boot_right.png",
+      "amodal_attachment_completion": false
+    },
+    {
+      "id": "hem_left",
+      "bone": "hem_left",
+      "z_order": 6,
+      "classification": "Segments-split",
+      "source": "segments",
+      "derived_from": "long-brown-trench-coat.png: lower left",
+      "parent_bone": "hem_left",
+      "pivot": [
+        418,
+        700
+      ],
+      "offset": [
+        -150,
+        -12
+      ],
+      "bbox": [
+        268,
+        688,
+        532,
+        1349
+      ],
+      "pixel_pivot": [
+        31,
+        52
+      ],
+      "pixel_bbox": [
+        20,
+        51,
+        39,
+        100
+      ],
+      "pixel_offset": [
+        -11,
+        -1
+      ],
+      "rotation_limits_deg": [
+        -8,
+        8
+      ],
+      "joint_overlap_px": 12,
+      "defringe_px": 2,
+      "attachment_note": "long-brown-trench-coat.png: lower left",
+      "texture_hd": "parts/hd/hem_left.png",
+      "texture_pixel": "parts/pixel/hem_left.png",
+      "amodal_attachment_completion": false
+    },
+    {
+      "id": "hem_right",
+      "bone": "hem_right",
+      "z_order": 6,
+      "classification": "Segments-split",
+      "source": "segments",
+      "derived_from": "long-brown-trench-coat.png: lower right",
+      "parent_bone": "hem_right",
+      "pivot": [
+        724,
+        700
+      ],
+      "offset": [
+        -18,
+        -12
+      ],
+      "bbox": [
+        706,
+        688,
+        837,
+        1336
+      ],
+      "pixel_pivot": [
+        54,
+        52
+      ],
+      "pixel_bbox": [
+        52,
+        51,
+        62,
+        99
+      ],
+      "pixel_offset": [
+        -2,
+        -1
+      ],
+      "rotation_limits_deg": [
+        -8,
+        8
+      ],
+      "joint_overlap_px": 12,
+      "defringe_px": 2,
+      "attachment_note": "long-brown-trench-coat.png: lower right",
+      "texture_hd": "parts/hd/hem_right.png",
+      "texture_pixel": "parts/pixel/hem_right.png",
+      "amodal_attachment_completion": false
+    },
+    {
+      "id": "coat_yoke",
+      "bone": "coat",
+      "z_order": 8,
+      "classification": "Segments-split",
+      "source": "segments",
+      "derived_from": "long-brown-trench-coat.png: upper coat minus human sleeve",
+      "parent_bone": "coat",
+      "pivot": [
+        560,
+        410
+      ],
+      "offset": [
+        -223,
+        -188
+      ],
+      "bbox": [
+        337,
+        222,
+        753,
+        700
+      ],
+      "pixel_pivot": [
+        42,
+        30
+      ],
+      "pixel_bbox": [
+        25,
+        17,
+        55,
+        52
+      ],
+      "pixel_offset": [
+        -17,
+        -13
+      ],
+      "rotation_limits_deg": [
+        -3,
+        3
+      ],
+      "joint_overlap_px": 12,
+      "defringe_px": 2,
+      "attachment_note": "long-brown-trench-coat.png: upper coat minus human sleeve",
+      "texture_hd": "parts/hd/coat_yoke.png",
+      "texture_pixel": "parts/pixel/coat_yoke.png",
+      "amodal_attachment_completion": false
+    },
+    {
+      "id": "head",
+      "bone": "head",
+      "z_order": 12,
+      "classification": "SCRIPTED CUTOUT",
+      "source": "scripted-cutout",
+      "derived_from": "original.png: residual alpha + face bbox/skin heuristic",
+      "parent_bone": "head",
+      "pivot": [
+        562,
+        251
+      ],
+      "offset": [
+        -84,
+        -155
+      ],
+      "bbox": [
+        478,
+        96,
+        648,
+        287
+      ],
+      "pixel_pivot": [
+        42,
+        19
+      ],
+      "pixel_bbox": [
+        35,
+        7,
+        48,
+        21
+      ],
+      "pixel_offset": [
+        -7,
+        -12
+      ],
+      "rotation_limits_deg": [
+        -8,
+        8
+      ],
+      "joint_overlap_px": 12,
+      "defringe_px": 2,
+      "attachment_note": "original.png: residual alpha + face bbox/skin heuristic",
+      "texture_hd": "parts/hd/head.png",
+      "texture_pixel": "parts/pixel/head.png",
+      "amodal_attachment_completion": false
+    },
+    {
+      "id": "belt",
+      "bone": "hip",
+      "z_order": 18,
+      "classification": "Segments-usable",
+      "source": "segments",
+      "derived_from": "black-belt.png",
+      "parent_bone": "hip",
+      "pivot": [
+        580,
+        680
+      ],
+      "offset": [
+        -60,
+        -44
+      ],
+      "bbox": [
+        520,
+        636,
+        701,
+        692
+      ],
+      "pixel_pivot": [
+        43,
+        50
+      ],
+      "pixel_bbox": [
+        38,
+        47,
+        52,
+        51
+      ],
+      "pixel_offset": [
+        -5,
+        -3
+      ],
+      "rotation_limits_deg": [
+        -3,
+        3
+      ],
+      "joint_overlap_px": 12,
+      "defringe_px": 2,
+      "attachment_note": "black-belt.png",
+      "texture_hd": "parts/hd/belt.png",
+      "texture_pixel": "parts/pixel/belt.png",
+      "amodal_attachment_completion": false
+    },
+    {
+      "id": "left_arm",
+      "bone": "left_arm",
+      "z_order": 22,
+      "classification": "SCRIPTED CUTOUT",
+      "source": "scripted-cutout",
+      "derived_from": "original.png: residual hand + bbox-bounded sleeve, gun excluded",
+      "parent_bone": "left_arm",
+      "pivot": [
+        704,
+        365
+      ],
+      "offset": [
+        -14,
+        -20
+      ],
+      "bbox": [
+        690,
+        345,
+        829,
+        902
+      ],
+      "pixel_pivot": [
+        52,
+        27
+      ],
+      "pixel_bbox": [
+        51,
+        26,
+        61,
+        67
+      ],
+      "pixel_offset": [
+        -1,
+        -1
+      ],
+      "rotation_limits_deg": [
+        -8,
+        8
+      ],
+      "joint_overlap_px": 12,
+      "defringe_px": 2,
+      "attachment_note": "original.png: residual hand + bbox-bounded sleeve, gun excluded",
+      "texture_hd": "parts/hd/left_arm.png",
+      "texture_pixel": "parts/pixel/left_arm.png",
+      "amodal_attachment_completion": false
+    },
+    {
+      "id": "hair",
+      "bone": "hair",
+      "z_order": 23,
+      "classification": "Segments-usable",
+      "source": "segments",
+      "derived_from": "short-black-hair.png",
+      "parent_bone": "hair",
+      "pivot": [
+        565,
+        112
+      ],
+      "offset": [
+        -104,
+        -70
+      ],
+      "bbox": [
+        461,
+        42,
+        671,
+        213
+      ],
+      "pixel_pivot": [
+        42,
+        8
+      ],
+      "pixel_bbox": [
+        34,
+        3,
+        49,
+        16
+      ],
+      "pixel_offset": [
+        -8,
+        -5
+      ],
+      "rotation_limits_deg": [
+        -5,
+        5
+      ],
+      "joint_overlap_px": 12,
+      "defringe_px": 2,
+      "attachment_note": "short-black-hair.png",
+      "texture_hd": "parts/hd/hair.png",
+      "texture_pixel": "parts/pixel/hair.png",
+      "amodal_attachment_completion": false
+    },
+    {
+      "id": "collar",
+      "bone": "collar",
+      "z_order": 24,
+      "classification": "Segments-merged",
+      "source": "segments",
+      "derived_from": "high-collar-1.png + high-collar-2.png",
+      "parent_bone": "collar",
+      "pivot": [
+        560,
+        290
+      ],
+      "offset": [
+        -121,
+        -71
+      ],
+      "bbox": [
+        439,
+        219,
+        694,
+        385
+      ],
+      "pixel_pivot": [
+        42,
+        22
+      ],
+      "pixel_bbox": [
+        33,
+        16,
+        51,
+        28
+      ],
+      "pixel_offset": [
+        -9,
+        -6
+      ],
+      "rotation_limits_deg": [
+        -4,
+        4
+      ],
+      "joint_overlap_px": 12,
+      "defringe_px": 2,
+      "attachment_note": "high-collar-1.png + high-collar-2.png",
+      "texture_hd": "parts/hd/collar.png",
+      "texture_pixel": "parts/pixel/collar.png",
+      "amodal_attachment_completion": false
+    },
+    {
+      "id": "gun",
+      "bone": "right_hand",
+      "z_order": 25,
+      "classification": "SCRIPTED CUTOUT",
+      "source": "scripted-cutout",
+      "derived_from": "original.png: gun alpha + row/grip bbox heuristic; trigger hole nearest-colour filled; rigid transplant to mech hand",
+      "parent_bone": "right_hand",
+      "pivot": [
+        330,
+        790
+      ],
+      "offset": [
+        -7,
+        11
+      ],
+      "bbox": [
+        323,
+        801,
+        431,
+        1098
+      ],
+      "pixel_pivot": [
+        24,
+        59
+      ],
+      "pixel_bbox": [
+        24,
+        59,
+        32,
+        81
+      ],
+      "pixel_offset": [
+        0,
+        0
+      ],
+      "rotation_limits_deg": [
+        -12,
+        12
+      ],
+      "joint_overlap_px": 0,
+      "defringe_px": 2,
+      "attachment_note": "original.png: gun alpha + row/grip bbox heuristic; trigger hole nearest-colour filled; rigid transplant to mech hand",
+      "texture_hd": "parts/hd/gun.png",
+      "texture_pixel": "parts/pixel/gun.png",
+      "amodal_attachment_completion": false
+    },
+    {
+      "id": "right_upper",
+      "bone": "right_upper",
+      "z_order": 26,
+      "classification": "Segments-split",
+      "source": "segments",
+      "derived_from": "cybernetic-arm.png: right_upper",
+      "parent_bone": "right_upper",
+      "pivot": [
+        383,
+        488
+      ],
+      "offset": [
+        -74,
+        -4
+      ],
+      "bbox": [
+        309,
+        484,
+        423,
+        599
+      ],
+      "pixel_pivot": [
+        28,
+        36
+      ],
+      "pixel_bbox": [
+        23,
+        36,
+        31,
+        44
+      ],
+      "pixel_offset": [
+        -5,
+        0
+      ],
+      "rotation_limits_deg": [
+        -12,
+        85
+      ],
+      "joint_overlap_px": 12,
+      "defringe_px": 2,
+      "attachment_note": "cybernetic-arm.png: right_upper",
+      "texture_hd": "parts/hd/right_upper.png",
+      "texture_pixel": "parts/pixel/right_upper.png",
+      "amodal_attachment_completion": false
+    },
+    {
+      "id": "right_fore",
+      "bone": "right_fore",
+      "z_order": 26,
+      "classification": "Segments-split",
+      "source": "segments",
+      "derived_from": "cybernetic-arm.png: right_fore",
+      "parent_bone": "right_fore",
+      "pivot": [
+        350,
+        587
+      ],
+      "offset": [
+        -52,
+        0
+      ],
+      "bbox": [
+        298,
+        587,
+        404,
+        802
+      ],
+      "pixel_pivot": [
+        26,
+        44
+      ],
+      "pixel_bbox": [
+        22,
+        43,
+        30,
+        59
+      ],
+      "pixel_offset": [
+        -4,
+        -1
+      ],
+      "rotation_limits_deg": [
+        -18,
+        20
+      ],
+      "joint_overlap_px": 12,
+      "defringe_px": 2,
+      "attachment_note": "cybernetic-arm.png: right_fore",
+      "texture_hd": "parts/hd/right_fore.png",
+      "texture_pixel": "parts/pixel/right_fore.png",
+      "amodal_attachment_completion": false
+    },
+    {
+      "id": "right_hand",
+      "bone": "right_hand",
+      "z_order": 26,
+      "classification": "Segments-split",
+      "source": "segments",
+      "derived_from": "cybernetic-arm.png: right_hand",
+      "parent_bone": "right_hand",
+      "pivot": [
+        330,
+        790
+      ],
+      "offset": [
+        -37,
+        0
+      ],
+      "bbox": [
+        293,
+        790,
+        383,
+        941
+      ],
+      "pixel_pivot": [
+        24,
+        59
+      ],
+      "pixel_bbox": [
+        22,
+        59,
+        28,
+        70
+      ],
+      "pixel_offset": [
+        -2,
+        0
+      ],
+      "rotation_limits_deg": [
+        -12,
+        12
+      ],
+      "joint_overlap_px": 12,
+      "defringe_px": 2,
+      "attachment_note": "cybernetic-arm.png: right_hand",
+      "texture_hd": "parts/hd/right_hand.png",
+      "texture_pixel": "parts/pixel/right_hand.png",
+      "amodal_attachment_completion": false
+    }
+  ]
+}

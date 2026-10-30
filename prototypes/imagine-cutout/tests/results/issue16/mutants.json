@@ -1,0 +1,66 @@
+[
+  {
+    "mutant": "a",
+    "kind": "flash",
+    "files_changed": [
+      "scenes/hd.tscn",
+      "scenes/pixel.tscn"
+    ],
+    "expected_test": "3",
+    "observed_red_tests": [
+      "3"
+    ],
+    "new_red_tests": [
+      "3"
+    ],
+    "worsened_joints": [],
+    "status": "KILLED"
+  },
+  {
+    "mutant": "b",
+    "kind": "bone",
+    "files_changed": [
+      "scenes/hd.tscn",
+      "scenes/pixel.tscn"
+    ],
+    "expected_test": "1",
+    "observed_red_tests": [
+      "1",
+      "5"
+    ],
+    "new_red_tests": [
+      "1",
+      "5"
+    ],
+    "worsened_joints": [],
+    "status": "KILLED"
+  },
+  {
+    "mutant": "c",
+    "kind": "overlap",
+    "status": "SKIPPED",
+    "reason": "src/parts/raw-hd Segments PNG inputs (including original.png; not committed)",
+    "files_changed": [],
+    "expected_test": "5",
+    "observed_red_tests": [],
+    "new_red_tests": [],
+    "worsened_joints": []
+  },
+  {
+    "mutant": "d",
+    "kind": "timing",
+    "files_changed": [
+      "scenes/hd.tscn",
+      "scenes/pixel.tscn"
+    ],
+    "expected_test": "2",
+    "observed_red_tests": [
+      "2"
+    ],
+    "new_red_tests": [
+      "2"
+    ],
+    "worsened_joints": [],
+    "status": "KILLED"
+  }
+]

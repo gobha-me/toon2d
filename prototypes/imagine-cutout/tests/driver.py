@@ -267,6 +267,13 @@ def mutants() -> bool:
                                "reason": reason, "files_changed": [], "expected_test": expected,
                                "observed_red_tests": [], "new_red_tests": [], "worsened_joints": []})
                 print(f"SKIP mutant {name}: missing {reason}", flush=True)
+                # Replace historical success evidence too: a skipped trial must
+                # never leave an old KILLED result under its current filename.
+                result_dir = PROTOTYPE / "tests" / "results"
+                result_dir.mkdir(parents=True, exist_ok=True)
+                (result_dir / f"mutant-{name}.json").write_text(json.dumps(report[-1], indent=2) + "\n")
+                for suffix in ("godot.txt", "prep.txt"):
+                    (result_dir / f"mutant-{name}.{suffix}").write_text(f"SKIPPED: missing {reason}\n")
                 shutil.rmtree(work)
                 continue
             shutil.copytree(tool.parent, work / "tools", ignore=shutil.ignore_patterns("__pycache__"))
@@ -319,12 +326,28 @@ def mutants() -> bool:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("mode", choices=("suite", "mutants"))
+    parser.add_argument("mode", choices=("suite", "mutants", "body", "body-mutants", "all-mutants", "oracle"))
     parser.add_argument("--output", type=Path, default=PROTOTYPE / "tests" / "results" / "real.json")
     args = parser.parse_args()
     guard()
-    if args.mode == "mutants":
-        return 0 if mutants() else 1
+    if args.mode == "oracle":
+        import unittest
+        from test_body_oracle import GapOracleControls, PoseCoverageControls
+        checks = unittest.TestSuite(unittest.defaultTestLoader.loadTestsFromTestCase(case)
+                                    for case in (GapOracleControls, PoseCoverageControls))
+        return 0 if unittest.TextTestRunner(verbosity=2).run(checks).wasSuccessful() else 1
+    if args.mode in ("mutants", "all-mutants"):
+        legacy_passed = mutants()
+        if args.mode == "mutants":
+            return 0 if legacy_passed else 1
+        from body_driver import body_mutants
+        return 0 if body_mutants() and legacy_passed else 1
+    if args.mode in ("body", "body-mutants"):
+        from body_driver import body_suite, body_mutants
+        if args.mode == "body-mutants":
+            return 0 if body_mutants() else 1
+        result = body_suite(PROTOTYPE, PROTOTYPE / "tests" / "results" / "body-parts" / "red-first.json")
+        return 0 if result["passed"] else 1
     phase("real-suite", "start")
     result = suite(PROTOTYPE, args.output.resolve())
     phase("real-suite", "end")

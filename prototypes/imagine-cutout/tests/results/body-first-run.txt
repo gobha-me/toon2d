@@ -1,0 +1,6 @@
+BODY poses {'single': 42, 'pair': 840, 'random': 200}; random N=200 seed=20261030
+PASS body manifest: 0 failures
+FAIL body completeness: 10 failures
+FAIL body per_joint: 252 failures
+FAIL body combined: 6242 failures
+FAIL body facing: 25 failures

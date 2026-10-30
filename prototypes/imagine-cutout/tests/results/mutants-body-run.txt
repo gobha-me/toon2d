@@ -1,0 +1,18 @@
+Running mutant a: flash
+PASS mutant a: expected 3; red 3; KILLED; increased-gap joints 0
+Running mutant b: bone
+PASS mutant b: expected 1; red 1,5; KILLED; increased-gap joints 0
+Running mutant c: overlap
+SKIP mutant c: missing src/parts/raw-hd Segments PNG inputs (including original.png; not committed)
+Running mutant d: timing
+PASS mutant d: expected 2; red 2; KILLED; increased-gap joints 0
+BODY poses {'single': 42, 'pair': 840, 'random': 200}; random N=200 seed=20261030
+PASS body manifest: 0 failures
+FAIL body completeness: 10 failures
+FAIL body per_joint: 252 failures
+FAIL body combined: 6242 failures
+FAIL body facing: 25 failures
+PASS mutant e: KILLED; new relevant failures 1, increased-gap seams 0
+PASS mutant f: KILLED; new relevant failures 57, increased-gap seams 0
+SKIP mutant g: knee_left Bone2D does not exist in the PoC; no removed-knee mutant can be planted
+PASS mutant h: KILLED; new relevant failures 2, increased-gap seams 2

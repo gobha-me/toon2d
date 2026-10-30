@@ -30,6 +30,28 @@ CARRIERS = {"left_fore": "left_arm", "left_hand": "left_arm",
             "shin_left": "leg_left", "shin_right": "leg_right"}
 
 
+def audit_bounds(slot: dict, by_part: dict, joints: dict, inputs: Path, ledger: dict):
+    part = by_part.get(slot["part"])
+    if part is not None:
+        return list(part.get("source_bbox", part["bbox"]))
+    # Assembly replaces an upper carrier's bbox with its upper section. Only
+    # the retained pre-split input can bound a missing lower section reliably.
+    carrier = CARRIERS.get(slot["part"])
+    spec = ledger.get(carrier)
+    if spec is None:
+        return None
+    with Image.open(inputs / (carrier + ".png")) as image:
+        width, height = image.size
+    x0, y0 = spec["origin"]
+    x1, y1 = x0 + width, y0 + height
+    y0 = max(y0, slot["pivot"][1])
+    distal = [j["pivot"][1] for j in joints.values()
+              if j["parent"] == slot["bone"] and j["pivot"][1] > slot["pivot"][1]]
+    if distal:
+        y1 = min(y1, min(distal))
+    return [x0, y0, x1, max(y0, y1)]
+
+
 def audit(source: Path, project: Path) -> dict:
     manifest_path = project / "body_parts.yml"
     manifest = json.loads(manifest_path.read_text())
@@ -37,6 +59,9 @@ def audit(source: Path, project: Path) -> dict:
     matching = json.loads((project / "matching.json").read_text())
     by_part = {p["id"]: p for p in prepared["parts"]}
     joints = {j["name"]: j for j in manifest["joints"]}
+    inputs = project / "parts/kit-inputs"
+    ledger_path = inputs / "inputs.json"
+    ledger = json.loads(ledger_path.read_text()) if ledger_path.is_file() else {}
     size = tuple(manifest["source_canvas_px"])
     original = None
     if (source / "original.png").is_file():
@@ -61,23 +86,14 @@ def audit(source: Path, project: Path) -> dict:
     residual = None if original is None else (original[:, :, 3] > 127) & ~known
     if original is not None:
         hashes["original.png"] = hashlib.sha256((source / "original.png").read_bytes()).hexdigest()
-    yy, xx = np.ogrid[:size[1], :size[0]]
     slots = []
     for slot in manifest["slots"]:
         part = slot["part"]
-        carrier = by_part.get(CARRIERS.get(part, part))
+        bounds = audit_bounds(slot, by_part, joints, inputs, ledger)
         roi = np.zeros_like(known)
-        if carrier:
-            x0, y0, x1, y1 = carrier["bbox"]
-            roi[y0:y1, x0:x1] = True
-            # When auditing an already split rig, a lower section has its own bbox.
-            if part not in by_part:
-                roi &= yy >= slot["pivot"][1]
-            else:
-                children = [j for j in manifest["joints"] if j["parent"] == slot["bone"]]
-                distal = [j["pivot"][1] for j in children if j["pivot"][1] > slot["pivot"][1]]
-                if distal and part != "gun":
-                    roi &= yy < min(distal)
+        if bounds is not None:
+            x0, y0, x1, y1 = bounds
+            roi[max(0, y0):max(0, min(size[1], y1)), max(0, x0):max(0, min(size[0], x1))] = True
         filename = SEGMENTS.get(part)
         segment_pixels = int((aligned.get(filename, np.zeros_like(known)) & roi).sum())
         residual_pixels = int((residual & roi).sum()) if residual is not None else 0
@@ -87,6 +103,7 @@ def audit(source: Path, project: Path) -> dict:
         available = segment_pixels > 0 if filename else residual_pixels > 0
         method = "Segments crop/split" if filename else "original residual-seeded cutout"
         slots.append(dict(slot=slot["slot"], part=part, bone=slot["bone"],
+                          source_bbox=bounds,
                           declared_in_input=part in by_part,
                           segments_slot_missing=filename is None,
                           action="scripted" if available else "generate",

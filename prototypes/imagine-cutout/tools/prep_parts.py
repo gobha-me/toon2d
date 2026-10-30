@@ -224,6 +224,7 @@ def prepare(args):
     manifest = json.loads(manifest_path.read_text())
     W, H = manifest["source_canvas_px"]
     BONES = [(j["name"], j["parent"], j["pivot"], j["rotation_limits_deg"]) for j in manifest["joints"]]
+    overlap_override = args.overlap_px
     if args.overlap_px is None:
         values = {s["overlap_px"] for s in manifest["slots"] if s["part"] != "gun"}
         if len(values) != 1:
@@ -470,7 +471,7 @@ def prepare(args):
     (inputs / "inputs.json").write_text(json.dumps(ledger, indent=2) + "\n")
     if not (dest / "body_parts.yml").is_file():
         shutil.copy2(manifest_path, dest / "body_parts.yml")
-    prepare_kit(dest)
+    prepare_kit(dest, overlap_px=overlap_override)
     print(json.dumps(dict(parts=len(pieces),overlap_px=args.overlap_px,defringe_px=args.defringe_px,pixel_canvas=grid_size,output=str(dest))))
 
 

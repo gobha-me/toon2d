@@ -21,11 +21,19 @@ from prep_parts import extend_joint_pixels, fill_attachment, save_image
 PROJECT = Path(__file__).resolve().parents[1]
 
 
-def prepare(project: Path):
+def prepare(project: Path, overlap_px: int | None = None):
+    if overlap_px is not None and overlap_px < 0:
+        raise ValueError('overlap_px must be nonnegative')
     manifest = json.loads((project / 'body_parts.yml').read_text())
     data = json.loads((project / 'parts.json').read_text())
     joints = {j['name']: j for j in manifest['joints']}
     slots = {s['part']: s for s in manifest['slots']}
+    def overlap_for(name):
+        # The rigid prop never receives joint dilation, even with an override.
+        if name == 'gun':
+            return 0
+        return slots[name]['overlap_px'] if overlap_px is None else overlap_px
+
     parts = {p['id']: p for p in data['parts']}
     inputs = project / 'parts/kit-inputs'
     ledger = json.loads((inputs / 'inputs.json').read_text())
@@ -44,6 +52,10 @@ def prepare(project: Path):
     data['rig_template'] = 2
     data['manifest'] = 'body_parts.yml'
     data['pixel_backings'] = []
+    data['overlap_px'] = overlap_for('head')
+    if overlap_px is not None:
+        for name, part in parts.items():
+            part['joint_overlap_px'] = 0 if name == 'gun' else overlap_px
     # Keep the immutable pre-v2 crops as the preparation input, including their
     # reviewed source silhouettes and source-space origin, not reprocessed art.
     for carrier, sections in (
@@ -78,12 +90,11 @@ def prepare(project: Path):
                 nearest = np.argmin((colors_x-(px-sx))**2 + (colors_y-(py-sy))**2)
                 color = palette_image[colors_y[nearest], colors_x[nearest], :3].tolist()
                 child_part = next(name for name, owner in sections if owner == child)
-                data['pixel_backings'].append(dict(bone=child, radius=(radius+slots[child_part]['overlap_px'])*data['pixel_scale'],
+                data['pixel_backings'].append(dict(bone=child, radius=(radius+overlap_for(child_part))*data['pixel_scale'],
                                                    color=color, z_order=parts[carrier]['z_order']-1))
         for index, (name, bone) in enumerate(sections):
             spec = joints[bone]
-            slot = slots[name]
-            overlap = slot['overlap_px']
+            overlap = overlap_for(name)
             # Share only the prescribed overlap at a transverse split; joint
             # pivots and all parent links are read directly from the contract.
             low = 0 if index == 0 else spec['pivot'][1] - overlap
@@ -125,9 +136,9 @@ def prepare(project: Path):
     # Back exposed rotational attachments with the same material. Cap radii
     # come from each source cross-section; only the additional dilation margin
     # comes from the manifest. Keep backing attached to its actual parent bone.
-    common_overlap = slots['head']['overlap_px']
     for backing, attached in (('coat_lining', ['hem_left', 'hem_center', 'hem_right']),
                               ('right_hand', ['right_hand'])):
+        common_overlap = overlap_for(attached[0])
         source_spec = ledger[backing]
         canvas = Image.new('RGBA', (width, height))
         canvas.paste(Image.open(inputs/(backing+'.png')).convert('RGBA'), source_spec['origin'])
@@ -174,7 +185,7 @@ def prepare(project: Path):
         part = parts[name]
         joint = joints[slot['bone']]
         part.update(bone=slot['bone'], parent_bone=slot['part_parent_bone'], pivot=slot['pivot'],
-                    rotation_limits_deg=joint['rotation_limits_deg'], joint_overlap_px=slot['overlap_px'])
+                    rotation_limits_deg=joint['rotation_limits_deg'], joint_overlap_px=overlap_for(name))
     # Keep the reviewed face art looking toward the weapon throughout its
     # animation envelope. Rotate the complete hand/prop grip as a rigid unit;
     # no gun-targeting animation track, resampling or mirrored gun is required.
@@ -206,10 +217,14 @@ def prepare(project: Path):
                                 note='Static hand and prop rotation; reflected head/hair sprites; manifest joints unchanged')
     data['parts'] = sorted(parts.values(), key=lambda p: p['z_order'])
     (project / 'parts.json').write_text(json.dumps(data, indent=2) + '\n')
-    print(f'Prepared manifest v2: {len(ordered)} bones, {len(slots)} slots; retained pixel textures')
+    print(f'Prepared manifest v2: {len(ordered)} bones, {len(slots)} slots; overlap_px={data["overlap_px"]}; retained pixel textures')
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--project', type=Path, default=PROJECT)
-    prepare(parser.parse_args().project)
+    parser.add_argument('--overlap-px', type=int, default=None, help='default: manifest; 0 disables added overlap')
+    args = parser.parse_args()
+    if args.overlap_px is not None and args.overlap_px < 0:
+        parser.error('--overlap-px must be nonnegative')
+    prepare(args.project, overlap_px=args.overlap_px)

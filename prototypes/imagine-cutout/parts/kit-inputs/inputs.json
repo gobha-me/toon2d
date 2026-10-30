@@ -61,5 +61,18 @@
       293,
       790
     ]
+  },
+  "gun": {
+    "derived_from": "original.png: gun alpha + row/grip bbox heuristic; trigger hole nearest-colour filled; rigid transplant to mech hand",
+    "source_bbox": [
+      815,
+      818,
+      923,
+      1115
+    ],
+    "source_to_rig_translation": [
+      -492,
+      -17
+    ]
   }
 }

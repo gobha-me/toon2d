@@ -412,6 +412,8 @@ def prepare(args):
         entry={k:p[k] for k in ("id","bone","z_order","classification","source","derived_from")}
         entry.update(parent_bone=p["bone"],pivot=list(pivot),offset=[bbox[0]-pivot[0],bbox[1]-pivot[1]],
                      bbox=list(bbox),pixel_pivot=pp,pixel_bbox=list(pb),pixel_offset=[pb[0]-pp[0],pb[1]-pp[1]],
+                     source_bbox=list(Image.fromarray(p["raw_array"]).getbbox()),
+                     source_to_rig_translation=[sx,sy],
                      rotation_limits_deg=list(next(b[3] for b in BONES if b[0]==p["bone"])),
                      joint_overlap_px=0 if p["id"]=="gun" else args.overlap_px,
                      defringe_px=args.defringe_px,
@@ -466,8 +468,11 @@ def prepare(args):
         name = part["id"]
         shutil.copy2(dest / part["texture_hd"], inputs / (name + ".png"))
         sidecar(inputs / (name + ".png"), part["derived_from"] + "; immutable pre-split input")
-        ledger[name] = {k: part[k] for k in ("derived_from", "texture_pixel", "pixel_bbox")}
+        ledger[name] = {k: part[k] for k in ("derived_from", "texture_pixel", "pixel_bbox",
+                                          "source_bbox", "source_to_rig_translation")}
         ledger[name]["origin"] = part["bbox"][:2]
+    gun_entry = next(part for part in metadata["parts"] if part["id"] == "gun")
+    ledger["gun"] = {k: gun_entry[k] for k in ("derived_from", "source_bbox", "source_to_rig_translation")}
     (inputs / "inputs.json").write_text(json.dumps(ledger, indent=2) + "\n")
     if not (dest / "body_parts.yml").is_file():
         shutil.copy2(manifest_path, dest / "body_parts.yml")

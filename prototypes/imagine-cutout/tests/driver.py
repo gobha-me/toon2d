@@ -42,6 +42,30 @@ def phase(name: str, state: str) -> None:
             stream.write(f"{datetime.now(ZoneInfo('UTC')).isoformat()} codexB {name} {state}\n")
 
 
+def public_log(text: str) -> str:
+    """Keep ephemeral paths and host identity out of public test evidence."""
+    for path, label in ((str(TEMP), "<TMPDIR>"), (str(REPO), "<REPO>"),
+                        (sys.executable, "<PYTHON>")):
+        text = text.replace(path, label)
+    return "\n".join(line for line in text.splitlines()
+                     if not line.startswith("heavy-run: holding slot")) + "\n"
+
+
+def overlap_inputs() -> tuple[Path, Path, list[str]]:
+    """Resolve the packaged tool; source exports are optional, never invented."""
+    tool = PROTOTYPE / "tools" / "prep_parts.py"
+    candidates = (PROTOTYPE / "src", REPO / "src")
+    source = next((p for p in candidates if (p / "parts" / "raw-hd").is_dir()), candidates[0])
+    missing = []
+    if not tool.is_file():
+        missing.append("prototypes/imagine-cutout/tools/prep_parts.py")
+    raw = source / "parts" / "raw-hd"
+    # The preparer consumes all raw Segments images, including original.png.
+    if not (raw / "original.png").is_file() or not any(raw.glob("*.png")):
+        missing.append("src/parts/raw-hd Segments PNG inputs (including original.png; not committed)")
+    return tool, source, missing
+
+
 def heavy(command: list[str], cwd: Path, log: Path) -> None:
     """One worker; exit 75 never falls through to an unguarded invocation."""
     while True:
@@ -60,10 +84,10 @@ def heavy(command: list[str], cwd: Path, log: Path) -> None:
             except subprocess.TimeoutExpired:
                 os.killpg(process.pid, signal.SIGKILL)
                 output, _ = process.communicate()
-            log.write_text(output)
+            log.write_text(public_log(output))
             raise RuntimeError(f"timed out process group {process.pid}; see {log.name}")
         with log.open("a") as stream:
-            stream.write(f"COMMAND {command!r}\n{output}\nEXIT {process.returncode}\n")
+            stream.write(public_log(f"COMMAND {command!r}\n{output}\nEXIT {process.returncode}\n"))
         if process.returncode == 75:
             print("heavy-run deferred (75); retrying in 30 seconds", flush=True)
             time.sleep(30)
@@ -79,6 +103,9 @@ def clone(source: Path, destination: Path) -> None:
     guard()
     shutil.copytree(source, destination, ignore=shutil.ignore_patterns(
         "renders", ".godot", "results", "__pycache__", "mutants.log"))
+    # Imports/renders use one scene thread and at most two background workers.
+    with (destination / "project.godot").open("a") as stream:
+        stream.write("\n[threading]\nworker_pool/max_threads=2\n")
 
 
 def image_oracle(capture_dir: Path) -> list[dict]:
@@ -119,11 +146,11 @@ def suite(source: Path, output: Path, *, announce: bool = True) -> dict:
     captures.mkdir()
     clone(source, project)
     log = work / "godot.txt"
-    heavy(["godot", "--headless", "--path", str(project), "--editor", "--import"], project, log)
-    heavy(["godot", "--headless", "--path", str(project), "--script", "res://tests/check_rig.gd",
+    heavy(["godot", "--single-threaded-scene", "--headless", "--path", str(project), "--editor", "--import"], project, log)
+    heavy(["godot", "--single-threaded-scene", "--headless", "--path", str(project), "--script", "res://tests/check_rig.gd",
            "--", "observe", str(captures)], project, log)
     observed = json.loads((captures / "observed.json").read_text())
-    heavy(["xvfb-run", "-a", "godot", "--path", str(project), "--audio-driver", "Dummy",
+    heavy(["xvfb-run", "-a", "godot", "--single-threaded-scene", "--path", str(project), "--audio-driver", "Dummy",
            "--script", "res://tests/check_rig.gd", "--", "render", str(captures)], project, log)
     joints = image_oracle(captures)
     cases = {}
@@ -233,8 +260,24 @@ def mutants() -> bool:
         if kind == "overlap":
             guard()
             before_hashes = asset_hashes(project)
-            shutil.copytree(REPO / "tools", work / "tools", ignore=shutil.ignore_patterns("__pycache__"))
-            shutil.copytree(REPO / "src", work / "src")
+            tool, source, missing = overlap_inputs()
+            if missing:
+                reason = "; ".join(missing)
+                report.append({"mutant": name, "kind": kind, "status": "SKIPPED",
+                               "reason": reason, "files_changed": [], "expected_test": expected,
+                               "observed_red_tests": [], "new_red_tests": [], "worsened_joints": []})
+                print(f"SKIP mutant {name}: missing {reason}", flush=True)
+                # Replace historical success evidence too: a skipped trial must
+                # never leave an old KILLED result under its current filename.
+                result_dir = PROTOTYPE / "tests" / "results"
+                result_dir.mkdir(parents=True, exist_ok=True)
+                (result_dir / f"mutant-{name}.json").write_text(json.dumps(report[-1], indent=2) + "\n")
+                for suffix in ("godot.txt", "prep.txt"):
+                    (result_dir / f"mutant-{name}.{suffix}").write_text(f"SKIPPED: missing {reason}\n")
+                shutil.rmtree(work)
+                continue
+            shutil.copytree(tool.parent, work / "tools", ignore=shutil.ignore_patterns("__pycache__"))
+            shutil.copytree(source, work / "src")
             prep_log = work / "prep.txt"
             heavy([sys.executable, str(work / "tools" / "prep_parts.py"), "--pixel", "120",
                    "--overlap-px", "0", "--defringe-px", "2"], work, prep_log)
@@ -278,17 +321,33 @@ def mutants() -> bool:
     (PROTOTYPE / "mutants.log").write_text("\n".join(lines) + "\n")
     (PROTOTYPE / "tests" / "results" / "mutants.json").write_text(json.dumps(report, indent=2) + "\n")
     phase("mutants", "end")
-    return all(item["status"] == "KILLED" for item in report)
+    return all(item["status"] in ("KILLED", "SKIPPED") for item in report)
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("mode", choices=("suite", "mutants"))
+    parser.add_argument("mode", choices=("suite", "mutants", "body", "body-mutants", "all-mutants", "oracle"))
     parser.add_argument("--output", type=Path, default=PROTOTYPE / "tests" / "results" / "real.json")
     args = parser.parse_args()
     guard()
-    if args.mode == "mutants":
-        return 0 if mutants() else 1
+    if args.mode == "oracle":
+        import unittest
+        from test_body_oracle import GapOracleControls, PoseCoverageControls
+        checks = unittest.TestSuite(unittest.defaultTestLoader.loadTestsFromTestCase(case)
+                                    for case in (GapOracleControls, PoseCoverageControls))
+        return 0 if unittest.TextTestRunner(verbosity=2).run(checks).wasSuccessful() else 1
+    if args.mode in ("mutants", "all-mutants"):
+        legacy_passed = mutants()
+        if args.mode == "mutants":
+            return 0 if legacy_passed else 1
+        from body_driver import body_mutants
+        return 0 if body_mutants() and legacy_passed else 1
+    if args.mode in ("body", "body-mutants"):
+        from body_driver import body_suite, body_mutants
+        if args.mode == "body-mutants":
+            return 0 if body_mutants() else 1
+        result = body_suite(PROTOTYPE, PROTOTYPE / "tests" / "results" / "body-parts" / "red-first.json")
+        return 0 if result["passed"] else 1
     phase("real-suite", "start")
     result = suite(PROTOTYPE, args.output.resolve())
     phase("real-suite", "end")

@@ -18,8 +18,8 @@ License files: `LICENSE` (Apache-2.0 for code/skill), `LICENSE-ART` (CC BY 4.0 h
 
 - Hand-made / code-drawn / derived-from-code-drawn (tracked media rows): **227** (CC BY 4.0)
 - AI-generated source stills: **22** (CC0 1.0; 21× Grok Imagine via cursor `GenerateImage`, 1× local mirror derived from one of them)
-- Imagine cutout prototype (§2c): **33** Grok Imagine Segments source stills (not committed; `.gen.json` sidecars only) and **193** committed derived stills (CC0 1.0)
-- Derived from AI sources (atlases, shots, work, prototype binaries): **147** (CC0 with sources), plus the 193 imagine-cutout stills in §2c
+- Imagine cutout prototype (§2c): **33** Grok Imagine Segments source stills (not committed; `.gen.json` sidecars only) and **202** committed derived stills including v2 review/evidence (CC0 1.0)
+- Derived from AI sources (atlases, shots, work, prototype binaries): **147** (CC0 with sources), plus the 202 imagine-cutout stills in §2c
 - Private-project-derived included: **0**
 - Real-person / likeness stills included: **0** (see §2 real-person check)
 
@@ -494,6 +494,14 @@ Grok Imagine (SpaceXAI) **Segments** exports from two Imagine posts, rigged in G
 
 - HD post `dc2b1c33-d3d0-4c3e-b927-c04cc4e91c38`: Download All zip entries stamped **2026-10-30T14:41:58Z**.
 - Pixel attempt post `e8878ac2-6b8a-4873-bae2-12b21910230e` (the HD image as reference): zip entries stamped **2026-10-30T14:44:48Z**.
+- **Three out-of-zip originals use proxy dates**, not measured original-file download times:
+  `src/parts/raw-hd/original.png` uses the HD zip entry time above;
+  `src/parts/raw-pixel/original.png` and
+  `src/parts/raw-pixel/grok-image-e8878ac2-6b8a-4873-bae2-12b21910230e.jpg`
+  use the pixel-post zip entry time. These files were obtained separately, outside
+  Download All. Their own download and generation timestamps were not recorded.
+  The association is with the same post, not a claim that the originals occurred
+  in those archives. Their mirrored `.gen.json` files explicitly label the proxy.
 - Exact prompt text and generation times were not recorded for either post, so every row uses **prompt not recorded** and the download time (CONTRIBUTING.md:10-11). Do not invent prompts.
 - Each still has `<name>.gen.json` beside it (source stills: under `provenance/`, mirroring the uncommitted `src/` tree); each records `source` (the parent post id), `derived_from`, and, where an older `*.sidecar.json` existed, its tool/model/date values (`previous_sidecar`). The 41 pre-fix test evidence images had no sidecar before.
 
@@ -517,7 +525,7 @@ Grok Imagine (SpaceXAI) **Segments** exports from two Imagine posts, rigged in G
 | `src/parts/raw-hd/orange-glowing-accents/orange-glowing-accents-3.png` (not committed) | Grok Imagine (SpaceXAI) | not disclosed | 2026-10-30T14:41:58Z | download time; generation time not recorded | prompt not recorded | Segments export, post `dc2b1c33`; sidecar `prototypes/imagine-cutout/provenance/parts/raw-hd/orange-glowing-accents/orange-glowing-accents-3.gen.json` | CC0 1.0 | Generated with Grok Imagine (SpaceXAI) |
 | `src/parts/raw-hd/orange-glowing-accents/orange-glowing-accents-4.png` (not committed) | Grok Imagine (SpaceXAI) | not disclosed | 2026-10-30T14:41:58Z | download time; generation time not recorded | prompt not recorded | Segments export, post `dc2b1c33`; sidecar `prototypes/imagine-cutout/provenance/parts/raw-hd/orange-glowing-accents/orange-glowing-accents-4.gen.json` | CC0 1.0 | Generated with Grok Imagine (SpaceXAI) |
 | `src/parts/raw-hd/orange-glowing-accents/orange-glowing-accents-5.png` (not committed) | Grok Imagine (SpaceXAI) | not disclosed | 2026-10-30T14:41:58Z | download time; generation time not recorded | prompt not recorded | Segments export, post `dc2b1c33`; sidecar `prototypes/imagine-cutout/provenance/parts/raw-hd/orange-glowing-accents/orange-glowing-accents-5.gen.json` | CC0 1.0 | Generated with Grok Imagine (SpaceXAI) |
-| `src/parts/raw-hd/original.png` (not committed) | Grok Imagine (SpaceXAI) | not disclosed | 2026-10-30T14:41:58Z | download time; generation time not recorded | prompt not recorded | Segments export, post `dc2b1c33`; sidecar `prototypes/imagine-cutout/provenance/parts/raw-hd/original.gen.json` | CC0 1.0 | Generated with Grok Imagine (SpaceXAI) |
+| `src/parts/raw-hd/original.png` (not committed) | Grok Imagine (SpaceXAI) | not disclosed | 2026-10-30T14:41:58Z | associated Segments zip time proxy; original download/generation times not recorded | prompt not recorded | Outside-zip original, associated post `dc2b1c33`; sidecar `prototypes/imagine-cutout/provenance/parts/raw-hd/original.gen.json` | CC0 1.0 | Generated with Grok Imagine (SpaceXAI) |
 | `src/parts/raw-hd/short-black-hair.png` (not committed) | Grok Imagine (SpaceXAI) | not disclosed | 2026-10-30T14:41:58Z | download time; generation time not recorded | prompt not recorded | Segments export, post `dc2b1c33`; sidecar `prototypes/imagine-cutout/provenance/parts/raw-hd/short-black-hair.gen.json` | CC0 1.0 | Generated with Grok Imagine (SpaceXAI) |
 | `src/parts/raw-pixel/belt.png` (not committed) | Grok Imagine (SpaceXAI) | not disclosed | 2026-10-30T14:44:48Z | download time; generation time not recorded | prompt not recorded | Segments export, post `e8878ac2`; sidecar `prototypes/imagine-cutout/provenance/parts/raw-pixel/belt.gen.json` | CC0 1.0 | Generated with Grok Imagine (SpaceXAI) |
 | `src/parts/raw-pixel/black-tactical-pants.png` (not committed) | Grok Imagine (SpaceXAI) | not disclosed | 2026-10-30T14:44:48Z | download time; generation time not recorded | prompt not recorded | Segments export, post `e8878ac2`; sidecar `prototypes/imagine-cutout/provenance/parts/raw-pixel/black-tactical-pants.gen.json` | CC0 1.0 | Generated with Grok Imagine (SpaceXAI) |
@@ -527,11 +535,11 @@ Grok Imagine (SpaceXAI) **Segments** exports from two Imagine posts, rigged in G
 | `src/parts/raw-pixel/cybernetic-arm.png` (not committed) | Grok Imagine (SpaceXAI) | not disclosed | 2026-10-30T14:44:48Z | download time; generation time not recorded | prompt not recorded | Segments export, post `e8878ac2`; sidecar `prototypes/imagine-cutout/provenance/parts/raw-pixel/cybernetic-arm.gen.json` | CC0 1.0 | Generated with Grok Imagine (SpaceXAI) |
 | `src/parts/raw-pixel/cyberpunk-woman.png` (not committed) | Grok Imagine (SpaceXAI) | not disclosed | 2026-10-30T14:44:48Z | download time; generation time not recorded | prompt not recorded | Segments export, post `e8878ac2`; sidecar `prototypes/imagine-cutout/provenance/parts/raw-pixel/cyberpunk-woman.gen.json` | CC0 1.0 | Generated with Grok Imagine (SpaceXAI) |
 | `src/parts/raw-pixel/earring.png` (not committed) | Grok Imagine (SpaceXAI) | not disclosed | 2026-10-30T14:44:48Z | download time; generation time not recorded | prompt not recorded | Segments export, post `e8878ac2`; sidecar `prototypes/imagine-cutout/provenance/parts/raw-pixel/earring.gen.json` | CC0 1.0 | Generated with Grok Imagine (SpaceXAI) |
-| `src/parts/raw-pixel/grok-image-e8878ac2-6b8a-4873-bae2-12b21910230e.jpg` (not committed) | Grok Imagine (SpaceXAI) | not disclosed | 2026-10-30T14:44:48Z | download time; generation time not recorded | prompt not recorded | Segments export, post `e8878ac2`; sidecar `prototypes/imagine-cutout/provenance/parts/raw-pixel/grok-image-e8878ac2-6b8a-4873-bae2-12b21910230e.gen.json` | CC0 1.0 | Generated with Grok Imagine (SpaceXAI) |
+| `src/parts/raw-pixel/grok-image-e8878ac2-6b8a-4873-bae2-12b21910230e.jpg` (not committed) | Grok Imagine (SpaceXAI) | not disclosed | 2026-10-30T14:44:48Z | associated Segments zip time proxy; original download/generation times not recorded | prompt not recorded | Outside-zip original, associated post `e8878ac2`; sidecar `prototypes/imagine-cutout/provenance/parts/raw-pixel/grok-image-e8878ac2-6b8a-4873-bae2-12b21910230e.gen.json` | CC0 1.0 | Generated with Grok Imagine (SpaceXAI) |
 | `src/parts/raw-pixel/high-collar/high-collar-1.png` (not committed) | Grok Imagine (SpaceXAI) | not disclosed | 2026-10-30T14:44:48Z | download time; generation time not recorded | prompt not recorded | Segments export, post `e8878ac2`; sidecar `prototypes/imagine-cutout/provenance/parts/raw-pixel/high-collar/high-collar-1.gen.json` | CC0 1.0 | Generated with Grok Imagine (SpaceXAI) |
 | `src/parts/raw-pixel/high-collar/high-collar-2.png` (not committed) | Grok Imagine (SpaceXAI) | not disclosed | 2026-10-30T14:44:48Z | download time; generation time not recorded | prompt not recorded | Segments export, post `e8878ac2`; sidecar `prototypes/imagine-cutout/provenance/parts/raw-pixel/high-collar/high-collar-2.gen.json` | CC0 1.0 | Generated with Grok Imagine (SpaceXAI) |
 | `src/parts/raw-pixel/illegible.png` (not committed) | Grok Imagine (SpaceXAI) | not disclosed | 2026-10-30T14:44:48Z | download time; generation time not recorded | prompt not recorded | Segments export, post `e8878ac2`; sidecar `prototypes/imagine-cutout/provenance/parts/raw-pixel/illegible.gen.json` | CC0 1.0 | Generated with Grok Imagine (SpaceXAI) |
-| `src/parts/raw-pixel/original.png` (not committed) | Grok Imagine (SpaceXAI) | not disclosed | 2026-10-30T14:44:48Z | download time; generation time not recorded | prompt not recorded | Segments export, post `e8878ac2`; sidecar `prototypes/imagine-cutout/provenance/parts/raw-pixel/original.gen.json` | CC0 1.0 | Generated with Grok Imagine (SpaceXAI) |
+| `src/parts/raw-pixel/original.png` (not committed) | Grok Imagine (SpaceXAI) | not disclosed | 2026-10-30T14:44:48Z | associated Segments zip time proxy; original download/generation times not recorded | prompt not recorded | Outside-zip original, associated post `e8878ac2`; sidecar `prototypes/imagine-cutout/provenance/parts/raw-pixel/original.gen.json` | CC0 1.0 | Generated with Grok Imagine (SpaceXAI) |
 | `src/parts/raw-pixel/short-black-hair.png` (not committed) | Grok Imagine (SpaceXAI) | not disclosed | 2026-10-30T14:44:48Z | download time; generation time not recorded | prompt not recorded | Segments export, post `e8878ac2`; sidecar `prototypes/imagine-cutout/provenance/parts/raw-pixel/short-black-hair.gen.json` | CC0 1.0 | Generated with Grok Imagine (SpaceXAI) |
 | `src/parts/raw-pixel/shoulder-patch.png` (not committed) | Grok Imagine (SpaceXAI) | not disclosed | 2026-10-30T14:44:48Z | download time; generation time not recorded | prompt not recorded | Segments export, post `e8878ac2`; sidecar `prototypes/imagine-cutout/provenance/parts/raw-pixel/shoulder-patch.gen.json` | CC0 1.0 | Generated with Grok Imagine (SpaceXAI) |
 
@@ -774,3 +782,25 @@ None included in this repository.
 
 _Updated 2026-10-27 (UTC): AI still model/date filled from GenerateImage/C2PA trace; CC0 1.0 final; real-person check added._
 _Updated 2026-10-30 (UTC): §2c imagine-cutout stills added (prompt not recorded; download-time dates)._
+
+### Body-part kit v2 scripted derivatives (2026-10-30 UTC)
+
+The historical §2c still inventory above describes the PoC. V2 adds these
+source-derived assets; none is a new AI generation. Tool: Python/OpenCV/Pillow
+scripted derivation, source tool Grok Imagine (SpaceXAI), source model **not
+disclosed**, prompt **prompt not recorded**, license **CC0 1.0**. Each new still
+has an adjacent `.gen.json` recording its date basis and source. Existing HD
+lining, hand, sleeve and thigh stills are rebuilt with the same provenance and
+new scripted creation times. Existing pixel PNGs are unchanged.
+
+| New stills | Source and operation |
+|---|---|
+| `prototypes/imagine-cutout/parts/hd/left_fore.png`, `left_hand.png` | Residual-seeded original sleeve/hand crop, split at manifest elbow/wrist with source-colour backing. |
+| `prototypes/imagine-cutout/parts/hd/shin_left.png`, `shin_right.png` | Segments trouser crops, split at manifest knees with source-colour round caps. |
+| `prototypes/imagine-cutout/parts/kit-inputs/{left_arm,leg_left,leg_right,coat_lining,right_hand}.png` | Exact retained PoC crop copies used as immutable preparation inputs; copied source provenance is adjacent. |
+| `prototypes/imagine-cutout/validation/v2/review-final/{rest,aim,fire,knees,contact}.png` | Godot captures of these source-derived sprites; contact is a display reduction of the four native captures. |
+| PNGs below `prototypes/imagine-cutout/validation/` | Unretouched native Godot test evidence, copied from disposable runs; adjacent sidecars identify the source-derived art. These do not replace historical test-lane evidence. |
+
+See the v2 notes in `prototypes/imagine-cutout/NOTES.md` for the explicit zip-time
+proxy dating of the three separately saved source originals. Derivation times
+are not source generation times. Generated with Grok Imagine (SpaceXAI).

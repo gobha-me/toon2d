@@ -1,0 +1,1 @@
+SKIPPED: missing src/parts/raw-hd Segments PNG inputs (including original.png; not committed)

@@ -1,0 +1,10 @@
+Fresh local clone; detached checkout f8e38b9fe2fc86165d8bb35060b503491d9b2545
+Running mutant a: flash
+PASS mutant a: expected 3; red 3; KILLED; increased-gap joints 0
+Running mutant b: bone
+PASS mutant b: expected 1; red 1,5; KILLED; increased-gap joints 0
+Running mutant c: overlap
+SKIP mutant c: missing src/parts/raw-hd Segments PNG inputs (including original.png; not committed)
+Running mutant d: timing
+PASS mutant d: expected 2; red 2; KILLED; increased-gap joints 0
+EXIT 0

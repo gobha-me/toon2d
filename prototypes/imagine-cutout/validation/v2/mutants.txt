@@ -1,0 +1,20 @@
+2026-10-30T19:39:55.593641+00:00 mutants
+Running mutant a: flash
+PASS mutant a: expected 3; red 3; KILLED; increased-gap joints 0
+Running mutant b: bone
+PASS mutant b: expected 1; red 1,5; KILLED; increased-gap joints 0
+Running mutant c: overlap
+SKIP mutant c: missing src/parts/raw-hd Segments PNG inputs (including original.png; not committed)
+Running mutant d: timing
+PASS mutant d: expected 2; red 2; KILLED; increased-gap joints 0
+BODY poses {'single': 42, 'pair': 840, 'random': 200}; random N=200 seed=20261030
+PASS body manifest: 0 failures
+PASS body completeness: 0 failures
+PASS body per_joint: 0 failures
+PASS body combined: 0 failures
+PASS body facing: 0 failures
+PASS mutant e: KILLED; new relevant failures 1, increased-gap seams 0
+PASS mutant f: KILLED; new relevant failures 82, increased-gap seams 0
+PASS mutant g: KILLED; new relevant failures 4, increased-gap seams 0
+PASS mutant h: KILLED; new relevant failures 2, increased-gap seams 2
+EXIT 0

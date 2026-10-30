@@ -1,7 +1,7 @@
 # Independent rig acceptance tests
 
 Run `prototypes/imagine-cutout/tests/run_tests.sh` from any directory. Run
-`prototypes/imagine-cutout/tests/run_mutants.sh` for the four planted mutants.
+`prototypes/imagine-cutout/tests/run_mutants.sh` for all eight planted-mutant scenarios (explicit skips are reported).
 The repository's `.venv/bin/python`, Godot, Xvfb, Pillow and NumPy are required.
 The runners enforce quiet hours, at least 5 GiB free on the repository and `/tmp`,
 two CPU workers, a fresh `/tmp/tween-<runid>` and EXIT cleanup. Every Godot process
@@ -84,7 +84,7 @@ assets only. The original JSON and test expectations remain the oracle for
 bone-removal detection. Because a baseline joint failure is possible, the mutant
 report distinguishes expected-test rejection from new/increased joint failures.
 
-## Recorded execution
+## Historical PoC execution (before this kit)
 
 Final real run: **2026-10-30T15:58:57.357715+00:00**, Godot 4.7.2; exit **1**.
 Both initial and final real runs produced the same joint counts. All frozen
@@ -202,3 +202,189 @@ real rig, every mutant is now judged against an all-green baseline.
 
 Test 5 remains a local rest-coverage check at each joint's limits, not proof
 that every combined pose is gap-free.
+
+## Issue 16: packaged mutant runner
+
+The runner resolves `tools/prep_parts.py` inside this prototype. Raw Segments
+PNGs are absent from the public clone (only provenance sidecars are committed).
+Mutant c therefore reports **SKIPPED**, naming `src/parts/raw-hd` and
+`original.png`; it is never credited as killed. A, b and d still run against
+fresh scene copies. No original assertion, coverage rule or tolerance changed.
+Godot uses one scene thread and a worker pool capped at two in scratch projects.
+Public logs replace temporary/repository/interpreter paths and omit host identity.
+Use `TEST_PYTHON=<existing Python with Pillow and NumPy>` if no local venv exists.
+
+## Body-part kit: test lane contract and red-first run
+
+`body_parts.yml`, the new observers and all evidence live beside the existing
+prototype tests. This keeps the PoC project self-contained for disposable copies
+and fresh-clone proof; no production scene, script, tool or asset is changed.
+The manifest is JSON-compatible YAML 1.2, readable with the existing Python
+standard library and Godot JSON parser. No additional dependency is needed.
+
+Run from the repository root, with `TEST_PYTHON` set if needed:
+
+```bash
+prototypes/imagine-cutout/tests/run_body_tests.sh       # full HD acceptance, expected exit 1 on PoC
+prototypes/imagine-cutout/tests/runner.sh oracle       # small oracle and sampler controls
+prototypes/imagine-cutout/tests/run_tests.sh           # original HD + pixel acceptance
+prototypes/imagine-cutout/tests/run_mutants.sh         # original a-d plus new e-h
+prototypes/imagine-cutout/tests/runner.sh body-mutants  # e-h with a full fresh baseline
+```
+
+The kit applies to HD. The original pixel tests remain intact as regressions;
+no pixel assets are created. The manifest freezes 14 slots and 21 joints,
+including the existing hip, torso and garment joints. `bone`/`part_parent_bone`
+name the slot's owning bone; `parent_bone` names that joint's skeletal parent.
+Each slot has a source-pixel pivot, limits, overlap and reasons. Existing values
+come from the committed PoC `parts.json`. Proposed left elbow/wrist and knee
+pivots and limits are labeled **v2 proposal**. Feet retain their PoC pivots and
+limits but require knee parents. The head/face is the single `head_face` slot.
+The gun remains a rigid prop with its original zero-dilation exception.
+
+Completeness observes the loaded HD scene directly, checking each required
+Bone2D, its actual parent, source-space rest pivot and limits, each textured
+slot's owning bone, nonempty texture, and the subject's declared pivot, offset
+and overlap. Deleting a declaration cannot reduce the expected inventory.
+Changing a test-owned pivot, limit or tolerance requires a tests commit.
+
+### Poses, native rendering and frozen oracle
+
+`body_driver.py` freezes **COMBINED_RANDOM_N = 200** and
+**COMBINED_SEED = 20261030**. There are 42 single-joint limit poses. The combined
+set always contains all **840** cases from `C(21,2) * 4` min/max combinations,
+**in addition to** the 200 random poses. Pairwise cases leave the other joints
+at rest; each random case draws every joint within its manifest limits. Missing
+joints remain scheduled and fail; they are never removed from the pose plan.
+The complete 1,082-pose plan and its SHA-256 are retained with the run evidence.
+
+For each pose and each manifest joint, the independent observer instantiates the
+real HD scene, stops animation and restores every actual bone before assigning
+the scheduled rotations. It renders three **72 x 72 native-pixel** tiles: the
+parent-transported rest union U, the child-transported U, and the actual complete
+posed scene over magenta. U consists of the real sprites directly on the joint
+and its parent. In combined poses the reference transforms are
+`posed_parent * inverse(rest_parent)` and `posed_child * inverse(rest_child)`;
+both therefore include all ancestor rotations. Crops follow the actual posed
+joint pivot. Other actual parts remain visible and can provide real backing.
+
+Tiles are clipped individually into one atlas per pose, avoiding tens of
+thousands of separate framebuffer saves. Native texture filtering and the
+original test-5 stencil are retained: radius **32**, reference alpha **>=128**,
+magenta tolerance **3** per channel and allowed gap pixels **0**. An empty
+non-root stencil fails. No erosion, dilation, image cleanup, error allowance or
+post-failure tolerance change is applied. The root has no mating seam.
+The observer reports missing manifest bones or parent chains as failures rather
+than attempting to implement or synthesize them.
+
+The atlas and original observer agree exactly on gap and stencil counts for all
+30 comparable HD limits; see
+[atlas-calibration.txt](tests/results/body-parts/atlas-calibration.txt). The
+comparison uses fresh-clone mutant-d captures: its timing mutation cannot alter
+joint captures, which explicitly reset all bones to rest. Five independent
+controls pass: one-pixel rejection, alpha/key boundaries, empty-stencil rejection,
+exterior-pixel exclusion and exhaustive/deterministic pose coverage.
+
+Facing observes the real head and gun sprite transforms at all **82** animation
+frames/endpoints. The visually reviewed head axis is image-right. Gun direction
+uses the frozen PoC grip/muzzle points in gun-texture coordinates, including
+inherited transforms and sprite flip flags. The transformed horizontal axes must
+have matching signs; a numerical zero is unobservable and fails. This is a
+sagittal left/right test for this cutout's frozen artwork, not general image
+recognition. Changing the artwork requires a new reviewed test-owned facing axis.
+
+### Current PoC evidence
+
+[red-first.json](tests/results/body-parts/red-first.json) and its Godot log retain
+the complete failing run, with every pose/seam count, missing-feature error,
+facing sample, manifest hash and pose hash. `red-first.poses.json` retains all
+angles. The initial command transcript is
+[body-first-run.txt](tests/results/body-first-run.txt). Representative native
+atlases for single, pairwise and random poses are retained in `red-first-images/`.
+The full mutant command transcript is `tests/results/mutants-body-run.txt`.
+
+| Check | PoC result | Reason |
+|---|---|---|
+| Manifest schema/inventory | GREEN | 14 frozen slots and 21 joints, reasons and fixed tolerances validate. |
+| Completeness | RED, 10 errors | Left lower arm/hand and both lower-leg slots absent; left elbow/wrist and both knees absent; boots remain directly on thigh bones. |
+| Per-joint gaps | RED, 252 of 882 seam observations | Six required joint/parent chains are missing in each of 42 poses. All 630 observable seam observations have zero gap pixels. |
+| Combined gaps | RED, 6,242 of 21,840 seam observations | 6,240 missing-chain errors plus two observable failures: `random/057` hem_right has 1 gap pixel; `random/148` hem_right has 2. |
+| Facing | RED, 25 of 82 samples | Head looks right while the raised weapon arm points left during aim, fire and cooldown samples. |
+| Oracle/sampler controls | GREEN, 5 checks | Strict pixel rejection and complete, reproducible extreme coverage. |
+
+The new reds are expected test-first requirements. No rig feature was added,
+no gap was filtered, and no missing or unobservable feature was certified.
+
+### Fresh-clone issue-16 proof
+
+[fresh-clone.txt](tests/results/issue16/fresh-clone.txt) records a fresh local
+`git clone --no-hardlinks`, detached checkout of tests commit
+`f8e38b9fe2fc86165d8bb35060b503491d9b2545`, and the mutant command's **exit 0**.
+Fresh Godot imports, observations and native renders killed **a, b and d** in
+their expected tests. **c SKIPPED** with a clear missing `src/parts/raw-hd`
+Segments PNG / `original.png` message. Its tool is committed in the prototype;
+the raw source images are not. Per-mutant JSON and Godot transcripts from that
+clone are retained under `tests/results/issue16/`. The baseline existing tests
+were green, and no original assertion or tolerance changed. This is a controlled
+skip, not a claim that all four original mutants can run from a public clone.
+
+### Planted mutants stand in for mutation testing
+
+The existing runner is extended to a-h. Every mutation is applied exclusively
+to disposable scene/asset copies; the manifest, limits, tolerances, N and seed
+remain unchanged. Each trial runs all 42 per-joint poses and the completeness
+and facing checks. Combined acceptance is always run in full on a fresh
+baseline; these focused mutant trials do not certify combined poses.
+
+| Mutant | Planted subject change | Relevant result |
+|---|---|---|
+| a | Fire flash off-key shifted to 5/24 s | KILLED by original flash test 3. |
+| b | Hair bone and its sprite removed | KILLED by original hierarchy test 1. |
+| c | Regenerate from raw sources with overlap 0 | SKIPPED: public clone has no raw Segments PNGs. |
+| d | First idle key shifted to 0.01 s | KILLED by original timing test 2. |
+| e | Remove only the head/face sprite, retaining its bone | KILLED: new `slot/head_face` completeness failure. |
+| f | Flip only the head sprite horizontally | KILLED: 57 newly failing animation samples, including previously green idle poses. |
+| g | Remove a knee bone | CANNOT_PLANT: `knee_left` is already absent. Existing red checks are not credited as a kill. |
+| h | Clear all source-space alpha shared by the right upper/lower arm from the lower arm; set that part's overlap declaration to 0 | KILLED: new native gap pixels at the right elbow's min and max limits. |
+
+Mutant h is a test-only zero-physical-overlap carve of the committed textures,
+not a claim to reproduce the source-based preparation command of mutant c.
+Its report records 1,127 removed shared pixels and right elbow gaps rising
+from 0 to 124 pixels at minimum and 0 to 140 at maximum.
+The kill requires an increase in actual gap pixels; a changed overlap declaration
+or existing missing knees alone cannot kill it. The cut uses the same source
+pivots and offsets as the committed textures and clears their entire shared alpha
+region, leaving zero shared coverage for this arm pair at rest.
+
+Because the baseline already fails v2 completeness and facing, e/f/g must add
+specific failure keys absent from the baseline. Flipping the head corrects some
+raised-arm mismatches but introduces 57 other failures; those newly red samples
+are the evidence for f. Full per-mutant JSON and Godot logs are under
+[tests/results/body-parts/](tests/results/body-parts/); `mutants.json` there records
+e-h, while `tests/results/mutants.json` records a-d. A **zero mutant-run exit**
+means every plantable trial was killed and every unavailable trial was explicitly
+reported; it does not mean the real rig passes acceptance or all eight were
+planted. Skipped c files are overwritten with SKIPPED evidence, so earlier
+historical kills cannot be mistaken for a current run.
+
+No paid/generation/forge operation was used. All commits are local test-lane
+commits. V2 rig implementation and source-image regeneration remain outside this
+lane; the red tests and unplantable knee mutation are the handoff to that work.
+
+### Final committed-source verification
+
+[final-fresh-clone.txt](tests/results/final-fresh-clone.txt) records a second clean
+local clone, detached at `e8a64c7b64773e33a721c6c760a58b82449a22e4`.
+The entire verification command ran under `heavy-run`, with each Godot child
+also guarded and at most two workers. Original tests **1-5 all pass** (68/68
+joint limits, zero gaps, no empty stencils); all five oracle controls pass.
+The full extended mutant run exits **0**, reproducing six kills and the two
+explicit unavailable scenarios. The committed-source HD kit baseline reproduces
+all expected reds and exactly the same 1,082-pose plan and three gap pixels.
+The current results and skipped-c evidence were copied back from that clone.
+
+Final scope verification confirms no production scene, script, tool, part,
+`parts.json` or project setting changed. Commit authors/committers and the exact
+required trailers were checked. The full change diff passes whitespace,
+private-path/host-name-pattern and redacted secret scans. No network/forge
+operation, installation, paid service, core dump or heavy-run bypass occurred.

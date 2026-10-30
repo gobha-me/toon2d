@@ -1,0 +1,281 @@
+{
+  "schema_version": 1,
+  "manifest_sha256": "9650b5714447a517897dc872458f3865d9be095cf513cb96dfbb397dc9ae3bec",
+  "source_sha256": {
+    "black-belt.png": "6a84565fd14c9fde38e3c895b0f3b6b4f71e909ace657cba8c416aa2d9e03fe1",
+    "black-combat-boots/black-combat-boots-1.png": "c78aaf218f0c1286b0bb37df2dbcc4b2e213bb5afbeb3a6f186ad1074c592d3e",
+    "black-combat-boots/black-combat-boots-2.png": "dc651932c2e0d40c409e0f39538f7dcb7b5ac5c1f9bb4b303e54884790adafc9",
+    "black-combat-pants.png": "7a2b2bc3e7f0b1943f500288af35807c52ba9a1b82befaec866fc890c696312f",
+    "black-tactical-bodysuit.png": "54336dd070d3c42e3bc9dfe84205cc4afc94aba038a7646fb7d0acfd49a4c885",
+    "cybernetic-arm.png": "d68cfcb0a437ffe0c5f99aa5c20d4db8a212f28459b36bd3c80caf6c1d58c9b2",
+    "cyberpunk-woman.png": "1e2e9c7fb8ed1103674ae11a2d2878c637354a79d23962a2e9625faf67a898d7",
+    "high-collar/high-collar-1.png": "0ba3ec79205cf1c4f3178c4ee886bc426f2974ad46f22725c94bcd288fc30ed1",
+    "high-collar/high-collar-2.png": "141c31807e7fdd3d99ad28475ae96fc80a82edb53987ba940ff29c9f2394a3dc",
+    "illegible.png": "ab8faa645f0a04bef96ba2a52a72d072815df6543197b4dd341f4ad7642c2d4b",
+    "long-brown-trench-coat.png": "0daf38a0d817026e8a31389b88c3d3c0cb8cad84ec9892c474eb69f007aca7db",
+    "orange-glowing-accents/orange-glowing-accents-1.png": "8b912ea5996df10387feb752e4712cf4a9ada5b30a159309562a5d7bd501fb8e",
+    "orange-glowing-accents/orange-glowing-accents-2.png": "f6c9489e9385537332329cfba4d420b7f49f81d3f6c9275a05ad04c3eb597219",
+    "orange-glowing-accents/orange-glowing-accents-3.png": "4c6b7544b6c4390f262bad9b1013ca0a26683855797c2f95f658ce39bb62ca8a",
+    "orange-glowing-accents/orange-glowing-accents-4.png": "d56935e3d6a082ef2939dc1c396b3261fae162103488a20d70ef28350aa32f9c",
+    "orange-glowing-accents/orange-glowing-accents-5.png": "1bb4fa4354fac10df0fce3ca8ce82bb2c726746f6c5e968fb94603512271e3f9",
+    "short-black-hair.png": "1d2c7721d860d1d0f93b25014d76b95a7cfd87a6e331860e3bec6888f4d2f307",
+    "original.png": "cb5c1e62faef1c1811b9f46b5c110be72563d16b43a4e80706d10dc7dc246116"
+  },
+  "known_alpha_pixels": 519130,
+  "residual_alpha_pixels": 59626,
+  "slots": [
+    {
+      "slot": "head_face",
+      "part": "head",
+      "bone": "head",
+      "declared_in_input": true,
+      "segments_slot_missing": true,
+      "action": "scripted",
+      "method": "original residual-seeded cutout",
+      "source": "original.png",
+      "segment_pixels": 0,
+      "residual_seed_pixels": 14875,
+      "original_roi_pixels": 30210,
+      "pivot": [
+        562,
+        251
+      ],
+      "parent": "torso"
+    },
+    {
+      "slot": "upper_arm_left",
+      "part": "left_arm",
+      "bone": "left_arm",
+      "declared_in_input": true,
+      "segments_slot_missing": true,
+      "action": "scripted",
+      "method": "original residual-seeded cutout",
+      "source": "original.png",
+      "segment_pixels": 0,
+      "residual_seed_pixels": 455,
+      "original_roi_pixels": 12177,
+      "pivot": [
+        704,
+        365
+      ],
+      "parent": "torso"
+    },
+    {
+      "slot": "lower_arm_left",
+      "part": "left_fore",
+      "bone": "left_fore",
+      "declared_in_input": false,
+      "segments_slot_missing": true,
+      "action": "scripted",
+      "method": "original residual-seeded cutout",
+      "source": "original.png",
+      "segment_pixels": 0,
+      "residual_seed_pixels": 9862,
+      "original_roi_pixels": 36115,
+      "pivot": [
+        728,
+        594
+      ],
+      "parent": "left_arm"
+    },
+    {
+      "slot": "hand_left",
+      "part": "left_hand",
+      "bone": "left_hand",
+      "declared_in_input": false,
+      "segments_slot_missing": true,
+      "action": "scripted",
+      "method": "original residual-seeded cutout",
+      "source": "original.png",
+      "segment_pixels": 0,
+      "residual_seed_pixels": 7158,
+      "original_roi_pixels": 14711,
+      "pivot": [
+        735,
+        790
+      ],
+      "parent": "left_fore"
+    },
+    {
+      "slot": "upper_arm_right",
+      "part": "right_upper",
+      "bone": "right_upper",
+      "declared_in_input": true,
+      "segments_slot_missing": false,
+      "action": "scripted",
+      "method": "Segments crop/split",
+      "source": "cybernetic-arm.png",
+      "segment_pixels": 8092,
+      "residual_seed_pixels": 381,
+      "original_roi_pixels": 8815,
+      "pivot": [
+        383,
+        488
+      ],
+      "parent": "torso"
+    },
+    {
+      "slot": "lower_arm_right",
+      "part": "right_fore",
+      "bone": "right_fore",
+      "declared_in_input": true,
+      "segments_slot_missing": false,
+      "action": "scripted",
+      "method": "Segments crop/split",
+      "source": "cybernetic-arm.png",
+      "segment_pixels": 15249,
+      "residual_seed_pixels": 359,
+      "original_roi_pixels": 16645,
+      "pivot": [
+        350,
+        587
+      ],
+      "parent": "right_upper"
+    },
+    {
+      "slot": "hand_right",
+      "part": "right_hand",
+      "bone": "right_hand",
+      "declared_in_input": true,
+      "segments_slot_missing": false,
+      "action": "scripted",
+      "method": "Segments crop/split",
+      "source": "cybernetic-arm.png",
+      "segment_pixels": 8611,
+      "residual_seed_pixels": 765,
+      "original_roi_pixels": 10579,
+      "pivot": [
+        330,
+        790
+      ],
+      "parent": "right_fore"
+    },
+    {
+      "slot": "upper_leg_left",
+      "part": "leg_left",
+      "bone": "leg_left",
+      "declared_in_input": true,
+      "segments_slot_missing": false,
+      "action": "scripted",
+      "method": "Segments crop/split",
+      "source": "black-combat-pants.png",
+      "segment_pixels": 28185,
+      "residual_seed_pixels": 2464,
+      "original_roi_pixels": 76752,
+      "pivot": [
+        535,
+        708
+      ],
+      "parent": "hip"
+    },
+    {
+      "slot": "lower_leg_left",
+      "part": "shin_left",
+      "bone": "knee_left",
+      "declared_in_input": false,
+      "segments_slot_missing": false,
+      "action": "scripted",
+      "method": "Segments crop/split",
+      "source": "black-combat-pants.png",
+      "segment_pixels": 28040,
+      "residual_seed_pixels": 2811,
+      "original_roi_pixels": 57803,
+      "pivot": [
+        480,
+        1034
+      ],
+      "parent": "leg_left"
+    },
+    {
+      "slot": "foot_left",
+      "part": "boot_left",
+      "bone": "boot_left",
+      "declared_in_input": true,
+      "segments_slot_missing": false,
+      "action": "scripted",
+      "method": "Segments crop/split",
+      "source": "black-combat-boots/black-combat-boots-2.png",
+      "segment_pixels": 23876,
+      "residual_seed_pixels": 1088,
+      "original_roi_pixels": 26102,
+      "pivot": [
+        424,
+        1360
+      ],
+      "parent": "knee_left"
+    },
+    {
+      "slot": "upper_leg_right",
+      "part": "leg_right",
+      "bone": "leg_right",
+      "declared_in_input": true,
+      "segments_slot_missing": false,
+      "action": "scripted",
+      "method": "Segments crop/split",
+      "source": "black-combat-pants.png",
+      "segment_pixels": 45032,
+      "residual_seed_pixels": 2625,
+      "original_roi_pixels": 56088,
+      "pivot": [
+        640,
+        708
+      ],
+      "parent": "hip"
+    },
+    {
+      "slot": "lower_leg_right",
+      "part": "shin_right",
+      "bone": "knee_right",
+      "declared_in_input": false,
+      "segments_slot_missing": false,
+      "action": "scripted",
+      "method": "Segments crop/split",
+      "source": "black-combat-pants.png",
+      "segment_pixels": 30204,
+      "residual_seed_pixels": 2514,
+      "original_roi_pixels": 46633,
+      "pivot": [
+        656,
+        1024
+      ],
+      "parent": "leg_right"
+    },
+    {
+      "slot": "foot_right",
+      "part": "boot_right",
+      "bone": "boot_right",
+      "declared_in_input": true,
+      "segments_slot_missing": false,
+      "action": "scripted",
+      "method": "Segments crop/split",
+      "source": "black-combat-boots/black-combat-boots-1.png",
+      "segment_pixels": 26397,
+      "residual_seed_pixels": 888,
+      "original_roi_pixels": 29193,
+      "pivot": [
+        672,
+        1340
+      ],
+      "parent": "knee_right"
+    },
+    {
+      "slot": "held_prop_gun",
+      "part": "gun",
+      "bone": "right_hand",
+      "declared_in_input": true,
+      "segments_slot_missing": true,
+      "action": "scripted",
+      "method": "original residual-seeded cutout",
+      "source": "original.png",
+      "segment_pixels": 0,
+      "residual_seed_pixels": 779,
+      "original_roi_pixels": 29630,
+      "pivot": [
+        330,
+        790
+      ],
+      "parent": "right_fore"
+    }
+  ],
+  "generation_requested": false
+}

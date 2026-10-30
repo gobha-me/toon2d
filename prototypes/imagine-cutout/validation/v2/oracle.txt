@@ -1,0 +1,12 @@
+2026-10-30T19:34:46.340500+00:00 oracle
+test_empty_non_root_cannot_pass (test_body_oracle.GapOracleControls.test_empty_non_root_cannot_pass) ... ok
+test_exterior_pixel_does_not_define_a_joint_gap (test_body_oracle.GapOracleControls.test_exterior_pixel_does_not_define_a_joint_gap) ... ok
+test_reference_alpha_and_key_colour_boundaries (test_body_oracle.GapOracleControls.test_reference_alpha_and_key_colour_boundaries) ... ok
+test_single_native_pixel_is_rejected (test_body_oracle.GapOracleControls.test_single_native_pixel_is_rejected) ... ok
+test_every_pair_at_every_extreme_plus_random_sample (test_body_oracle.PoseCoverageControls.test_every_pair_at_every_extreme_plus_random_sample) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.012s
+
+OK
+EXIT 0

@@ -117,7 +117,7 @@ def read_manifest(source: Path, character: str = "trenchcoat") -> dict:
 
 
 def pose_plan(manifest: dict) -> list[dict]:
-    """42 single limits, 840 pair extremes, then exactly 200 random poses."""
+    """Every single limit, every pair extreme, then the character's fixed sample."""
     joints = manifest["joints"]
     rest = {j["name"]: 0 for j in joints}
     poses = []

@@ -633,15 +633,15 @@ Mutation comparisons still require newly relevant failures or increased gaps.
 
 Existing assertion edits in M2 (line numbers refer to this commit):
 
-- `tests/body_driver.py:95-97`: fixed slot count/inventory and joint tuple ->
+- `tests/body_driver.py:88-90`: fixed slot count/inventory and joint tuple ->
   character-index inventory; the trenchcoat index is additionally checked
   against the same frozen Python constants. Reason: independent per-character
   inventories while preserving the old trenchcoat requirements.
-- `tests/body_driver.py:161`: fixed random count in pose-count assertion ->
+- `tests/body_driver.py:139`: fixed random count in pose-count assertion ->
   selected count (index validates N >= 200); trenchcoat remains exactly 200.
-- `tests/body_driver.py:255-257`: fixed atlas joint tuple/width -> selected
+- `tests/body_driver.py:217-219`: fixed atlas joint tuple/width -> selected
   manifest tuple/width. Reason: char2 has 15 joints, trenchcoat still has 21.
-- `tests/test_body_oracle.py:67-76`: fixed 200 random poses, 840 pairs and
+- `tests/test_body_oracle.py:62-71`: fixed 200 random poses, 840 pairs and
   fixed joint-name set -> selected N, exhaustive pair formula and selected
   inventory. The full historical trenchcoat pose equality assertion is added.
 - `tests/driver.py` animation mutation's fixed hair removal assertion keeps
@@ -650,3 +650,25 @@ Existing assertion edits in M2 (line numbers refer to this commit):
 No numerical tolerance, gap rule, alpha threshold or mutation kill criterion
 was relaxed. All new checks are the brief's allowlisted schema, parameterized
 existing acceptance/coverage checks, or lifecycle/heavy-policy checks.
+
+## Issue 18: char2 red-first admission (M3)
+
+The char2 command is recorded in `tests/results/char2/red-first.txt`.
+It is **deferred (heavy-run 75)**: the guard refused to start, so no acceptance
+verdict is reported. On admission, the expected results are manifest GREEN and
+completeness, per-joint, combined and facing RED because `scenes/char2.tscn`
+and `characters/char2/parts.json` do not exist. This is an expected missing-rig
+failure, with zero captured poses; no synthetic raster results are substituted.
+The planned schedule remains 30 singles + 420 pair extremes + 200 random poses.
+
+M4, including fresh trenchcoat legacy/body verdicts, byte-equivalent verdict
+comparison, all mutants, current lifecycle proof, and old-harness red-first
+policy proof, remains **deferred (heavy-run 75)**. Exact guarded reruns and last
+refusal timestamps are in the local `.codex-q/DEFERRED.md` handoff.
+The driver also appends capped deferrals there automatically for runner calls.
+The mutation entrypoints inspect `ps -eo pid,pgid,sid,etime,args` first and
+refuse concurrent mutation work from another invocation. They never signal
+those processes. No existing assertion changed in this M3 follow-up; the new
+source-canvas equality check adds a completeness failure when a subject uses
+the wrong selected canvas. Static shell/Python/JSON checks pass; runtime
+verification remains deferred and the overall status is DEFERRED, not PASS.

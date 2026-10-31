@@ -27,7 +27,9 @@ root = pathlib.Path(os.environ['TMPDIR'])
 pidfile = root / 'xvfb.pid'
 audit = {'pid': int(pidfile.read_text()) if pidfile.exists() else None,
          'display': os.environ.get('DISPLAY'), 'scratch': str(root)}
-pathlib.Path(os.environ['LIFECYCLE_AUDIT']).write_text(json.dumps(audit))
+target = pathlib.Path(os.environ['LIFECYCLE_AUDIT'])
+target.with_suffix('.pending').write_text(json.dumps(audit))
+target.with_suffix('.pending').replace(target)
 if os.environ['LIFECYCLE_TERM'] == '1':
     time.sleep(60)
 else:
@@ -100,7 +102,8 @@ sys.exit(codes[min(n, len(codes)-1)])
                 subject = Path(os.environ.get('HARNESS_SUBJECT', TESTS))
                 env = dict(os.environ, PATH=str(root) + os.pathsep + os.environ['PATH'],
                            PYTHONPATH=str(subject), STUB_STATE=str(root / 'count'),
-                           STUB_EXITS=json.dumps(exits), DRIVER_HEAVY_RETRY_SECONDS='0.01')
+                           STUB_EXITS=json.dumps(exits), DRIVER_HEAVY_RETRY_SECONDS='0.01',
+                           OMP_NUM_THREADS='2', OPENBLAS_NUM_THREADS='2', MAKEFLAGS='-j2')
                 code = "import driver; from pathlib import Path; driver.heavy(['true'], Path.cwd(), Path('heavy.txt'))"
                 process = subprocess.Popen([sys.executable, '-c', code], cwd=root, env=env,
                                            stdout=subprocess.PIPE, stderr=subprocess.STDOUT,

@@ -51,6 +51,8 @@ func observe_body() -> void:
 	var rig := make_rig("hd", root)
 	rest_all(rig)
 	var tolerance: float = manifest.tolerances.pivot_px
+	if subject.get("canvas", []) != manifest.source_canvas_px:
+		reject("canvas/source", "source canvas differs from test manifest")
 	for joint in manifest.joints:
 		var matches := rig.find_children(joint.name, "Bone2D", true, false)
 		if matches.size() != 1:

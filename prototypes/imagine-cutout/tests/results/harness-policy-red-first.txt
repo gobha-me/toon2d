@@ -1,4 +1,5 @@
-Command: heavy-run <PYTHON> prototypes/imagine-cutout/tests/test_harness_policy.py --baseline dffcb51
+Attempt: exported dffcb51 runner.sh and driver.py into scratch; HARNESS_SUBJECT=<scratch-export> heavy-run <PYTHON> prototypes/imagine-cutout/tests/test_harness_policy.py
+Reproducible rerun: heavy-run $TEST_PYTHON prototypes/imagine-cutout/tests/test_harness_policy.py --baseline dffcb51
 Timestamp UTC: 2026-10-31T03:20:18.645094+00:00 (refusal transcript write time)
 Status: DEFERRED (heavy-run 75); no tests executed, no red result claimed.
 heavy-run: refusing to start: memory.current 24.55 GiB, working set (minus inactive_file) 13.16 GiB; limits 17.50 GiB working set / 24.50 GiB memory.current (memory.max 28.00 GiB x 10/16, 14/16); memory.current over limit

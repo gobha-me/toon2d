@@ -265,7 +265,7 @@ def body_suite(source: Path, output: Path, *, full: bool = True, announce: bool 
                         "tool": "Godot via tests/check_body_parts.gd atlas; tests/body_driver.py",
                         "date": result["timestamp_utc"],
                         "date_source": "suite result timestamp; individual capture time not recorded",
-                        "derived_from": output.name,
+                        "derived_from": "../" + output.name,
                         "pose": atlas["pose"],
                         "image_sha256": hashlib.sha256(image.read_bytes()).hexdigest(),
                     }

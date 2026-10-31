@@ -33,7 +33,18 @@ trap cleanup EXIT
 trap 'exit 130' INT
 trap 'exit 143' TERM
 # The shell owns this child throughout its lifetime; no process discovery.
-Xvfb -displayfd 3 -nolisten tcp 3>"$TMPDIR/display" >"$TMPDIR/xvfb.txt" 2>&1 &
+# -displayfd disables the server's real lock. Choose one explicit candidate;
+# refuse existing paths rather than reclaiming another server's resources.
+display_number=$((100 + RANDOM))
+for x_path in "/tmp/.X${display_number}-lock" "/tmp/.tX${display_number}-lock" "/tmp/.X11-unix/X${display_number}"; do
+  if [[ -e "$x_path" || -L "$x_path" ]]; then
+    echo 'Xvfb display candidate already occupied' >&2
+    exit 2
+  fi
+done
+# X servers notify their parent when ready if they inherit SIGUSR1 ignored.
+trap 'printf "%s\n" "$display_number" >"$TMPDIR/display"' USR1
+(trap '' USR1; exec Xvfb ":$display_number" -nolisten tcp -nopn) >"$TMPDIR/xvfb.txt" 2>&1 &
 xvfb_pid=$!
 printf '%s\n' "$xvfb_pid" >"$TMPDIR/xvfb.pid"
 for ((attempt=0; attempt<100; attempt++)); do
@@ -42,6 +53,7 @@ for ((attempt=0; attempt<100; attempt++)); do
   sleep 0.05
 done
 [[ -s "$TMPDIR/display" ]] || { echo 'Xvfb readiness timeout' >&2; exit 2; }
+trap '' USR1
 export DISPLAY=":$(cat "$TMPDIR/display")"
 export XDG_DATA_HOME="$TMPDIR/xdg-data" XDG_CONFIG_HOME="$TMPDIR/xdg-config" XDG_CACHE_HOME="$TMPDIR/xdg-cache"
 export OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 LP_NUM_THREADS=2 MESA_GLTHREAD=false

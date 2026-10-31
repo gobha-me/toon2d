@@ -8,13 +8,17 @@ const CLIPS := {"idle": 48, "aim": 10, "fire": 6, "cooldown": 14}
 var spec: Dictionary
 var output: String
 var rendering := false
+var legacy_config := {"subject": "parts.json", "scenes": {"hd": "scenes/hd.tscn", "pixel": "scenes/pixel.tscn"}, "prop_node": "Gun", "hand_bone": "right_hand"}
 var results := {"cases": {}, "samples": {}, "captures": []}
 
 func _initialize() -> void:
 	var args := OS.get_cmdline_user_args()
 	rendering = args[0] == "render"
 	output = args[1]
-	spec = JSON.parse_string(FileAccess.get_file_as_string("res://parts.json"))
+	var config_path := output.path_join("legacy-config.json")
+	if FileAccess.file_exists(config_path):
+		legacy_config = JSON.parse_string(FileAccess.get_file_as_string(config_path))
+	spec = JSON.parse_string(FileAccess.get_file_as_string("res://" + legacy_config.subject))
 	call_deferred("run")
 
 func problem(case_id: String, message: String) -> void:
@@ -31,7 +35,7 @@ func bone_path(name_: String) -> NodePath:
 	return NodePath("__missing_bone__")
 
 func make_rig(mode: String, view: Node) -> Node2D:
-	var packed: PackedScene = load("res://scenes/" + mode + ".tscn")
+	var packed: PackedScene = load("res://" + legacy_config.scenes[mode])
 	var rig: Node2D = packed.instantiate()
 	rig.process_mode = Node.PROCESS_MODE_DISABLED
 	view.add_child(rig)
@@ -99,8 +103,8 @@ func observe(mode: String) -> void:
 		if not node is Sprite2D or node.texture == null:
 			problem(mode + "/1", "missing textured Sprite2D " + str(path))
 	var player: AnimationPlayer = rig.get_node_or_null("AnimationPlayer")
-	var gun: Sprite2D = rig.find_child("Gun", true, false)
-	var hand := rig.get_node_or_null(bone_path("right_hand")) as Node2D
+	var gun: Sprite2D = rig.find_child(legacy_config.prop_node, true, false)
+	var hand := rig.get_node_or_null(bone_path(legacy_config.hand_bone)) as Node2D
 	var flash: Node2D = rig.find_child("MuzzleFlash", true, false)
 	if player == null:
 		for id in ["2", "3", "4"]:
@@ -226,7 +230,7 @@ func joint_captures(mode: String) -> void:
 	view.free()
 
 func run() -> void:
-	for mode in ["hd", "pixel"]:
+	for mode in legacy_config.scenes:
 		if rendering:
 			await joint_captures(mode)
 		else:

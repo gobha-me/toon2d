@@ -520,3 +520,21 @@ The runtime deferrals above are superseded by the [Phase B evidence review](test
 The old harness dffcb51 and char2 missing-rig acceptance are **expected-RED** (rc 1 each). Char2 manifest passed; its four runtime acceptance groups rejected missing inputs and captured zero poses. Oracle controls, trenchcoat legacy 1-5 in both modes, full trenchcoat body acceptance and verdict/pose-hash equality all **PASS** (rc 0 each). Trenchcoat mutation **PASS** (rc 0): a,b,d,e,f,g,h killed, c explicitly skipped for absent raw source PNGs. Char2 mutants remain **not-run / CANNOT_PLANT** without a rig; no kill is claimed.
 
 Exact ledger commands, return codes, attempt counts, UTC intervals and sanitized per-attempt logs are retained under `tests/results/verify-char2/`. Phase B executed no tests or heavy commands. The lifecycle failure leaves the Q2 evidence gate unresolved.
+
+## Issue 18: real Xvfb lock repair verification
+
+The [Xvfb lock evidence](tests/results/xvfb-lock/README.md) supersedes the earlier
+unresolved lifecycle result. The verification controller recorded item **03
+GREEN**: the fixed harness returned **0**, with normal-exit, TERM and retry-policy
+checks all passing; old harness `dffcb51` returned **1**, with both lifecycle
+checks failing at the recorded-PID assertion (plus three retry-policy failures).
+All five scheduled probe/policy items ran once, from **2026-10-31T21:38:55Z**
+to **2026-10-31T21:42:52Z**. The evidence records each command, rc and UTC interval.
+
+The initial display-fd server had a socket but no real lock. Change commit
+`4141db3e6a2dfa12b957945ee82ae51603d69882` uses an explicit display candidate and
+SIGUSR1 readiness while retaining recorded-PID ownership. The fixed probe shows
+its real lock contains that PID. Existing desktop resources remained unchanged.
+No assertions or timing budgets changed. This evidence review ran no tests or
+heavy commands; sanitized logs and controller-verdict hashes are retained beside
+the report. Any controller completion or review gate is recorded separately.

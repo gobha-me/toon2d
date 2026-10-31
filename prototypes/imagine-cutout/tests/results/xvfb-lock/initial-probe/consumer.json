@@ -1,0 +1,34 @@
+{
+  "DISPLAY": ":0",
+  "displayfd_number": "0",
+  "xvfb_pid": "1610996",
+  "checks": [
+    {
+      "t": 0,
+      "lock_from_DISPLAY": false,
+      "socket_from_DISPLAY": true,
+      "lock_from_displayfd": false,
+      "lock_text": "<FileNotFoundError>"
+    },
+    {
+      "t": 0.5,
+      "lock_from_DISPLAY": false,
+      "socket_from_DISPLAY": true,
+      "lock_from_displayfd": false,
+      "lock_text": "<FileNotFoundError>"
+    },
+    {
+      "t": 2.0,
+      "lock_from_DISPLAY": false,
+      "socket_from_DISPLAY": true,
+      "lock_from_displayfd": false,
+      "lock_text": "<FileNotFoundError>"
+    }
+  ],
+  "consumer_mntns": "mnt:[4026535001]",
+  "xvfb_mntns": "mnt:[4026535001]",
+  "xvfb_alive": true,
+  "xvfb_cmdline": "Xvfb -displayfd 3 -nolisten tcp ",
+  "tmp_dev_ino": "2097167:675086",
+  "runner_tmpdir_is_under_tmp": true
+}

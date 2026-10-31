@@ -1,0 +1,4 @@
+Command: heavy-run <PYTHON> prototypes/imagine-cutout/tests/test_harness_policy.py --baseline dffcb51
+Timestamp UTC: 2026-10-31T03:22:00Z (minute of attempt; seconds not recorded)
+Status: DEFERRED (heavy-run 75); no tests executed, no red result claimed.
+heavy-run: refusing to start: memory.current 24.55 GiB, working set (minus inactive_file) 13.16 GiB; limits 17.50 GiB working set / 24.50 GiB memory.current (memory.max 28.00 GiB x 10/16, 14/16); memory.current over limit

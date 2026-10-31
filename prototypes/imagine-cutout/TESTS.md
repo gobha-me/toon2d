@@ -565,3 +565,36 @@ There are no NOT-RUN items among the four supplied ledger rows; any NOT-RUN
 result is deferred. No refusal 75/78 or retry is recorded. Clip acceptance stays
 RED, and **REVIEW=required** applies to the final evidence head because the
 runner modes changed. No final launcher completion verdict was supplied.
+
+## Issue 18: recorded Xvfb ownership (M1)
+
+The runner starts Xvfb with `-displayfd`, writes its child PID immediately to
+`$TMPDIR/xvfb.pid`, exports DISPLAY, then stops and waits for that recorded
+child before removing scratch. EXIT, INT and TERM share this cleanup. Drivers
+render on this display without `xvfb-run`. An active heavy child receives TERM
+through its recorded process group and is waited for before X server cleanup.
+
+The allowlisted `xvfb_no_orphan_normal_exit` and `xvfb_no_orphan_on_term` checks
+use a quick consumer in a disposable copy of the runner. They require a real
+X server, retain the PID from its pidfile, and assert that `kill(pid, 0)` fails,
+its display lock is absent and scratch is removed after the runner exits.
+The old runner fails the recorded-PID ownership contract before any process
+lookup; these controls never discover a server by name or display number.
+
+`driver_heavy_defer_policy` invokes the real `driver.heavy` with a PATH stub:
+75/0 must succeed after two attempts, persistent 75 must produce DEFERRED/79
+at four attempts, and 78 must stop immediately. The default retry interval is
+1,800 seconds, injectable through `DRIVER_HEAVY_RETRY_SECONDS` for this test.
+Retries stop before 23:40 ET and never enter quiet hours. Every 75 is UTC dated.
+
+Red-first command (exported old harness at dffcb51):
+
+```bash
+heavy-run <PYTHON> prototypes/imagine-cutout/tests/test_harness_policy.py --baseline dffcb51
+heavy-run <PYTHON> prototypes/imagine-cutout/tests/test_harness_policy.py
+```
+
+Execution is **deferred (heavy-run 75)**, including red-first proof and current
+lifecycle/policy verification. The refusal is retained in
+`tests/results/harness-policy-red-first.txt`; it is not a red test result.
+Shell syntax and Python parsing pass. No existing assertion was edited in M1.

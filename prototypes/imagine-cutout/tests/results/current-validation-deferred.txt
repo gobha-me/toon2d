@@ -1,0 +1,9 @@
+Timestamp UTC: 2026-10-31T03:27:39.851316+00:00 (refusal transcript write time)
+Status: DEFERRED (batch admission heavy-run 75); none of the commands below executed.
+Batch: heavy-run bash -c <sequential commands below>
+$TEST_PYTHON prototypes/imagine-cutout/tests/test_harness_policy.py
+prototypes/imagine-cutout/tests/runner.sh oracle
+prototypes/imagine-cutout/tests/run_tests.sh --character trenchcoat
+prototypes/imagine-cutout/tests/run_body_tests.sh --character trenchcoat
+prototypes/imagine-cutout/tests/run_mutants.sh --character trenchcoat
+heavy-run: refusing to start: memory.current 24.56 GiB, working set (minus inactive_file) 13.16 GiB; limits 17.50 GiB working set / 24.50 GiB memory.current (memory.max 28.00 GiB x 10/16, 14/16); memory.current over limit

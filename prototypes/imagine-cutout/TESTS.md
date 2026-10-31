@@ -5,7 +5,8 @@ Run `prototypes/imagine-cutout/tests/run_tests.sh` from any directory. Run
 The repository's `.venv/bin/python`, Godot, Xvfb, Pillow and NumPy are required.
 The runners enforce quiet hours, at least 5 GiB free on the repository and `/tmp`,
 two CPU workers, a fresh `/tmp/tween-<runid>` and EXIT cleanup. Every Godot process
-and preparation run goes through `heavy-run`; exit 75 is retried after 30 seconds.
+and preparation run goes through `heavy-run`; exit 75 is retried after 30 minutes
+(up to four attempts, stopping before 23:40 ET), then reported DEFERRED/79.
 Only temporary copies are imported or mutated. No existing render is an oracle.
 
 ## Frozen acceptance rules (written before the first joint test)
@@ -639,7 +640,7 @@ Existing assertion edits in M2 (line numbers refer to this commit):
   inventories while preserving the old trenchcoat requirements.
 - `tests/body_driver.py:139`: fixed random count in pose-count assertion ->
   selected count (index validates N >= 200); trenchcoat remains exactly 200.
-- `tests/body_driver.py:217-219`: fixed atlas joint tuple/width -> selected
+- `tests/body_driver.py:214-216`: fixed atlas joint tuple/width -> selected
   manifest tuple/width. Reason: char2 has 15 joints, trenchcoat still has 21.
 - `tests/test_body_oracle.py:62-71`: fixed 200 random poses, 840 pairs and
   fixed joint-name set -> selected N, exhaustive pair formula and selected
@@ -672,3 +673,19 @@ those processes. No existing assertion changed in this M3 follow-up; the new
 source-canvas equality check adds a completeness failure when a subject uses
 the wrong selected canvas. Static shell/Python/JSON checks pass; runtime
 verification remains deferred and the overall status is DEFERRED, not PASS.
+
+The refused current-validation batch is retained in
+`tests/results/current-validation-deferred.txt`. No command in that batch
+executed. `tests/compare_body_verdicts.py` compares fresh trenchcoat `tests`
+objects as canonical JSON bytes, plus the complete pose hash, against the
+retained v2 acceptance. It requires a full green run and returns DEFERRED/79
+when that fresh result is absent. This is the existing acceptance regression
+comparison, not an additional kind of rig test.
+
+The final static audit parsed every Python test/helper, checked every shell
+runner with `bash -n`, parsed both new manifest files, and confirmed the
+trenchcoat manifest is byte-identical to the starting revision. Stubbed policy
+cases inject a fixed daytime clock so the 75/0, 75-forever and 78 expectations
+are deterministic without replacing `driver.heavy`. These static checks do
+not establish runtime green or red results. Refusal logs survive scratch
+cleanup, and the driver enforces the 23:40 ET cutoff before starting an attempt.

@@ -104,7 +104,18 @@ sys.exit(codes[min(n, len(codes)-1)])
                            PYTHONPATH=str(subject), STUB_STATE=str(root / 'count'),
                            STUB_EXITS=json.dumps(exits), DRIVER_HEAVY_RETRY_SECONDS='0.01',
                            OMP_NUM_THREADS='2', OPENBLAS_NUM_THREADS='2', MAKEFLAGS='-j2')
-                code = "import driver; from pathlib import Path; driver.heavy(['true'], Path.cwd(), Path('heavy.txt'))"
+                # Keep stub policy cases independent of the wall clock; only
+                # datetime is injected, while driver.heavy itself remains real.
+                code = '''import driver
+from pathlib import Path
+from datetime import datetime
+class Daytime(datetime):
+    @classmethod
+    def now(cls, tz=None):
+        return datetime(2026, 10, 30, 16, tzinfo=driver.ZoneInfo('UTC')).astimezone(tz)
+driver.datetime = Daytime
+driver.heavy(['true'], Path.cwd(), Path('heavy.txt'))
+'''
                 process = subprocess.Popen([sys.executable, '-c', code], cwd=root, env=env,
                                            stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                                            text=True, start_new_session=True)

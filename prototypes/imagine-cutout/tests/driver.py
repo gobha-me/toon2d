@@ -26,9 +26,10 @@ REPO = PROTOTYPE.parent.parent
 TEMP = Path(os.environ["TMPDIR"]).resolve()
 LABELS = {"1": "hierarchy", "2": "timing", "3": "flash", "4": "gun rigidity", "5": "joint gaps"}
 RERUN_COMMAND: str | None = None
+DEFERRED_EVIDENCE: Path | None = None
 
 
-def record_deferred(reason: str, code: int = 75) -> None:
+def record_deferred(reason: str, code: int = 75, log: Path | None = None) -> None:
     if RERUN_COMMAND is None:
         return
     path = REPO / ".codex-q" / "DEFERRED.md"
@@ -36,6 +37,12 @@ def record_deferred(reason: str, code: int = 75) -> None:
     with path.open("a") as stream:
         stream.write(f"\n- {datetime.now(ZoneInfo('UTC')).isoformat()} — DEFERRED; last exit {code}: {reason}\n"
                      f"  Rerun from repository root: `{RERUN_COMMAND}`\n")
+    if DEFERRED_EVIDENCE is not None:
+        DEFERRED_EVIDENCE.parent.mkdir(parents=True, exist_ok=True)
+        with DEFERRED_EVIDENCE.open("a") as stream:
+            stream.write(f"{datetime.now(ZoneInfo('UTC')).isoformat()} DEFERRED: {reason}; exit {code}\n")
+            if log is not None and log.exists():
+                stream.write(public_log(log.read_text()))
 
 
 def mutation_guard() -> None:
@@ -105,6 +112,11 @@ def heavy(command: list[str], cwd: Path, log: Path) -> None:
         raise ValueError("retry interval must be nonnegative")
     for attempt in range(1, 5):
         guard()
+        now = datetime.now(ZoneInfo("America/New_York"))
+        if now.hour == 23 and now.minute >= 40:
+            record_deferred("23:40 ET attempt cutoff reached", 79)
+            print("DEFERRED: 23:40 ET attempt cutoff reached (79)", flush=True)
+            raise SystemExit(79)
         env = dict(os.environ, HEAVY_WAIT="30")
         process = subprocess.Popen(["heavy-run", *command], cwd=cwd, env=env,
                                    stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
@@ -148,12 +160,12 @@ def heavy(command: list[str], cwd: Path, log: Path) -> None:
                 with log.open("a") as stream:
                     stream.write("DEFERRED exit 79\n")
                 print("DEFERRED: heavy-run remains unavailable (79)", flush=True)
-                record_deferred("heavy-run 75; attempt/time cap reached")
+                record_deferred("heavy-run 75; attempt/time cap reached", log=log)
                 raise SystemExit(79)
             time.sleep(retry_seconds)
             continue
         if process.returncode == 78:
-            record_deferred("STOP: heavy-run configuration refusal", 78)
+            record_deferred("STOP: heavy-run configuration refusal", 78, log=log)
             print("STOP: heavy-run configuration refusal (78)", flush=True)
             raise SystemExit(78)
         if process.returncode != 0:
@@ -415,7 +427,7 @@ def mutants(character: str = "trenchcoat") -> bool:
 
 
 def main() -> int:
-    global RERUN_COMMAND
+    global RERUN_COMMAND, DEFERRED_EVIDENCE
     parser = argparse.ArgumentParser()
     parser.add_argument("mode", choices=("suite", "mutants", "body", "body-mutants", "all-mutants", "oracle"))
     parser.add_argument("--character", default="trenchcoat")
@@ -431,6 +443,8 @@ def main() -> int:
     from body_driver import character_index
     if args.character not in character_index(PROTOTYPE)["characters"]:
         parser.error("unknown character: " + args.character)
+    DEFERRED_EVIDENCE = (args.output.with_suffix(".deferred.txt") if args.output else
+                         PROTOTYPE / "tests" / "results" / args.character / (args.mode + "-deferred.txt"))
     if args.mode in ("mutants", "body-mutants", "all-mutants"):
         mutation_guard()
     if args.mode == "oracle":

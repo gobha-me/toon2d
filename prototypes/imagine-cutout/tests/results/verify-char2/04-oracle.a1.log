@@ -1,0 +1,13 @@
+heavy-run: memory ok: memory.current 21.08 GiB, working set (minus inactive_file) 13.63 GiB; limits 17.50 GiB working set / 24.50 GiB memory.current (memory.max 28.00 GiB x 10/16, 14/16)
+heavy-run: holding slot1 on <HOST>, hard stop in 55672s (11:55 PM ET)
+test_empty_non_root_cannot_pass (test_body_oracle.GapOracleControls.test_empty_non_root_cannot_pass) ... ok
+test_exterior_pixel_does_not_define_a_joint_gap (test_body_oracle.GapOracleControls.test_exterior_pixel_does_not_define_a_joint_gap) ... ok
+test_reference_alpha_and_key_colour_boundaries (test_body_oracle.GapOracleControls.test_reference_alpha_and_key_colour_boundaries) ... ok
+test_single_native_pixel_is_rejected (test_body_oracle.GapOracleControls.test_single_native_pixel_is_rejected) ... ok
+test_every_pair_at_every_extreme_plus_random_sample (test_body_oracle.PoseCoverageControls.test_every_pair_at_every_extreme_plus_random_sample) ... ok
+test_characters_index_schema (test_body_oracle.CharacterManifestControls.test_characters_index_schema) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.025s
+
+OK

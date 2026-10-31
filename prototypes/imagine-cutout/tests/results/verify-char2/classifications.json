@@ -1,0 +1,94 @@
+{
+  "launcher_status": "STATUS=COMPLETE",
+  "overall": "FAIL",
+  "items": [
+    {
+      "item": "01-old-harness-baseline",
+      "attempt": "1",
+      "start_utc": "2026-10-31T12:26:50Z",
+      "end_utc": "2026-10-31T12:27:01Z",
+      "rc": "1",
+      "note": "ran",
+      "command": "heavy-run $TEST_PYTHON prototypes/imagine-cutout/tests/test_harness_policy.py --baseline dffcb51",
+      "verdict": "expected-RED",
+      "interpretation": "Old harness dffcb51 reproduced five failures across three tests: injected retry interval/cap ignored in two cases, exit 78 returned 1, and no recorded Xvfb PID on normal exit or TERM. This is the requested red-first baseline."
+    },
+    {
+      "item": "02-char2-red-first",
+      "attempt": "1",
+      "start_utc": "2026-10-31T12:27:01Z",
+      "end_utc": "2026-10-31T12:27:02Z",
+      "rc": "1",
+      "note": "ran",
+      "command": "TEST_PYTHON=$TEST_PYTHON heavy-run prototypes/imagine-cutout/tests/run_body_tests.sh --character char2 --output prototypes/imagine-cutout/tests/results/char2/red-first.json",
+      "verdict": "expected-RED",
+      "interpretation": "Manifest PASS; completeness, per_joint, combined and facing RED because scenes/char2.tscn and characters/char2/parts.json are missing. Captured poses: 0. The 30 single + 420 pair + 200 random poses are a plan, not captured evidence."
+    },
+    {
+      "item": "03-harness-policy",
+      "attempt": "1",
+      "start_utc": "2026-10-31T12:27:02Z",
+      "end_utc": "2026-10-31T12:27:08Z",
+      "rc": "1",
+      "note": "ran",
+      "command": "heavy-run $TEST_PYTHON prototypes/imagine-cutout/tests/test_harness_policy.py",
+      "verdict": "FAIL",
+      "interpretation": "Unexpected failure: both Xvfb normal-exit and TERM lifecycle checks failed at the prerequisite \"real X server did not acquire its lock\". Cleanup/no-orphan success is therefore unproved. The driver retry-policy control passed: stub [75,0] -> rc 0 / 2 calls; [75] -> rc 79 / 4 calls; [78] -> rc 78 / 1 call. Those are internal stub calls, not launcher attempts. The available log does not establish why the lock was absent; retain FAIL without changing the test or guessing a cause."
+    },
+    {
+      "item": "04-oracle",
+      "attempt": "1",
+      "start_utc": "2026-10-31T12:27:08Z",
+      "end_utc": "2026-10-31T12:27:09Z",
+      "rc": "0",
+      "note": "ran",
+      "command": "TEST_PYTHON=$TEST_PYTHON heavy-run prototypes/imagine-cutout/tests/runner.sh oracle",
+      "verdict": "PASS",
+      "interpretation": "All six frozen-oracle, exhaustive-pose coverage and character-index schema controls passed."
+    },
+    {
+      "item": "05-trenchcoat-legacy",
+      "attempt": "1",
+      "start_utc": "2026-10-31T12:27:09Z",
+      "end_utc": "2026-10-31T12:27:25Z",
+      "rc": "0",
+      "note": "ran",
+      "command": "TEST_PYTHON=$TEST_PYTHON heavy-run prototypes/imagine-cutout/tests/run_tests.sh --character trenchcoat",
+      "verdict": "PASS",
+      "interpretation": "Legacy tests 1-5 passed for HD and pixel modes, with zero joint gaps and nonempty stencils at all reported limits."
+    },
+    {
+      "item": "06-trenchcoat-body",
+      "attempt": "1",
+      "start_utc": "2026-10-31T12:27:25Z",
+      "end_utc": "2026-10-31T12:29:36Z",
+      "rc": "0",
+      "note": "ran",
+      "command": "TEST_PYTHON=$TEST_PYTHON heavy-run prototypes/imagine-cutout/tests/run_body_tests.sh --character trenchcoat",
+      "verdict": "PASS",
+      "interpretation": "Manifest, completeness, per_joint, combined and facing passed. Full pose plan: 42 single + 840 pair + 200 random = 1,082 poses."
+    },
+    {
+      "item": "07-verdict-compare",
+      "attempt": "1",
+      "start_utc": "2026-10-31T12:29:36Z",
+      "end_utc": "2026-10-31T12:29:37Z",
+      "rc": "0",
+      "note": "ran",
+      "command": "heavy-run $TEST_PYTHON prototypes/imagine-cutout/tests/compare_body_verdicts.py",
+      "verdict": "PASS",
+      "interpretation": "Fresh trenchcoat verdict bytes and pose hash match retained validation/v2/body/body-parts/red-first.json. Body rc 0 at 12:29:36Z satisfied the comparison prerequisite before it started."
+    },
+    {
+      "item": "08-trenchcoat-mutants",
+      "attempt": "1",
+      "start_utc": "2026-10-31T12:29:37Z",
+      "end_utc": "2026-10-31T12:33:14Z",
+      "rc": "0",
+      "note": "ran",
+      "command": "TEST_PYTHON=$TEST_PYTHON heavy-run prototypes/imagine-cutout/tests/run_mutants.sh --character trenchcoat",
+      "verdict": "PASS",
+      "interpretation": "Seven mutants KILLED: a,b,d,e,f,g,h. Mutant c is explicitly SKIPPED (not-run, not a kill): raw Segments PNG inputs including original.png are absent. Mutant h increased right_fore gaps from 0 to 124 / 140. The aggregate rc 0 permits this explicit skip; it does not mean all eight were planted."
+    }
+  ]
+}

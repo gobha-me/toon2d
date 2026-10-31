@@ -512,3 +512,11 @@ cases inject a fixed daytime clock so the 75/0, 75-forever and 78 expectations
 are deterministic without replacing `driver.heavy`. These static checks do
 not establish runtime green or red results. Refusal logs survive scratch
 cleanup, and the driver enforces the 23:40 ET cutoff before starting an attempt.
+
+## Verification evidence review
+
+The runtime deferrals above are superseded by the [Phase B evidence review](tests/results/verify-char2/README.md). All eight scheduled commands completed in one attempt each on 2026-10-31, 12:26:50Z-12:33:14Z. Launcher STATUS=COMPLETE; overall verification **FAIL**. The current harness policy returned rc 1: normal-exit and TERM lifecycle checks both failed because the real X server lock was absent. The driver retry-policy control passed, but lifecycle cleanup remains unproved and the cause is unresolved. No assertions or tolerances were changed.
+
+The old harness dffcb51 and char2 missing-rig acceptance are **expected-RED** (rc 1 each). Char2 manifest passed; its four runtime acceptance groups rejected missing inputs and captured zero poses. Oracle controls, trenchcoat legacy 1-5 in both modes, full trenchcoat body acceptance and verdict/pose-hash equality all **PASS** (rc 0 each). Trenchcoat mutation **PASS** (rc 0): a,b,d,e,f,g,h killed, c explicitly skipped for absent raw source PNGs. Char2 mutants remain **not-run / CANNOT_PLANT** without a rig; no kill is claimed.
+
+Exact ledger commands, return codes, attempt counts, UTC intervals and sanitized per-attempt logs are retained under `tests/results/verify-char2/`. Phase B executed no tests or heavy commands. The lifecycle failure leaves the Q2 evidence gate unresolved.

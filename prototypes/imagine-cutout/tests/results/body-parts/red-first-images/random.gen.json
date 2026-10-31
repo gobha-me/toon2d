@@ -1,0 +1,8 @@
+{
+  "prompt": "prompt not applicable (capture)",
+  "tool": "Godot via tests/check_body_parts.gd atlas; tests/body_driver.py",
+  "date": "2026-10-30T17:33:25.481971+00:00",
+  "date_source": "associated red-first.json suite result timestamp; individual capture time not recorded",
+  "derived_from": "../red-first.json",
+  "image_sha256": "1d8ba772be0b79ad702d1bef5ad93960ad2d48eaf480d532da07d60264eaef97"
+}

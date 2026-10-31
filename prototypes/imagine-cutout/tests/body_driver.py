@@ -192,7 +192,18 @@ def body_suite(source: Path, output: Path, *, full: bool = True, announce: bool 
                 failures = {e["pose"] for e in entries if e["kind"] == kind and not e["passed"]}
                 atlas = next((a for a in atlases if a["kind"] == kind and a["pose"] in failures), None)
                 if atlas:
-                    shutil.copy2(captures / atlas["filename"], evidence / f"{kind}.png")
+                    image = evidence / f"{kind}.png"
+                    shutil.copy2(captures / atlas["filename"], image)
+                    sidecar = {
+                        "prompt": "prompt not applicable (capture)",
+                        "tool": "Godot via tests/check_body_parts.gd atlas; tests/body_driver.py",
+                        "date": result["timestamp_utc"],
+                        "date_source": "suite result timestamp; individual capture time not recorded",
+                        "derived_from": output.name,
+                        "pose": atlas["pose"],
+                        "image_sha256": hashlib.sha256(image.read_bytes()).hexdigest(),
+                    }
+                    image.with_suffix(".gen.json").write_text(json.dumps(sidecar, indent=2) + "\n")
         dumps = [p.name for p in work.rglob("*") if p.is_file() and
                  (driver.re.fullmatch(r"core(?:\.\d+)?", p.name) or p.suffix == ".core")]
         if dumps:

@@ -1,0 +1,2 @@
+X03-DERIVED value=GREEN c2_rc=0 c3_rc=1 ledger_sha=afdf97fe2f12dc045be49a0143b2b40d036f88eada93527b18bef91b6f7a15cb c2log_sha=77b853b9bc912e9ce6105420b5bd9c8d4c3a0a50eb9dc4545f3fdb6683416bf5 c3log_sha=4de132137691158edce228978239d53c1377167c6018a6756f803130f819fcfb
+why=C2 rc=0 OK; C3 rc=1 with both Xvfb tests FAIL under heavy-run

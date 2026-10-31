@@ -10,6 +10,7 @@ import os
 from pathlib import Path
 import re
 import shutil
+import shlex
 import signal
 import subprocess
 import sys
@@ -24,6 +25,37 @@ PROTOTYPE = Path(__file__).resolve().parent.parent
 REPO = PROTOTYPE.parent.parent
 TEMP = Path(os.environ["TMPDIR"]).resolve()
 LABELS = {"1": "hierarchy", "2": "timing", "3": "flash", "4": "gun rigidity", "5": "joint gaps"}
+RERUN_COMMAND: str | None = None
+
+
+def record_deferred(reason: str, code: int = 75) -> None:
+    if RERUN_COMMAND is None:
+        return
+    path = REPO / ".codex-q" / "DEFERRED.md"
+    path.parent.mkdir(exist_ok=True)
+    with path.open("a") as stream:
+        stream.write(f"\n- {datetime.now(ZoneInfo('UTC')).isoformat()} — DEFERRED; last exit {code}: {reason}\n"
+                     f"  Rerun from repository root: `{RERUN_COMMAND}`\n")
+
+
+def mutation_guard() -> None:
+    """Read-only gate before any mutation run; no process discovery for cleanup."""
+    listing = subprocess.check_output(["ps", "-eo", "pid,pgid,sid,etime,args"], text=True)
+    ancestors = {os.getpid()}
+    cursor = os.getpid()
+    while cursor > 1:
+        # Parent IDs distinguish this invocation's wrappers from another run.
+        stat = Path(f"/proc/{cursor}/stat").read_text().rsplit(")", 1)[1].split()
+        cursor = int(stat[1])
+        ancestors.add(cursor)
+    for line in listing.splitlines()[1:]:
+        fields = line.split(None, 4)
+        if len(fields) != 5 or int(fields[0]) in ancestors:
+            continue
+        if re.search(r"(?:^|[ /])(?:run_mutants(?:\.sh)?|(?:runner\.sh|driver\.py)\s+(?:mutants|all-mutants|body-mutants))(?:\s|$)", fields[4]):
+            record_deferred("another mutation run is live", 79)
+            print("DEFERRED: another mutation run is live; re-check later", flush=True)
+            raise SystemExit(79)
 
 
 def guard() -> None:
@@ -116,10 +148,12 @@ def heavy(command: list[str], cwd: Path, log: Path) -> None:
                 with log.open("a") as stream:
                     stream.write("DEFERRED exit 79\n")
                 print("DEFERRED: heavy-run remains unavailable (79)", flush=True)
+                record_deferred("heavy-run 75; attempt/time cap reached")
                 raise SystemExit(79)
             time.sleep(retry_seconds)
             continue
         if process.returncode == 78:
+            record_deferred("STOP: heavy-run configuration refusal", 78)
             print("STOP: heavy-run configuration refusal (78)", flush=True)
             raise SystemExit(78)
         if process.returncode != 0:
@@ -381,12 +415,24 @@ def mutants(character: str = "trenchcoat") -> bool:
 
 
 def main() -> int:
+    global RERUN_COMMAND
     parser = argparse.ArgumentParser()
     parser.add_argument("mode", choices=("suite", "mutants", "body", "body-mutants", "all-mutants", "oracle"))
     parser.add_argument("--character", default="trenchcoat")
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
+    replay = []
+    for arg in sys.argv[1:]:
+        if arg.startswith(str(REPO) + os.sep):
+            arg = str(Path(arg).relative_to(REPO))
+        replay.append(arg)
+    RERUN_COMMAND = 'TEST_PYTHON="${TEST_PYTHON:-python3}" heavy-run prototypes/imagine-cutout/tests/runner.sh ' + shlex.join(replay)  # TEST_PYTHON if set, else python3
     guard()
+    from body_driver import character_index
+    if args.character not in character_index(PROTOTYPE)["characters"]:
+        parser.error("unknown character: " + args.character)
+    if args.mode in ("mutants", "body-mutants", "all-mutants"):
+        mutation_guard()
     if args.mode == "oracle":
         import unittest
         from test_body_oracle import GapOracleControls, PoseCoverageControls, CharacterManifestControls

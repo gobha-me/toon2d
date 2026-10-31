@@ -421,3 +421,55 @@ Execution is **deferred (heavy-run 75)**, including red-first proof and current
 lifecycle/policy verification. The refusal is retained in
 `tests/results/harness-policy-red-first.txt`; it is not a red test result.
 Shell syntax and Python parsing pass. No existing assertion was edited in M1.
+
+## Issue 18: character contracts (M2)
+
+`characters.yml` is a test-owned JSON-compatible YAML index. It selects the
+manifest, HD scene, subject declaration, legacy scene modes, required slot/joint
+inventories, random count and seed. Every runner accepts `--character` (default
+`trenchcoat`). Evidence now goes to `tests/results/<character>/`, preserving the
+historical PoC red-first evidence. `--output` selects the body/legacy result file.
+The observer receives the selected contract through scratch `manifest.json`;
+no production manifest, scene, script or part is rewritten.
+
+| Character | Canvas | Joints | Required slots | Singles | Pair extremes | Random N / seed |
+|---|---|---|---|---|---|---|
+| trenchcoat | 1152 x 1728 | 21 | 14 | 42 | 840 | 200 / 20261030 |
+| char2 | 512 x 768 | 15 | 14 | 30 | 420 | 200 / 20261031 |
+
+Trenchcoat's original `body_parts.yml`, pivots, limits, overlap, tolerances and
+pose generation order/values are unchanged. The parameterized coverage control
+compares its entire pose plan with the retained historical plan. The fresh
+trenchcoat verdict comparison requires a heavy-run execution and is pending.
+
+Char2 is an original fictional stocky courier carrying a rigid satchel. Each
+pivot, limit and overlap has a reason and `v2-new, chosen` basis. The head axis
+and satchel handle axis are provisional design requirements until actual art
+can be reviewed. No artwork or rig is invented, and no placeholder is needed
+for the missing-scene test. The same zero-pixel tolerance and oracle apply.
+
+Mutants a,b,d use character-selected scene paths; e,f,g,h use the selected
+manifest, head part, knee, arm textures and subject declaration. A non-gun prop
+uses `Part_<id>` rather than `Gun`. Char2 mutants cannot be planted until its
+rig and subject declaration exist; no missing-scene result counts as a kill.
+Mutation comparisons still require newly relevant failures or increased gaps.
+
+Existing assertion edits in M2 (line numbers refer to this commit):
+
+- `tests/body_driver.py:95-97`: fixed slot count/inventory and joint tuple ->
+  character-index inventory; the trenchcoat index is additionally checked
+  against the same frozen Python constants. Reason: independent per-character
+  inventories while preserving the old trenchcoat requirements.
+- `tests/body_driver.py:161`: fixed random count in pose-count assertion ->
+  selected count (index validates N >= 200); trenchcoat remains exactly 200.
+- `tests/body_driver.py:255-257`: fixed atlas joint tuple/width -> selected
+  manifest tuple/width. Reason: char2 has 15 joints, trenchcoat still has 21.
+- `tests/test_body_oracle.py:67-76`: fixed 200 random poses, 840 pairs and
+  fixed joint-name set -> selected N, exhaustive pair formula and selected
+  inventory. The full historical trenchcoat pose equality assertion is added.
+- `tests/driver.py` animation mutation's fixed hair removal assertion keeps
+  the same removal count (two nodes), with a character-selected leaf name.
+
+No numerical tolerance, gap rule, alpha threshold or mutation kill criterion
+was relaxed. All new checks are the brief's allowlisted schema, parameterized
+existing acceptance/coverage checks, or lifecycle/heavy-policy checks.

@@ -8,10 +8,26 @@ var observations := {"completeness": [], "facing": [], "facing_samples": []}
 func _initialize() -> void:
 	var args := OS.get_cmdline_user_args()
 	output = args[1]
-	manifest = JSON.parse_string(FileAccess.get_file_as_string("res://body_parts.yml"))
-	subject = JSON.parse_string(FileAccess.get_file_as_string("res://parts.json"))
+	manifest = JSON.parse_string(FileAccess.get_file_as_string(output.path_join("manifest.json")))
+	subject = JSON.parse_string(FileAccess.get_file_as_string("res://" + manifest._character.subject))
 	spec = {"bones": manifest.joints}
 	call_deferred("body_run", args[0])
+
+func make_rig(_mode: String, view: Node) -> Node2D:
+	var packed: PackedScene = load("res://" + manifest._character.scene)
+	var rig: Node2D = packed.instantiate()
+	rig.process_mode = Node.PROCESS_MODE_DISABLED
+	view.add_child(rig)
+	var player := rig.get_node_or_null("AnimationPlayer") as AnimationPlayer
+	if player:
+		player.stop()
+	var camera := rig.get_node_or_null("Camera2D") as Camera2D
+	if camera:
+		camera.enabled = false
+	return rig
+
+func part_node(part: String) -> String:
+	return "Gun" if part == "gun" else "Part_" + part
 
 func write_json(name_: String, value: Variant) -> void:
 	var file := FileAccess.open(output.path_join(name_), FileAccess.WRITE)
@@ -56,7 +72,7 @@ func observe_body() -> void:
 					reject("limits/" + joint.name, "joint limits differ from test manifest")
 	for slot in manifest.slots:
 		var key: String = "slot/" + slot.slot
-		var node_name: String = "Gun" if slot.part == "gun" else "Part_" + slot.part
+		var node_name := part_node(slot.part)
 		var sprite := rig.find_child(node_name, true, false) as Sprite2D
 		if sprite == null or sprite.texture == null:
 			reject(key, "missing required textured slot " + slot.part)
@@ -81,7 +97,7 @@ func observe_body() -> void:
 			reject(key + "/offset", "rendered sprite offset differs from its declaration")
 	var player := rig.get_node_or_null("AnimationPlayer") as AnimationPlayer
 	var head := rig.find_child("Part_" + manifest.facing.head_part, true, false) as Sprite2D
-	var gun := rig.find_child("Gun", true, false) as Sprite2D
+	var gun := rig.find_child(part_node(manifest.facing.weapon_part), true, false) as Sprite2D
 	if player == null or head == null or gun == null:
 		observations.facing.append({"case_id": "facing/required-nodes", "error": "missing head/face, gun or AnimationPlayer"})
 	else:

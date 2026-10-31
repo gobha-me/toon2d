@@ -1,0 +1,647 @@
+{
+  "schema_version": 1,
+  "format_note": "JSON-compatible YAML 1.2; no additional parser dependency.",
+  "units": "HD source pixels and local degrees",
+  "character": "char2",
+  "description": "Original fictional stocky courier with a hand-held satchel; no existing IP or real-person likeness. No rig or artwork supplied.",
+  "source_canvas_px": [
+    512,
+    768
+  ],
+  "canvas_reason": "v2-new, chosen: enough native pixels for broad torso, short limbs and a satchel without cropping.",
+  "joints": [
+    {
+      "name": "hip",
+      "parent": null,
+      "pivot": [
+        256,
+        400
+      ],
+      "rotation_limits_deg": [
+        -4,
+        4
+      ],
+      "pivot_reason": "v2-new, chosen: pelvis centre.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "torso",
+      "parent": "hip",
+      "pivot": [
+        256,
+        240
+      ],
+      "rotation_limits_deg": [
+        -6,
+        6
+      ],
+      "pivot_reason": "v2-new, chosen: broad upper torso.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "head",
+      "parent": "torso",
+      "pivot": [
+        256,
+        160
+      ],
+      "rotation_limits_deg": [
+        -10,
+        10
+      ],
+      "pivot_reason": "v2-new, chosen: neck base.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "right_upper",
+      "parent": "torso",
+      "pivot": [
+        182,
+        250
+      ],
+      "rotation_limits_deg": [
+        -15,
+        35
+      ],
+      "pivot_reason": "v2-new, chosen: left image shoulder.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "right_fore",
+      "parent": "right_upper",
+      "pivot": [
+        168,
+        340
+      ],
+      "rotation_limits_deg": [
+        -20,
+        45
+      ],
+      "pivot_reason": "v2-new, chosen: elbow below shoulder.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "right_hand",
+      "parent": "right_fore",
+      "pivot": [
+        160,
+        430
+      ],
+      "rotation_limits_deg": [
+        -12,
+        12
+      ],
+      "pivot_reason": "v2-new, chosen: wrist at sleeve end.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "left_arm",
+      "parent": "torso",
+      "pivot": [
+        330,
+        250
+      ],
+      "rotation_limits_deg": [
+        -15,
+        35
+      ],
+      "pivot_reason": "v2-new, chosen: right image shoulder.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "left_fore",
+      "parent": "left_arm",
+      "pivot": [
+        344,
+        340
+      ],
+      "rotation_limits_deg": [
+        -20,
+        45
+      ],
+      "pivot_reason": "v2-new, chosen: elbow below shoulder.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "left_hand",
+      "parent": "left_fore",
+      "pivot": [
+        352,
+        430
+      ],
+      "rotation_limits_deg": [
+        -12,
+        12
+      ],
+      "pivot_reason": "v2-new, chosen: wrist at sleeve end.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "leg_left",
+      "parent": "hip",
+      "pivot": [
+        216,
+        420
+      ],
+      "rotation_limits_deg": [
+        -10,
+        10
+      ],
+      "pivot_reason": "v2-new, chosen: left hip under pelvis.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "leg_right",
+      "parent": "hip",
+      "pivot": [
+        296,
+        420
+      ],
+      "rotation_limits_deg": [
+        -10,
+        10
+      ],
+      "pivot_reason": "v2-new, chosen: right hip under pelvis.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "knee_left",
+      "parent": "leg_left",
+      "pivot": [
+        216,
+        550
+      ],
+      "rotation_limits_deg": [
+        0,
+        60
+      ],
+      "pivot_reason": "v2-new, chosen: left knee at leg midpoint.",
+      "limit_reasons": [
+        "v2-new, chosen: no knee hyperextension.",
+        "v2-new, chosen: moderate flexion before cloth deformation."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "knee_right",
+      "parent": "leg_right",
+      "pivot": [
+        296,
+        550
+      ],
+      "rotation_limits_deg": [
+        0,
+        60
+      ],
+      "pivot_reason": "v2-new, chosen: right knee at leg midpoint.",
+      "limit_reasons": [
+        "v2-new, chosen: no knee hyperextension.",
+        "v2-new, chosen: moderate flexion before cloth deformation."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "boot_left",
+      "parent": "knee_left",
+      "pivot": [
+        216,
+        680
+      ],
+      "rotation_limits_deg": [
+        -8,
+        8
+      ],
+      "pivot_reason": "v2-new, chosen: left ankle above foot.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "boot_right",
+      "parent": "knee_right",
+      "pivot": [
+        296,
+        680
+      ],
+      "rotation_limits_deg": [
+        -8,
+        8
+      ],
+      "pivot_reason": "v2-new, chosen: right ankle above foot.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    }
+  ],
+  "slots": [
+    {
+      "slot": "head_face",
+      "part": "head",
+      "bone": "head",
+      "parent_bone": "torso",
+      "part_parent_bone": "head",
+      "pivot": [
+        256,
+        160
+      ],
+      "pivot_reason": "v2-new, chosen: neck base.",
+      "joint_limits_deg": [
+        -10,
+        10
+      ],
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "overlap_px": 12,
+      "overlap_reason": "v2-new, chosen: 12 source pixels of backing for broad courier seams; strict 32-pixel stencil retained.",
+      "basis": "v2-new, chosen"
+    },
+    {
+      "slot": "upper_arm_left",
+      "part": "left_arm",
+      "bone": "left_arm",
+      "parent_bone": "torso",
+      "part_parent_bone": "left_arm",
+      "pivot": [
+        330,
+        250
+      ],
+      "pivot_reason": "v2-new, chosen: right image shoulder.",
+      "joint_limits_deg": [
+        -15,
+        35
+      ],
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "overlap_px": 12,
+      "overlap_reason": "v2-new, chosen: 12 source pixels of backing for broad courier seams; strict 32-pixel stencil retained.",
+      "basis": "v2-new, chosen"
+    },
+    {
+      "slot": "lower_arm_left",
+      "part": "left_fore",
+      "bone": "left_fore",
+      "parent_bone": "left_arm",
+      "part_parent_bone": "left_fore",
+      "pivot": [
+        344,
+        340
+      ],
+      "pivot_reason": "v2-new, chosen: elbow below shoulder.",
+      "joint_limits_deg": [
+        -20,
+        45
+      ],
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "overlap_px": 12,
+      "overlap_reason": "v2-new, chosen: 12 source pixels of backing for broad courier seams; strict 32-pixel stencil retained.",
+      "basis": "v2-new, chosen"
+    },
+    {
+      "slot": "hand_left",
+      "part": "left_hand",
+      "bone": "left_hand",
+      "parent_bone": "left_fore",
+      "part_parent_bone": "left_hand",
+      "pivot": [
+        352,
+        430
+      ],
+      "pivot_reason": "v2-new, chosen: wrist at sleeve end.",
+      "joint_limits_deg": [
+        -12,
+        12
+      ],
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "overlap_px": 12,
+      "overlap_reason": "v2-new, chosen: 12 source pixels of backing for broad courier seams; strict 32-pixel stencil retained.",
+      "basis": "v2-new, chosen"
+    },
+    {
+      "slot": "upper_arm_right",
+      "part": "right_upper",
+      "bone": "right_upper",
+      "parent_bone": "torso",
+      "part_parent_bone": "right_upper",
+      "pivot": [
+        182,
+        250
+      ],
+      "pivot_reason": "v2-new, chosen: left image shoulder.",
+      "joint_limits_deg": [
+        -15,
+        35
+      ],
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "overlap_px": 12,
+      "overlap_reason": "v2-new, chosen: 12 source pixels of backing for broad courier seams; strict 32-pixel stencil retained.",
+      "basis": "v2-new, chosen"
+    },
+    {
+      "slot": "lower_arm_right",
+      "part": "right_fore",
+      "bone": "right_fore",
+      "parent_bone": "right_upper",
+      "part_parent_bone": "right_fore",
+      "pivot": [
+        168,
+        340
+      ],
+      "pivot_reason": "v2-new, chosen: elbow below shoulder.",
+      "joint_limits_deg": [
+        -20,
+        45
+      ],
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "overlap_px": 12,
+      "overlap_reason": "v2-new, chosen: 12 source pixels of backing for broad courier seams; strict 32-pixel stencil retained.",
+      "basis": "v2-new, chosen"
+    },
+    {
+      "slot": "hand_right",
+      "part": "right_hand",
+      "bone": "right_hand",
+      "parent_bone": "right_fore",
+      "part_parent_bone": "right_hand",
+      "pivot": [
+        160,
+        430
+      ],
+      "pivot_reason": "v2-new, chosen: wrist at sleeve end.",
+      "joint_limits_deg": [
+        -12,
+        12
+      ],
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "overlap_px": 12,
+      "overlap_reason": "v2-new, chosen: 12 source pixels of backing for broad courier seams; strict 32-pixel stencil retained.",
+      "basis": "v2-new, chosen"
+    },
+    {
+      "slot": "upper_leg_left",
+      "part": "leg_left",
+      "bone": "leg_left",
+      "parent_bone": "hip",
+      "part_parent_bone": "leg_left",
+      "pivot": [
+        216,
+        420
+      ],
+      "pivot_reason": "v2-new, chosen: left hip under pelvis.",
+      "joint_limits_deg": [
+        -10,
+        10
+      ],
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "overlap_px": 12,
+      "overlap_reason": "v2-new, chosen: 12 source pixels of backing for broad courier seams; strict 32-pixel stencil retained.",
+      "basis": "v2-new, chosen"
+    },
+    {
+      "slot": "lower_leg_left",
+      "part": "shin_left",
+      "bone": "knee_left",
+      "parent_bone": "leg_left",
+      "part_parent_bone": "knee_left",
+      "pivot": [
+        216,
+        550
+      ],
+      "pivot_reason": "v2-new, chosen: left knee at leg midpoint.",
+      "joint_limits_deg": [
+        0,
+        60
+      ],
+      "limit_reasons": [
+        "v2-new, chosen: no knee hyperextension.",
+        "v2-new, chosen: moderate flexion before cloth deformation."
+      ],
+      "overlap_px": 12,
+      "overlap_reason": "v2-new, chosen: 12 source pixels of backing for broad courier seams; strict 32-pixel stencil retained.",
+      "basis": "v2-new, chosen"
+    },
+    {
+      "slot": "foot_left",
+      "part": "boot_left",
+      "bone": "boot_left",
+      "parent_bone": "knee_left",
+      "part_parent_bone": "boot_left",
+      "pivot": [
+        216,
+        680
+      ],
+      "pivot_reason": "v2-new, chosen: left ankle above foot.",
+      "joint_limits_deg": [
+        -8,
+        8
+      ],
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "overlap_px": 12,
+      "overlap_reason": "v2-new, chosen: 12 source pixels of backing for broad courier seams; strict 32-pixel stencil retained.",
+      "basis": "v2-new, chosen"
+    },
+    {
+      "slot": "upper_leg_right",
+      "part": "leg_right",
+      "bone": "leg_right",
+      "parent_bone": "hip",
+      "part_parent_bone": "leg_right",
+      "pivot": [
+        296,
+        420
+      ],
+      "pivot_reason": "v2-new, chosen: right hip under pelvis.",
+      "joint_limits_deg": [
+        -10,
+        10
+      ],
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "overlap_px": 12,
+      "overlap_reason": "v2-new, chosen: 12 source pixels of backing for broad courier seams; strict 32-pixel stencil retained.",
+      "basis": "v2-new, chosen"
+    },
+    {
+      "slot": "lower_leg_right",
+      "part": "shin_right",
+      "bone": "knee_right",
+      "parent_bone": "leg_right",
+      "part_parent_bone": "knee_right",
+      "pivot": [
+        296,
+        550
+      ],
+      "pivot_reason": "v2-new, chosen: right knee at leg midpoint.",
+      "joint_limits_deg": [
+        0,
+        60
+      ],
+      "limit_reasons": [
+        "v2-new, chosen: no knee hyperextension.",
+        "v2-new, chosen: moderate flexion before cloth deformation."
+      ],
+      "overlap_px": 12,
+      "overlap_reason": "v2-new, chosen: 12 source pixels of backing for broad courier seams; strict 32-pixel stencil retained.",
+      "basis": "v2-new, chosen"
+    },
+    {
+      "slot": "foot_right",
+      "part": "boot_right",
+      "bone": "boot_right",
+      "parent_bone": "knee_right",
+      "part_parent_bone": "boot_right",
+      "pivot": [
+        296,
+        680
+      ],
+      "pivot_reason": "v2-new, chosen: right ankle above foot.",
+      "joint_limits_deg": [
+        -8,
+        8
+      ],
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "overlap_px": 12,
+      "overlap_reason": "v2-new, chosen: 12 source pixels of backing for broad courier seams; strict 32-pixel stencil retained.",
+      "basis": "v2-new, chosen"
+    },
+    {
+      "slot": "held_prop_satchel",
+      "part": "satchel",
+      "bone": "right_hand",
+      "parent_bone": "right_fore",
+      "part_parent_bone": "right_hand",
+      "pivot": [
+        160,
+        430
+      ],
+      "pivot_reason": "v2-new, chosen: wrist at sleeve end.",
+      "joint_limits_deg": [
+        -12,
+        12
+      ],
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "overlap_px": 0,
+      "overlap_reason": "v2-new, chosen: rigid satchel grip requires no seam dilation.",
+      "basis": "v2-new, chosen"
+    }
+  ],
+  "tolerances": {
+    "pivot_px": 0.001,
+    "pivot_reason": "PoC Float32 geometry tolerance; one thousandth of a native pixel.",
+    "limit_deg": 1e-06,
+    "limit_reason": "Float32 serialized joint-limit metadata rounding only.",
+    "radius_px": 32,
+    "radius_reason": "Same frozen local seam disk as PoC test 5.",
+    "alpha_threshold": 128,
+    "alpha_reason": "Same frozen half-opaque reference silhouette as PoC test 5.",
+    "background_rgb": [
+      255,
+      0,
+      255
+    ],
+    "background_channel_tolerance": 3,
+    "background_reason": "Same frozen framebuffer conversion tolerance as PoC test 5.",
+    "allowed_gap_pixels": 0,
+    "gap_reason": "Any uncovered native pixel in the stencil rejects the pose."
+  },
+  "facing": {
+    "head_part": "head",
+    "head_intrinsic_axis": [
+      1,
+      0
+    ],
+    "head_axis_reason": "v2-new, chosen: intended courier head looks image-right; must be reviewed when actual art exists.",
+    "weapon_part": "satchel",
+    "grip_texture_px": [
+      16,
+      8
+    ],
+    "muzzle_texture_px": [
+      48,
+      8
+    ],
+    "weapon_axis_reason": "v2-new, chosen: satchel handle attachment to outer handle endpoint defines the held-prop horizontal direction; provisional until real artwork is reviewed.",
+    "axis_epsilon": 1e-06,
+    "epsilon_reason": "Numerical zero only, same strict observer as trenchcoat."
+  }
+}

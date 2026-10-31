@@ -138,7 +138,7 @@ def body_suite(source: Path, output: Path, *, full: bool = True, announce: bool 
         driver.heavy(["godot", "--single-threaded-scene", "--headless", "--path", str(project),
                       "--script", "res://tests/check_body_parts.gd", "--", "observe", str(captures)], project, log)
         observed = json.loads((captures / "body-observed.json").read_text())
-        driver.heavy(["xvfb-run", "-a", "godot", "--single-threaded-scene", "--path", str(project),
+        driver.heavy(["godot", "--single-threaded-scene", "--path", str(project),
                       "--audio-driver", "Dummy", "--script", "res://tests/check_body_parts.gd",
                       "--", "atlas", str(captures)], project, log)
         atlases = json.loads((captures / "body-atlases.json").read_text())

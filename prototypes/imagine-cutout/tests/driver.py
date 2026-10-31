@@ -36,7 +36,7 @@ def guard() -> None:
 
 
 def phase(name: str, state: str) -> None:
-    log = REPO / "PHASE-LOG.txt"
+    log = TEMP / "phases.txt"
     if log.exists():
         with log.open("a") as stream:
             stream.write(f"{datetime.now(ZoneInfo('UTC')).isoformat()} codexB {name} {state}\n")
@@ -68,12 +68,24 @@ def overlap_inputs() -> tuple[Path, Path, list[str]]:
 
 def heavy(command: list[str], cwd: Path, log: Path) -> None:
     """One worker; exit 75 never falls through to an unguarded invocation."""
-    while True:
+    retry_seconds = float(os.environ.get("DRIVER_HEAVY_RETRY_SECONDS", "1800"))
+    if retry_seconds < 0:
+        raise ValueError("retry interval must be nonnegative")
+    for attempt in range(1, 5):
         guard()
         env = dict(os.environ, HEAVY_WAIT="30")
         process = subprocess.Popen(["heavy-run", *command], cwd=cwd, env=env,
                                    stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                                    text=True, start_new_session=True)
+        def stop_child(signum, frame):
+            os.killpg(process.pid, signal.SIGTERM)
+            try:
+                process.wait(timeout=10)
+            except subprocess.TimeoutExpired:
+                os.killpg(process.pid, signal.SIGKILL)
+                process.wait()
+            raise SystemExit(128 + signum)
+        previous = {sig: signal.signal(sig, stop_child) for sig in (signal.SIGINT, signal.SIGTERM)}
         try:
             output, _ = process.communicate(timeout=600)
         except subprocess.TimeoutExpired:
@@ -86,12 +98,30 @@ def heavy(command: list[str], cwd: Path, log: Path) -> None:
                 output, _ = process.communicate()
             log.write_text(public_log(output))
             raise RuntimeError(f"timed out process group {process.pid}; see {log.name}")
+        finally:
+            for sig, handler in previous.items():
+                signal.signal(sig, handler)
         with log.open("a") as stream:
             stream.write(public_log(f"COMMAND {command!r}\n{output}\nEXIT {process.returncode}\n"))
         if process.returncode == 75:
-            print("heavy-run deferred (75); retrying in 30 seconds", flush=True)
-            time.sleep(30)
+            now = datetime.now(ZoneInfo("America/New_York"))
+            stamp = now.astimezone(ZoneInfo("UTC")).isoformat()
+            line = f"{stamp} DEFER heavy-run exit 75; attempt {attempt}/4"
+            print(line, flush=True)
+            with log.open("a") as stream:
+                stream.write(line + "\n")
+            cutoff = now.replace(hour=23, minute=40, second=0, microsecond=0)
+            # Never sleep into the stop time or quiet hours.
+            if attempt == 4 or now.hour < 3 or now.timestamp() + retry_seconds >= cutoff.timestamp():
+                with log.open("a") as stream:
+                    stream.write("DEFERRED exit 79\n")
+                print("DEFERRED: heavy-run remains unavailable (79)", flush=True)
+                raise SystemExit(79)
+            time.sleep(retry_seconds)
             continue
+        if process.returncode == 78:
+            print("STOP: heavy-run configuration refusal (78)", flush=True)
+            raise SystemExit(78)
         if process.returncode != 0:
             raise RuntimeError(f"command failed ({process.returncode}): {command!r}\n{output[-6000:]}")
         if "SCRIPT ERROR:" in output or "Parse Error:" in output:
@@ -150,7 +180,7 @@ def suite(source: Path, output: Path, *, announce: bool = True) -> dict:
     heavy(["godot", "--single-threaded-scene", "--headless", "--path", str(project), "--script", "res://tests/check_rig.gd",
            "--", "observe", str(captures)], project, log)
     observed = json.loads((captures / "observed.json").read_text())
-    heavy(["xvfb-run", "-a", "godot", "--single-threaded-scene", "--path", str(project), "--audio-driver", "Dummy",
+    heavy(["godot", "--single-threaded-scene", "--path", str(project), "--audio-driver", "Dummy",
            "--script", "res://tests/check_rig.gd", "--", "render", str(captures)], project, log)
     joints = image_oracle(captures)
     cases = {}

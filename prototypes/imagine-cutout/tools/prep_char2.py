@@ -56,18 +56,18 @@ def capsule(draw, start, end, radius, fill):
     circle(draw, end, radius, fill)
 
 
-def provenance(path, date):
+def provenance(path, date, *, source=SOURCE, tool="Python/Pillow/OpenCV procedural cutout authoring",
+               description="Original fictional courier; scripted shapes only"):
     path.with_suffix('.gen.json').write_text(json.dumps(dict(
-        tool="Python/Pillow/OpenCV procedural cutout authoring",
-        model="none (scripted)", date=date, source=SOURCE,
+        tool=tool, model="none (scripted)", date=date, source=source,
         prompt="not applicable (scripted)",
         image_sha256=hashlib.sha256(path.read_bytes()).hexdigest(),
-        license="CC0-1.0", description="Original fictional courier; scripted shapes only"), indent=2)+'\n')
+        license="CC0-1.0", description=description), indent=2)+'\n')
 
 
 def prepare(project, audit_only=False):
     config = json.loads((project/'characters.yml').read_text())['characters']['char2']
-    manifest_path = project/config['manifest']
+    manifest_path = project / config['manifest']
     manifest = json.loads(manifest_path.read_text())
     destination = project/'characters/char2'
     destination.mkdir(parents=True, exist_ok=True)
@@ -196,7 +196,7 @@ def prepare(project, audit_only=False):
                 manifest=config['manifest'], bones=manifest['joints'],
                 overlap_px=slots['head']['overlap_px'], pixel_scale=1,
                 parts=sorted(parts,key=lambda p:p['z_order']))
-    (project/config['subject']).write_text(json.dumps(data,indent=2)+'\n')
+    (project / config['subject']).write_text(json.dumps(data,indent=2)+'\n')
     print(f'Prepared original courier: {len(parts)} parts, {len(joints)} manifest joints')
 
 

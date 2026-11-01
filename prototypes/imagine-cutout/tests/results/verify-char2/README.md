@@ -135,7 +135,7 @@ Mutant c: not-run / explicit SKIP within item 08, no separate command or rc; par
 
 The provided mutant log shows sequential results but contains no launcher process-check transcripts or boundary-check timestamps. This review cannot independently certify those checks from the provided logs. It does not infer an overlap.
 
-The unexpected harness failure leaves M1 lifecycle proof and the Q2 evidence gate unresolved. Existing Q1 deferral transcripts remain historical evidence; the classifications above supersede their pending runtime status. No rerun was attempted in Phase B.
+The unexpected harness failure leaves M1 lifecycle proof and the rig evidence gate unresolved. Existing earlier deferral transcripts remain historical evidence; the classifications above supersede their pending runtime status. No rerun was attempted in Phase B.
 
 ## Retention
 

@@ -2,9 +2,15 @@ extends SceneTree
 ## Review-only HD captures. No acceptance assertions or production writes.
 var manifest: Dictionary
 var output: String
+var scene_path: String
 
 func _initialize() -> void:
-	manifest = JSON.parse_string(FileAccess.get_file_as_string("res://body_parts.yml"))
+	var args := OS.get_cmdline_user_args()
+	var character: String = args[0] if not args.is_empty() else "trenchcoat"
+	var index: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://characters.yml"))
+	var config: Dictionary = index.characters[character]
+	scene_path = config.scene
+	manifest = JSON.parse_string(FileAccess.get_file_as_string("res://" + config.manifest))
 	output = ProjectSettings.globalize_path("res://review")
 	DirAccess.make_dir_recursive_absolute(output)
 	call_deferred("capture")
@@ -15,7 +21,7 @@ func capture() -> void:
 	view.size = Vector2i(768, 896)
 	view.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	root.add_child(view)
-	var rig: Node2D = load("res://scenes/hd.tscn").instantiate()
+	var rig: Node2D = load("res://" + scene_path).instantiate()
 	rig.process_mode = Node.PROCESS_MODE_DISABLED
 	view.add_child(rig)
 	var player: AnimationPlayer = rig.get_node("AnimationPlayer")
@@ -23,7 +29,9 @@ func capture() -> void:
 		player.stop()
 		for bone in rig.find_children("*", "Bone2D", true, false):
 			bone.transform = bone.rest
-		rig.find_child("MuzzleFlash", true, false).visible = false
+		var flash := rig.find_child("MuzzleFlash", true, false)
+		if flash:
+			flash.visible = false
 		if pose in ["aim", "fire"]:
 			player.play(pose)
 			player.pause()

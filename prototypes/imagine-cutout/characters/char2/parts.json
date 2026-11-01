@@ -1,0 +1,909 @@
+{
+  "canvas": [
+    512,
+    768
+  ],
+  "character": "char2",
+  "rig_template": 2,
+  "manifest": "tests/data/characters/char2/body_parts.yml",
+  "bones": [
+    {
+      "name": "hip",
+      "parent": null,
+      "pivot": [
+        256,
+        400
+      ],
+      "rotation_limits_deg": [
+        -4,
+        4
+      ],
+      "pivot_reason": "v2-new, chosen: pelvis centre.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "torso",
+      "parent": "hip",
+      "pivot": [
+        256,
+        240
+      ],
+      "rotation_limits_deg": [
+        -6,
+        6
+      ],
+      "pivot_reason": "v2-new, chosen: broad upper torso.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "head",
+      "parent": "torso",
+      "pivot": [
+        256,
+        160
+      ],
+      "rotation_limits_deg": [
+        -10,
+        10
+      ],
+      "pivot_reason": "v2-new, chosen: neck base.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "right_upper",
+      "parent": "torso",
+      "pivot": [
+        182,
+        250
+      ],
+      "rotation_limits_deg": [
+        -15,
+        35
+      ],
+      "pivot_reason": "v2-new, chosen: left image shoulder.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "right_fore",
+      "parent": "right_upper",
+      "pivot": [
+        168,
+        340
+      ],
+      "rotation_limits_deg": [
+        -20,
+        45
+      ],
+      "pivot_reason": "v2-new, chosen: elbow below shoulder.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "right_hand",
+      "parent": "right_fore",
+      "pivot": [
+        160,
+        430
+      ],
+      "rotation_limits_deg": [
+        -12,
+        12
+      ],
+      "pivot_reason": "v2-new, chosen: wrist at sleeve end.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "left_arm",
+      "parent": "torso",
+      "pivot": [
+        330,
+        250
+      ],
+      "rotation_limits_deg": [
+        -15,
+        35
+      ],
+      "pivot_reason": "v2-new, chosen: right image shoulder.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "left_fore",
+      "parent": "left_arm",
+      "pivot": [
+        344,
+        340
+      ],
+      "rotation_limits_deg": [
+        -20,
+        45
+      ],
+      "pivot_reason": "v2-new, chosen: elbow below shoulder.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "left_hand",
+      "parent": "left_fore",
+      "pivot": [
+        352,
+        430
+      ],
+      "rotation_limits_deg": [
+        -12,
+        12
+      ],
+      "pivot_reason": "v2-new, chosen: wrist at sleeve end.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "leg_left",
+      "parent": "hip",
+      "pivot": [
+        216,
+        420
+      ],
+      "rotation_limits_deg": [
+        -10,
+        10
+      ],
+      "pivot_reason": "v2-new, chosen: left hip under pelvis.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "leg_right",
+      "parent": "hip",
+      "pivot": [
+        296,
+        420
+      ],
+      "rotation_limits_deg": [
+        -10,
+        10
+      ],
+      "pivot_reason": "v2-new, chosen: right hip under pelvis.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "knee_left",
+      "parent": "leg_left",
+      "pivot": [
+        216,
+        550
+      ],
+      "rotation_limits_deg": [
+        0,
+        60
+      ],
+      "pivot_reason": "v2-new, chosen: left knee at leg midpoint.",
+      "limit_reasons": [
+        "v2-new, chosen: no knee hyperextension.",
+        "v2-new, chosen: moderate flexion before cloth deformation."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "knee_right",
+      "parent": "leg_right",
+      "pivot": [
+        296,
+        550
+      ],
+      "rotation_limits_deg": [
+        0,
+        60
+      ],
+      "pivot_reason": "v2-new, chosen: right knee at leg midpoint.",
+      "limit_reasons": [
+        "v2-new, chosen: no knee hyperextension.",
+        "v2-new, chosen: moderate flexion before cloth deformation."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "boot_left",
+      "parent": "knee_left",
+      "pivot": [
+        216,
+        680
+      ],
+      "rotation_limits_deg": [
+        -8,
+        8
+      ],
+      "pivot_reason": "v2-new, chosen: left ankle above foot.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "boot_right",
+      "parent": "knee_right",
+      "pivot": [
+        296,
+        680
+      ],
+      "rotation_limits_deg": [
+        -8,
+        8
+      ],
+      "pivot_reason": "v2-new, chosen: right ankle above foot.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    }
+  ],
+  "overlap_px": 12,
+  "pixel_scale": 1,
+  "parts": [
+    {
+      "id": "hip_backing",
+      "bone": "hip",
+      "parent_bone": "hip",
+      "pivot": [
+        256,
+        400
+      ],
+      "offset": [
+        -91,
+        -60
+      ],
+      "bbox": [
+        165,
+        340,
+        348,
+        476
+      ],
+      "source_bbox": [
+        165,
+        340,
+        348,
+        476
+      ],
+      "source_to_rig_translation": [
+        0,
+        0
+      ],
+      "texture_hd": "characters/char2/parts/hip_backing.png",
+      "z_order": 0,
+      "joint_overlap_px": 0,
+      "rotation_limits_deg": [
+        -4,
+        4
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "scripted original",
+      "derived_from": "procedural torso and pelvis backing"
+    },
+    {
+      "id": "left_arm",
+      "bone": "left_arm",
+      "parent_bone": "left_arm",
+      "pivot": [
+        330,
+        250
+      ],
+      "offset": [
+        -36,
+        -36
+      ],
+      "bbox": [
+        294,
+        214,
+        369,
+        365
+      ],
+      "source_bbox": [
+        294,
+        214,
+        369,
+        365
+      ],
+      "source_to_rig_translation": [
+        0,
+        0
+      ],
+      "texture_hd": "characters/char2/parts/left_arm.png",
+      "z_order": 3,
+      "joint_overlap_px": 12,
+      "rotation_limits_deg": [
+        -15,
+        35
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "scripted original",
+      "derived_from": "far teal sleeve capsule; proximal round backing and manifest dilation"
+    },
+    {
+      "id": "left_fore",
+      "bone": "left_fore",
+      "parent_bone": "left_fore",
+      "pivot": [
+        344,
+        340
+      ],
+      "offset": [
+        -36,
+        -36
+      ],
+      "bbox": [
+        308,
+        304,
+        381,
+        455
+      ],
+      "source_bbox": [
+        308,
+        304,
+        381,
+        455
+      ],
+      "source_to_rig_translation": [
+        0,
+        0
+      ],
+      "texture_hd": "characters/char2/parts/left_fore.png",
+      "z_order": 3,
+      "joint_overlap_px": 12,
+      "rotation_limits_deg": [
+        -20,
+        45
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "scripted original",
+      "derived_from": "far teal forearm capsule and cuff; proximal backing and manifest dilation"
+    },
+    {
+      "id": "left_hand",
+      "bone": "left_hand",
+      "parent_bone": "left_hand",
+      "pivot": [
+        352,
+        430
+      ],
+      "offset": [
+        -36,
+        -36
+      ],
+      "bbox": [
+        316,
+        394,
+        389,
+        470
+      ],
+      "source_bbox": [
+        316,
+        394,
+        389,
+        470
+      ],
+      "source_to_rig_translation": [
+        0,
+        0
+      ],
+      "texture_hd": "characters/char2/parts/left_hand.png",
+      "z_order": 4,
+      "joint_overlap_px": 12,
+      "rotation_limits_deg": [
+        -12,
+        12
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "scripted original",
+      "derived_from": "far mitten with thumb; proximal backing and manifest dilation"
+    },
+    {
+      "id": "leg_left",
+      "bone": "leg_left",
+      "parent_bone": "leg_left",
+      "pivot": [
+        216,
+        420
+      ],
+      "offset": [
+        -40,
+        -40
+      ],
+      "bbox": [
+        176,
+        380,
+        257,
+        579
+      ],
+      "source_bbox": [
+        176,
+        380,
+        257,
+        579
+      ],
+      "source_to_rig_translation": [
+        0,
+        0
+      ],
+      "texture_hd": "characters/char2/parts/leg_left.png",
+      "z_order": 5,
+      "joint_overlap_px": 12,
+      "rotation_limits_deg": [
+        -10,
+        10
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "scripted original",
+      "derived_from": "navy trouser capsule; proximal backing and manifest dilation"
+    },
+    {
+      "id": "shin_left",
+      "bone": "knee_left",
+      "parent_bone": "knee_left",
+      "pivot": [
+        216,
+        550
+      ],
+      "offset": [
+        -40,
+        -40
+      ],
+      "bbox": [
+        176,
+        510,
+        257,
+        709
+      ],
+      "source_bbox": [
+        176,
+        510,
+        257,
+        709
+      ],
+      "source_to_rig_translation": [
+        0,
+        0
+      ],
+      "texture_hd": "characters/char2/parts/shin_left.png",
+      "z_order": 5,
+      "joint_overlap_px": 12,
+      "rotation_limits_deg": [
+        0,
+        60
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "scripted original",
+      "derived_from": "navy trouser calf capsule; proximal backing and manifest dilation"
+    },
+    {
+      "id": "leg_right",
+      "bone": "leg_right",
+      "parent_bone": "leg_right",
+      "pivot": [
+        296,
+        420
+      ],
+      "offset": [
+        -40,
+        -40
+      ],
+      "bbox": [
+        256,
+        380,
+        337,
+        579
+      ],
+      "source_bbox": [
+        256,
+        380,
+        337,
+        579
+      ],
+      "source_to_rig_translation": [
+        0,
+        0
+      ],
+      "texture_hd": "characters/char2/parts/leg_right.png",
+      "z_order": 5,
+      "joint_overlap_px": 12,
+      "rotation_limits_deg": [
+        -10,
+        10
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "scripted original",
+      "derived_from": "navy trouser capsule; proximal backing and manifest dilation"
+    },
+    {
+      "id": "shin_right",
+      "bone": "knee_right",
+      "parent_bone": "knee_right",
+      "pivot": [
+        296,
+        550
+      ],
+      "offset": [
+        -40,
+        -40
+      ],
+      "bbox": [
+        256,
+        510,
+        337,
+        709
+      ],
+      "source_bbox": [
+        256,
+        510,
+        337,
+        709
+      ],
+      "source_to_rig_translation": [
+        0,
+        0
+      ],
+      "texture_hd": "characters/char2/parts/shin_right.png",
+      "z_order": 5,
+      "joint_overlap_px": 12,
+      "rotation_limits_deg": [
+        0,
+        60
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "scripted original",
+      "derived_from": "navy trouser calf capsule; proximal backing and manifest dilation"
+    },
+    {
+      "id": "boot_left",
+      "bone": "boot_left",
+      "parent_bone": "boot_left",
+      "pivot": [
+        216,
+        680
+      ],
+      "offset": [
+        -37,
+        -36
+      ],
+      "bbox": [
+        179,
+        644,
+        269,
+        725
+      ],
+      "source_bbox": [
+        179,
+        644,
+        269,
+        725
+      ],
+      "source_to_rig_translation": [
+        0,
+        0
+      ],
+      "texture_hd": "characters/char2/parts/boot_left.png",
+      "z_order": 6,
+      "joint_overlap_px": 12,
+      "rotation_limits_deg": [
+        -8,
+        8
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "scripted original",
+      "derived_from": "right-pointing leather boot and sole; ankle backing and manifest dilation"
+    },
+    {
+      "id": "boot_right",
+      "bone": "boot_right",
+      "parent_bone": "boot_right",
+      "pivot": [
+        296,
+        680
+      ],
+      "offset": [
+        -37,
+        -36
+      ],
+      "bbox": [
+        259,
+        644,
+        349,
+        725
+      ],
+      "source_bbox": [
+        259,
+        644,
+        349,
+        725
+      ],
+      "source_to_rig_translation": [
+        0,
+        0
+      ],
+      "texture_hd": "characters/char2/parts/boot_right.png",
+      "z_order": 6,
+      "joint_overlap_px": 12,
+      "rotation_limits_deg": [
+        -8,
+        8
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "scripted original",
+      "derived_from": "right-pointing leather boot and sole; ankle backing and manifest dilation"
+    },
+    {
+      "id": "torso",
+      "bone": "torso",
+      "parent_bone": "torso",
+      "pivot": [
+        256,
+        240
+      ],
+      "offset": [
+        -92,
+        -48
+      ],
+      "bbox": [
+        164,
+        192,
+        349,
+        431
+      ],
+      "source_bbox": [
+        164,
+        192,
+        349,
+        431
+      ],
+      "source_to_rig_translation": [
+        0,
+        0
+      ],
+      "texture_hd": "characters/char2/parts/torso.png",
+      "z_order": 8,
+      "joint_overlap_px": 0,
+      "rotation_limits_deg": [
+        -6,
+        6
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "scripted original",
+      "derived_from": "procedural torso and pelvis backing"
+    },
+    {
+      "id": "head",
+      "bone": "head",
+      "parent_bone": "head",
+      "pivot": [
+        256,
+        160
+      ],
+      "offset": [
+        -49,
+        -111
+      ],
+      "bbox": [
+        207,
+        49,
+        316,
+        197
+      ],
+      "source_bbox": [
+        207,
+        49,
+        316,
+        197
+      ],
+      "source_to_rig_translation": [
+        0,
+        0
+      ],
+      "texture_hd": "characters/char2/parts/head.png",
+      "z_order": 12,
+      "joint_overlap_px": 12,
+      "rotation_limits_deg": [
+        -10,
+        10
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "scripted original",
+      "derived_from": "profile face, nose, ear, hair and courier cap; rounded neck backing"
+    },
+    {
+      "id": "right_upper",
+      "bone": "right_upper",
+      "parent_bone": "right_upper",
+      "pivot": [
+        182,
+        250
+      ],
+      "offset": [
+        -38,
+        -36
+      ],
+      "bbox": [
+        144,
+        214,
+        219,
+        365
+      ],
+      "source_bbox": [
+        144,
+        214,
+        219,
+        365
+      ],
+      "source_to_rig_translation": [
+        0,
+        0
+      ],
+      "texture_hd": "characters/char2/parts/right_upper.png",
+      "z_order": 14,
+      "joint_overlap_px": 12,
+      "rotation_limits_deg": [
+        -15,
+        35
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "scripted original",
+      "derived_from": "near teal sleeve capsule; proximal round backing and manifest dilation"
+    },
+    {
+      "id": "right_fore",
+      "bone": "right_fore",
+      "parent_bone": "right_fore",
+      "pivot": [
+        168,
+        340
+      ],
+      "offset": [
+        -37,
+        -36
+      ],
+      "bbox": [
+        131,
+        304,
+        205,
+        455
+      ],
+      "source_bbox": [
+        131,
+        304,
+        205,
+        455
+      ],
+      "source_to_rig_translation": [
+        0,
+        0
+      ],
+      "texture_hd": "characters/char2/parts/right_fore.png",
+      "z_order": 14,
+      "joint_overlap_px": 12,
+      "rotation_limits_deg": [
+        -20,
+        45
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "scripted original",
+      "derived_from": "near teal forearm capsule and cuff; proximal backing and manifest dilation"
+    },
+    {
+      "id": "satchel",
+      "bone": "right_hand",
+      "parent_bone": "right_hand",
+      "pivot": [
+        160,
+        430
+      ],
+      "offset": [
+        -16,
+        -8
+      ],
+      "bbox": [
+        144,
+        422,
+        257,
+        535
+      ],
+      "source_bbox": [
+        144,
+        422,
+        257,
+        535
+      ],
+      "source_to_rig_translation": [
+        0,
+        0
+      ],
+      "texture_hd": "characters/char2/parts/satchel.png",
+      "z_order": 16,
+      "joint_overlap_px": 0,
+      "rotation_limits_deg": [
+        -12,
+        12
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "scripted original",
+      "derived_from": "ochre satchel, flap, buckle and handle; rigid undilated prop"
+    },
+    {
+      "id": "right_hand",
+      "bone": "right_hand",
+      "parent_bone": "right_hand",
+      "pivot": [
+        160,
+        430
+      ],
+      "offset": [
+        -36,
+        -36
+      ],
+      "bbox": [
+        124,
+        394,
+        197,
+        470
+      ],
+      "source_bbox": [
+        124,
+        394,
+        197,
+        470
+      ],
+      "source_to_rig_translation": [
+        0,
+        0
+      ],
+      "texture_hd": "characters/char2/parts/right_hand.png",
+      "z_order": 18,
+      "joint_overlap_px": 12,
+      "rotation_limits_deg": [
+        -12,
+        12
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "scripted original",
+      "derived_from": "near gripping mitten; proximal backing and manifest dilation"
+    }
+  ]
+}

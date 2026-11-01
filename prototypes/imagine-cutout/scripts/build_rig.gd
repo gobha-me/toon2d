@@ -7,10 +7,18 @@ var data: Dictionary
 var bone_paths: Dictionary
 var rig: Node2D
 var pixel: bool
+var character := "trenchcoat"
+var scene_path := ""
 
 func _initialize() -> void:
-	data = JSON.parse_string(FileAccess.get_file_as_string("res://parts.json"))
-	var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://body_parts.yml"))
+	var args := OS.get_cmdline_user_args()
+	if not args.is_empty():
+		character = args[0]
+	var index: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://characters.yml"))
+	var config: Dictionary = index.characters[character]
+	scene_path = config.scene
+	data = JSON.parse_string(FileAccess.get_file_as_string("res://" + config.subject))
+	var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://" + config.manifest))
 	# Contract order is inventory order, not skeletal order: knees follow boots.
 	data.bones = []
 	var pending: Array = manifest.joints.duplicate(true)
@@ -27,7 +35,7 @@ func _initialize() -> void:
 			push_error("Missing or cyclic manifest parent")
 			quit(1)
 			return
-	for mode in [false, true]:
+	for mode in ([false, true] if character == "trenchcoat" else [false]):
 		pixel = mode
 		build()
 	quit()
@@ -42,7 +50,7 @@ func vec(values: Array) -> Vector2:
 
 func build() -> void:
 	rig = Node2D.new()
-	rig.name = "ImaginePixel" if pixel else "ImagineHD"
+	rig.name = ("ImaginePixel" if pixel else "ImagineHD") if character == "trenchcoat" else "Courier"
 	rig.set_script(load("res://scripts/rig_control.gd"))
 	rig.set_meta("pixel_mode", pixel)
 	rig.set_meta("godot_version", VERSION)
@@ -111,7 +119,7 @@ func build() -> void:
 	flash.name = "MuzzleFlash"
 	flash.set_script(load("res://scripts/muzzle_flash.gd"))
 	flash.set_meta("pixel_mode", pixel)
-	flash.position = vec(data.gun_muzzle_rig) - pivots.right_hand
+	flash.position = vec(data.gun_muzzle_rig) - pivots.right_hand if character == "trenchcoat" else Vector2.ZERO
 	if data.has("facing_setup"):
 		flash.position = flash.position.rotated(deg_to_rad(data.facing_setup.grip_rotation_deg))
 		flash.rotation = deg_to_rad(-18 + data.facing_setup.grip_rotation_deg)
@@ -120,23 +128,26 @@ func build() -> void:
 	flash.visible = false
 	flash.z_index = 30
 	flash.z_as_relative = false
-	owned(flash, bones.right_hand)
+	if character == "trenchcoat":
+		owned(flash, bones.right_hand)
 	var player := AnimationPlayer.new()
 	player.name = "AnimationPlayer"
 	owned(player, rig)
 	var library := AnimationLibrary.new()
 	for clip in ["idle", "aim", "fire", "cooldown"]:
-		library.add_animation(clip, make_animation(clip, str(rig.get_path_to(flash))))
+		library.add_animation(clip, make_animation(clip, str(rig.get_path_to(flash))) if character == "trenchcoat" else courier_animation(clip))
+	if character != "trenchcoat":
+		flash.free()
 	player.add_animation_library("", library)
 	var camera := Camera2D.new()
 	camera.name = "Camera2D"
-	camera.position = Vector2(38, 67) if pixel else Vector2(450, 880)
-	camera.zoom = Vector2.ONE if pixel else Vector2(.45, .45)
+	camera.position = (Vector2(38, 67) if pixel else Vector2(450, 880)) if character == "trenchcoat" else Vector2(data.canvas[0]/2.0, data.canvas[1]/2.0)
+	camera.zoom = (Vector2.ONE if pixel else Vector2(.45, .45)) if character == "trenchcoat" else Vector2.ONE
 	camera.position_smoothing_enabled = false
 	owned(camera, rig)
 	var packed := PackedScene.new()
 	packed.pack(rig)
-	var path := "res://scenes/" + ("pixel" if pixel else "hd") + ".tscn"
+	var path := "res://scenes/" + ("pixel" if pixel else "hd") + ".tscn" if character == "trenchcoat" else "res://" + scene_path
 	var error := ResourceSaver.save(packed, path)
 	print("Baked ", path, " result=", error)
 	rig.free()
@@ -187,6 +198,30 @@ func pixel_clip_backing(bone: Bone2D) -> void:
 	cap.z_index = source.z_index - 1
 	cap.z_as_relative = false
 	owned(cap, bone)
+
+func courier_animation(clip: String) -> Animation:
+	var anim := Animation.new()
+	anim.resource_name = clip
+	anim.step = 1.0 / FPS
+	var frames: int = {"idle": 48, "aim": 10, "fire": 6, "cooldown": 14}[clip]
+	anim.length = float(frames) / FPS
+	anim.loop_mode = Animation.LOOP_LINEAR if clip == "idle" else Animation.LOOP_NONE
+	for spec in data.bones:
+		var low := float(spec.rotation_limits_deg[0])
+		var high := float(spec.rotation_limits_deg[1])
+		# Carry, present, settle and lower the satchel using a fraction of the
+		# actual contract envelope. Keep the prop rigid on its hand bone.
+		var amount := 0.25 if spec.name in ["right_upper", "right_fore"] else 0.06
+		var target := high * amount
+		if clip == "idle":
+			rotations(anim, spec.name, [[0, 0], [12, low * 0.04], [24, 0], [36, high * 0.04], [48, 0]])
+		elif clip == "aim":
+			rotations(anim, spec.name, [[0, 0], [frames, target]])
+		elif clip == "fire":
+			rotations(anim, spec.name, [[0, target], [3, high * amount * 1.1], [frames, target]])
+		else:
+			rotations(anim, spec.name, [[0, target], [frames, 0]])
+	return anim
 
 func track(anim: Animation, path: String, property: String, keys: Array, discrete: bool = false) -> void:
 	var index := anim.add_track(Animation.TYPE_VALUE)

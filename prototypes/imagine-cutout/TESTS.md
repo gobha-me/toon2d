@@ -495,3 +495,26 @@ fire deviation (frames 0-5 and endpoint) to be reached at frame 1 or 2; an early
 A heavy-run refusal produces ERROR observations, stops further heavy steps and
 returns the original 75 or 78 to the caller. There is no internal wait/retry or
 unguarded fallback; the launcher owns its subsequent retry/stop policy.
+
+### Clip development observations before launcher acceptance
+
+[Iterative evidence](tests/results/trenchcoat-clips/SUMMARY.md) records three
+sequential, guarded Godot steps (import, observe, render), each rc 0 on its first
+attempt, and light evaluation of their raw outputs. There were no exits 75/78,
+no retry and no mutation run. The evaluator yields acceptance rc 1, no ERRORs,
+3,842 key verdicts and 164 fresh native atlases. These development observations
+are distinct from the launcher's later formal suite ledger and kill verdicts.
+
+| Case | HD | Pixel | Interpretation |
+|---|---|---|---|
+| CL1 | GREEN, 84 keys | GREEN, 84 keys | Limits hold; m1 pending launcher. |
+| CL2 | GREEN, 1,722 keys | RED, 85 of 1,722 keys | Pixel samples expose 1-7 background pixels; HD right_fore has 82 GREEN m2 targets. m2 has not run. |
+| CL3 | RED, 6 of 110 keys | RED, 6 of 110 keys | idle-aim and cooldown-idle torso/hem_left/hem_right discontinuities; all other pairs and positions GREEN. |
+| CL4 | GREEN, 3 keys | GREEN, 3 keys | Hip range 6 HD / 2 pixel native px; hem range about 2.4/2.0 deg. m4/m4b/m4c pending. |
+| CL5 | RED departure, GREEN settle | RED departure, GREEN settle | No elbow recoil (0 deg); endpoint returns to aim. m5 pending. |
+| CL6 | Existing check unchanged | No new case | Body-facing rerun belongs to launcher. |
+| CL7 | Not applicable | Not applicable | No expression/face-swap declaration. |
+
+All eight clip mutants remain unrun, including m3/m3b for chaining. No kill is
+claimed from existing reds or this baseline alone. Full formal acceptance and
+mutation results await the launcher. The harness change requires review.

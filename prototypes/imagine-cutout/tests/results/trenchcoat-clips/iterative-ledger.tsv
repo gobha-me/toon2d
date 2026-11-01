@@ -1,0 +1,4 @@
+item	attempt	start_utc	end_utc	rc	command
+import	1	not recorded	2026-11-01T15:46:27.389435+00:00	0	heavy-run godot --single-threaded-scene --headless --path <TMPDIR>/prototype --editor --import
+observe	1	not recorded	2026-11-01T15:46:38.653514+00:00	0	heavy-run godot --single-threaded-scene --headless --path <TMPDIR>/prototype --script res://tests/check_clips.gd -- observe <TMPDIR>/captures
+render	1	2026-11-01T15:47:01Z	2026-11-01T15:47:14.835417+00:00	0	heavy-run xvfb-run -a godot --single-threaded-scene --path <TMPDIR>/prototype --audio-driver Dummy --script res://tests/check_clips.gd -- render <TMPDIR>/captures

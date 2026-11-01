@@ -1,0 +1,1 @@
+RIG-EQUALS-BASE=yes (cf702b44326db2a9891eb4059372a13e6765cfce..37c78463a2fbf6aefb6b3a3c48505241cb177133: empty diff on scenes/ tools/ body_parts.yml characters.yml)

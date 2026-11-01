@@ -1,0 +1,4 @@
+item	attempt	start_utc	end_utc	rc	note	command
+F1-trenchcoat-legacy	1	2026-11-01T03:18:57Z	2026-11-01T03:19:13Z	0	ran	TEST_PYTHON="$TOON_PYTHON" heavy-run prototypes/imagine-cutout/tests/run_tests.sh
+F2-body	1	2026-11-01T03:19:13Z	2026-11-01T03:21:25Z	0	ran	TEST_PYTHON="$TOON_PYTHON" heavy-run prototypes/imagine-cutout/tests/run_body_tests.sh
+F3-mutants	1	2026-11-01T03:21:25Z	2026-11-01T03:25:07Z	0	ran	TEST_PYTHON="$TOON_PYTHON" heavy-run prototypes/imagine-cutout/tests/run_mutants.sh

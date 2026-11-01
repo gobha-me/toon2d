@@ -114,3 +114,93 @@ Disputes: none. The pinned tests head is an ancestor. All authoring commits use
 the required change role and attribution trailers. Final launcher suites,
 mutation kills and lifecycle evidence remain pending; no such final result is
 claimed here.
+
+## Flash contract restoration follow-up
+
+Rig implementation commit: `6a7b5c9`.
+Baseline: `059f4ebf472a50a9917724723d42208495b1650f`.
+Frozen tests head: `2e036060c9c42d235d0b5efb1b9d714651e36f2a`.
+Earlier observations and launcher results remain historical; final acceptance
+of this follow-up is pending the launcher's fresh suites.
+
+The missing flash was a rig gap. At the baseline,
+`scripts/build_rig.gd:126-135` only owned the effect for trenchcoat, omitted
+visibility tracks from courier clips and freed the courier effect. Frozen
+`tests/check_rig.gd:108,118-119` requires that node for every character;
+`tests/driver.py:309-317` requires its fire visibility track and three keys.
+The launcher proved this before authoring: char2 legacy returned 1 on its
+first attempt, 2026-11-01T16:28:57Z through 16:29:08Z. Tests 1 hierarchy,
+2 timing, 4 gun rigidity and 5 joint gaps passed with no errors. Test 3 flash
+failed with exactly `hd: missing MuzzleFlash`. There was no infrastructure,
+script or parse failure. No test or mutation definition was changed.
+
+The builder now owns the procedural effect on the right hand for every
+character and authors visibility in all four courier clips. The existing
+`scripts/muzzle_flash.gd` is reused unchanged. Char2's frozen manifest supplies
+`facing.muzzle_texture_px = [48, 8]`, so the hand-origin fallback is not used.
+The satchel sprite's transform maps that texture point through its offset
+`[-16, -8]` to hand-local `[32, 0]`; it has unit scale and zero rotation.
+The effect is initially hidden, retains z=30 and its existing rotation policy,
+and receives these discrete value tracks at 24 fps:
+
+| Clip | Frames | Visibility values |
+|---|---|---|
+| idle | 0, 48 | false, false |
+| aim | 0, 10 | false, false |
+| fire | 0, 3, 6 | true, false, false |
+| cooldown | 0, 14 | false, false |
+
+Each heavy operation ran once, sequentially, in a disposable project inside
+an owned `mktemp -d` subdirectory under `<TMPDIR>`. The project copied the
+frozen manifest as input; no checkout imports or art were updated. Commands
+below use `<PROJECT>` for that scratch project:
+
+```text
+heavy-run godot --single-threaded-scene --headless --path <PROJECT> --editor --import --quit
+rc=0; first invocation; individual UTC boundaries not recorded
+
+heavy-run godot --single-threaded-scene --headless --path <PROJECT> --script res://scripts/build_rig.gd -- char2
+rc=0; first invocation; 2026-11-01T16:30:40Z through 16:30:41Z
+Baked res://scenes/char2.tscn result=0
+```
+
+Admission build SHA-256:
+`3bc14651d44b4438d3823dfa582f767094ca8a95681721e743be3b8a57011a0b`.
+Neither operation returned 75 or 78; no wait or retry occurred. Both logs
+contain no script, parse or error diagnostics. Only the builder-generated
+char2 scene was copied back; the scene was never hand-edited. Scratch and
+its launcher-owned ancestors were retained without removal or renaming.
+
+Light checks passed: exactly one hidden effect node at `[32, 0]`, exactly
+four visibility tracks, the keys above and unchanged bone animation tracks
+in every clip. Existing art, bone and camera node properties match the base
+after resolving regenerated resource IDs and ignoring node unique IDs.
+Bone-track comparisons ignore trailing blank separators only.
+
+Byte-identity checks against the baseline passed:
+
+| File | SHA-256 |
+|---|---|
+| scenes/hd.tscn | `5d2416cf4fda9a5fd5912cd6eaf10976b4b9b48583d91b026597751b32381a63` |
+| scenes/pixel.tscn | `910080c9c1937e32f918a744405b0592efd1d4ea1e3a63a9827781d22ce5b94c` |
+| scripts/muzzle_flash.gd | `4a330dcf39fc48ba2c1ee85334047cee023cf785c52568e5c01e2767a61e535d` |
+
+```text
+git diff <BASE> HEAD -- prototypes/imagine-cutout/scenes/hd.tscn prototypes/imagine-cutout/scenes/pixel.tscn prototypes/imagine-cutout/scripts/muzzle_flash.gd
+(no output)
+git diff --name-only <TESTS_HEAD> HEAD -- prototypes/imagine-cutout/tests/ prototypes/imagine-cutout/body_parts.yml prototypes/imagine-cutout/characters.yml
+(no output)
+```
+
+Both pinned heads remain ancestors. The changed paths are confined to the
+builder, generated char2 scene and this validation directory. No art or tools
+were changed. Disputes: none.
+
+No runtime acceptance suite or mutation testing was run during this follow-up.
+Fresh char2 body and legacy tests 1-5, trenchcoat body and legacy tests 1-5,
+and both mutation suites remain launcher work. Per-id char2 kill results
+a, b, d, e, f, g and h are all pending; zero new kills are claimed. The
+char2 body numbers remain provisional until e-h are killed. Fresh harness
+defer-policy subcases `[75, 0]`, `[75]`, `[78]`, normal-exit lifecycle and
+TERM lifecycle are also pending the launcher. No fresh lifecycle or cleanup
+success is claimed here; no recorded-PID rule or assertion was changed.

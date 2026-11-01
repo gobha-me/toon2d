@@ -1,0 +1,15 @@
+heavy-run: memory ok: memory.current 21.09 GiB, working set (minus inactive_file) 8.03 GiB; limits 17.50 GiB working set / 24.50 GiB memory.current (memory.max 28.00 GiB x 10/16, 14/16)
+heavy-run: holding slot1 on <HOST>, hard stop in 44256s (11:55 PM ET)
+test_driver_heavy_defer_policy (__main__.HarnessPolicy.test_driver_heavy_defer_policy) ... heavy stub [75, 0]: exit 0; attempts 2
+heavy stub [75]: exit 79; attempts 4
+heavy stub [78]: exit 78; attempts 1
+ok
+test_xvfb_no_orphan_normal_exit (__main__.HarnessPolicy.test_xvfb_no_orphan_normal_exit) ... NORMAL: recorded PID gone; display lock gone; scratch removed
+ok
+test_xvfb_no_orphan_on_term (__main__.HarnessPolicy.test_xvfb_no_orphan_on_term) ... TERM: recorded PID gone; display lock gone; scratch removed
+ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.781s
+
+OK

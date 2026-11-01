@@ -1,7 +1,7 @@
 {
   "tool": "Python/Pillow/OpenCV procedural cutout authoring",
   "model": "none (scripted)",
-  "date": "2026-11-01T15:14:18.801460Z",
+  "date": "2026-11-01T15:17:33.491488Z",
   "source": "prototypes/imagine-cutout/tools/prep_char2.py",
   "prompt": "not applicable (scripted)",
   "image_sha256": "bfcb3b8e93f0badc56d477cc0dabf9ab14299a8e266aaf3a337b3c3d2fda9ac8",

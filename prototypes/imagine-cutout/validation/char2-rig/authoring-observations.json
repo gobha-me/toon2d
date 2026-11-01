@@ -1,0 +1,523 @@
+{
+  "status": "provisional authoring observation; final launcher acceptance pending",
+  "manifest_sha256": "080892f267590f07bd422edaaeff76885cef4e698409991b3d4615234ad4c923",
+  "pose_sha256": "da555e908a46d1600cb8caee43e2807e961e5de9a12b7ca672626262e1529029",
+  "groups": {
+    "single": {
+      "poses": 30,
+      "seams": 450,
+      "gap_pixels": 0,
+      "failures": []
+    },
+    "pair": {
+      "poses": 420,
+      "seams": 6300,
+      "gap_pixels": 0,
+      "failures": []
+    },
+    "random": {
+      "poses": 200,
+      "seams": 3000,
+      "gap_pixels": 0,
+      "failures": []
+    }
+  },
+  "observed": {
+    "completeness": [],
+    "facing": [],
+    "facing_samples": [
+      {
+        "case_id": "facing/idle/0",
+        "head_x": 1.0,
+        "passed": true,
+        "weapon_x": 32.0
+      },
+      {
+        "case_id": "facing/idle/1",
+        "head_x": 0.999999344348907,
+        "passed": true,
+        "weapon_x": 31.9998264312744
+      },
+      {
+        "case_id": "facing/idle/2",
+        "head_x": 0.999997317790985,
+        "passed": true,
+        "weapon_x": 31.9992961883545
+      },
+      {
+        "case_id": "facing/idle/3",
+        "head_x": 0.999993920326233,
+        "passed": true,
+        "weapon_x": 31.9984169006348
+      },
+      {
+        "case_id": "facing/idle/4",
+        "head_x": 0.999989211559296,
+        "passed": true,
+        "weapon_x": 31.9971866607666
+      },
+      {
+        "case_id": "facing/idle/5",
+        "head_x": 0.999983072280884,
+        "passed": true,
+        "weapon_x": 31.9955997467041
+      },
+      {
+        "case_id": "facing/idle/6",
+        "head_x": 0.999975681304932,
+        "passed": true,
+        "weapon_x": 31.9936656951904
+      },
+      {
+        "case_id": "facing/idle/7",
+        "head_x": 0.999966859817505,
+        "passed": true,
+        "weapon_x": 31.991382598877
+      },
+      {
+        "case_id": "facing/idle/8",
+        "head_x": 0.999956727027893,
+        "passed": true,
+        "weapon_x": 31.9887409210205
+      },
+      {
+        "case_id": "facing/idle/9",
+        "head_x": 0.999945163726807,
+        "passed": true,
+        "weapon_x": 31.9857482910156
+      },
+      {
+        "case_id": "facing/idle/10",
+        "head_x": 0.99993234872818,
+        "passed": true,
+        "weapon_x": 31.9824066162109
+      },
+      {
+        "case_id": "facing/idle/11",
+        "head_x": 0.999918043613434,
+        "passed": true,
+        "weapon_x": 31.9787101745605
+      },
+      {
+        "case_id": "facing/idle/12",
+        "head_x": 0.999902546405792,
+        "passed": true,
+        "weapon_x": 31.974666595459
+      },
+      {
+        "case_id": "facing/idle/13",
+        "head_x": 0.999918043613434,
+        "passed": true,
+        "weapon_x": 31.9787101745605
+      },
+      {
+        "case_id": "facing/idle/14",
+        "head_x": 0.99993234872818,
+        "passed": true,
+        "weapon_x": 31.9824066162109
+      },
+      {
+        "case_id": "facing/idle/15",
+        "head_x": 0.999945163726807,
+        "passed": true,
+        "weapon_x": 31.9857482910156
+      },
+      {
+        "case_id": "facing/idle/16",
+        "head_x": 0.999956727027893,
+        "passed": true,
+        "weapon_x": 31.9887409210205
+      },
+      {
+        "case_id": "facing/idle/17",
+        "head_x": 0.999966859817505,
+        "passed": true,
+        "weapon_x": 31.991382598877
+      },
+      {
+        "case_id": "facing/idle/18",
+        "head_x": 0.999975681304932,
+        "passed": true,
+        "weapon_x": 31.9936656951904
+      },
+      {
+        "case_id": "facing/idle/19",
+        "head_x": 0.999983072280884,
+        "passed": true,
+        "weapon_x": 31.9955997467041
+      },
+      {
+        "case_id": "facing/idle/20",
+        "head_x": 0.999989211559296,
+        "passed": true,
+        "weapon_x": 31.9971866607666
+      },
+      {
+        "case_id": "facing/idle/21",
+        "head_x": 0.999993920326233,
+        "passed": true,
+        "weapon_x": 31.9984169006348
+      },
+      {
+        "case_id": "facing/idle/22",
+        "head_x": 0.999997317790985,
+        "passed": true,
+        "weapon_x": 31.9992961883545
+      },
+      {
+        "case_id": "facing/idle/23",
+        "head_x": 0.999999344348907,
+        "passed": true,
+        "weapon_x": 31.9998264312744
+      },
+      {
+        "case_id": "facing/idle/24",
+        "head_x": 1.0,
+        "passed": true,
+        "weapon_x": 32.0
+      },
+      {
+        "case_id": "facing/idle/25",
+        "head_x": 0.999999344348907,
+        "passed": true,
+        "weapon_x": 31.999439239502
+      },
+      {
+        "case_id": "facing/idle/26",
+        "head_x": 0.999997317790985,
+        "passed": true,
+        "weapon_x": 31.9977493286133
+      },
+      {
+        "case_id": "facing/idle/27",
+        "head_x": 0.999993920326233,
+        "passed": true,
+        "weapon_x": 31.994930267334
+      },
+      {
+        "case_id": "facing/idle/28",
+        "head_x": 0.999989211559296,
+        "passed": true,
+        "weapon_x": 31.99098777771
+      },
+      {
+        "case_id": "facing/idle/29",
+        "head_x": 0.999983072280884,
+        "passed": true,
+        "weapon_x": 31.9859142303467
+      },
+      {
+        "case_id": "facing/idle/30",
+        "head_x": 0.999975681304932,
+        "passed": true,
+        "weapon_x": 31.9797210693359
+      },
+      {
+        "case_id": "facing/idle/31",
+        "head_x": 0.999966859817505,
+        "passed": true,
+        "weapon_x": 31.9723968505859
+      },
+      {
+        "case_id": "facing/idle/32",
+        "head_x": 0.999956727027893,
+        "passed": true,
+        "weapon_x": 31.9639472961426
+      },
+      {
+        "case_id": "facing/idle/33",
+        "head_x": 0.999945163726807,
+        "passed": true,
+        "weapon_x": 31.9543724060059
+      },
+      {
+        "case_id": "facing/idle/34",
+        "head_x": 0.99993234872818,
+        "passed": true,
+        "weapon_x": 31.9436779022217
+      },
+      {
+        "case_id": "facing/idle/35",
+        "head_x": 0.999918043613434,
+        "passed": true,
+        "weapon_x": 31.9318504333496
+      },
+      {
+        "case_id": "facing/idle/36",
+        "head_x": 0.999902546405792,
+        "passed": true,
+        "weapon_x": 31.9189014434814
+      },
+      {
+        "case_id": "facing/idle/37",
+        "head_x": 0.999918043613434,
+        "passed": true,
+        "weapon_x": 31.9318504333496
+      },
+      {
+        "case_id": "facing/idle/38",
+        "head_x": 0.99993234872818,
+        "passed": true,
+        "weapon_x": 31.9436779022217
+      },
+      {
+        "case_id": "facing/idle/39",
+        "head_x": 0.999945163726807,
+        "passed": true,
+        "weapon_x": 31.9543724060059
+      },
+      {
+        "case_id": "facing/idle/40",
+        "head_x": 0.999956727027893,
+        "passed": true,
+        "weapon_x": 31.9639472961426
+      },
+      {
+        "case_id": "facing/idle/41",
+        "head_x": 0.999966859817505,
+        "passed": true,
+        "weapon_x": 31.9723968505859
+      },
+      {
+        "case_id": "facing/idle/42",
+        "head_x": 0.999975681304932,
+        "passed": true,
+        "weapon_x": 31.9797210693359
+      },
+      {
+        "case_id": "facing/idle/43",
+        "head_x": 0.999983072280884,
+        "passed": true,
+        "weapon_x": 31.9859142303467
+      },
+      {
+        "case_id": "facing/idle/44",
+        "head_x": 0.999989211559296,
+        "passed": true,
+        "weapon_x": 31.99098777771
+      },
+      {
+        "case_id": "facing/idle/45",
+        "head_x": 0.999993920326233,
+        "passed": true,
+        "weapon_x": 31.994930267334
+      },
+      {
+        "case_id": "facing/idle/46",
+        "head_x": 0.999997317790985,
+        "passed": true,
+        "weapon_x": 31.9977493286133
+      },
+      {
+        "case_id": "facing/idle/47",
+        "head_x": 0.999999344348907,
+        "passed": true,
+        "weapon_x": 31.999439239502
+      },
+      {
+        "case_id": "facing/idle/48",
+        "head_x": 1.0,
+        "passed": true,
+        "weapon_x": 32.0
+      },
+      {
+        "case_id": "facing/aim/0",
+        "head_x": 1.0,
+        "passed": true,
+        "weapon_x": 32.0
+      },
+      {
+        "case_id": "facing/aim/1",
+        "head_x": 0.999997913837433,
+        "passed": true,
+        "weapon_x": 31.9778518676758
+      },
+      {
+        "case_id": "facing/aim/2",
+        "head_x": 0.999991178512573,
+        "passed": true,
+        "weapon_x": 31.9114246368408
+      },
+      {
+        "case_id": "facing/aim/3",
+        "head_x": 0.999980211257935,
+        "passed": true,
+        "weapon_x": 31.8008232116699
+      },
+      {
+        "case_id": "facing/aim/4",
+        "head_x": 0.999964892864227,
+        "passed": true,
+        "weapon_x": 31.6461887359619
+      },
+      {
+        "case_id": "facing/aim/5",
+        "head_x": 0.999945163726807,
+        "passed": true,
+        "weapon_x": 31.4477500915527
+      },
+      {
+        "case_id": "facing/aim/6",
+        "head_x": 0.999921083450317,
+        "passed": true,
+        "weapon_x": 31.2057666778564
+      },
+      {
+        "case_id": "facing/aim/7",
+        "head_x": 0.999892592430115,
+        "passed": true,
+        "weapon_x": 30.9205875396729
+      },
+      {
+        "case_id": "facing/aim/8",
+        "head_x": 0.999859631061554,
+        "passed": true,
+        "weapon_x": 30.5925922393799
+      },
+      {
+        "case_id": "facing/aim/9",
+        "head_x": 0.999822378158569,
+        "passed": true,
+        "weapon_x": 30.2222480773926
+      },
+      {
+        "case_id": "facing/aim/10",
+        "head_x": 0.999780654907227,
+        "passed": true,
+        "weapon_x": 29.8100605010986
+      },
+      {
+        "case_id": "facing/fire/0",
+        "head_x": 0.999780654907227,
+        "passed": true,
+        "weapon_x": 29.8100605010986
+      },
+      {
+        "case_id": "facing/fire/1",
+        "head_x": 0.999765872955322,
+        "passed": true,
+        "weapon_x": 29.6634635925293
+      },
+      {
+        "case_id": "facing/fire/2",
+        "head_x": 0.99975049495697,
+        "passed": true,
+        "weapon_x": 29.5123043060303
+      },
+      {
+        "case_id": "facing/fire/3",
+        "head_x": 0.99973464012146,
+        "passed": true,
+        "weapon_x": 29.3566017150879
+      },
+      {
+        "case_id": "facing/fire/4",
+        "head_x": 0.99975049495697,
+        "passed": true,
+        "weapon_x": 29.5123043060303
+      },
+      {
+        "case_id": "facing/fire/5",
+        "head_x": 0.999765872955322,
+        "passed": true,
+        "weapon_x": 29.6634635925293
+      },
+      {
+        "case_id": "facing/fire/6",
+        "head_x": 0.999780654907227,
+        "passed": true,
+        "weapon_x": 29.8100605010986
+      },
+      {
+        "case_id": "facing/cooldown/0",
+        "head_x": 0.999780654907227,
+        "passed": true,
+        "weapon_x": 29.8100605010986
+      },
+      {
+        "case_id": "facing/cooldown/1",
+        "head_x": 0.999810874462128,
+        "passed": true,
+        "weapon_x": 30.1087245941162
+      },
+      {
+        "case_id": "facing/cooldown/2",
+        "head_x": 0.999838888645172,
+        "passed": true,
+        "weapon_x": 30.3861255645752
+      },
+      {
+        "case_id": "facing/cooldown/3",
+        "head_x": 0.99986457824707,
+        "passed": true,
+        "weapon_x": 30.6420516967773
+      },
+      {
+        "case_id": "facing/cooldown/4",
+        "head_x": 0.999888122081757,
+        "passed": true,
+        "weapon_x": 30.8763408660889
+      },
+      {
+        "case_id": "facing/cooldown/5",
+        "head_x": 0.999909400939941,
+        "passed": true,
+        "weapon_x": 31.0888195037842
+      },
+      {
+        "case_id": "facing/cooldown/6",
+        "head_x": 0.999928414821625,
+        "passed": true,
+        "weapon_x": 31.2793292999268
+      },
+      {
+        "case_id": "facing/cooldown/7",
+        "head_x": 0.999945163726807,
+        "passed": true,
+        "weapon_x": 31.4477500915527
+      },
+      {
+        "case_id": "facing/cooldown/8",
+        "head_x": 0.999959707260132,
+        "passed": true,
+        "weapon_x": 31.5939540863037
+      },
+      {
+        "case_id": "facing/cooldown/9",
+        "head_x": 0.9999720454216,
+        "passed": true,
+        "weapon_x": 31.7178401947021
+      },
+      {
+        "case_id": "facing/cooldown/10",
+        "head_x": 0.999982118606567,
+        "passed": true,
+        "weapon_x": 31.8193225860596
+      },
+      {
+        "case_id": "facing/cooldown/11",
+        "head_x": 0.999989986419678,
+        "passed": true,
+        "weapon_x": 31.8983268737793
+      },
+      {
+        "case_id": "facing/cooldown/12",
+        "head_x": 0.999995470046997,
+        "passed": true,
+        "weapon_x": 31.954797744751
+      },
+      {
+        "case_id": "facing/cooldown/13",
+        "head_x": 0.999998867511749,
+        "passed": true,
+        "weapon_x": 31.9886951446533
+      },
+      {
+        "case_id": "facing/cooldown/14",
+        "head_x": 1.0,
+        "passed": true,
+        "weapon_x": 32.0
+      }
+    ]
+  }
+}

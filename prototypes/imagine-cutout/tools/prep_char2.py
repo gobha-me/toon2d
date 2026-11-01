@@ -178,6 +178,9 @@ def prepare(project, audit_only=False):
             color = NAVY if leg else (TEAL if name.startswith('right') else FAR_TEAL)
             capsule(draw,pivot,end,radius,INK)
             capsule(draw,pivot,end,radius-4,color)
+            # Hidden proximal backing is cloth, rather than an enlarged ink
+            # outline. The distal contour retains its thin authored edge.
+            circle(draw,pivot,radius,color)
             draw.line((x-10,y+14,end[0]-10,end[1]-14),fill='#4e677b' if leg else '#55aaa5',width=4)
             order = 5 if leg else (14 if name.startswith('right') else 3)
         if slot['overlap_px']:
@@ -187,9 +190,15 @@ def prepare(project, audit_only=False):
             yy, xx = np.ogrid[:size[1], :size[0]]
             mask = (xx-x)**2+(yy-y)**2 <= radius**2
             array = fill_attachment(np.array(image), mask)
+            authored = array[:, :, 3] > 0
             reach = radius+slot['overlap_px']+1
             array = extend_joint_pixels(array, slot['overlap_px'],
                                         [(x-reach,y-reach,x+reach,y+reach)])
+            # A rectangular seam gate bounds the existing v2 dilation helper.
+            # Clip only newly added backing to the rounded attachment, so its
+            # gate boundary cannot leave square tabs on the outer silhouette.
+            rounded = (xx-x)**2+(yy-y)**2 <= (radius+slot['overlap_px'])**2
+            array[:, :, 3][~(authored | rounded)] = 0
             image = Image.fromarray(array)
         save(name,image,bone,order,slot['overlap_px'],slot)
     data = dict(canvas=list(size), character='char2', rig_template=2,

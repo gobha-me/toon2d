@@ -696,7 +696,7 @@ The runtime deferrals above are superseded by the [Phase B evidence review](test
 
 The old harness dffcb51 and char2 missing-rig acceptance are **expected-RED** (rc 1 each). Char2 manifest passed; its four runtime acceptance groups rejected missing inputs and captured zero poses. Oracle controls, trenchcoat legacy 1-5 in both modes, full trenchcoat body acceptance and verdict/pose-hash equality all **PASS** (rc 0 each). Trenchcoat mutation **PASS** (rc 0): a,b,d,e,f,g,h killed, c explicitly skipped for absent raw source PNGs. Char2 mutants remain **not-run / CANNOT_PLANT** without a rig; no kill is claimed.
 
-Exact ledger commands, return codes, attempt counts, UTC intervals and sanitized per-attempt logs are retained under `tests/results/verify-char2/`. Phase B executed no tests or heavy commands. The lifecycle failure leaves the Q2 evidence gate unresolved.
+Exact ledger commands, return codes, attempt counts, UTC intervals and sanitized per-attempt logs are retained under `tests/results/verify-char2/`. Phase B executed no tests or heavy commands. The lifecycle failure leaves the rig evidence gate unresolved.
 
 ## Issue 18: real Xvfb lock repair verification
 

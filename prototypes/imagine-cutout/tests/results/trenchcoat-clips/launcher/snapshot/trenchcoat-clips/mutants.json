@@ -1,0 +1,503 @@
+{
+  "rc": 0,
+  "mutants": [
+    {
+      "mutant": "m1",
+      "status": "KILLED",
+      "targets": [
+        "CL1:hd:idle:hem_left",
+        "CL1:pixel:idle:hem_left"
+      ],
+      "green_targets": [
+        "CL1:hd:idle:hem_left",
+        "CL1:pixel:idle:hem_left"
+      ],
+      "killed_keys": [
+        "CL1:hd:idle:hem_left",
+        "CL1:pixel:idle:hem_left"
+      ],
+      "new_red": [
+        "CL1:hd:idle:hem_left",
+        "CL1:pixel:idle:hem_left",
+        "CL3:hd:idle-loop:hem_left",
+        "CL3:pixel:idle-loop:hem_left"
+      ],
+      "new_green": [],
+      "files_changed": [
+        "scenes/hd.tscn",
+        "scenes/pixel.tscn"
+      ]
+    },
+    {
+      "mutant": "m2",
+      "status": "KILLED",
+      "targets": [
+        "CL2:hd:idle:f00:right_fore",
+        "CL2:hd:idle:f01:right_fore",
+        "CL2:hd:idle:f02:right_fore",
+        "CL2:hd:idle:f03:right_fore",
+        "CL2:hd:idle:f04:right_fore",
+        "CL2:hd:idle:f05:right_fore",
+        "CL2:hd:idle:f06:right_fore",
+        "CL2:hd:idle:f07:right_fore",
+        "CL2:hd:idle:f08:right_fore",
+        "CL2:hd:idle:f09:right_fore",
+        "CL2:hd:idle:f10:right_fore",
+        "CL2:hd:idle:f11:right_fore",
+        "CL2:hd:idle:f12:right_fore",
+        "CL2:hd:idle:f13:right_fore",
+        "CL2:hd:idle:f14:right_fore",
+        "CL2:hd:idle:f15:right_fore",
+        "CL2:hd:idle:f16:right_fore",
+        "CL2:hd:idle:f17:right_fore",
+        "CL2:hd:idle:f18:right_fore",
+        "CL2:hd:idle:f19:right_fore",
+        "CL2:hd:idle:f20:right_fore",
+        "CL2:hd:idle:f21:right_fore",
+        "CL2:hd:idle:f22:right_fore",
+        "CL2:hd:idle:f23:right_fore",
+        "CL2:hd:idle:f24:right_fore",
+        "CL2:hd:idle:f25:right_fore",
+        "CL2:hd:idle:f26:right_fore",
+        "CL2:hd:idle:f27:right_fore",
+        "CL2:hd:idle:f28:right_fore",
+        "CL2:hd:idle:f29:right_fore",
+        "CL2:hd:idle:f30:right_fore",
+        "CL2:hd:idle:f31:right_fore",
+        "CL2:hd:idle:f32:right_fore",
+        "CL2:hd:idle:f33:right_fore",
+        "CL2:hd:idle:f34:right_fore",
+        "CL2:hd:idle:f35:right_fore",
+        "CL2:hd:idle:f36:right_fore",
+        "CL2:hd:idle:f37:right_fore",
+        "CL2:hd:idle:f38:right_fore",
+        "CL2:hd:idle:f39:right_fore",
+        "CL2:hd:idle:f40:right_fore",
+        "CL2:hd:idle:f41:right_fore",
+        "CL2:hd:idle:f42:right_fore",
+        "CL2:hd:idle:f43:right_fore",
+        "CL2:hd:idle:f44:right_fore",
+        "CL2:hd:idle:f45:right_fore",
+        "CL2:hd:idle:f46:right_fore",
+        "CL2:hd:idle:f47:right_fore",
+        "CL2:hd:idle:end:right_fore",
+        "CL2:hd:aim:f00:right_fore",
+        "CL2:hd:aim:f01:right_fore",
+        "CL2:hd:aim:f02:right_fore",
+        "CL2:hd:aim:f03:right_fore",
+        "CL2:hd:aim:f04:right_fore",
+        "CL2:hd:aim:f05:right_fore",
+        "CL2:hd:aim:f06:right_fore",
+        "CL2:hd:aim:f07:right_fore",
+        "CL2:hd:aim:f08:right_fore",
+        "CL2:hd:aim:f09:right_fore",
+        "CL2:hd:aim:end:right_fore",
+        "CL2:hd:fire:f00:right_fore",
+        "CL2:hd:fire:f01:right_fore",
+        "CL2:hd:fire:f02:right_fore",
+        "CL2:hd:fire:f03:right_fore",
+        "CL2:hd:fire:f04:right_fore",
+        "CL2:hd:fire:f05:right_fore",
+        "CL2:hd:fire:end:right_fore",
+        "CL2:hd:cooldown:f00:right_fore",
+        "CL2:hd:cooldown:f01:right_fore",
+        "CL2:hd:cooldown:f02:right_fore",
+        "CL2:hd:cooldown:f03:right_fore",
+        "CL2:hd:cooldown:f04:right_fore",
+        "CL2:hd:cooldown:f05:right_fore",
+        "CL2:hd:cooldown:f06:right_fore",
+        "CL2:hd:cooldown:f07:right_fore",
+        "CL2:hd:cooldown:f08:right_fore",
+        "CL2:hd:cooldown:f09:right_fore",
+        "CL2:hd:cooldown:f10:right_fore",
+        "CL2:hd:cooldown:f11:right_fore",
+        "CL2:hd:cooldown:f12:right_fore",
+        "CL2:hd:cooldown:f13:right_fore",
+        "CL2:hd:cooldown:end:right_fore"
+      ],
+      "green_targets": [
+        "CL2:hd:aim:end:right_fore",
+        "CL2:hd:aim:f00:right_fore",
+        "CL2:hd:aim:f01:right_fore",
+        "CL2:hd:aim:f02:right_fore",
+        "CL2:hd:aim:f03:right_fore",
+        "CL2:hd:aim:f04:right_fore",
+        "CL2:hd:aim:f05:right_fore",
+        "CL2:hd:aim:f06:right_fore",
+        "CL2:hd:aim:f07:right_fore",
+        "CL2:hd:aim:f08:right_fore",
+        "CL2:hd:aim:f09:right_fore",
+        "CL2:hd:cooldown:end:right_fore",
+        "CL2:hd:cooldown:f00:right_fore",
+        "CL2:hd:cooldown:f01:right_fore",
+        "CL2:hd:cooldown:f02:right_fore",
+        "CL2:hd:cooldown:f03:right_fore",
+        "CL2:hd:cooldown:f04:right_fore",
+        "CL2:hd:cooldown:f05:right_fore",
+        "CL2:hd:cooldown:f06:right_fore",
+        "CL2:hd:cooldown:f07:right_fore",
+        "CL2:hd:cooldown:f08:right_fore",
+        "CL2:hd:cooldown:f09:right_fore",
+        "CL2:hd:cooldown:f10:right_fore",
+        "CL2:hd:cooldown:f11:right_fore",
+        "CL2:hd:cooldown:f12:right_fore",
+        "CL2:hd:cooldown:f13:right_fore",
+        "CL2:hd:fire:end:right_fore",
+        "CL2:hd:fire:f00:right_fore",
+        "CL2:hd:fire:f01:right_fore",
+        "CL2:hd:fire:f02:right_fore",
+        "CL2:hd:fire:f03:right_fore",
+        "CL2:hd:fire:f04:right_fore",
+        "CL2:hd:fire:f05:right_fore",
+        "CL2:hd:idle:end:right_fore",
+        "CL2:hd:idle:f00:right_fore",
+        "CL2:hd:idle:f01:right_fore",
+        "CL2:hd:idle:f02:right_fore",
+        "CL2:hd:idle:f03:right_fore",
+        "CL2:hd:idle:f04:right_fore",
+        "CL2:hd:idle:f05:right_fore",
+        "CL2:hd:idle:f06:right_fore",
+        "CL2:hd:idle:f07:right_fore",
+        "CL2:hd:idle:f08:right_fore",
+        "CL2:hd:idle:f09:right_fore",
+        "CL2:hd:idle:f10:right_fore",
+        "CL2:hd:idle:f11:right_fore",
+        "CL2:hd:idle:f12:right_fore",
+        "CL2:hd:idle:f13:right_fore",
+        "CL2:hd:idle:f14:right_fore",
+        "CL2:hd:idle:f15:right_fore",
+        "CL2:hd:idle:f16:right_fore",
+        "CL2:hd:idle:f17:right_fore",
+        "CL2:hd:idle:f18:right_fore",
+        "CL2:hd:idle:f19:right_fore",
+        "CL2:hd:idle:f20:right_fore",
+        "CL2:hd:idle:f21:right_fore",
+        "CL2:hd:idle:f22:right_fore",
+        "CL2:hd:idle:f23:right_fore",
+        "CL2:hd:idle:f24:right_fore",
+        "CL2:hd:idle:f25:right_fore",
+        "CL2:hd:idle:f26:right_fore",
+        "CL2:hd:idle:f27:right_fore",
+        "CL2:hd:idle:f28:right_fore",
+        "CL2:hd:idle:f29:right_fore",
+        "CL2:hd:idle:f30:right_fore",
+        "CL2:hd:idle:f31:right_fore",
+        "CL2:hd:idle:f32:right_fore",
+        "CL2:hd:idle:f33:right_fore",
+        "CL2:hd:idle:f34:right_fore",
+        "CL2:hd:idle:f35:right_fore",
+        "CL2:hd:idle:f36:right_fore",
+        "CL2:hd:idle:f37:right_fore",
+        "CL2:hd:idle:f38:right_fore",
+        "CL2:hd:idle:f39:right_fore",
+        "CL2:hd:idle:f40:right_fore",
+        "CL2:hd:idle:f41:right_fore",
+        "CL2:hd:idle:f42:right_fore",
+        "CL2:hd:idle:f43:right_fore",
+        "CL2:hd:idle:f44:right_fore",
+        "CL2:hd:idle:f45:right_fore",
+        "CL2:hd:idle:f46:right_fore",
+        "CL2:hd:idle:f47:right_fore"
+      ],
+      "killed_keys": [
+        "CL2:hd:aim:end:right_fore",
+        "CL2:hd:aim:f03:right_fore",
+        "CL2:hd:aim:f04:right_fore",
+        "CL2:hd:aim:f05:right_fore",
+        "CL2:hd:aim:f06:right_fore",
+        "CL2:hd:aim:f07:right_fore",
+        "CL2:hd:aim:f08:right_fore",
+        "CL2:hd:aim:f09:right_fore",
+        "CL2:hd:cooldown:f00:right_fore",
+        "CL2:hd:cooldown:f01:right_fore",
+        "CL2:hd:cooldown:f02:right_fore",
+        "CL2:hd:cooldown:f03:right_fore",
+        "CL2:hd:cooldown:f04:right_fore",
+        "CL2:hd:cooldown:f05:right_fore",
+        "CL2:hd:cooldown:f06:right_fore",
+        "CL2:hd:cooldown:f07:right_fore",
+        "CL2:hd:cooldown:f08:right_fore",
+        "CL2:hd:cooldown:f09:right_fore",
+        "CL2:hd:cooldown:f10:right_fore",
+        "CL2:hd:cooldown:f11:right_fore",
+        "CL2:hd:fire:end:right_fore",
+        "CL2:hd:fire:f00:right_fore",
+        "CL2:hd:fire:f01:right_fore",
+        "CL2:hd:fire:f02:right_fore",
+        "CL2:hd:fire:f03:right_fore",
+        "CL2:hd:fire:f04:right_fore",
+        "CL2:hd:fire:f05:right_fore"
+      ],
+      "new_red": [
+        "CL2:hd:aim:end:right_fore",
+        "CL2:hd:aim:f03:right_fore",
+        "CL2:hd:aim:f04:right_fore",
+        "CL2:hd:aim:f05:right_fore",
+        "CL2:hd:aim:f06:right_fore",
+        "CL2:hd:aim:f07:right_fore",
+        "CL2:hd:aim:f08:right_fore",
+        "CL2:hd:aim:f09:right_fore",
+        "CL2:hd:cooldown:f00:right_fore",
+        "CL2:hd:cooldown:f01:right_fore",
+        "CL2:hd:cooldown:f02:right_fore",
+        "CL2:hd:cooldown:f03:right_fore",
+        "CL2:hd:cooldown:f04:right_fore",
+        "CL2:hd:cooldown:f05:right_fore",
+        "CL2:hd:cooldown:f06:right_fore",
+        "CL2:hd:cooldown:f07:right_fore",
+        "CL2:hd:cooldown:f08:right_fore",
+        "CL2:hd:cooldown:f09:right_fore",
+        "CL2:hd:cooldown:f10:right_fore",
+        "CL2:hd:cooldown:f11:right_fore",
+        "CL2:hd:fire:end:right_fore",
+        "CL2:hd:fire:f00:right_fore",
+        "CL2:hd:fire:f01:right_fore",
+        "CL2:hd:fire:f02:right_fore",
+        "CL2:hd:fire:f03:right_fore",
+        "CL2:hd:fire:f04:right_fore",
+        "CL2:hd:fire:f05:right_fore"
+      ],
+      "new_green": [],
+      "files_changed": [
+        "parts/hd/right_fore.png",
+        "parts.json"
+      ],
+      "removed_overlap_pixels": 1127,
+      "meaning": "zero shared rest alpha between right upper/lower arm; no source regeneration claimed"
+    },
+    {
+      "mutant": "m3",
+      "status": "KILLED",
+      "targets": [
+        "CL3:hd:idle-loop:torso",
+        "CL3:pixel:idle-loop:torso"
+      ],
+      "green_targets": [
+        "CL3:hd:idle-loop:torso",
+        "CL3:pixel:idle-loop:torso"
+      ],
+      "killed_keys": [
+        "CL3:hd:idle-loop:torso",
+        "CL3:pixel:idle-loop:torso"
+      ],
+      "new_red": [
+        "CL2:pixel:idle:f41:hem_left",
+        "CL2:pixel:idle:f41:right_fore",
+        "CL2:pixel:idle:f41:right_hand",
+        "CL2:pixel:idle:f41:right_upper",
+        "CL2:pixel:idle:f43:left_arm",
+        "CL3:hd:idle-loop:torso",
+        "CL3:pixel:idle-loop:torso"
+      ],
+      "new_green": [
+        "CL2:pixel:idle:f42:left_arm"
+      ],
+      "files_changed": [
+        "scenes/hd.tscn",
+        "scenes/pixel.tscn"
+      ]
+    },
+    {
+      "mutant": "m3b",
+      "status": "KILLED",
+      "targets": [
+        "CL3:hd:aim-fire:right_upper",
+        "CL3:pixel:aim-fire:right_upper"
+      ],
+      "green_targets": [
+        "CL3:hd:aim-fire:right_upper",
+        "CL3:pixel:aim-fire:right_upper"
+      ],
+      "killed_keys": [
+        "CL3:hd:aim-fire:right_upper",
+        "CL3:pixel:aim-fire:right_upper"
+      ],
+      "new_red": [
+        "CL3:hd:aim-fire:right_upper",
+        "CL3:pixel:aim-fire:right_upper"
+      ],
+      "new_green": [
+        "CL2:pixel:fire:f01:right_hand"
+      ],
+      "files_changed": [
+        "scenes/hd.tscn",
+        "scenes/pixel.tscn"
+      ]
+    },
+    {
+      "mutant": "m4",
+      "status": "KILLED",
+      "targets": [
+        "CL4:hd:hip_y_min",
+        "CL4:pixel:hip_y_min"
+      ],
+      "green_targets": [
+        "CL4:hd:hip_y_min",
+        "CL4:pixel:hip_y_min"
+      ],
+      "killed_keys": [
+        "CL4:hd:hip_y_min",
+        "CL4:pixel:hip_y_min"
+      ],
+      "new_red": [
+        "CL4:hd:hip_y_min",
+        "CL4:pixel:hip_y_min"
+      ],
+      "new_green": [
+        "CL2:pixel:idle:f06:coat",
+        "CL2:pixel:idle:f06:hem_left",
+        "CL2:pixel:idle:f06:left_arm",
+        "CL2:pixel:idle:f06:right_fore",
+        "CL2:pixel:idle:f06:right_hand",
+        "CL2:pixel:idle:f06:right_upper",
+        "CL2:pixel:idle:f06:torso",
+        "CL2:pixel:idle:f18:coat",
+        "CL2:pixel:idle:f18:hem_left",
+        "CL2:pixel:idle:f18:left_arm",
+        "CL2:pixel:idle:f18:right_fore",
+        "CL2:pixel:idle:f18:right_hand",
+        "CL2:pixel:idle:f18:right_upper",
+        "CL2:pixel:idle:f18:torso",
+        "CL2:pixel:idle:f30:coat",
+        "CL2:pixel:idle:f30:hem_left",
+        "CL2:pixel:idle:f30:left_arm",
+        "CL2:pixel:idle:f30:right_fore",
+        "CL2:pixel:idle:f30:right_hand",
+        "CL2:pixel:idle:f30:right_upper",
+        "CL2:pixel:idle:f30:torso",
+        "CL2:pixel:idle:f42:coat",
+        "CL2:pixel:idle:f42:hem_left",
+        "CL2:pixel:idle:f42:left_arm",
+        "CL2:pixel:idle:f42:right_fore",
+        "CL2:pixel:idle:f42:right_hand",
+        "CL2:pixel:idle:f42:right_upper",
+        "CL2:pixel:idle:f42:torso"
+      ],
+      "files_changed": [
+        "scenes/hd.tscn",
+        "scenes/pixel.tscn"
+      ]
+    },
+    {
+      "mutant": "m4b",
+      "status": "KILLED",
+      "targets": [
+        "CL4:hd:hip_y_max",
+        "CL4:pixel:hip_y_max"
+      ],
+      "green_targets": [
+        "CL4:hd:hip_y_max",
+        "CL4:pixel:hip_y_max"
+      ],
+      "killed_keys": [
+        "CL4:hd:hip_y_max",
+        "CL4:pixel:hip_y_max"
+      ],
+      "new_red": [
+        "CL2:pixel:idle:f03:coat",
+        "CL2:pixel:idle:f03:left_arm",
+        "CL2:pixel:idle:f03:torso",
+        "CL2:pixel:idle:f09:coat",
+        "CL2:pixel:idle:f09:hem_left",
+        "CL2:pixel:idle:f09:right_fore",
+        "CL2:pixel:idle:f09:right_hand",
+        "CL2:pixel:idle:f09:right_upper",
+        "CL2:pixel:idle:f09:torso",
+        "CL2:pixel:idle:f15:coat",
+        "CL2:pixel:idle:f15:hem_left",
+        "CL2:pixel:idle:f15:right_fore",
+        "CL2:pixel:idle:f15:right_hand",
+        "CL2:pixel:idle:f15:right_upper",
+        "CL2:pixel:idle:f15:torso",
+        "CL2:pixel:idle:f21:coat",
+        "CL2:pixel:idle:f21:left_arm",
+        "CL2:pixel:idle:f21:torso",
+        "CL4:hd:hip_y_max",
+        "CL4:pixel:hip_y_max"
+      ],
+      "new_green": [
+        "CL2:pixel:idle:f06:coat",
+        "CL2:pixel:idle:f06:hem_left",
+        "CL2:pixel:idle:f06:left_arm",
+        "CL2:pixel:idle:f06:right_fore",
+        "CL2:pixel:idle:f06:right_hand",
+        "CL2:pixel:idle:f06:right_upper",
+        "CL2:pixel:idle:f06:torso",
+        "CL2:pixel:idle:f18:coat",
+        "CL2:pixel:idle:f18:hem_left",
+        "CL2:pixel:idle:f18:left_arm",
+        "CL2:pixel:idle:f18:right_fore",
+        "CL2:pixel:idle:f18:right_hand",
+        "CL2:pixel:idle:f18:right_upper",
+        "CL2:pixel:idle:f18:torso"
+      ],
+      "files_changed": [
+        "scenes/hd.tscn",
+        "scenes/pixel.tscn"
+      ]
+    },
+    {
+      "mutant": "m4c",
+      "status": "KILLED",
+      "targets": [
+        "CL4:hd:hem_range",
+        "CL4:pixel:hem_range"
+      ],
+      "green_targets": [
+        "CL4:hd:hem_range",
+        "CL4:pixel:hem_range"
+      ],
+      "killed_keys": [
+        "CL4:hd:hem_range",
+        "CL4:pixel:hem_range"
+      ],
+      "new_red": [
+        "CL4:hd:hem_range",
+        "CL4:pixel:hem_range"
+      ],
+      "new_green": [
+        "CL3:hd:cooldown-idle:hem_left",
+        "CL3:hd:cooldown-idle:hem_right",
+        "CL3:hd:idle-aim:hem_left",
+        "CL3:hd:idle-aim:hem_right",
+        "CL3:pixel:cooldown-idle:hem_left",
+        "CL3:pixel:cooldown-idle:hem_right",
+        "CL3:pixel:idle-aim:hem_left",
+        "CL3:pixel:idle-aim:hem_right"
+      ],
+      "files_changed": [
+        "scenes/hd.tscn",
+        "scenes/pixel.tscn"
+      ]
+    },
+    {
+      "mutant": "m5",
+      "status": "KILLED",
+      "targets": [
+        "CL5:hd:settle",
+        "CL5:pixel:settle"
+      ],
+      "green_targets": [
+        "CL5:hd:settle",
+        "CL5:pixel:settle"
+      ],
+      "killed_keys": [
+        "CL5:hd:settle",
+        "CL5:pixel:settle"
+      ],
+      "new_red": [
+        "CL3:hd:fire-cooldown:right_fore",
+        "CL3:pixel:fire-cooldown:right_fore",
+        "CL5:hd:settle",
+        "CL5:pixel:settle"
+      ],
+      "new_green": [
+        "CL2:pixel:fire:f04:right_hand"
+      ],
+      "files_changed": [
+        "scenes/hd.tscn",
+        "scenes/pixel.tscn"
+      ]
+    }
+  ]
+}

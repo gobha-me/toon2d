@@ -484,3 +484,14 @@ launcher owns existing-suite, body-suite, clip-baseline and clip-mutant runs.
 Their command, rc, attempt and UTC ledger, per-scene classifications and mutant
 evidence belong in the later appended clip results table. No measured runtime
 results are claimed by this frozen acceptance commit.
+
+### Clip observer execution details
+
+CL5 departure's "peak no later than frame 2" also requires the maximum sampled
+fire deviation (frames 0-5 and endpoint) to be reached at frame 1 or 2; an early
+1-degree departure followed by a larger late peak does not pass. The frozen
+1-degree departure and 0.1-degree settle thresholds are unchanged.
+
+A heavy-run refusal produces ERROR observations, stops further heavy steps and
+returns the original 75 or 78 to the caller. There is no internal wait/retry or
+unguarded fallback; the launcher owns its subsequent retry/stop policy.

@@ -51,8 +51,6 @@ def public(text: str) -> str:
     for path, label in ((str(TEMP), "<TMPDIR>"), (str(REPO), "<REPO>"),
                         (sys.executable, "<PYTHON>")):
         text = text.replace(path, label)
-    text = re.sub(r"(?:/config/|/workspace/|/workspace-cache/|/coord/|/tmp/tween-)[^\s\"'<>]*",
-                  "<PATH>", text)
     return "\n".join(line for line in text.splitlines()
                      if not line.startswith("heavy-run: holding slot")) + "\n"
 
@@ -206,9 +204,13 @@ def numeric_verdicts(observed: dict, manifest: dict) -> dict:
         check(f"CL4:{scene}:hem_range", hems)
         def departure(scene=scene):
             aim = angle(scene, "aim", -1, "right_fore")
-            degrees = [math.degrees(abs(angle(scene, "fire", i, "right_fore") - aim)) for i in (1, 2)]
-            return verdict(max(degrees) >= 1., {"f01_deg": degrees[0], "f02_deg": degrees[1]},
-                           ">= 1.0 deg at f01 or f02")
+            degrees = [math.degrees(abs(angle(scene, "fire", i, "right_fore") - aim))
+                       for i in range(CLIPS["fire"] + 1)]
+            early_peak = max(degrees[1:3])
+            return verdict(early_peak >= 1. and early_peak >= max(degrees),
+                           {"f01_deg": degrees[1], "f02_deg": degrees[2],
+                            "sample_deviations_deg": degrees},
+                           ">= 1.0 deg at f01 or f02; overall sampled peak reached by f02")
         check(f"CL5:{scene}:departure", departure)
         def settle(scene=scene):
             delta = math.degrees(abs(angle(scene, "fire", -1, "right_fore") -
@@ -461,9 +463,11 @@ def mutant_trials(output: Path) -> int:
             print(f"Running mutant {name}", flush=True)
             print(f"SKIP mutant {name}: baseline harness ERROR; no plant executed", flush=True)
             report.append({"mutant": name, "status": "SKIPPED", "reason": "baseline harness ERROR"})
-        output.write_text(json.dumps({"rc": 2, "mutants": report}, indent=2) + "\n")
-        return 2
+        rc = baseline.get("heavy_refusal") or 2
+        output.write_text(json.dumps({"rc": rc, "mutants": report}, indent=2) + "\n")
+        return rc
     infrastructure = False
+    refusal = None
     for name in MUTANTS:
         print(f"Running mutant {name}", flush=True)
         target = targets(name, baseline["keys"])
@@ -505,7 +509,8 @@ def mutant_trials(output: Path) -> int:
                            "green_targets": sorted(green), "killed_keys": killed_keys,
                            "new_red": new_red, "new_green": new_green, **planted})
             if trial.get("heavy_refusal") in (75, 78):
-                # Refusals stop the invocation; no subsequent heavy work/retry.
+                # Refusals stop the invocation; the launcher owns any retry.
+                refusal = trial["heavy_refusal"]
                 break
         except Exception as exc:
             infrastructure = True
@@ -514,7 +519,8 @@ def mutant_trials(output: Path) -> int:
             break
         finally:
             shutil.rmtree(work)
-    rc = 2 if infrastructure else 0 if len(report) == len(MUTANTS) and all(r["status"] == "KILLED" for r in report) else 1
+    rc = refusal or (2 if infrastructure else 0 if len(report) == len(MUTANTS) and
+                     all(r["status"] == "KILLED" for r in report) else 1)
     output.write_text(json.dumps({"rc": rc, "mutants": report}, indent=2) + "\n")
     return rc
 
@@ -531,7 +537,8 @@ def main() -> int:
     output.parent.mkdir(parents=True, exist_ok=True)
     if args.mode == "clip-mutants":
         return mutant_trials(output)
-    return suite(PROTOTYPE, output)["rc"]
+    result = suite(PROTOTYPE, output)
+    return result.get("heavy_refusal") or result["rc"]
 
 
 if __name__ == "__main__":

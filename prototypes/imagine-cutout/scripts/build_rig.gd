@@ -37,7 +37,7 @@ func _initialize() -> void:
 			return
 	for mode in ([false, true] if character == "trenchcoat" else [false]):
 		pixel = mode
-		build()
+		build(manifest.get("facing", {}))
 	quit()
 
 func owned(node: Node, parent: Node) -> void:
@@ -48,7 +48,7 @@ func vec(values: Array) -> Vector2:
 	var v := Vector2(values[0], values[1])
 	return (v * float(data.pixel_scale)).round() if pixel else v
 
-func build() -> void:
+func build(facing: Dictionary) -> void:
 	rig = Node2D.new()
 	rig.name = ("ImaginePixel" if pixel else "ImagineHD") if character == "trenchcoat" else "Courier"
 	rig.set_script(load("res://scripts/rig_control.gd"))
@@ -79,6 +79,9 @@ func build() -> void:
 		bones[spec.name] = bone
 		pivots[spec.name] = pivot
 		bone_paths[spec.name] = str(rig.get_path_to(bone))
+	# The prop's sprite transform maps manifest texture points into hand space.
+	# Without a manifest point, keep the effect at the hand origin.
+	var prop_muzzle := Vector2.ZERO
 	for part in data.parts:
 		var sprite := Sprite2D.new()
 		sprite.name = "Gun" if part.id == "gun" else "Part_" + part.id
@@ -97,6 +100,8 @@ func build() -> void:
 		sprite.set_meta("source", part.source)
 		sprite.set_meta("classification", part.classification)
 		owned(sprite, bones[part.bone])
+		if part.id == facing.get("weapon_part", "") and facing.has("muzzle_texture_px"):
+			prop_muzzle = sprite.transform * vec(facing.muzzle_texture_px)
 	if pixel:
 		for backing in data.get("pixel_backings", []):
 			var cap := Polygon2D.new()
@@ -114,7 +119,7 @@ func build() -> void:
 	flash.name = "MuzzleFlash"
 	flash.set_script(load("res://scripts/muzzle_flash.gd"))
 	flash.set_meta("pixel_mode", pixel)
-	flash.position = vec(data.gun_muzzle_rig) - pivots.right_hand if character == "trenchcoat" else Vector2.ZERO
+	flash.position = vec(data.gun_muzzle_rig) - pivots.right_hand if character == "trenchcoat" else prop_muzzle
 	if data.has("facing_setup"):
 		flash.position = flash.position.rotated(deg_to_rad(data.facing_setup.grip_rotation_deg))
 		flash.rotation = deg_to_rad(-18 + data.facing_setup.grip_rotation_deg)
@@ -123,16 +128,13 @@ func build() -> void:
 	flash.visible = false
 	flash.z_index = 30
 	flash.z_as_relative = false
-	if character == "trenchcoat":
-		owned(flash, bones.right_hand)
+	owned(flash, bones.right_hand)
 	var player := AnimationPlayer.new()
 	player.name = "AnimationPlayer"
 	owned(player, rig)
 	var library := AnimationLibrary.new()
 	for clip in ["idle", "aim", "fire", "cooldown"]:
-		library.add_animation(clip, make_animation(clip, str(rig.get_path_to(flash))) if character == "trenchcoat" else courier_animation(clip))
-	if character != "trenchcoat":
-		flash.free()
+		library.add_animation(clip, make_animation(clip, str(rig.get_path_to(flash))) if character == "trenchcoat" else courier_animation(clip, str(rig.get_path_to(flash))))
 	player.add_animation_library("", library)
 	var camera := Camera2D.new()
 	camera.name = "Camera2D"
@@ -147,7 +149,7 @@ func build() -> void:
 	print("Baked ", path, " result=", error)
 	rig.free()
 
-func courier_animation(clip: String) -> Animation:
+func courier_animation(clip: String, flash_path: String) -> Animation:
 	var anim := Animation.new()
 	anim.resource_name = clip
 	anim.step = 1.0 / FPS
@@ -169,6 +171,7 @@ func courier_animation(clip: String) -> Animation:
 			rotations(anim, spec.name, [[0, target], [3, high * amount * 1.1], [frames, target]])
 		else:
 			rotations(anim, spec.name, [[0, target], [frames, 0]])
+	track(anim,flash_path,"visible",[[0,clip=="fire"],[FLASH_FRAMES,false],[frames,false]] if clip=="fire" else [[0,false],[frames,false]],true)
 	return anim
 
 func track(anim: Animation, path: String, property: String, keys: Array, discrete: bool = false) -> void:

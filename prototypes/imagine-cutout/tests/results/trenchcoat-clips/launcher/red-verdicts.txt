@@ -1,0 +1,99 @@
+FAIL CL3:hd:idle-aim:torso: 0.00610865233466029 vs <= 1e-06 rad
+FAIL CL3:hd:idle-aim:hem_left: 0.0209439508616924 vs <= 1e-06 rad
+FAIL CL3:hd:idle-aim:hem_right: 0.0174532923847437 vs <= 1e-06 rad
+FAIL CL3:hd:cooldown-idle:torso: 0.00610865233466029 vs <= 1e-06 rad
+FAIL CL3:hd:cooldown-idle:hem_left: 0.0209439508616924 vs <= 1e-06 rad
+FAIL CL3:hd:cooldown-idle:hem_right: 0.0174532923847437 vs <= 1e-06 rad
+FAIL CL5:hd:departure: {"f01_deg": 0.0, "f02_deg": 0.0, "sample_deviations_deg": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]} vs >= 1.0 deg at f01 or f02; overall sampled peak reached by f02
+FAIL CL2:pixel:idle:f06:torso: {"gap_pixels": 3, "stencil_pixels": 27} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:idle:f06:coat: {"gap_pixels": 3, "stencil_pixels": 30} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:idle:f06:right_upper: {"gap_pixels": 1, "stencil_pixels": 14} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:idle:f06:left_arm: {"gap_pixels": 2, "stencil_pixels": 11} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:idle:f06:hem_left: {"gap_pixels": 2, "stencil_pixels": 24} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:idle:f06:right_fore: {"gap_pixels": 1, "stencil_pixels": 32} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:idle:f06:right_hand: {"gap_pixels": 2, "stencil_pixels": 24} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:idle:f18:torso: {"gap_pixels": 3, "stencil_pixels": 27} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:idle:f18:coat: {"gap_pixels": 3, "stencil_pixels": 30} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:idle:f18:right_upper: {"gap_pixels": 1, "stencil_pixels": 14} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:idle:f18:left_arm: {"gap_pixels": 2, "stencil_pixels": 11} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:idle:f18:hem_left: {"gap_pixels": 2, "stencil_pixels": 24} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:idle:f18:right_fore: {"gap_pixels": 1, "stencil_pixels": 32} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:idle:f18:right_hand: {"gap_pixels": 2, "stencil_pixels": 24} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:idle:f30:torso: {"gap_pixels": 3, "stencil_pixels": 27} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:idle:f30:coat: {"gap_pixels": 3, "stencil_pixels": 30} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:idle:f30:right_upper: {"gap_pixels": 1, "stencil_pixels": 14} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:idle:f30:left_arm: {"gap_pixels": 2, "stencil_pixels": 11} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:idle:f30:hem_left: {"gap_pixels": 2, "stencil_pixels": 24} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:idle:f30:right_fore: {"gap_pixels": 1, "stencil_pixels": 32} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:idle:f30:right_hand: {"gap_pixels": 2, "stencil_pixels": 24} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:idle:f42:torso: {"gap_pixels": 3, "stencil_pixels": 27} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:idle:f42:coat: {"gap_pixels": 3, "stencil_pixels": 30} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:idle:f42:right_upper: {"gap_pixels": 1, "stencil_pixels": 14} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:idle:f42:left_arm: {"gap_pixels": 2, "stencil_pixels": 11} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:idle:f42:hem_left: {"gap_pixels": 2, "stencil_pixels": 24} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:idle:f42:right_fore: {"gap_pixels": 1, "stencil_pixels": 32} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:idle:f42:right_hand: {"gap_pixels": 2, "stencil_pixels": 24} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:aim:f01:right_hand: {"gap_pixels": 4, "stencil_pixels": 25} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:aim:f02:right_hand: {"gap_pixels": 4, "stencil_pixels": 24} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:aim:f03:right_hand: {"gap_pixels": 2, "stencil_pixels": 24} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:aim:f05:right_hand: {"gap_pixels": 5, "stencil_pixels": 26} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:aim:f06:right_upper: {"gap_pixels": 1, "stencil_pixels": 10} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:aim:f07:coat: {"gap_pixels": 1, "stencil_pixels": 31} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:aim:f07:right_hand: {"gap_pixels": 7, "stencil_pixels": 23} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:aim:f08:coat: {"gap_pixels": 1, "stencil_pixels": 31} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:aim:f08:right_hand: {"gap_pixels": 2, "stencil_pixels": 24} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:aim:f09:right_hand: {"gap_pixels": 1, "stencil_pixels": 26} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:aim:end:coat: {"gap_pixels": 1, "stencil_pixels": 31} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:aim:end:right_upper: {"gap_pixels": 2, "stencil_pixels": 9} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:aim:end:right_fore: {"gap_pixels": 2, "stencil_pixels": 30} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:aim:end:right_hand: {"gap_pixels": 5, "stencil_pixels": 24} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:fire:f00:coat: {"gap_pixels": 1, "stencil_pixels": 31} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:fire:f00:right_upper: {"gap_pixels": 2, "stencil_pixels": 9} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:fire:f00:right_fore: {"gap_pixels": 2, "stencil_pixels": 30} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:fire:f00:right_hand: {"gap_pixels": 5, "stencil_pixels": 24} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:fire:f01:right_upper: {"gap_pixels": 1, "stencil_pixels": 8} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:fire:f01:right_hand: {"gap_pixels": 4, "stencil_pixels": 24} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:fire:f03:right_upper: {"gap_pixels": 1, "stencil_pixels": 7} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:fire:f04:right_upper: {"gap_pixels": 1, "stencil_pixels": 8} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:fire:f04:right_hand: {"gap_pixels": 4, "stencil_pixels": 24} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:fire:f05:coat: {"gap_pixels": 1, "stencil_pixels": 31} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:fire:f05:right_upper: {"gap_pixels": 2, "stencil_pixels": 9} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:fire:f05:right_fore: {"gap_pixels": 1, "stencil_pixels": 32} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:fire:end:coat: {"gap_pixels": 1, "stencil_pixels": 31} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:fire:end:right_upper: {"gap_pixels": 2, "stencil_pixels": 9} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:fire:end:right_fore: {"gap_pixels": 2, "stencil_pixels": 30} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:fire:end:right_hand: {"gap_pixels": 5, "stencil_pixels": 24} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:cooldown:f00:coat: {"gap_pixels": 1, "stencil_pixels": 31} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:cooldown:f00:right_upper: {"gap_pixels": 2, "stencil_pixels": 9} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:cooldown:f00:right_fore: {"gap_pixels": 2, "stencil_pixels": 30} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:cooldown:f00:right_hand: {"gap_pixels": 5, "stencil_pixels": 24} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:cooldown:f01:coat: {"gap_pixels": 1, "stencil_pixels": 31} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:cooldown:f01:right_hand: {"gap_pixels": 5, "stencil_pixels": 26} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:cooldown:f02:right_fore: {"gap_pixels": 1, "stencil_pixels": 31} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:cooldown:f02:right_hand: {"gap_pixels": 2, "stencil_pixels": 24} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:cooldown:f03:coat: {"gap_pixels": 1, "stencil_pixels": 31} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:cooldown:f03:right_hand: {"gap_pixels": 4, "stencil_pixels": 26} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:cooldown:f04:coat: {"gap_pixels": 1, "stencil_pixels": 31} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:cooldown:f04:right_fore: {"gap_pixels": 1, "stencil_pixels": 32} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:cooldown:f04:right_hand: {"gap_pixels": 6, "stencil_pixels": 22} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:cooldown:f05:coat: {"gap_pixels": 1, "stencil_pixels": 31} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:cooldown:f05:right_upper: {"gap_pixels": 1, "stencil_pixels": 10} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:cooldown:f05:right_hand: {"gap_pixels": 1, "stencil_pixels": 23} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:cooldown:f06:right_hand: {"gap_pixels": 2, "stencil_pixels": 26} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:cooldown:f07:right_upper: {"gap_pixels": 1, "stencil_pixels": 12} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:cooldown:f07:right_fore: {"gap_pixels": 1, "stencil_pixels": 30} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:cooldown:f07:right_hand: {"gap_pixels": 4, "stencil_pixels": 25} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:cooldown:f09:right_upper: {"gap_pixels": 1, "stencil_pixels": 13} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:cooldown:f09:right_fore: {"gap_pixels": 1, "stencil_pixels": 31} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:cooldown:f09:right_hand: {"gap_pixels": 3, "stencil_pixels": 23} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:cooldown:f10:right_fore: {"gap_pixels": 3, "stencil_pixels": 31} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:cooldown:f10:right_hand: {"gap_pixels": 4, "stencil_pixels": 23} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:cooldown:f11:right_hand: {"gap_pixels": 2, "stencil_pixels": 25} vs 0 background pixels; nonempty stencil except root
+FAIL CL2:pixel:cooldown:f12:right_hand: {"gap_pixels": 3, "stencil_pixels": 26} vs 0 background pixels; nonempty stencil except root
+FAIL CL3:pixel:idle-aim:torso: 0.00610865233466029 vs <= 1e-06 rad
+FAIL CL3:pixel:idle-aim:hem_left: 0.0209439508616924 vs <= 1e-06 rad
+FAIL CL3:pixel:idle-aim:hem_right: 0.0174532923847437 vs <= 1e-06 rad
+FAIL CL3:pixel:cooldown-idle:torso: 0.00610865233466029 vs <= 1e-06 rad
+FAIL CL3:pixel:cooldown-idle:hem_left: 0.0209439508616924 vs <= 1e-06 rad
+FAIL CL3:pixel:cooldown-idle:hem_right: 0.0174532923847437 vs <= 1e-06 rad
+FAIL CL5:pixel:departure: {"f01_deg": 0.0, "f02_deg": 0.0, "sample_deviations_deg": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]} vs >= 1.0 deg at f01 or f02; overall sampled peak reached by f02

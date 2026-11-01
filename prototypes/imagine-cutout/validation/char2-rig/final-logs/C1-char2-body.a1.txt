@@ -1,0 +1,8 @@
+heavy-run: memory ok: memory.current 19.48 GiB, working set (minus inactive_file) 7.95 GiB; limits 17.50 GiB working set / 24.50 GiB memory.current (memory.max 28.00 GiB x 10/16, 14/16)
+heavy-run: holding slot1 on <HOST>, hard stop in 48718s (11:55 PM ET)
+BODY char2 poses {'single': 30, 'pair': 420, 'random': 200}; random N=200 seed=20261031
+PASS body manifest: 0 failures
+PASS body completeness: 0 failures
+PASS body per_joint: 0 failures
+PASS body combined: 0 failures
+PASS body facing: 0 failures

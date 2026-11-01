@@ -1,0 +1,133 @@
+{
+  "line_count": 291,
+  "first_lines": [
+    {
+      "line": 1,
+      "text": "COMMAND ['godot', '--single-threaded-scene', '--headless', '--path', '<TMPDIR>/<PROJECT>/prototype', '--editor', '--import']"
+    },
+    {
+      "line": 2,
+      "text": "heavy-run: memory ok: memory.current 19.60 GiB, working set (minus inactive_file) 8.00 GiB; limits 17.50 GiB working set / 24.50 GiB memory.current (memory.max 28.00 GiB x 10/16, 14/16)"
+    },
+    {
+      "line": 3,
+      "text": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+    },
+    {
+      "line": 4,
+      "text": ""
+    },
+    {
+      "line": 5,
+      "text": "[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Project initialization (5 steps)\u001b[39m\u001b[0m"
+    },
+    {
+      "line": 6,
+      "text": "[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Scanning file structure...\u001b[39m\u001b[0m"
+    },
+    {
+      "line": 7,
+      "text": "[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Loading global class names...\u001b[39m\u001b[0m"
+    },
+    {
+      "line": 8,
+      "text": "[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Verifying GDExtensions...\u001b[39m\u001b[0m"
+    },
+    {
+      "line": 9,
+      "text": "[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Creating autoload scripts...\u001b[39m\u001b[0m"
+    },
+    {
+      "line": 10,
+      "text": "[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Initializing plugins...\u001b[39m\u001b[0m"
+    },
+    {
+      "line": 11,
+      "text": "[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Starting file scan...\u001b[39m\u001b[0m"
+    },
+    {
+      "line": 12,
+      "text": "\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m"
+    }
+  ],
+  "last_lines": [
+    {
+      "line": 280,
+      "text": ""
+    },
+    {
+      "line": 281,
+      "text": ""
+    },
+    {
+      "line": 282,
+      "text": "EXIT 0"
+    },
+    {
+      "line": 283,
+      "text": "COMMAND ['godot', '--single-threaded-scene', '--path', '<TMPDIR>/<PROJECT>/prototype', '--audio-driver', 'Dummy', '--script', 'res://tests/check_rig.gd', '--', 'render', '<TMPDIR>/<PROJECT>/captures']"
+    },
+    {
+      "line": 284,
+      "text": "heavy-run: memory ok: memory.current 19.61 GiB, working set (minus inactive_file) 8.01 GiB; limits 17.50 GiB working set / 24.50 GiB memory.current (memory.max 28.00 GiB x 10/16, 14/16)"
+    },
+    {
+      "line": 285,
+      "text": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+    },
+    {
+      "line": 286,
+      "text": "WARNING: Could not set V-Sync mode, as changing V-Sync mode is not supported by the graphics driver."
+    },
+    {
+      "line": 287,
+      "text": "     at: set_use_vsync (platform/linuxbsd/x11/gl_manager_x11.cpp:372)"
+    },
+    {
+      "line": 288,
+      "text": "OpenGL API 4.5 (Core Profile) Mesa 25.2.8-0ubuntu0.24.04.4 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)"
+    },
+    {
+      "line": 289,
+      "text": ""
+    },
+    {
+      "line": 290,
+      "text": ""
+    },
+    {
+      "line": 291,
+      "text": "EXIT 0"
+    }
+  ],
+  "diagnostic_line_counts": [
+    {
+      "text": "COMMAND ['godot', '--single-threaded-scene', '--headless', '--path', '<TMPDIR>/<PROJECT>/prototype', '--editor', '--import']",
+      "count": 1
+    },
+    {
+      "text": "heavy-run: memory ok: memory.current 19.60 GiB, working set (minus inactive_file) 8.00 GiB; limits 17.50 GiB working set / 24.50 GiB memory.current (memory.max 28.00 GiB x 10/16, 14/16)",
+      "count": 1
+    },
+    {
+      "text": "EXIT 0",
+      "count": 3
+    },
+    {
+      "text": "COMMAND ['godot', '--single-threaded-scene', '--headless', '--path', '<TMPDIR>/<PROJECT>/prototype', '--script', 'res://tests/check_rig.gd', '--', 'observe', '<TMPDIR>/<PROJECT>/captures']",
+      "count": 1
+    },
+    {
+      "text": "heavy-run: memory ok: memory.current 19.61 GiB, working set (minus inactive_file) 8.01 GiB; limits 17.50 GiB working set / 24.50 GiB memory.current (memory.max 28.00 GiB x 10/16, 14/16)",
+      "count": 2
+    },
+    {
+      "text": "COMMAND ['godot', '--single-threaded-scene', '--path', '<TMPDIR>/<PROJECT>/prototype', '--audio-driver', 'Dummy', '--script', 'res://tests/check_rig.gd', '--', 'render', '<TMPDIR>/<PROJECT>/captures']",
+      "count": 1
+    },
+    {
+      "text": "WARNING: Could not set V-Sync mode, as changing V-Sync mode is not supported by the graphics driver.",
+      "count": 1
+    }
+  ]
+}

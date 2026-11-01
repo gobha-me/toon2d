@@ -1,0 +1,241 @@
+{
+  "tested_head": "9a63493221473a9e1cd7cac2947af4b8e3f4fb9c",
+  "tests_head": "2e036060c9c42d235d0b5efb1b9d714651e36f2a",
+  "launcher_sha256": "66614bf9bacd61790e037925717af1ce5bc1ae755c5901a74f4a06bad4e0beac",
+  "heavy_run_sha256": "3bc14651d44b4438d3823dfa582f767094ca8a95681721e743be3b8a57011a0b",
+  "lifecycle_status": "GREEN",
+  "sources": [
+    {
+      "source": "LEDGER.tsv",
+      "source_bytes": 932,
+      "source_sha256": "11efdf95f131095c2034c9642169574b3ac840553e7d9123ef1a102ed123d973",
+      "evidence": "FINAL-LEDGER.tsv",
+      "evidence_sha256": "11efdf95f131095c2034c9642169574b3ac840553e7d9123ef1a102ed123d973",
+      "transformation": "byte-for-byte copy"
+    },
+    {
+      "source": "C1-char2-body.a1.log",
+      "source_bytes": 512,
+      "source_sha256": "c3ce4e2603ce845d943c8b3e76342fa90073020fbd1c00d5d6e7b4ff937fbb77",
+      "evidence": "final-logs/C1-char2-body.a1.txt",
+      "evidence_sha256": "c2f00e8f7fef849d9dc0e2fd742a9d3fdbf3cc751fa37d308061bed7b5698f7b",
+      "transformation": "complete log; paths and host replaced by placeholders; line order retained"
+    },
+    {
+      "source": "C2-trenchcoat-body.a1.log",
+      "source_bytes": 517,
+      "source_sha256": "0a8038616a0f48b610e79e830f76edecc28a9094b0f6b2291b8572f9f9b87396",
+      "evidence": "final-logs/C2-trenchcoat-body.a1.txt",
+      "evidence_sha256": "032e22707b9e87a5cb2de5b7d6fe97b18c3c1b20a0ad2074be59f913d3e23eb6",
+      "transformation": "complete log; paths and host replaced by placeholders; line order retained"
+    },
+    {
+      "source": "C3-trenchcoat-legacy.a1.log",
+      "source_bytes": 5404,
+      "source_sha256": "5e843c17f27a887d71f6e9a8eecfa771148a48761f888cb9156998311f88c408",
+      "evidence": "final-logs/C3-trenchcoat-legacy.a1.txt",
+      "evidence_sha256": "2f8b0698a0d2e43b8d7c0f30548d16383d2d7822185c5f975188348ff5fbe56f",
+      "transformation": "complete log; paths and host replaced by placeholders; line order retained"
+    },
+    {
+      "source": "C4-harness-policy.a1.log",
+      "source_bytes": 5946,
+      "source_sha256": "c54d93c1ebb93fa2c38fbffd1c0805f96e41709c598239b4497d468999c166ca",
+      "evidence": "final-logs/C4-harness-policy.a1.txt",
+      "evidence_sha256": "fcd81b7130a10ba62eb8f756b57dd2db232ebba60d3aa9ce8682593cd0723c5f",
+      "transformation": "complete log; paths and host replaced by placeholders; line order retained; trailing whitespace removed"
+    },
+    {
+      "source": "C5-char2-mutants.a1.log",
+      "source_bytes": 337,
+      "source_sha256": "359fd2ab5e5ff93c9263f65da1ea0151bc1e0c1523e741a0eaeccf5c77670520",
+      "evidence": "final-logs/C5-char2-mutants.a1.txt",
+      "evidence_sha256": "aecdf1da8126c97dd7332e8d132a200c10cd8c5f3a61cdc8b368d125fc06413d",
+      "transformation": "complete log; paths and host replaced by placeholders; line order retained"
+    },
+    {
+      "source": "C6-trenchcoat-mutants.a1.log",
+      "source_bytes": 1193,
+      "source_sha256": "4063076fc530ac61f5a6fcaae90ea253b8664cc90b55b76f52f41d3ae8232cb2",
+      "evidence": "final-logs/C6-trenchcoat-mutants.a1.txt",
+      "evidence_sha256": "4bb0993635ffdde9233c8bd4ce65cb818624b52a067174e0a73bd0cbbffbaade",
+      "transformation": "complete log; paths and host replaced by placeholders; line order retained"
+    },
+    {
+      "source": "results/char2/body.godot.txt",
+      "source_bytes": 19333,
+      "source_sha256": "7aae14c00ed393467e2543b0a05ff1121672959021f27f405656952158f13f08",
+      "evidence": "final-snapshot/char2/body.godot.txt.excerpt.json",
+      "evidence_sha256": "22f7fa5a11c5a2e256a1725d9cabe256d851b024248655cebb98b45c1dab25cb",
+      "transformation": "first/last 12 lines and all distinct diagnostic lines with counts; repetitive import/progress/stack lines omitted"
+    },
+    {
+      "source": "results/char2/body.json",
+      "source_bytes": 1317697,
+      "source_sha256": "01bbd40852739c3c47d5669c3ef7e1a3863e7cb79cdda3943078575f36351574",
+      "evidence": "final-snapshot/char2/body.summary.json",
+      "evidence_sha256": "c8833a8bf0e3bc8a7b0caac4d85c9271fd26bee36c6004c9193092a2b12a2c60",
+      "transformation": "metadata, all test verdicts/errors/facing samples retained; joints aggregated with all failures retained and null counts explicit; pose vectors replaced by counts"
+    },
+    {
+      "source": "results/char2/body.poses.json",
+      "source_bytes": 252110,
+      "source_sha256": "19be88fab358cbbad820e8ef546c174e11ea1dde6504bedda0b0f9e591a64b0c",
+      "evidence": "final-snapshot/char2/body.poses.summary.json",
+      "evidence_sha256": "29ad133d3ad5d9beb7e0c98c9b03ba052db9a411fe37df213f2316400878e296",
+      "transformation": "metadata, all test verdicts/errors/facing samples retained; joints aggregated with all failures retained and null counts explicit; pose vectors replaced by counts"
+    },
+    {
+      "source": "results/trenchcoat/body.godot.txt",
+      "source_bytes": 19428,
+      "source_sha256": "9be100f46fe12480d52517f99647815bbc20ce2295996cefb59e8a8136a00729",
+      "evidence": "final-snapshot/trenchcoat/body.godot.txt.excerpt.json",
+      "evidence_sha256": "01f3695e9a325d182d356e4d43ff46e0cc0caaa9cda4baf299a8d14fd17c69bb",
+      "transformation": "first/last 12 lines and all distinct diagnostic lines with counts; repetitive import/progress/stack lines omitted"
+    },
+    {
+      "source": "results/trenchcoat/body.json",
+      "source_bytes": 3074259,
+      "source_sha256": "cafdb01fbc7371be01c798dca07cf67f443a90f5b58e5edb78e208cd7ee1064e",
+      "evidence": "final-snapshot/trenchcoat/body.summary.json",
+      "evidence_sha256": "f3d998a384103897d9d03f9a3786f483aebbb1045fa41dd6d00f68fc37d19454",
+      "transformation": "metadata, all test verdicts/errors/facing samples retained; joints aggregated with all failures retained and null counts explicit; pose vectors replaced by counts"
+    },
+    {
+      "source": "results/trenchcoat/legacy.godot.txt",
+      "source_bytes": 19169,
+      "source_sha256": "dde8973afbfc9dddf8acea1e39f33b9946f5e013183064f28cc776142b10d79f",
+      "evidence": "final-snapshot/trenchcoat/legacy.godot.txt.excerpt.json",
+      "evidence_sha256": "83c572b5df775aa5ce5c8bbe0baf233dcffa2e2e77f97db24e0940be5580bbb1",
+      "transformation": "first/last 12 lines and all distinct diagnostic lines with counts; repetitive import/progress/stack lines omitted"
+    },
+    {
+      "source": "results/trenchcoat/legacy.json",
+      "source_bytes": 22784,
+      "source_sha256": "736ebaed695e7f14a94b8219f1333a32bbba9dd99b0e47e03fef05960eab7cfb",
+      "evidence": "final-snapshot/trenchcoat/legacy.summary.json",
+      "evidence_sha256": "dd7f7027335d79cfaa52b0dc1ff6da4b7cfd8d2730fc79eaccf5eb056526a47b",
+      "transformation": "metadata, all test verdicts/errors/facing samples retained; joints aggregated with all failures retained and null counts explicit; pose vectors replaced by counts"
+    },
+    {
+      "source": "results/trenchcoat/mutant-a.godot.txt",
+      "source_bytes": 19169,
+      "source_sha256": "59bde9bb9c7c73c5505afa93003767af30656528cfd668df21eb2eeb1f3903c6",
+      "evidence": "final-snapshot/trenchcoat/mutant-a.godot.txt.excerpt.json",
+      "evidence_sha256": "8ea2b304babe368ac1a642f19fcb1576a6b7a8291dc586004595f7b2a168149a",
+      "transformation": "first/last 12 lines and all distinct diagnostic lines with counts; repetitive import/progress/stack lines omitted"
+    },
+    {
+      "source": "results/trenchcoat/mutant-a.json",
+      "source_bytes": 22965,
+      "source_sha256": "57f79f97b5a7f3f670ba034a5a8ea38e4eb2d3dc11b03b0227130533b21b28bf",
+      "evidence": "final-snapshot/trenchcoat/mutant-a.summary.json",
+      "evidence_sha256": "ea6115c21ebdac3f20b7343fd47c7848a96cbf0cdb6edfacf070bf3946421a33",
+      "transformation": "metadata, all test verdicts/errors/facing samples retained; joints aggregated with all failures retained and null counts explicit; pose vectors replaced by counts"
+    },
+    {
+      "source": "results/trenchcoat/mutant-b.godot.txt",
+      "source_bytes": 204641,
+      "source_sha256": "840cc750ead2c02006ec9a3822fe3d9484245a2826d7817bc38de2d94ec2326a",
+      "evidence": "final-snapshot/trenchcoat/mutant-b.godot.txt.excerpt.json",
+      "evidence_sha256": "37cd6edd1105ffa073acc0c6a83f40b62b5473db8cf1fa8d2511b343a46d5a10",
+      "transformation": "first/last 12 lines and all distinct diagnostic lines with counts; repetitive import/progress/stack lines omitted"
+    },
+    {
+      "source": "results/trenchcoat/mutant-b.json",
+      "source_bytes": 23247,
+      "source_sha256": "8c234ec973e4fe4610bc4289fd620324577d27f3e9cbe4417ea36953dfd10acc",
+      "evidence": "final-snapshot/trenchcoat/mutant-b.summary.json",
+      "evidence_sha256": "6cd85a48387708c230f784d2a2acd6a85fabf4685fc752f18035c79ef8cc21c7",
+      "transformation": "metadata, all test verdicts/errors/facing samples retained; joints aggregated with all failures retained and null counts explicit; pose vectors replaced by counts"
+    },
+    {
+      "source": "results/trenchcoat/mutant-d.godot.txt",
+      "source_bytes": 19169,
+      "source_sha256": "710fb33cba33bb0411ef7e75ba2ccd38980f37e80c8e4f59208429441a537a5e",
+      "evidence": "final-snapshot/trenchcoat/mutant-d.godot.txt.excerpt.json",
+      "evidence_sha256": "bd13a0513ddfbf167b1ce994bfb604397c47fac794063e7d8daf2a454d24439d",
+      "transformation": "first/last 12 lines and all distinct diagnostic lines with counts; repetitive import/progress/stack lines omitted"
+    },
+    {
+      "source": "results/trenchcoat/mutant-d.json",
+      "source_bytes": 22905,
+      "source_sha256": "7366d3029f8ab994783e9eafbdec230b5d3ebd09c692b412c197e0b67f608069",
+      "evidence": "final-snapshot/trenchcoat/mutant-d.summary.json",
+      "evidence_sha256": "6dca0746ce72e83425b18dfcd4dbc849bd1452914ca08ad049c92d13b6294acb",
+      "transformation": "metadata, all test verdicts/errors/facing samples retained; joints aggregated with all failures retained and null counts explicit; pose vectors replaced by counts"
+    },
+    {
+      "source": "results/trenchcoat/mutant-e.godot.txt",
+      "source_bytes": 19207,
+      "source_sha256": "7829691d5da6f6c4978b9d7711b2dd7fc5427cf2e4f39cd2a820b8bcedabd383",
+      "evidence": "final-snapshot/trenchcoat/mutant-e.godot.txt.excerpt.json",
+      "evidence_sha256": "5affcf794c4905b53a6bf6732546c1d05d80e2990d9e2419aa032bf54a4e8360",
+      "transformation": "first/last 12 lines and all distinct diagnostic lines with counts; repetitive import/progress/stack lines omitted"
+    },
+    {
+      "source": "results/trenchcoat/mutant-e.json",
+      "source_bytes": 118214,
+      "source_sha256": "d7638e7c07ea29b20a2705a94e4b81788410bb2a95d0593fa09fd476c02cc258",
+      "evidence": "final-snapshot/trenchcoat/mutant-e.summary.json",
+      "evidence_sha256": "0a93fa10cb91bbf0b6845c43d7b43b700046b0f6e4421721a87f3271bc2a6cbf",
+      "transformation": "metadata, all test verdicts/errors/facing samples retained; joints aggregated with all failures retained and null counts explicit; pose vectors replaced by counts"
+    },
+    {
+      "source": "results/trenchcoat/mutant-f.godot.txt",
+      "source_bytes": 19207,
+      "source_sha256": "f5afabc98680b3018141b4d3ab0d4da037576609bb474f2f87294ea949250b62",
+      "evidence": "final-snapshot/trenchcoat/mutant-f.godot.txt.excerpt.json",
+      "evidence_sha256": "678402a0437763d0097edcfe50940af0c527b51f86b7871d02dc0dfd86a35cd7",
+      "transformation": "first/last 12 lines and all distinct diagnostic lines with counts; repetitive import/progress/stack lines omitted"
+    },
+    {
+      "source": "results/trenchcoat/mutant-f.json",
+      "source_bytes": 138978,
+      "source_sha256": "90fe10fabd56c3d17b42c219ce0b0cb798aab91cb82a31a988d6e51c713a2b52",
+      "evidence": "final-snapshot/trenchcoat/mutant-f.summary.json",
+      "evidence_sha256": "d1eab757bde455ad7526cacccb232ad8048ec0eb9fab52d50105e43692b799d2",
+      "transformation": "metadata, all test verdicts/errors/facing samples retained; joints aggregated with all failures retained and null counts explicit; pose vectors replaced by counts"
+    },
+    {
+      "source": "results/trenchcoat/mutant-g.godot.txt",
+      "source_bytes": 3168707,
+      "source_sha256": "6e665bd6acd8e9680cb345a545bac5c97db73c17867425c759ee5fdd14a4e582",
+      "evidence": "final-snapshot/trenchcoat/mutant-g.godot.txt.excerpt.json",
+      "evidence_sha256": "8c1bc4678ec7610b4a62586b0c98a2edb5cb8dff127491b8bd0865a16eb17d2b",
+      "transformation": "first/last 12 lines and all distinct diagnostic lines with counts; repetitive import/progress/stack lines omitted"
+    },
+    {
+      "source": "results/trenchcoat/mutant-g.json",
+      "source_bytes": 151967,
+      "source_sha256": "eda863411bf032f046691f161a4dba0118369c0eae0672440503a36e6e6f9142",
+      "evidence": "final-snapshot/trenchcoat/mutant-g.summary.json",
+      "evidence_sha256": "3ca7f465b1c5f48418d67fd5d67ca51c8ddbdfc1434b064dac5c33a743456664",
+      "transformation": "metadata, all test verdicts/errors/facing samples retained; joints aggregated with all failures retained and null counts explicit; pose vectors replaced by counts"
+    },
+    {
+      "source": "results/trenchcoat/mutant-h.godot.txt",
+      "source_bytes": 19207,
+      "source_sha256": "76f50c7c51d2b1e4c7cbbafd4230e21ab9024251233583cd313ddda0ff0111b9",
+      "evidence": "final-snapshot/trenchcoat/mutant-h.godot.txt.excerpt.json",
+      "evidence_sha256": "e9fe1f1e8418dcdb01021ffed6790d0e301217da07510d72abdc3fc74590e4d5",
+      "transformation": "first/last 12 lines and all distinct diagnostic lines with counts; repetitive import/progress/stack lines omitted"
+    },
+    {
+      "source": "results/trenchcoat/mutant-h.json",
+      "source_bytes": 127741,
+      "source_sha256": "fdf86b9113a77b104a0681bc5f64718cd4ef6491ee17a3cce3813ba11bedc10f",
+      "evidence": "final-snapshot/trenchcoat/mutant-h.summary.json",
+      "evidence_sha256": "8c3bec71c774b3c099db0eca8a1d72f21c37c88426455b261fe2dfe9fde593dc",
+      "transformation": "metadata, all test verdicts/errors/facing samples retained; joints aggregated with all failures retained and null counts explicit; pose vectors replaced by counts"
+    },
+    {
+      "source": "results/trenchcoat/mutants.txt",
+      "source_bytes": 1640,
+      "source_sha256": "3f38fd540d595cecceae594f105d695a79bb0fd0fdc579151c1c9e3551586b3e",
+      "evidence": "final-snapshot/trenchcoat/mutants.txt",
+      "evidence_sha256": "55aeb6f03eed78626b936b57db42d0177746517b4e9faba1ce19f4760e4b27ec",
+      "transformation": "complete text with path and host placeholders; trailing whitespace removed"
+    }
+  ]
+}

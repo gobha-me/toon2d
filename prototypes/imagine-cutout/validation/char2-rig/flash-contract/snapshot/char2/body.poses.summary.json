@@ -1,0 +1,9 @@
+{
+  "pose_count": 650,
+  "pose_kind_counts": {
+    "single": 30,
+    "pair": 420,
+    "random": 200
+  },
+  "source_sha256": "19be88fab358cbbad820e8ef546c174e11ea1dde6504bedda0b0f9e591a64b0c"
+}

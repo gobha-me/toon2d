@@ -1,0 +1,17 @@
+{
+  "base": "059f4ebf472a50a9917724723d42208495b1650f",
+  "tested_head": "30d7bfefe549f058c9956e670fa393d245e45507",
+  "tests_head": "2e036060c9c42d235d0b5efb1b9d714651e36f2a",
+  "launcher_sha256": "9d1be7b45a0566deb7603b249dbe6bd277a6f8165ff1a2791d676482729f0a33",
+  "brief_sha256": "dd7a94b27a3d18e996be1421e8810f65db28a86dfabab94dad906551d20f740b",
+  "heavy_run_sha256": "3bc14651d44b4438d3823dfa582f767094ca8a95681721e743be3b8a57011a0b",
+  "heavy_run_label": "staged v5c; self-label v5 (2026-10-30)",
+  "lane": "change",
+  "mode": "-s danger-full-access",
+  "recorded_suite_status": "COMPLETE",
+  "base_red_as_expected": true,
+  "flash_nodes": 1,
+  "flash_visible_tracks": 4,
+  "hd_pixel_equal_base": true,
+  "actual_tmpdir_removed_findings": []
+}

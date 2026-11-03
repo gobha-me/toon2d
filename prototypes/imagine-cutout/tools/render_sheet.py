@@ -8,7 +8,7 @@ from PIL import Image,ImageDraw
 from prep_parts import sidecar
 
 ROOT=Path(__file__).resolve().parents[1]
-PROJECT=ROOT/"prototypes/imagine-cutout"
+PROJECT=ROOT
 FPS=24
 
 def run(command,log):

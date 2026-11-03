@@ -17,5 +17,6 @@ mkdir -p "$TMPDIR"
 trap '"$python" -c '\''import os,shutil; shutil.rmtree(os.environ["TMPDIR"], ignore_errors=True)'\''' EXIT
 export XDG_DATA_HOME="$TMPDIR/xdg-data" XDG_CONFIG_HOME="$TMPDIR/xdg-config" XDG_CACHE_HOME="$TMPDIR/xdg-cache"
 export OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 LP_NUM_THREADS=2 MESA_GLTHREAD=false
+export MAKEFLAGS=-j2
 export PYTHONDONTWRITEBYTECODE=1
 "$python" "$tests_dir/driver.py" "$@"

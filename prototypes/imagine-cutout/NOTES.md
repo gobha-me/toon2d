@@ -299,3 +299,86 @@ artifacts can remain outside the measured local coverage and in combined poses.
 There is no claim of universal gap-free articulation, no new walk/knee rig, and
 no improved recovery of the hidden gun grip. GIF centisecond timing limits and
 possible edge-highlight darkening remain as documented for fix1.
+
+## Body-part kit v2
+
+Change-lane implementation, 2026-10-30 UTC. The original PoC notes and captures
+above are historical; current scenes and `validation/v2/` describe v2.
+
+- `tools/gap_finder.py` subtracts the aligned, matted Segments alpha union from
+  the source original. It compares the manifest slots with recoverable segment
+  pixels and residual seeds. `gap-report.json` retains per-slot counts and input
+  hashes from the pre-v2 inventory. All 14 slots are **scripted**; none requires
+  generation for this supplied character. Head/face, human sleeve/hand and gun
+  use residual-seeded source cutouts; mechanical limbs, trousers and boots use
+  Segments cuts. Four previously absent sections are now separately textured.
+- `tools/prep_v2.py` reads the unchanged manifest. The immutable five input
+  crops under `parts/kit-inputs/` make preparation repeatable without the private
+  source export tree. Every pivot, parent, limit and required-slot overlap is
+  copied from `body_parts.yml`; the builder resolves its unsorted parent graph.
+  The HD rig has 21 bones and 24 textured parts. No test file changed.
+- Transverse source cuts share the manifest's 12-pixel overlap. Round caps use
+  the garment's actual cross-section width, with nearest retained source RGB.
+  Automatic parent-coat lining caps and a wrist cap complete hidden attachment
+  areas. Structural cap geometry and the 12-pixel edge dilation are distinct;
+  neither a test tolerance nor a manifest overlap was widened.
+- Head and hair sprites are reflected around their existing pivots. The hand
+  and gun share one fixed grip rotation derived from the manifest's articulation
+  envelope and the recorded prop axis. This keeps the gun facing left throughout
+  that envelope without changing a joint limit, resampling the prop, or adding
+  gun-targeting tracks. Flash position/orientation follows the rigid grip.
+- The original pixel regression scene keeps every existing pixel PNG byte for
+  byte. Texture regions provide the new bone ownership; palette-colour runtime
+  caps provide knee backing. This is compatibility work, not a pixel-art pipeline.
+- `tools/prep_parts.py` now writes `.gen.json` directly; no prompt is invented.
+  Newly derived assets have their scripted creation time in UTC. Source post,
+  undisclosed model, source zip timestamp and the original unknown generation
+  time remain explicit. Tools resolve the packaged prototype layout directly.
+
+### Dating the three originals outside Download All
+
+`provenance/parts/raw-hd/original.gen.json` uses **2026-10-30T14:41:58Z** only as
+an associated HD Segments zip entry-time proxy. The separately saved pixel
+`original.png` and `grok-image-e8878ac2-6b8a-4873-bae2-12b21910230e.jpg` use the
+associated pixel zip time **2026-10-30T14:44:48Z** as a proxy. None of these three
+files was inside its post's Download All zip. Their own download/generation
+times and exact prompts were not recorded. These are source-date limitations,
+not newly established original-file timestamps; PROVENANCE.md and all three
+mirrored sidecars now say so explicitly.
+
+### Verification and plan boundaries
+
+The unchanged test suite runs in disposable projects under `heavy-run`, one
+Godot job at a time and at most two workers. Current command logs and copied
+JSON evidence are under `validation/v2/`; optional source-backed trials use
+`validation/v2-sourced/`. Test-lane evidence under `tests/results/` is untouched.
+The independent test lane's frozen 42 individual limits, 840 pairwise extreme
+poses, 200 random poses, seed and zero-pixel tolerance are unchanged.
+
+A second new character from the broader plan is **not supplied or validated**.
+No new character artwork, browser generation or paid call was made. That later
+step needs a different source character/Segments export, its provenance and a
+separate test-owned articulation contract; it is not represented by a recolour
+or a second rendering of this same character. No test/manifest dispute was needed.
+
+A fresh independent visual reviewer confirmed that the exposed waist cap found
+in an intermediate capture is removed in the final captures. The retained
+[visual review](validation/v2/VISUAL-REVIEW.md) records provisional still-only
+scores and remaining source-cut shoulder edges / extreme-knee readability
+limits; numerical gap acceptance does not certify finished animation appeal.
+
+### Final recorded result
+
+The [final full source-backed run](validation/v2-sourced/SUMMARY.md) exits 0 for
+original tests, body acceptance, oracle controls and the extended mutant runner.
+All original tests 1–5 are green in both modes. Manifest/completeness, all
+22,722 HD seam observations across 1,082 poses, and 82 facing samples pass with
+zero gaps. **All eight mutants a–h are killed**, including c regenerated from
+raw exports and g removing an existing knee. Source-free development runs
+explicitly skip c; that skip is not counted as a kill.
+
+Preparation repeatability and all 20 unchanged pixel PNG hashes are recorded.
+The existing character took about 30 minutes wall time including validation,
+with no human intervention during the run. The broader plan's second character
+and the documented visual polish limits remain pending; they are not claimed
+as validated by these results. No test/manifest dispute was raised.

@@ -1,0 +1,8 @@
+2026-10-30T19:35:02.690247+00:00 body
+BODY poses {'single': 42, 'pair': 840, 'random': 200}; random N=200 seed=20261030
+PASS body manifest: 0 failures
+PASS body completeness: 0 failures
+PASS body per_joint: 0 failures
+PASS body combined: 0 failures
+PASS body facing: 0 failures
+EXIT 0

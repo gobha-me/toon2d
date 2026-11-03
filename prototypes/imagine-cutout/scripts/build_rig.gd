@@ -10,6 +10,23 @@ var pixel: bool
 
 func _initialize() -> void:
 	data = JSON.parse_string(FileAccess.get_file_as_string("res://parts.json"))
+	var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://body_parts.yml"))
+	# Contract order is inventory order, not skeletal order: knees follow boots.
+	data.bones = []
+	var pending: Array = manifest.joints.duplicate(true)
+	var emitted := {}
+	while not pending.is_empty():
+		var advanced := false
+		for spec in pending.duplicate():
+			if spec.parent == null or emitted.has(spec.parent):
+				data.bones.append(spec)
+				emitted[spec.name] = true
+				pending.erase(spec)
+				advanced = true
+		if not advanced:
+			push_error("Missing or cyclic manifest parent")
+			quit(1)
+			return
 	for mode in [false, true]:
 		pixel = mode
 		build()
@@ -59,19 +76,42 @@ func build() -> void:
 		sprite.name = "Gun" if part.id == "gun" else "Part_" + part.id
 		sprite.texture = load("res://" + (part.texture_pixel if pixel else part.texture_hd))
 		sprite.centered = false
+		if pixel and part.has("pixel_region"):
+			var region: Array = part.pixel_region
+			sprite.region_enabled = true
+			sprite.region_rect = Rect2(region[0], region[1], region[2], region[3])
 		sprite.position = Vector2(part.pixel_offset[0], part.pixel_offset[1]) if pixel else Vector2(part.offset[0], part.offset[1])
+		sprite.rotation_degrees = float(part.get("sprite_rotation_deg", 0.0))
+		var sprite_scale: Array = part.get("sprite_scale", [1, 1])
+		sprite.scale = Vector2(sprite_scale[0], sprite_scale[1])
 		sprite.z_index = part.z_order
 		sprite.z_as_relative = false
 		sprite.set_meta("source", part.source)
 		sprite.set_meta("classification", part.classification)
 		owned(sprite, bones[part.bone])
+	if pixel:
+		for backing in data.get("pixel_backings", []):
+			var cap := Polygon2D.new()
+			cap.name = "Backing_" + backing.bone
+			var points := PackedVector2Array()
+			for index in 24:
+				points.append((Vector2.from_angle(TAU * index / 24.0) * backing.radius).round())
+			cap.polygon = points
+			cap.color = Color(backing.color[0] / 255.0, backing.color[1] / 255.0, backing.color[2] / 255.0)
+			cap.z_index = backing.z_order
+			cap.z_as_relative = false
+			owned(cap, bones[backing.bone])
 	# One gun sprite, no animation tracks target its transform or texture.
 	var flash := Node2D.new()
 	flash.name = "MuzzleFlash"
 	flash.set_script(load("res://scripts/muzzle_flash.gd"))
 	flash.set_meta("pixel_mode", pixel)
 	flash.position = vec(data.gun_muzzle_rig) - pivots.right_hand
-	flash.rotation = deg_to_rad(-18)
+	if data.has("facing_setup"):
+		flash.position = flash.position.rotated(deg_to_rad(data.facing_setup.grip_rotation_deg))
+		flash.rotation = deg_to_rad(-18 + data.facing_setup.grip_rotation_deg)
+	else:
+		flash.rotation = deg_to_rad(-18)
 	flash.visible = false
 	flash.z_index = 30
 	flash.z_as_relative = false

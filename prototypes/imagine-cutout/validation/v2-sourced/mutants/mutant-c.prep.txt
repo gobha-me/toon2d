@@ -1,0 +1,7 @@
+COMMAND ['<PYTHON>', '<TMPDIR>/mutant-c-hwfj8qoo/tools/prep_parts.py', '--pixel', '120', '--overlap-px', '0', '--defringe-px', '2']
+heavy-run: memory ok: working set 8.61 GiB (memory.current 15.09 GiB - inactive_file 6.48 GiB), limit 13 GiB
+heavy-run: memory ok: working set 8.61 GiB (memory.current 15.09 GiB - inactive_file 6.48 GiB), limit 13 GiB
+Prepared manifest v2: 21 bones, 14 slots; retained pixel textures
+{"parts": 20, "overlap_px": 0, "defringe_px": 2, "pixel_canvas": [85, 128], "output": "<TMPDIR>/mutant-c-hwfj8qoo/prototypes/imagine-cutout"}
+
+EXIT 0

@@ -1,19 +1,15 @@
 {
   "prompt": "prompt not recorded",
+  "source_post_url": "https://grok.com/imagine/post/e8878ac2-6b8a-4873-bae2-12b21910230e",
+  "source": "e8878ac2-6b8a-4873-bae2-12b21910230e",
   "tool": "Grok Imagine (SpaceXAI)",
+  "feature": "Segments",
   "model": "not disclosed",
   "date": "2026-10-30T14:44:48Z",
-  "date_source": "download time; generation time not recorded",
-  "source": "e8878ac2-6b8a-4873-bae2-12b21910230e",
-  "source_post_url": "https://grok.com/imagine/post/e8878ac2-6b8a-4873-bae2-12b21910230e",
-  "feature": "Segments",
+  "date_source": "proxy from associated Segments zip entry time; this original was outside the zip; its download and generation times were not recorded",
+  "source_date": "2026-10-30T14:44:48Z",
   "derived_from": "Read-only supplied source: src/parts/raw-pixel/grok-image-e8878ac2-6b8a-4873-bae2-12b21910230e.jpg",
-  "rights": "Original fictional art only; no real-person likeness.",
   "license": "CC0 1.0",
-  "credit": "Generated with Grok Imagine (SpaceXAI)",
-  "previous_sidecar": {
-    "tool": "Grok Imagine",
-    "model": "not shown in UI",
-    "date": "2026-10-30"
-  }
+  "credit": "Generated with Grok Imagine (SpaceXAI); scripted derivation where stated",
+  "rights": "Original fictional art only; no real-person likeness."
 }

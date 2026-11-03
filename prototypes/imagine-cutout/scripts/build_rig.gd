@@ -161,9 +161,9 @@ func make_animation(clip: String, flash_path: String) -> Animation:
 	var breathe := 1 if pixel else 3
 	if clip == "idle":
 		track(anim, bone_paths.hip, "position", [[0,base],[12,base+Vector2(0,-breathe)],[24,base],[36,base+Vector2(0,breathe)],[48,base]])
-		set_rotation(anim,"torso",[[0,-.35],[12,.35],[24,-.35],[36,.35],[48,-.35]])
-		set_rotation(anim,"hem_left",[[0,-1.2],[12,1.2],[24,-1.2],[36,1.2],[48,-1.2]])
-		set_rotation(anim,"hem_right",[[0,1],[12,-1],[24,1],[36,-1],[48,1]])
+		set_rotation(anim,"torso",[[0,0],[12,.35],[24,0],[36,-.35],[48,0]])
+		set_rotation(anim,"hem_left",[[0,0],[12,1.2],[24,0],[36,-1.2],[48,0]])
+		set_rotation(anim,"hem_right",[[0,0],[12,-1],[24,0],[36,1],[48,0]])
 		set_rotation(anim,"hem_center",[[0,0],[12,.8],[24,0],[36,-.8],[48,0]])
 	elif clip == "aim":
 		track(anim,bone_paths.hip,"position",[[0,base],[frames,base]])
@@ -177,7 +177,7 @@ func make_animation(clip: String, flash_path: String) -> Animation:
 	elif clip == "fire":
 		track(anim,bone_paths.hip,"position",[[0,base],[frames,base]])
 		set_rotation(anim,"right_upper",[[0,75],[2,80],[6,75]])
-		set_rotation(anim,"right_fore",[[0,8],[2,8],[6,8]])
+		set_rotation(anim,"right_fore",[[0,8],[2,10],[6,8]])
 		set_rotation(anim,"torso",[[0,-2],[2,0],[6,-2]])
 		set_rotation(anim,"head",[[0,2],[6,2]])
 		set_rotation(anim,"hem_left",[[0,2],[3,-4],[6,1]])

@@ -410,3 +410,158 @@ the passing fresh baseline from the mutant suite, not the earlier PoC reds or
 a separate saved body-suite attempt. Historical observations above remain
 historical. This phase only read and recorded existing evidence; it ran no
 tests, runners, suites or Godot, and changed no assertion, tolerance or harness.
+
+## Clip acceptance (frozen before the first clip test run)
+
+This contract is committed before any clip acceptance run. It adds only CL1-CL5,
+for both `hd` and `pixel`; rules 1-4 and the joint stencil above remain frozen.
+The manifest `body_parts.yml` supplies all 21 bones, their parents and rotation
+limits. JSON `parts.json` supplies the joint inventory for the seam observations.
+Clip order is idle, aim, fire, cooldown: 48, 10, 6, 14 frames at 24 fps. Observe
+actual AnimationPlayer state at every integer frame n/24, n=0..frames-1, and
+at each endpoint. Duplicate each Animation, set its loop mode to LOOP_NONE,
+and sample the duplicate at its length, including idle at 2.0 seconds. Never
+alter the source scene to observe endpoints. A wrapped idle endpoint is invalid.
+
+Every key below receives exactly one stable-order `PASS <key>` or
+`FAIL <key>: <measured> vs <threshold>` verdict, plus a summary per case and
+scene. An unevaluable key, missing resource, parse failure or process crash
+produces `ERROR <key>: <why>` and exit 2, distinct from acceptance RED (exit 1)
+and all GREEN (exit 0). ERROR never counts as RED or as a mutant kill.
+
+| Case | Keys and frozen acceptance |
+|---|---|
+| CL1 limits | `CL1:<scene>:<clip>:<bone>` for all manifest bones and all four clips. Every sampled rotation must lie inside its manifest limits, inclusive, with only 0.000001 rad roundoff tolerance. |
+| CL2 gaps | `CL2:<scene>:<clip>:<sample>:<joint>` for every JSON joint and sample (`f00`..`f47` as applicable, or `end`). Render the actual whole pose on flat magenta. Apply the frozen rest-union stencil transported with the posed parent and child, including all ancestor transforms; radius 32 HD or 3 pixel native pixels, reference alpha >=128, RGB (255,0,255) tolerance 3 per channel, inclusive pixel-centre disk. Allowed background pixels 0; empty non-root stencil fails; only the root may have an empty stencil. No image filtering or morphology. |
+| CL3 chaining | `CL3:<scene>:<pair>:<bone>` for every rotation track and `CL3:<scene>:<pair>:hip.position` for the hip position track. Exactly five pairs: idle-loop (idle endpoint to idle f00), idle-aim (idle f00 to aim f00), aim-fire (aim endpoint to fire f00), fire-cooldown (fire endpoint to cooldown f00), cooldown-idle (cooldown endpoint to idle f00). Rotation difference <=0.000001 rad; position distance <=0.001 native px. Endpoints use nonlooping copies. |
+| CL4 idle motion | `CL4:<scene>:hip_y_min`, `CL4:<scene>:hip_y_max`, `CL4:<scene>:hem_range`. Hip local y range is inclusive [1.0,6.0] HD native px or [1,2] pixel native px, with 0.001 px roundoff tolerance on both bounds. Do not convert pixel units to HD. At least one of hem_left/hem_right has rotation range >=1.0 degree. |
+| CL5 recoil | `CL5:<scene>:departure`: right_fore differs from aim endpoint by >=1.0 degree at fire f01 or f02 (peak of those two no later than f02). `CL5:<scene>:settle`: fire endpoint is within 0.1 degree of aim endpoint, inclusive. The shoulder is not the elbow and cannot satisfy departure. |
+
+CL6 is withdrawn: rerun the existing body-facing suite unchanged through the
+launcher; its historical red record above stays historical. CL7 expressions
+is not applicable: the manifest declares no expression or face-swap parts.
+
+The pinned rig is unchanged. Expected baseline from serialized data: CL1 GREEN;
+CL3 RED on idle-aim and cooldown-idle torso, hem_left, hem_right in each scene
+(0.35, 1.2, 1.0 degrees respectively), with all other chaining keys GREEN;
+CL4 GREEN (hip ranges HD 6, pixel 2; hem ranges 2.4/2.0 degrees);
+CL5 departure RED (0 degrees), settle GREEN. CL2 is unverified until rendering.
+These are expectations, never substitutes for actual observations.
+
+### Frozen clip mutants and target-key accounting
+
+`tests/runner.sh clips` drives the new observer. `tests/runner.sh clip-mutants`
+is reserved for the launcher. Each mutant starts from a fresh prototype copy;
+only disposable scenes/assets change. The same invocation first runs a fresh
+unmutated baseline. Exactly these eight mutants are supported:
+
+| Mutant | Plant | Required target keys, GREEN at baseline |
+|---|---|---|
+| m1 | Set one idle hem_left rotation key to its manifest max +0.5 degree (8.5 degrees), both scenes. | `CL1:<scene>:idle:hem_left` |
+| m2 | Reproduce the existing zero_overlap arm-alpha carve: clear the entire rest shared right_upper/right_fore alpha from HD right_fore only; declare joint_overlap_px 0. Pixel texture stays unchanged. | At least one `CL2:hd:<clip>:<sample>:right_fore` |
+| m3 | Add 1 degree only to the idle t=2.0 torso rotation key, both scenes. | `CL3:<scene>:idle-loop:torso` |
+| m3b | Add 1 degree only to fire f00 right_upper (75 to 76 degrees), both scenes. | `CL3:<scene>:aim-fire:right_upper` |
+| m4 | Set every idle hip position key to its f00 value, both scenes. | `CL4:<scene>:hip_y_min` |
+| m4b | Move only idle hip position t=0.5 y by -1 native px (HD 677 to 676, pixel 49 to 48); preserve t=0 and t=2.0. | `CL4:<scene>:hip_y_max` |
+| m4c | Set every idle hem_left and hem_right rotation key to 0, both scenes. | `CL4:<scene>:hem_range` |
+| m5 | Add 1 degree only to fire endpoint right_fore (8 to 9 degrees), both scenes. | `CL5:<scene>:settle` |
+
+A kill requires a target key GREEN in this baseline and RED after planting.
+Existing reds, ERRORs, off-target new failures and corrected old failures cannot
+supply credit. Report all newly RED and newly GREEN keys separately. If no target
+is GREEN at baseline, print `SKIP mutant <id>: target keys RED at base [<keys>]`;
+a skip is never a kill and makes the invocation nonzero. In particular m2 needs
+at least one HD right_fore baseline GREEN and newly RED CL2 key; otherwise it
+SKIPs and requires review without relaxing the stencil or redefining the plant.
+Before each plant print `Running mutant <id>`, then exactly one terminal line:
+`PASS mutant <id>: KILLED [<new keys>]`, `FAIL mutant <id>: SURVIVED`, or
+`SKIP mutant <id>: <why>`. Exit 0 requires all eight KILLED, exit 1 indicates a
+survivor/skip, and exit 2 indicates a harness error. All five cases must be RED
+for their own specified reason or covered by their named killed mutant(s).
+
+Phase B writes and checks the harness only, with no mutation execution. The
+launcher owns existing-suite, body-suite, clip-baseline and clip-mutant runs.
+Their command, rc, attempt and UTC ledger, per-scene classifications and mutant
+evidence belong in the later appended clip results table. No measured runtime
+results are claimed by this frozen acceptance commit.
+
+### Clip observer execution details
+
+CL5 departure's "peak no later than frame 2" also requires the maximum sampled
+fire deviation (frames 0-5 and endpoint) to be reached at frame 1 or 2; an early
+1-degree departure followed by a larger late peak does not pass. The frozen
+1-degree departure and 0.1-degree settle thresholds are unchanged.
+
+A heavy-run refusal produces ERROR observations, stops further heavy steps and
+returns the original 75 or 78 to the caller. There is no internal wait/retry or
+unguarded fallback; the launcher owns its subsequent retry/stop policy.
+
+### Clip development observations before launcher acceptance
+
+[Iterative evidence](tests/results/trenchcoat-clips/SUMMARY.md) records three
+sequential, guarded Godot steps (import, observe, render), each rc 0 on its first
+attempt, and light evaluation of their raw outputs. There were no exits 75/78,
+no retry and no mutation run. The evaluator yields acceptance rc 1, no ERRORs,
+3,842 key verdicts and 164 fresh native atlases. These development observations
+are distinct from the launcher's later formal suite ledger and kill verdicts.
+
+| Case | HD | Pixel | Interpretation |
+|---|---|---|---|
+| CL1 | GREEN, 84 keys | GREEN, 84 keys | Limits hold; m1 pending launcher. |
+| CL2 | GREEN, 1,722 keys | RED, 85 of 1,722 keys | Pixel samples expose 1-7 background pixels; HD right_fore has 82 GREEN m2 targets. m2 has not run. |
+| CL3 | RED, 6 of 110 keys | RED, 6 of 110 keys | idle-aim and cooldown-idle torso/hem_left/hem_right discontinuities; all other pairs and positions GREEN. |
+| CL4 | GREEN, 3 keys | GREEN, 3 keys | Hip range 6 HD / 2 pixel native px; hem range about 2.4/2.0 deg. m4/m4b/m4c pending. |
+| CL5 | RED departure, GREEN settle | RED departure, GREEN settle | No elbow recoil (0 deg); endpoint returns to aim. m5 pending. |
+| CL6 | Existing check unchanged | No new case | Body-facing rerun belongs to launcher. |
+| CL7 | Not applicable | Not applicable | No expression/face-swap declaration. |
+
+All eight clip mutants remain unrun, including m3/m3b for chaining. No kill is
+claimed from existing reds or this baseline alone. Full formal acceptance and
+mutation results await the launcher. The harness change requires review.
+
+### Clip results from final launcher suites
+
+The launcher tested committed head `37c78463a2fbf6aefb6b3a3c48505241cb177133`;
+RIG-EQUALS-BASE=yes against `cf702b44326db2a9891eb4059372a13e6765cfce`.
+These formal results supersede the pending-launcher status of the development
+observations above. [Full evidence](tests/results/trenchcoat-clips/SUMMARY.md)
+retains the exact ledger, all attempt logs, complete snapshot, hashes and every
+RED verdict reason. No suite was run during this evidence-only phase.
+
+| Item | Result | rc | Attempt | Start UTC | End UTC | Exact ledger command |
+|---|---|---|---|---|---|---|
+| Legacy suite (T1-trenchcoat-legacy) | GREEN | 0 | 1 | 2026-11-01T15:54:01Z | 2026-11-01T15:54:17Z | `TEST_PYTHON="$TOON_PYTHON" heavy-run prototypes/imagine-cutout/tests/run_tests.sh` |
+| Body suite (T2-trenchcoat-body) | GREEN | 0 | 1 | 2026-11-01T15:54:17Z | 2026-11-01T15:56:29Z | `TEST_PYTHON="$TOON_PYTHON" heavy-run prototypes/imagine-cutout/tests/run_body_tests.sh` |
+| Clip acceptance (T3-clips-red-first) | RED (acceptance verdicts) | 1 | 1 | 2026-11-01T15:56:29Z | 2026-11-01T15:56:50Z | `TEST_PYTHON="$TOON_PYTHON" heavy-run prototypes/imagine-cutout/tests/runner.sh clips` |
+| Clip mutants (T4-clip-mutants) | All eight KILLED | 0 | 1 | 2026-11-01T15:56:50Z | 2026-11-01T15:59:27Z | `TEST_PYTHON="$TOON_PYTHON" heavy-run prototypes/imagine-cutout/tests/runner.sh clip-mutants` |
+
+| Case | Scene | Result on tested head | Verdict reason or named killed mutant | Exact ledger command | rc | Attempt | UTC start → end |
+|---|---|---|---|---|---|---|---|
+| CL1 | hd | GREEN; 84 PASS / 0 FAIL / 0 ERROR | All rotations inside manifest limits; m1 KILLED on idle:hem_left in this scene. | `TEST_PYTHON="$TOON_PYTHON" heavy-run prototypes/imagine-cutout/tests/runner.sh clips` | 1 | 1 | 2026-11-01T15:56:29Z → 2026-11-01T15:56:50Z |
+| CL2 | hd | GREEN; 1722 PASS / 0 FAIL / 0 ERROR | No background pixels, all 1,722 keys GREEN. m2 KILLED on 27 HD right_fore targets GREEN in the same invocation baseline. | `TEST_PYTHON="$TOON_PYTHON" heavy-run prototypes/imagine-cutout/tests/runner.sh clips` | 1 | 1 | 2026-11-01T15:56:29Z → 2026-11-01T15:56:50Z |
+| CL3 | hd | RED; 104 PASS / 6 FAIL / 0 ERROR | Six FAIL keys: idle-aim and cooldown-idle, each torso 0.00610865233466029, hem_left 0.0209439508616924, hem_right 0.0174532923847437 rad versus <=1e-06 rad. Other 104 keys GREEN; m3 kills idle-loop:torso, m3b kills aim-fire:right_upper in this scene. | `TEST_PYTHON="$TOON_PYTHON" heavy-run prototypes/imagine-cutout/tests/runner.sh clips` | 1 | 1 | 2026-11-01T15:56:29Z → 2026-11-01T15:56:50Z |
+| CL4 | hd | GREEN; 3 PASS / 0 FAIL / 0 ERROR | Hip range 6.0 native px (inclusive [1,6]); hem ranges 2.3999999814/1.9999999845 deg. m4 KILLED on hip_y_min, m4b on hip_y_max, m4c on hem_range in this scene. | `TEST_PYTHON="$TOON_PYTHON" heavy-run prototypes/imagine-cutout/tests/runner.sh clips` | 1 | 1 | 2026-11-01T15:56:29Z → 2026-11-01T15:56:50Z |
+| CL5 | hd | RED; 1 PASS / 1 FAIL / 0 ERROR | departure FAIL: f01_deg=0.0, f02_deg=0.0, all seven sampled deviations 0.0 versus >=1.0 deg at f01 or f02 with overall peak by f02. settle GREEN: 0.0 versus <=0.1 deg inclusive; m5 KILLED on settle in this scene. | `TEST_PYTHON="$TOON_PYTHON" heavy-run prototypes/imagine-cutout/tests/runner.sh clips` | 1 | 1 | 2026-11-01T15:56:29Z → 2026-11-01T15:56:50Z |
+| CL1 | pixel | GREEN; 84 PASS / 0 FAIL / 0 ERROR | All rotations inside manifest limits; m1 KILLED on idle:hem_left in this scene. | `TEST_PYTHON="$TOON_PYTHON" heavy-run prototypes/imagine-cutout/tests/runner.sh clips` | 1 | 1 | 2026-11-01T15:56:29Z → 2026-11-01T15:56:50Z |
+| CL2 | pixel | RED; 1637 PASS / 85 FAIL / 0 ERROR | 85 keys FAIL: gap_pixels 1–7 versus 0 background pixels; nonempty stencil except root. Affected joints: torso, coat, hem_left, right_upper, right_fore, right_hand, left_arm. Example CL2:pixel:idle:f06:torso has 3 gap pixels in 27 stencil pixels. m2 changes HD only; no pixel kill is claimed. | `TEST_PYTHON="$TOON_PYTHON" heavy-run prototypes/imagine-cutout/tests/runner.sh clips` | 1 | 1 | 2026-11-01T15:56:29Z → 2026-11-01T15:56:50Z |
+| CL3 | pixel | RED; 104 PASS / 6 FAIL / 0 ERROR | Six FAIL keys: idle-aim and cooldown-idle, each torso 0.00610865233466029, hem_left 0.0209439508616924, hem_right 0.0174532923847437 rad versus <=1e-06 rad. Other 104 keys GREEN; m3 kills idle-loop:torso, m3b kills aim-fire:right_upper in this scene. | `TEST_PYTHON="$TOON_PYTHON" heavy-run prototypes/imagine-cutout/tests/runner.sh clips` | 1 | 1 | 2026-11-01T15:56:29Z → 2026-11-01T15:56:50Z |
+| CL4 | pixel | GREEN; 3 PASS / 0 FAIL / 0 ERROR | Hip range 2.0 native px (inclusive [1,2]); hem ranges 2.3999999814/1.9999999845 deg. m4 KILLED on hip_y_min, m4b on hip_y_max, m4c on hem_range in this scene. | `TEST_PYTHON="$TOON_PYTHON" heavy-run prototypes/imagine-cutout/tests/runner.sh clips` | 1 | 1 | 2026-11-01T15:56:29Z → 2026-11-01T15:56:50Z |
+| CL5 | pixel | RED; 1 PASS / 1 FAIL / 0 ERROR | departure FAIL: f01_deg=0.0, f02_deg=0.0, all seven sampled deviations 0.0 versus >=1.0 deg at f01 or f02 with overall peak by f02. settle GREEN: 0.0 versus <=0.1 deg inclusive; m5 KILLED on settle in this scene. | `TEST_PYTHON="$TOON_PYTHON" heavy-run prototypes/imagine-cutout/tests/runner.sh clips` | 1 | 1 | 2026-11-01T15:56:29Z → 2026-11-01T15:56:50Z |
+
+All named mutant credits use the clip-mutants ledger row: rc 0, attempt 1,
+2026-11-01T15:56:50Z → 2026-11-01T15:59:27Z. Exactly m1, m2, m3, m3b, m4, m4b,
+m4c and m5 are KILLED on target keys GREEN in that invocation's fresh baseline.
+m2 has 82 eligible HD right_fore targets, 27 newly RED; pixel is not targeted.
+The baseline matches all 3,842 clip-acceptance key records; zero ERRORs occur.
+GREEN counts within an overall RED case retain their own status; existing reds,
+off-target failures and newly GREEN keys do not supply mutant kill credit.
+
+CL6 is withdrawn as a new case. The unchanged body suite passes HD facing,
+`PASS body facing: 0 failures` (log line 8; 82 samples), using its ledger command,
+rc 0, attempt 1, 2026-11-01T15:54:17Z → 2026-11-01T15:56:29Z.
+No separate pixel-facing case or mutant-f rerun is recorded here: NOT-RUN/deferred,
+never newly passed or killed. CL7 expressions remains not applicable.
+There are no NOT-RUN items among the four supplied ledger rows; any NOT-RUN
+result is deferred. No refusal 75/78 or retry is recorded. Clip acceptance stays
+RED, and **REVIEW=required** applies to the final evidence head because the
+runner modes changed. No final launcher completion verdict was supplied.

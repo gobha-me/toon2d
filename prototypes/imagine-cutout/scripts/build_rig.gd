@@ -101,6 +101,11 @@ func build() -> void:
 			cap.z_index = backing.z_order
 			cap.z_as_relative = false
 			owned(cap, bones[backing.bone])
+		# Rotating the original pixel cutouts exposes seams that their HD
+		# replacements already back. Keep a palette-matched cap behind each
+		# affected attachment, including the transplanted weapon hand.
+		for name_ in ["torso", "coat", "right_upper", "left_arm", "hem_left", "right_fore", "right_hand"]:
+			pixel_clip_backing(bones[name_])
 	# One gun sprite, no animation tracks target its transform or texture.
 	var flash := Node2D.new()
 	flash.name = "MuzzleFlash"
@@ -136,6 +141,53 @@ func build() -> void:
 	print("Baked ", path, " result=", error)
 	rig.free()
 
+func pixel_clip_backing(bone: Bone2D) -> void:
+	var source: Sprite2D
+	for child in bone.get_children():
+		if child is Sprite2D and child.name != "Gun":
+			if source == null or child.z_index > source.z_index:
+				source = child
+	if source == null:
+		push_error("Missing pixel attachment material: " + bone.name)
+		return
+	var image_ := source.texture.get_image()
+	var pivot := source.transform.affine_inverse() * Vector2.ZERO
+	var region := Rect2i(Vector2i.ZERO, image_.get_size())
+	if source.region_enabled:
+		region = Rect2i(source.region_rect)
+		pivot += source.region_rect.position
+	var samples: Array = []
+	for y in range(region.position.y, region.end.y):
+		for x in range(region.position.x, region.end.x):
+			var candidate := image_.get_pixel(x, y)
+			var squared := (Vector2(x, y) - pivot).length_squared()
+			if candidate.a >= 0.5:
+				samples.append({"distance": squared, "color": candidate})
+	if samples.is_empty():
+		push_error("Empty pixel attachment material: " + bone.name)
+		return
+	samples.sort_custom(func(a, b): return a.distance < b.distance)
+	var nearby := samples.slice(0, mini(16, samples.size()))
+	nearby.sort_custom(func(a, b): return a.color.get_luminance() < b.color.get_luminance())
+	# A shadow tone from the local palette keeps a single bright highlight
+	# from becoming a large patch when exposed at a rotating attachment.
+	var color: Color = nearby[nearby.size() / 4].color
+	var cap := Polygon2D.new()
+	cap.name = "ClipBacking_" + bone.name
+	# Include the rounding margin needed when a cap rotates across the grid.
+	var radius := ceilf(float(data.overlap_px) * float(data.pixel_scale)) + 3.0
+	if bone.name in ["right_fore", "right_hand"]:
+		# The weapon arm compounds shoulder and elbow origin snapping.
+		radius += 1.0
+	var points := PackedVector2Array()
+	for index in 24:
+		points.append((Vector2.from_angle(TAU * index / 24.0) * radius).round())
+	cap.polygon = points
+	cap.color = color
+	cap.z_index = source.z_index - 1
+	cap.z_as_relative = false
+	owned(cap, bone)
+
 func track(anim: Animation, path: String, property: String, keys: Array, discrete: bool = false) -> void:
 	var index := anim.add_track(Animation.TYPE_VALUE)
 	anim.track_set_path(index, NodePath(path + ":" + property))
@@ -161,9 +213,9 @@ func make_animation(clip: String, flash_path: String) -> Animation:
 	var breathe := 1 if pixel else 3
 	if clip == "idle":
 		track(anim, bone_paths.hip, "position", [[0,base],[12,base+Vector2(0,-breathe)],[24,base],[36,base+Vector2(0,breathe)],[48,base]])
-		set_rotation(anim,"torso",[[0,-.35],[12,.35],[24,-.35],[36,.35],[48,-.35]])
-		set_rotation(anim,"hem_left",[[0,-1.2],[12,1.2],[24,-1.2],[36,1.2],[48,-1.2]])
-		set_rotation(anim,"hem_right",[[0,1],[12,-1],[24,1],[36,-1],[48,1]])
+		set_rotation(anim,"torso",[[0,0],[12,.35],[24,0],[36,-.35],[48,0]])
+		set_rotation(anim,"hem_left",[[0,0],[12,1.2],[24,0],[36,-1.2],[48,0]])
+		set_rotation(anim,"hem_right",[[0,0],[12,-1],[24,0],[36,1],[48,0]])
 		set_rotation(anim,"hem_center",[[0,0],[12,.8],[24,0],[36,-.8],[48,0]])
 	elif clip == "aim":
 		track(anim,bone_paths.hip,"position",[[0,base],[frames,base]])
@@ -177,7 +229,7 @@ func make_animation(clip: String, flash_path: String) -> Animation:
 	elif clip == "fire":
 		track(anim,bone_paths.hip,"position",[[0,base],[frames,base]])
 		set_rotation(anim,"right_upper",[[0,75],[2,80],[6,75]])
-		set_rotation(anim,"right_fore",[[0,8],[2,8],[6,8]])
+		set_rotation(anim,"right_fore",[[0,8],[2,10],[6,8]])
 		set_rotation(anim,"torso",[[0,-2],[2,0],[6,-2]])
 		set_rotation(anim,"head",[[0,2],[6,2]])
 		set_rotation(anim,"hem_left",[[0,2],[3,-4],[6,1]])

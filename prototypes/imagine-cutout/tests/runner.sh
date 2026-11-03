@@ -19,4 +19,9 @@ export XDG_DATA_HOME="$TMPDIR/xdg-data" XDG_CONFIG_HOME="$TMPDIR/xdg-config" XDG
 export OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 LP_NUM_THREADS=2 MESA_GLTHREAD=false
 export MAKEFLAGS=-j2
 export PYTHONDONTWRITEBYTECODE=1
+# Clip modes have a separate observer and leave every existing mode untouched.
+if [[ ${1:-} == clips || ${1:-} == clip-mutants ]]; then
+  "$python" "$tests_dir/clip_driver.py" "$@"
+  exit $?
+fi
 "$python" "$tests_dir/driver.py" "$@"

@@ -1,0 +1,123 @@
+mutant m1
+baseline PASS CL1:hd:idle:hem_left
+FAIL CL1:hd:idle:hem_left: {"max_rad": 0.148352980613708, "min_rad": -0.0209439508616924} vs [-0.13962634015954636, 0.13962634015954636] rad inclusive; roundoff 1e-06
+mutant m1
+baseline PASS CL1:pixel:idle:hem_left
+FAIL CL1:pixel:idle:hem_left: {"max_rad": 0.148352980613708, "min_rad": -0.0209439508616924} vs [-0.13962634015954636, 0.13962634015954636] rad inclusive; roundoff 1e-06
+mutant m2
+baseline PASS CL2:hd:aim:end:right_fore
+FAIL CL2:hd:aim:end:right_fore: {"gap_pixels": 48, "stencil_pixels": 3228} vs 0 background pixels; nonempty stencil except root
+mutant m2
+baseline PASS CL2:hd:aim:f03:right_fore
+FAIL CL2:hd:aim:f03:right_fore: {"gap_pixels": 3, "stencil_pixels": 3228} vs 0 background pixels; nonempty stencil except root
+mutant m2
+baseline PASS CL2:hd:aim:f04:right_fore
+FAIL CL2:hd:aim:f04:right_fore: {"gap_pixels": 4, "stencil_pixels": 3228} vs 0 background pixels; nonempty stencil except root
+mutant m2
+baseline PASS CL2:hd:aim:f05:right_fore
+FAIL CL2:hd:aim:f05:right_fore: {"gap_pixels": 10, "stencil_pixels": 3228} vs 0 background pixels; nonempty stencil except root
+mutant m2
+baseline PASS CL2:hd:aim:f06:right_fore
+FAIL CL2:hd:aim:f06:right_fore: {"gap_pixels": 20, "stencil_pixels": 3228} vs 0 background pixels; nonempty stencil except root
+mutant m2
+baseline PASS CL2:hd:aim:f07:right_fore
+FAIL CL2:hd:aim:f07:right_fore: {"gap_pixels": 27, "stencil_pixels": 3228} vs 0 background pixels; nonempty stencil except root
+mutant m2
+baseline PASS CL2:hd:aim:f08:right_fore
+FAIL CL2:hd:aim:f08:right_fore: {"gap_pixels": 35, "stencil_pixels": 3228} vs 0 background pixels; nonempty stencil except root
+mutant m2
+baseline PASS CL2:hd:aim:f09:right_fore
+FAIL CL2:hd:aim:f09:right_fore: {"gap_pixels": 42, "stencil_pixels": 3228} vs 0 background pixels; nonempty stencil except root
+mutant m2
+baseline PASS CL2:hd:cooldown:f00:right_fore
+FAIL CL2:hd:cooldown:f00:right_fore: {"gap_pixels": 48, "stencil_pixels": 3228} vs 0 background pixels; nonempty stencil except root
+mutant m2
+baseline PASS CL2:hd:cooldown:f01:right_fore
+FAIL CL2:hd:cooldown:f01:right_fore: {"gap_pixels": 45, "stencil_pixels": 3228} vs 0 background pixels; nonempty stencil except root
+mutant m2
+baseline PASS CL2:hd:cooldown:f02:right_fore
+FAIL CL2:hd:cooldown:f02:right_fore: {"gap_pixels": 40, "stencil_pixels": 3228} vs 0 background pixels; nonempty stencil except root
+mutant m2
+baseline PASS CL2:hd:cooldown:f03:right_fore
+FAIL CL2:hd:cooldown:f03:right_fore: {"gap_pixels": 35, "stencil_pixels": 3228} vs 0 background pixels; nonempty stencil except root
+mutant m2
+baseline PASS CL2:hd:cooldown:f04:right_fore
+FAIL CL2:hd:cooldown:f04:right_fore: {"gap_pixels": 32, "stencil_pixels": 3228} vs 0 background pixels; nonempty stencil except root
+mutant m2
+baseline PASS CL2:hd:cooldown:f05:right_fore
+FAIL CL2:hd:cooldown:f05:right_fore: {"gap_pixels": 27, "stencil_pixels": 3228} vs 0 background pixels; nonempty stencil except root
+mutant m2
+baseline PASS CL2:hd:cooldown:f06:right_fore
+FAIL CL2:hd:cooldown:f06:right_fore: {"gap_pixels": 21, "stencil_pixels": 3228} vs 0 background pixels; nonempty stencil except root
+mutant m2
+baseline PASS CL2:hd:cooldown:f07:right_fore
+FAIL CL2:hd:cooldown:f07:right_fore: {"gap_pixels": 17, "stencil_pixels": 3228} vs 0 background pixels; nonempty stencil except root
+mutant m2
+baseline PASS CL2:hd:cooldown:f08:right_fore
+FAIL CL2:hd:cooldown:f08:right_fore: {"gap_pixels": 17, "stencil_pixels": 3228} vs 0 background pixels; nonempty stencil except root
+mutant m2
+baseline PASS CL2:hd:cooldown:f09:right_fore
+FAIL CL2:hd:cooldown:f09:right_fore: {"gap_pixels": 11, "stencil_pixels": 3228} vs 0 background pixels; nonempty stencil except root
+mutant m2
+baseline PASS CL2:hd:cooldown:f10:right_fore
+FAIL CL2:hd:cooldown:f10:right_fore: {"gap_pixels": 6, "stencil_pixels": 3228} vs 0 background pixels; nonempty stencil except root
+mutant m2
+baseline PASS CL2:hd:cooldown:f11:right_fore
+FAIL CL2:hd:cooldown:f11:right_fore: {"gap_pixels": 3, "stencil_pixels": 3228} vs 0 background pixels; nonempty stencil except root
+mutant m2
+baseline PASS CL2:hd:fire:end:right_fore
+FAIL CL2:hd:fire:end:right_fore: {"gap_pixels": 48, "stencil_pixels": 3228} vs 0 background pixels; nonempty stencil except root
+mutant m2
+baseline PASS CL2:hd:fire:f00:right_fore
+FAIL CL2:hd:fire:f00:right_fore: {"gap_pixels": 48, "stencil_pixels": 3228} vs 0 background pixels; nonempty stencil except root
+mutant m2
+baseline PASS CL2:hd:fire:f01:right_fore
+FAIL CL2:hd:fire:f01:right_fore: {"gap_pixels": 50, "stencil_pixels": 3228} vs 0 background pixels; nonempty stencil except root
+mutant m2
+baseline PASS CL2:hd:fire:f02:right_fore
+FAIL CL2:hd:fire:f02:right_fore: {"gap_pixels": 49, "stencil_pixels": 3228} vs 0 background pixels; nonempty stencil except root
+mutant m2
+baseline PASS CL2:hd:fire:f03:right_fore
+FAIL CL2:hd:fire:f03:right_fore: {"gap_pixels": 50, "stencil_pixels": 3228} vs 0 background pixels; nonempty stencil except root
+mutant m2
+baseline PASS CL2:hd:fire:f04:right_fore
+FAIL CL2:hd:fire:f04:right_fore: {"gap_pixels": 50, "stencil_pixels": 3228} vs 0 background pixels; nonempty stencil except root
+mutant m2
+baseline PASS CL2:hd:fire:f05:right_fore
+FAIL CL2:hd:fire:f05:right_fore: {"gap_pixels": 50, "stencil_pixels": 3228} vs 0 background pixels; nonempty stencil except root
+mutant m3
+baseline PASS CL3:hd:idle-loop:torso
+FAIL CL3:hd:idle-loop:torso: 0.01745329285040499 vs <= 1e-06 rad
+mutant m3
+baseline PASS CL3:pixel:idle-loop:torso
+FAIL CL3:pixel:idle-loop:torso: 0.01745329285040499 vs <= 1e-06 rad
+mutant m3b
+baseline PASS CL3:hd:aim-fire:right_upper
+FAIL CL3:hd:aim-fire:right_upper: 0.017453312873839888 vs <= 1e-06 rad
+mutant m3b
+baseline PASS CL3:pixel:aim-fire:right_upper
+FAIL CL3:pixel:aim-fire:right_upper: 0.017453312873839888 vs <= 1e-06 rad
+mutant m4
+baseline PASS CL4:hd:hip_y_min
+FAIL CL4:hd:hip_y_min: 0.0 vs >= 1.0 native px; roundoff 0.001
+mutant m4
+baseline PASS CL4:pixel:hip_y_min
+FAIL CL4:pixel:hip_y_min: 0.0 vs >= 1.0 native px; roundoff 0.001
+mutant m4b
+baseline PASS CL4:hd:hip_y_max
+FAIL CL4:hd:hip_y_max: 7.0 vs <= 6.0 native px; roundoff 0.001
+mutant m4b
+baseline PASS CL4:pixel:hip_y_max
+FAIL CL4:pixel:hip_y_max: 3.0 vs <= 2.0 native px; roundoff 0.001
+mutant m4c
+baseline PASS CL4:hd:hem_range
+FAIL CL4:hd:hem_range: {"hem_left": 0.0, "hem_right": 0.0} vs either hem range >= 1.0 deg
+mutant m4c
+baseline PASS CL4:pixel:hem_range
+FAIL CL4:pixel:hem_range: {"hem_left": 0.0, "hem_right": 0.0} vs either hem range >= 1.0 deg
+mutant m5
+baseline PASS CL5:hd:settle
+FAIL CL5:hd:settle: 1.0000003124187427 vs <= 0.1 deg inclusive at fire endpoint
+mutant m5
+baseline PASS CL5:pixel:settle
+FAIL CL5:pixel:settle: 1.0000003124187427 vs <= 0.1 deg inclusive at fire endpoint

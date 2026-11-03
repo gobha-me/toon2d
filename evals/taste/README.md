@@ -64,3 +64,52 @@ separate measure; do not convert preferences into absolute scores. Independent
 human ratings, judge calibration, a documented threshold and a fresh blind
 baseline comparison are still required before #5 is complete. This preparation
 tool neither grades art nor promotes the advisory take-off check in #13.
+
+After all reviewers have returned their blind responses, the evaluator can
+recover candidate preferences using `scripts/taste-preferences.mjs`. Collect
+one response file with this shape (use the packet's actual opaque IDs):
+
+```json
+{
+  "schema_version": 1,
+  "reviewers": [
+    {
+      "reviewer_id": "owner-01",
+      "kind": "owner",
+      "trials": [
+        {
+          "trial_id": "opaque-id-from-trials-json",
+          "visible_text": false,
+          "preferences": ["left", "right", "tie", "left", "tie", "left", "right", "left"]
+        }
+      ]
+    }
+  ]
+}
+```
+
+Each reviewer must screen and return every trial exactly once. The eight
+preferences follow rubric order: proportions, silhouette, line weight,
+palette, shading, on-model consistency, game scale, appeal. Values are `left`,
+`right` or `tie`; `visible_text` is an explicit boolean from manual screening.
+Any positive text flag excludes that sheet's trial for **all** reviewers.
+Complete vectors are required even for excluded trials; those votes are
+discarded. Collect responses independently before consulting the key. Reviewer
+kinds are `owner`, `human` or `judge`; record the real evaluator identity and
+collection method separately. The tool cannot establish reviewer independence
+or verify who supplied a response.
+
+```bash
+node scripts/taste-preferences.mjs private-key.json responses.json new-report.json
+```
+
+The private report keeps every reviewer and split separate. For each axis it
+counts candidate wins, reference wins and ties, reports `(wins + ties / 2) / N`
+as `preference_score`, and reports `wins / (wins + losses)` as
+`decisive_win_fraction`. Empty denominators yield `null`. No scores are pooled
+across axes or reviewers, and no pass threshold or statistical significance
+is inferred. Inspect owner and judge results separately for the fresh blind
+comparison required by #5. The report includes excluded opaque IDs and SHA-256
+hashes of the exact key and response bytes. Existing output paths are refused;
+new reports have mode 0600 and stay with the private evaluator evidence.
+These pairwise results remain separate from absolute judge/human agreement.

@@ -1,0 +1,48 @@
+{
+  "timestamp_utc": "2026-10-31T12:27:01.768050+00:00",
+  "character": "char2",
+  "random_n": 200,
+  "seed": 20261031,
+  "full_acceptance_run": true,
+  "pose_counts": {"single": 30, "pair": 420, "random": 200},
+  "pose_sha256": "da555e908a46d1600cb8caee43e2807e961e5de9a12b7ca672626262e1529029",
+  "manifest_sha256": "080892f267590f07bd422edaaeff76885cef4e698409991b3d4615234ad4c923",
+  "tests": {
+    "manifest": {
+      "name": "manifest schema and frozen inventory",
+      "passed": true,
+      "errors": []
+    },
+    "completeness": {
+      "name": "completeness",
+      "passed": false,
+      "errors": [
+        {"case_id": "scene/required-inputs", "error": "missing rig input: scenes/char2.tscn, characters/char2/parts.json"}
+      ]
+    },
+    "per_joint": {
+      "name": "per_joint",
+      "passed": false,
+      "errors": [
+        {"case_id": "scene/required-inputs", "error": "missing rig input: scenes/char2.tscn, characters/char2/parts.json"}
+      ]
+    },
+    "combined": {
+      "name": "combined",
+      "passed": false,
+      "errors": [
+        {"case_id": "scene/required-inputs", "error": "missing rig input: scenes/char2.tscn, characters/char2/parts.json"}
+      ]
+    },
+    "facing": {
+      "name": "facing",
+      "passed": false,
+      "errors": [
+        {"case_id": "scene/required-inputs", "error": "missing rig input: scenes/char2.tscn, characters/char2/parts.json"}
+      ]
+    }
+  },
+  "joints": [],
+  "captured_poses": 0,
+  "passed": false
+}

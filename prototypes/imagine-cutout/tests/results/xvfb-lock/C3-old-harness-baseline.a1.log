@@ -1,0 +1,95 @@
+heavy-run: memory ok: memory.current 19.38 GiB, working set (minus inactive_file) 13.97 GiB; limits 17.50 GiB working set / 24.50 GiB memory.current (memory.max 28.00 GiB x 10/16, 14/16)
+heavy-run: holding slot1 on <HOST>, hard stop in 22339s (11:55 PM ET)
+test_driver_heavy_defer_policy (__main__.HarnessPolicy.test_driver_heavy_defer_policy) ...
+  test_driver_heavy_defer_policy (__main__.HarnessPolicy.test_driver_heavy_defer_policy) (exits=[75, 0]) ... FAIL
+  test_driver_heavy_defer_policy (__main__.HarnessPolicy.test_driver_heavy_defer_policy) (exits=[75]) ... FAIL
+  test_driver_heavy_defer_policy (__main__.HarnessPolicy.test_driver_heavy_defer_policy) (exits=[78]) ... FAIL
+test_xvfb_no_orphan_normal_exit (__main__.HarnessPolicy.test_xvfb_no_orphan_normal_exit) ... FAIL
+test_xvfb_no_orphan_on_term (__main__.HarnessPolicy.test_xvfb_no_orphan_on_term) ... FAIL
+
+======================================================================
+FAIL: test_driver_heavy_defer_policy (__main__.HarnessPolicy.test_driver_heavy_defer_policy) (exits=[75, 0])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO>/prototypes/imagine-cutout/tests/test_harness_policy.py", line 123, in test_driver_heavy_defer_policy
+    output, _ = process.communicate(timeout=3)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<PYTHON>/stdlib/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<PYTHON>/stdlib/subprocess.py", line 2116, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "<PYTHON>/stdlib/subprocess.py", line 1253, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command [<PYTHON>, <test-owned child arguments omitted>] timed out after 3 seconds
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<REPO>/prototypes/imagine-cutout/tests/test_harness_policy.py", line 127, in test_driver_heavy_defer_policy
+    self.fail('driver ignored injected interval/cap: ' + output)
+AssertionError: driver ignored injected interval/cap: heavy-run deferred (75); retrying in 30 seconds
+
+
+======================================================================
+FAIL: test_driver_heavy_defer_policy (__main__.HarnessPolicy.test_driver_heavy_defer_policy) (exits=[75])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO>/prototypes/imagine-cutout/tests/test_harness_policy.py", line 123, in test_driver_heavy_defer_policy
+    output, _ = process.communicate(timeout=3)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<PYTHON>/stdlib/subprocess.py", line 1209, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<PYTHON>/stdlib/subprocess.py", line 2116, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "<PYTHON>/stdlib/subprocess.py", line 1253, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command [<PYTHON>, <test-owned child arguments omitted>] timed out after 3 seconds
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<REPO>/prototypes/imagine-cutout/tests/test_harness_policy.py", line 127, in test_driver_heavy_defer_policy
+    self.fail('driver ignored injected interval/cap: ' + output)
+AssertionError: driver ignored injected interval/cap: heavy-run deferred (75); retrying in 30 seconds
+
+
+======================================================================
+FAIL: test_driver_heavy_defer_policy (__main__.HarnessPolicy.test_driver_heavy_defer_policy) (exits=[78])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO>/prototypes/imagine-cutout/tests/test_harness_policy.py", line 128, in test_driver_heavy_defer_policy
+    self.assertEqual(process.returncode, expected, output)
+AssertionError: 1 != 78 : Traceback (most recent call last):
+  File "<string>", line 9, in <module>
+  File "<TMPDIR>/scratch/driver.py", line 96, in heavy
+    raise RuntimeError(f"command failed ({process.returncode}): {command!r}\n{output[-6000:]}")
+RuntimeError: command failed (78): ['true']
+
+
+
+======================================================================
+FAIL: test_xvfb_no_orphan_normal_exit (__main__.HarnessPolicy.test_xvfb_no_orphan_normal_exit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO>/prototypes/imagine-cutout/tests/test_harness_policy.py", line 83, in test_xvfb_no_orphan_normal_exit
+    self.lifecycle(False)
+  File "<REPO>/prototypes/imagine-cutout/tests/test_harness_policy.py", line 54, in lifecycle
+    self.assertIsNotNone(recorded, 'runner must record the Xvfb PID at spawn in xvfb.pid')
+AssertionError: unexpectedly None : runner must record the Xvfb PID at spawn in xvfb.pid
+
+======================================================================
+FAIL: test_xvfb_no_orphan_on_term (__main__.HarnessPolicy.test_xvfb_no_orphan_on_term)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO>/prototypes/imagine-cutout/tests/test_harness_policy.py", line 86, in test_xvfb_no_orphan_on_term
+    self.lifecycle(True)
+  File "<REPO>/prototypes/imagine-cutout/tests/test_harness_policy.py", line 54, in lifecycle
+    self.assertIsNotNone(recorded, 'runner must record the Xvfb PID at spawn in xvfb.pid')
+AssertionError: unexpectedly None : runner must record the Xvfb PID at spawn in xvfb.pid
+
+----------------------------------------------------------------------
+Ran 3 tests in 6.281s
+
+FAILED (failures=5)

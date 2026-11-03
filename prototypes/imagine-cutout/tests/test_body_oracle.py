@@ -1,11 +1,16 @@
 """Small oracle controls: a one-pixel gap and omitted extremes must be caught."""
 import itertools
+import copy
+import json
+import os
+from pathlib import Path
+import tempfile
 import unittest
 
 import numpy as np
 
 from body_driver import (COMBINED_RANDOM_N, JOINT_NAMES, TILE, pose_plan,
-                         read_manifest, tile_oracle)
+                         character_index, read_manifest, tile_oracle)
 from driver import PROTOTYPE
 
 
@@ -44,22 +49,57 @@ class GapOracleControls(unittest.TestCase):
 
 class PoseCoverageControls(unittest.TestCase):
     def test_every_pair_at_every_extreme_plus_random_sample(self):
-        manifest = read_manifest(PROTOTYPE)
+        for character in character_index(PROTOTYPE)["characters"]:
+            with self.subTest(character=character):
+                self.check_character(character)
+
+    def check_character(self, character):
+        manifest = read_manifest(PROTOTYPE, character)
+        config = manifest["_character"]
+        joint_names = tuple(j["name"] for j in manifest["joints"])
         poses = pose_plan(manifest)
         self.assertEqual(poses, pose_plan(manifest), "pose generation must be reproducible")
-        self.assertEqual(sum(p["kind"] == "random" for p in poses), COMBINED_RANDOM_N)
+        self.assertEqual(sum(p["kind"] == "random" for p in poses), config["combined_random_n"])
         pairs = {p["id"]: p for p in poses if p["kind"] == "pair"}
-        self.assertEqual(len(pairs), 840)
+        self.assertEqual(len(pairs), 4 * len(joint_names) * (len(joint_names) - 1) // 2)
+        if character == "trenchcoat":
+            historical = json.loads((PROTOTYPE / "tests/results/body-parts/red-first.poses.json").read_text())
+            self.assertEqual(poses, historical, "trenchcoat pose values/order must remain byte-equivalent")
         for left, right in itertools.combinations(manifest["joints"], 2):
             for a, b in itertools.product(range(2), repeat=2):
                 pose = pairs[f"pair/{left['name']}/{a}/{right['name']}/{b}"]
-                self.assertEqual(set(pose["angles"]), set(JOINT_NAMES))
+                self.assertEqual(set(pose["angles"]), set(joint_names))
                 self.assertEqual(pose["angles"][left["name"]], left["rotation_limits_deg"][a])
                 self.assertEqual(pose["angles"][right["name"]], right["rotation_limits_deg"][b])
         for pose in poses:
             for joint in manifest["joints"]:
                 self.assertGreaterEqual(pose["angles"][joint["name"]], joint["rotation_limits_deg"][0])
                 self.assertLessEqual(pose["angles"][joint["name"]], joint["rotation_limits_deg"][1])
+
+
+class CharacterManifestControls(unittest.TestCase):
+    def test_characters_index_schema(self):
+        index = character_index(PROTOTYPE)
+        for character in index["characters"]:
+            with self.subTest(character=character):
+                manifest = read_manifest(PROTOTYPE, character)
+                self.assertEqual(manifest["_character"]["id"], character)
+        bad_indexes = []
+        for key, value in (("manifest", "../outside.yml"), ("combined_random_n", 199),
+                           ("required_slots", []), ("required_joints", ["head", "head"])):
+            invalid = copy.deepcopy(index)
+            invalid["characters"]["char2"][key] = value
+            bad_indexes.append(invalid)
+        invalid = copy.deepcopy(index)
+        invalid["schema_version"] = 999
+        bad_indexes.append(invalid)
+        with tempfile.TemporaryDirectory(dir=os.environ["TMPDIR"]) as scratch:
+            source = Path(scratch)
+            for invalid in bad_indexes:
+                with self.subTest(invalid=invalid["characters"]["char2"]):
+                    (source / "characters.yml").write_text(json.dumps(invalid))
+                    with self.assertRaises(AssertionError):
+                        character_index(source)
 
 
 if __name__ == "__main__":

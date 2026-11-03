@@ -1,0 +1,34 @@
+{
+  "DISPLAY": ":9547",
+  "displayfd_number": "9547",
+  "xvfb_pid": "1611942",
+  "checks": [
+    {
+      "t": 0,
+      "lock_from_DISPLAY": true,
+      "socket_from_DISPLAY": true,
+      "lock_from_displayfd": true,
+      "lock_text": "1611942"
+    },
+    {
+      "t": 0.5,
+      "lock_from_DISPLAY": true,
+      "socket_from_DISPLAY": true,
+      "lock_from_displayfd": true,
+      "lock_text": "1611942"
+    },
+    {
+      "t": 2.0,
+      "lock_from_DISPLAY": true,
+      "socket_from_DISPLAY": true,
+      "lock_from_displayfd": true,
+      "lock_text": "1611942"
+    }
+  ],
+  "consumer_mntns": "mnt:[4026535001]",
+  "xvfb_mntns": "mnt:[4026535001]",
+  "xvfb_alive": true,
+  "xvfb_cmdline": "Xvfb :9547 -nolisten tcp -nopn ",
+  "tmp_dev_ino": "2097167:675086",
+  "runner_tmpdir_is_under_tmp": true
+}

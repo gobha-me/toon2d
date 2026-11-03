@@ -1,0 +1,11 @@
+{
+  "mutant": "c",
+  "kind": "overlap",
+  "status": "SKIPPED",
+  "reason": "src/parts/raw-hd Segments PNG inputs (including original.png; not committed)",
+  "files_changed": [],
+  "expected_test": "5",
+  "observed_red_tests": [],
+  "new_red_tests": [],
+  "worsened_joints": []
+}

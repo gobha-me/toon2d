@@ -10,6 +10,7 @@ import os
 from pathlib import Path
 import re
 import shutil
+import shlex
 import signal
 import subprocess
 import sys
@@ -24,6 +25,44 @@ PROTOTYPE = Path(__file__).resolve().parent.parent
 REPO = PROTOTYPE.parent.parent
 TEMP = Path(os.environ["TMPDIR"]).resolve()
 LABELS = {"1": "hierarchy", "2": "timing", "3": "flash", "4": "gun rigidity", "5": "joint gaps"}
+RERUN_COMMAND: str | None = None
+DEFERRED_EVIDENCE: Path | None = None
+
+
+def record_deferred(reason: str, code: int = 75, log: Path | None = None) -> None:
+    if RERUN_COMMAND is None:
+        return
+    path = REPO / ".codex-q" / "DEFERRED.md"
+    path.parent.mkdir(exist_ok=True)
+    with path.open("a") as stream:
+        stream.write(f"\n- {datetime.now(ZoneInfo('UTC')).isoformat()} — DEFERRED; last exit {code}: {reason}\n"
+                     f"  Rerun from repository root: `{RERUN_COMMAND}`\n")
+    if DEFERRED_EVIDENCE is not None:
+        DEFERRED_EVIDENCE.parent.mkdir(parents=True, exist_ok=True)
+        with DEFERRED_EVIDENCE.open("a") as stream:
+            stream.write(f"{datetime.now(ZoneInfo('UTC')).isoformat()} DEFERRED: {reason}; exit {code}\n")
+            if log is not None and log.exists():
+                stream.write(public_log(log.read_text()))
+
+
+def mutation_guard() -> None:
+    """Read-only gate before any mutation run; no process discovery for cleanup."""
+    listing = subprocess.check_output(["ps", "-eo", "pid,pgid,sid,etime,args"], text=True)
+    ancestors = {os.getpid()}
+    cursor = os.getpid()
+    while cursor > 1:
+        # Parent IDs distinguish this invocation's wrappers from another run.
+        stat = Path(f"/proc/{cursor}/stat").read_text().rsplit(")", 1)[1].split()
+        cursor = int(stat[1])
+        ancestors.add(cursor)
+    for line in listing.splitlines()[1:]:
+        fields = line.split(None, 4)
+        if len(fields) != 5 or int(fields[0]) in ancestors:
+            continue
+        if re.search(r"(?:^|[ /])(?:run_mutants(?:\.sh)?|(?:runner\.sh|driver\.py)\s+(?:mutants|all-mutants|body-mutants))(?:\s|$)", fields[4]):
+            record_deferred("another mutation run is live", 79)
+            print("DEFERRED: another mutation run is live; re-check later", flush=True)
+            raise SystemExit(79)
 
 
 def guard() -> None:
@@ -36,7 +75,7 @@ def guard() -> None:
 
 
 def phase(name: str, state: str) -> None:
-    log = REPO / "PHASE-LOG.txt"
+    log = TEMP / "phases.txt"
     if log.exists():
         with log.open("a") as stream:
             stream.write(f"{datetime.now(ZoneInfo('UTC')).isoformat()} codexB {name} {state}\n")
@@ -68,12 +107,29 @@ def overlap_inputs() -> tuple[Path, Path, list[str]]:
 
 def heavy(command: list[str], cwd: Path, log: Path) -> None:
     """One worker; exit 75 never falls through to an unguarded invocation."""
-    while True:
+    retry_seconds = float(os.environ.get("DRIVER_HEAVY_RETRY_SECONDS", "1800"))
+    if retry_seconds < 0:
+        raise ValueError("retry interval must be nonnegative")
+    for attempt in range(1, 5):
         guard()
+        now = datetime.now(ZoneInfo("America/New_York"))
+        if now.hour == 23 and now.minute >= 40:
+            record_deferred("23:40 ET attempt cutoff reached", 79)
+            print("DEFERRED: 23:40 ET attempt cutoff reached (79)", flush=True)
+            raise SystemExit(79)
         env = dict(os.environ, HEAVY_WAIT="30")
         process = subprocess.Popen(["heavy-run", *command], cwd=cwd, env=env,
                                    stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                                    text=True, start_new_session=True)
+        def stop_child(signum, frame):
+            os.killpg(process.pid, signal.SIGTERM)
+            try:
+                process.wait(timeout=10)
+            except subprocess.TimeoutExpired:
+                os.killpg(process.pid, signal.SIGKILL)
+                process.wait()
+            raise SystemExit(128 + signum)
+        previous = {sig: signal.signal(sig, stop_child) for sig in (signal.SIGINT, signal.SIGTERM)}
         try:
             output, _ = process.communicate(timeout=600)
         except subprocess.TimeoutExpired:
@@ -86,12 +142,32 @@ def heavy(command: list[str], cwd: Path, log: Path) -> None:
                 output, _ = process.communicate()
             log.write_text(public_log(output))
             raise RuntimeError(f"timed out process group {process.pid}; see {log.name}")
+        finally:
+            for sig, handler in previous.items():
+                signal.signal(sig, handler)
         with log.open("a") as stream:
             stream.write(public_log(f"COMMAND {command!r}\n{output}\nEXIT {process.returncode}\n"))
         if process.returncode == 75:
-            print("heavy-run deferred (75); retrying in 30 seconds", flush=True)
-            time.sleep(30)
+            now = datetime.now(ZoneInfo("America/New_York"))
+            stamp = now.astimezone(ZoneInfo("UTC")).isoformat()
+            line = f"{stamp} DEFER heavy-run exit 75; attempt {attempt}/4"
+            print(line, flush=True)
+            with log.open("a") as stream:
+                stream.write(line + "\n")
+            cutoff = now.replace(hour=23, minute=40, second=0, microsecond=0)
+            # Never sleep into the stop time or quiet hours.
+            if attempt == 4 or now.hour < 3 or now.timestamp() + retry_seconds >= cutoff.timestamp():
+                with log.open("a") as stream:
+                    stream.write("DEFERRED exit 79\n")
+                print("DEFERRED: heavy-run remains unavailable (79)", flush=True)
+                record_deferred("heavy-run 75; attempt/time cap reached", log=log)
+                raise SystemExit(79)
+            time.sleep(retry_seconds)
             continue
+        if process.returncode == 78:
+            record_deferred("STOP: heavy-run configuration refusal", 78, log=log)
+            print("STOP: heavy-run configuration refusal (78)", flush=True)
+            raise SystemExit(78)
         if process.returncode != 0:
             raise RuntimeError(f"command failed ({process.returncode}): {command!r}\n{output[-6000:]}")
         if "SCRIPT ERROR:" in output or "Parse Error:" in output:
@@ -138,24 +214,35 @@ def image_oracle(capture_dir: Path) -> list[dict]:
     return joints
 
 
-def suite(source: Path, output: Path, *, announce: bool = True) -> dict:
+def suite(source: Path, output: Path, *, announce: bool = True,
+          character: str = "trenchcoat") -> dict:
+    from body_driver import read_manifest
+    manifest = read_manifest(source, character)
+    config = manifest["_character"]
     guard()
     work = Path(tempfile.mkdtemp(prefix="suite-", dir=TEMP))
     project = work / "prototype"
     captures = work / "captures"
     captures.mkdir()
     clone(source, project)
+    prop = manifest["facing"]["weapon_part"]
+    prop_slot = next(s for s in manifest["slots"] if s["part"] == prop)
+    (captures / "legacy-config.json").write_text(json.dumps({
+        "subject": config["subject"], "scenes": config["legacy_scenes"],
+        "prop_node": "Gun" if prop == "gun" else "Part_" + prop,
+        "hand_bone": prop_slot["bone"],
+    }))
     log = work / "godot.txt"
     heavy(["godot", "--single-threaded-scene", "--headless", "--path", str(project), "--editor", "--import"], project, log)
     heavy(["godot", "--single-threaded-scene", "--headless", "--path", str(project), "--script", "res://tests/check_rig.gd",
            "--", "observe", str(captures)], project, log)
     observed = json.loads((captures / "observed.json").read_text())
-    heavy(["xvfb-run", "-a", "godot", "--single-threaded-scene", "--path", str(project), "--audio-driver", "Dummy",
+    heavy(["godot", "--single-threaded-scene", "--path", str(project), "--audio-driver", "Dummy",
            "--script", "res://tests/check_rig.gd", "--", "render", str(captures)], project, log)
     joints = image_oracle(captures)
     cases = {}
     for number in ("1", "2", "3", "4"):
-        errors = [f"{mode}: {error}" for mode in ("hd", "pixel")
+        errors = [f"{mode}: {error}" for mode in config["legacy_scenes"]
                   for error in observed["cases"][f"{mode}/{number}"]]
         cases[number] = {"name": LABELS[number], "passed": not errors, "errors": errors}
     errors = [f"{item['mode']}/{item['joint']}/{item['limit']}: "
@@ -195,17 +282,20 @@ def suite(source: Path, output: Path, *, announce: bool = True) -> dict:
     return result
 
 
-def animation_edit(project: Path, kind: str) -> list[str]:
+def animation_edit(project: Path, kind: str, character: str = "trenchcoat") -> list[str]:
+    from body_driver import read_manifest
+    manifest = read_manifest(project, character)
     changed = []
-    for mode in ("hd", "pixel"):
-        path = project / "scenes" / f"{mode}.tscn"
+    for mode, scene in manifest["_character"]["legacy_scenes"].items():
+        path = project / scene
         text = path.read_text()
         if kind == "bone":
+            bone_name = "hair" if character == "trenchcoat" else manifest["facing"]["head_part"]
             # Remove a leaf bone and its attached sprite; preserve the JSON oracle.
             blocks = re.split(r"(?=^\[node )", text, flags=re.M)
             kept = [block for block in blocks if not (
-                re.match(r'\[node name="hair" type="Bone2D"', block) or
-                re.match(r'\[node name="Part_hair" ', block))]
+                block.startswith(f'[node name="{bone_name}" type="Bone2D"') or
+                block.startswith(f'[node name="Part_{bone_name}" '))]
             assert len(kept) == len(blocks) - 2, "leaf bone mutation did not match"
             text = "".join(kept)
         else:
@@ -245,13 +335,27 @@ def asset_hashes(project: Path) -> dict[str, str]:
             for path in paths}
 
 
-def mutants() -> bool:
+def mutants(character: str = "trenchcoat") -> bool:
+    from body_driver import read_manifest
+    config = read_manifest(PROTOTYPE, character)["_character"]
+    result_dir = PROTOTYPE / "tests" / "results" / character
+    result_dir.mkdir(parents=True, exist_ok=True)
+    missing = [config[key] for key in ("scene", "subject") if not (PROTOTYPE / config[key]).is_file()]
+    if missing:
+        report = [{"mutant": name, "status": "CANNOT_PLANT",
+                   "reason": f"{character} rig/scene does not exist: " + ", ".join(missing)}
+                  for name in ("a", "b", "d")]
+        (result_dir / "legacy-mutants.json").write_text(json.dumps(report, indent=2) + "\n")
+        print(f"{character}: mutants a,b,d CANNOT_PLANT; missing rig/scene", flush=True)
+        return False
     phase("mutants", "start")
-    baseline = suite(PROTOTYPE, TEMP / "baseline.json", announce=False)
+    baseline = suite(PROTOTYPE, TEMP / "baseline.json", announce=False, character=character)
     baseline_joints = {(j["mode"], j["joint"], j["limit"]): j for j in baseline["joints"]}
     report = []
-    for name, kind, expected in (("a", "flash", "3"), ("b", "bone", "1"),
-                                 ("c", "overlap", "5"), ("d", "timing", "2")):
+    trials = [("a", "flash", "3"), ("b", "bone", "1"), ("d", "timing", "2")]
+    if character == "trenchcoat":
+        trials.insert(2, ("c", "overlap", "5"))
+    for name, kind, expected in trials:
         print(f"Running mutant {name}: {kind}", flush=True)
         work = Path(tempfile.mkdtemp(prefix=f"mutant-{name}-", dir=TEMP))
         project = work / "prototypes" / "imagine-cutout"
@@ -269,8 +373,6 @@ def mutants() -> bool:
                 print(f"SKIP mutant {name}: missing {reason}", flush=True)
                 # Replace historical success evidence too: a skipped trial must
                 # never leave an old KILLED result under its current filename.
-                result_dir = PROTOTYPE / "tests" / "results"
-                result_dir.mkdir(parents=True, exist_ok=True)
                 (result_dir / f"mutant-{name}.json").write_text(json.dumps(report[-1], indent=2) + "\n")
                 for suffix in ("godot.txt", "prep.txt"):
                     (result_dir / f"mutant-{name}.{suffix}").write_text(f"SKIPPED: missing {reason}\n")
@@ -286,8 +388,8 @@ def mutants() -> bool:
                        if digest != before_hashes.get(path)]
             assert json.loads((project / "parts.json").read_text())["overlap_px"] == 0
         else:
-            changed = animation_edit(project, kind)
-        result = suite(project, TEMP / f"mutant-{name}.json", announce=False)
+            changed = animation_edit(project, kind, character)
+        result = suite(project, TEMP / f"mutant-{name}.json", announce=False, character=character)
         red = [number for number, case in result["tests"].items() if not case["passed"]]
         new_red = [number for number in red if baseline["tests"][number]["passed"]]
         worsened = []
@@ -304,11 +406,11 @@ def mutants() -> bool:
                        "worsened_joints": worsened, "status": "KILLED" if killed else "SURVIVED"})
         print(f"{'PASS' if killed else 'FAIL'} mutant {name}: expected {expected}; red {','.join(red)}; "
               f"{'KILLED' if killed else 'SURVIVED'}; increased-gap joints {len(worsened)}", flush=True)
-        shutil.copy2(TEMP / f"mutant-{name}.json", PROTOTYPE / "tests" / "results" / f"mutant-{name}.json")
+        shutil.copy2(TEMP / f"mutant-{name}.json", result_dir / f"mutant-{name}.json")
         shutil.copy2((TEMP / f"mutant-{name}.json").with_suffix(".godot.txt"),
-                     PROTOTYPE / "tests" / "results" / f"mutant-{name}.godot.txt")
+                     result_dir / f"mutant-{name}.godot.txt")
         if kind == "overlap":
-            shutil.copy2(prep_log, PROTOTYPE / "tests" / "results" / "mutant-c.prep.txt")
+            shutil.copy2(prep_log, result_dir / "mutant-c.prep.txt")
         shutil.rmtree(work)
     lines = ["mutant | file changed | expected test | observed red tests | result",
              "--- | --- | --- | --- | ---"]
@@ -318,38 +420,55 @@ def mutants() -> bool:
     lines.extend(["", "Baseline red tests: " + ",".join(n for n, c in baseline["tests"].items() if not c["passed"]),
                   "KILLED requires a newly red expected test, or increased gap pixels for the already-red overlap test.",
                   "", json.dumps(report, indent=2)])
-    (PROTOTYPE / "mutants.log").write_text("\n".join(lines) + "\n")
-    (PROTOTYPE / "tests" / "results" / "mutants.json").write_text(json.dumps(report, indent=2) + "\n")
+    (result_dir / "mutants.txt").write_text("\n".join(lines) + "\n")
+    (result_dir / "legacy-mutants.json").write_text(json.dumps(report, indent=2) + "\n")
     phase("mutants", "end")
     return all(item["status"] in ("KILLED", "SKIPPED") for item in report)
 
 
 def main() -> int:
+    global RERUN_COMMAND, DEFERRED_EVIDENCE
     parser = argparse.ArgumentParser()
     parser.add_argument("mode", choices=("suite", "mutants", "body", "body-mutants", "all-mutants", "oracle"))
-    parser.add_argument("--output", type=Path, default=PROTOTYPE / "tests" / "results" / "real.json")
+    parser.add_argument("--character", default="trenchcoat")
+    parser.add_argument("--output", type=Path)
     args = parser.parse_args()
+    replay = []
+    for arg in sys.argv[1:]:
+        if arg.startswith(str(REPO) + os.sep):
+            arg = str(Path(arg).relative_to(REPO))
+        replay.append(arg)
+    RERUN_COMMAND = 'TEST_PYTHON="${TEST_PYTHON:-python3}" heavy-run prototypes/imagine-cutout/tests/runner.sh ' + shlex.join(replay)  # TEST_PYTHON if set, else python3
     guard()
+    from body_driver import character_index
+    if args.character not in character_index(PROTOTYPE)["characters"]:
+        parser.error("unknown character: " + args.character)
+    DEFERRED_EVIDENCE = (args.output.with_suffix(".deferred.txt") if args.output else
+                         PROTOTYPE / "tests" / "results" / args.character / (args.mode + "-deferred.txt"))
+    if args.mode in ("mutants", "body-mutants", "all-mutants"):
+        mutation_guard()
     if args.mode == "oracle":
         import unittest
-        from test_body_oracle import GapOracleControls, PoseCoverageControls
+        from test_body_oracle import GapOracleControls, PoseCoverageControls, CharacterManifestControls
         checks = unittest.TestSuite(unittest.defaultTestLoader.loadTestsFromTestCase(case)
-                                    for case in (GapOracleControls, PoseCoverageControls))
+                                    for case in (GapOracleControls, PoseCoverageControls, CharacterManifestControls))
         return 0 if unittest.TextTestRunner(verbosity=2).run(checks).wasSuccessful() else 1
     if args.mode in ("mutants", "all-mutants"):
-        legacy_passed = mutants()
+        legacy_passed = mutants(args.character)
         if args.mode == "mutants":
             return 0 if legacy_passed else 1
         from body_driver import body_mutants
-        return 0 if body_mutants() and legacy_passed else 1
+        return 0 if body_mutants(character=args.character) and legacy_passed else 1
     if args.mode in ("body", "body-mutants"):
         from body_driver import body_suite, body_mutants
         if args.mode == "body-mutants":
-            return 0 if body_mutants() else 1
-        result = body_suite(PROTOTYPE, PROTOTYPE / "tests" / "results" / "body-parts" / "red-first.json")
+            return 0 if body_mutants(character=args.character) else 1
+        result = body_suite(PROTOTYPE, args.output or PROTOTYPE / "tests" / "results" / args.character / "body.json",
+                            character=args.character)
         return 0 if result["passed"] else 1
     phase("real-suite", "start")
-    result = suite(PROTOTYPE, args.output.resolve())
+    output = args.output or PROTOTYPE / "tests" / "results" / args.character / "legacy.json"
+    result = suite(PROTOTYPE, output.resolve(), character=args.character)
     phase("real-suite", "end")
     return 0 if result["passed"] else 1
 

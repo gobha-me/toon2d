@@ -5,7 +5,8 @@ Run `prototypes/imagine-cutout/tests/run_tests.sh` from any directory. Run
 The repository's `.venv/bin/python`, Godot, Xvfb, Pillow and NumPy are required.
 The runners enforce quiet hours, at least 5 GiB free on the repository and `/tmp`,
 two CPU workers, a fresh `/tmp/tween-<runid>` and EXIT cleanup. Every Godot process
-and preparation run goes through `heavy-run`; exit 75 is retried after 30 seconds.
+and preparation run goes through `heavy-run`; exit 75 is retried after 30 minutes
+(up to four attempts, stopping before 23:40 ET), then reported DEFERRED/79.
 Only temporary copies are imported or mutated. No existing render is an oracle.
 
 ## Frozen acceptance rules (written before the first joint test)
@@ -410,3 +411,152 @@ the passing fresh baseline from the mutant suite, not the earlier PoC reds or
 a separate saved body-suite attempt. Historical observations above remain
 historical. This phase only read and recorded existing evidence; it ran no
 tests, runners, suites or Godot, and changed no assertion, tolerance or harness.
+
+## Issue 18: recorded Xvfb ownership (M1)
+
+The runner starts Xvfb with `-displayfd`, writes its child PID immediately to
+`$TMPDIR/xvfb.pid`, exports DISPLAY, then stops and waits for that recorded
+child before removing scratch. EXIT, INT and TERM share this cleanup. Drivers
+render on this display without `xvfb-run`. An active heavy child receives TERM
+through its recorded process group and is waited for before X server cleanup.
+
+The allowlisted `xvfb_no_orphan_normal_exit` and `xvfb_no_orphan_on_term` checks
+use a quick consumer in a disposable copy of the runner. They require a real
+X server, retain the PID from its pidfile, and assert that `kill(pid, 0)` fails,
+its display lock is absent and scratch is removed after the runner exits.
+The old runner fails the recorded-PID ownership contract before any process
+lookup; these controls never discover a server by name or display number.
+
+`driver_heavy_defer_policy` invokes the real `driver.heavy` with a PATH stub:
+75/0 must succeed after two attempts, persistent 75 must produce DEFERRED/79
+at four attempts, and 78 must stop immediately. The default retry interval is
+1,800 seconds, injectable through `DRIVER_HEAVY_RETRY_SECONDS` for this test.
+Retries stop before 23:40 ET and never enter quiet hours. Every 75 is UTC dated.
+
+Red-first command (exported old harness at dffcb51):
+
+```bash
+heavy-run <PYTHON> prototypes/imagine-cutout/tests/test_harness_policy.py --baseline dffcb51
+heavy-run <PYTHON> prototypes/imagine-cutout/tests/test_harness_policy.py
+```
+
+Execution is **deferred (heavy-run 75)**, including red-first proof and current
+lifecycle/policy verification. The refusal is retained in
+`tests/results/harness-policy-red-first.txt`; it is not a red test result.
+Shell syntax and Python parsing pass. No existing assertion was edited in M1.
+
+## Issue 18: character contracts (M2)
+
+`characters.yml` is a test-owned JSON-compatible YAML index. It selects the
+manifest, HD scene, subject declaration, legacy scene modes, required slot/joint
+inventories, random count and seed. Every runner accepts `--character` (default
+`trenchcoat`). Evidence now goes to `tests/results/<character>/`, preserving the
+historical PoC red-first evidence. `--output` selects the body/legacy result file.
+The observer receives the selected contract through scratch `manifest.json`;
+no production manifest, scene, script or part is rewritten.
+
+| Character | Canvas | Joints | Required slots | Singles | Pair extremes | Random N / seed |
+|---|---|---|---|---|---|---|
+| trenchcoat | 1152 x 1728 | 21 | 14 | 42 | 840 | 200 / 20261030 |
+| char2 | 512 x 768 | 15 | 14 | 30 | 420 | 200 / 20261031 |
+
+Trenchcoat's original `body_parts.yml`, pivots, limits, overlap, tolerances and
+pose generation order/values are unchanged. The parameterized coverage control
+compares its entire pose plan with the retained historical plan. The fresh
+trenchcoat verdict comparison requires a heavy-run execution and is pending.
+
+Char2 is an original fictional stocky courier carrying a rigid satchel. Each
+pivot, limit and overlap has a reason and `v2-new, chosen` basis. The head axis
+and satchel handle axis are provisional design requirements until actual art
+can be reviewed. No artwork or rig is invented, and no placeholder is needed
+for the missing-scene test. The same zero-pixel tolerance and oracle apply.
+
+Mutants a,b,d use character-selected scene paths; e,f,g,h use the selected
+manifest, head part, knee, arm textures and subject declaration. A non-gun prop
+uses `Part_<id>` rather than `Gun`. Char2 mutants cannot be planted until its
+rig and subject declaration exist; no missing-scene result counts as a kill.
+Mutation comparisons still require newly relevant failures or increased gaps.
+
+Existing assertion edits in M2 (line numbers refer to this commit):
+
+- `tests/body_driver.py:88-90`: fixed slot count/inventory and joint tuple ->
+  character-index inventory; the trenchcoat index is additionally checked
+  against the same frozen Python constants. Reason: independent per-character
+  inventories while preserving the old trenchcoat requirements.
+- `tests/body_driver.py:139`: fixed random count in pose-count assertion ->
+  selected count (index validates N >= 200); trenchcoat remains exactly 200.
+- `tests/body_driver.py:214-216`: fixed atlas joint tuple/width -> selected
+  manifest tuple/width. Reason: char2 has 15 joints, trenchcoat still has 21.
+- `tests/test_body_oracle.py:62-71`: fixed 200 random poses, 840 pairs and
+  fixed joint-name set -> selected N, exhaustive pair formula and selected
+  inventory. The full historical trenchcoat pose equality assertion is added.
+- `tests/driver.py` animation mutation's fixed hair removal assertion keeps
+  the same removal count (two nodes), with a character-selected leaf name.
+
+No numerical tolerance, gap rule, alpha threshold or mutation kill criterion
+was relaxed. All new checks are the brief's allowlisted schema, parameterized
+existing acceptance/coverage checks, or lifecycle/heavy-policy checks.
+
+## Issue 18: char2 red-first admission (M3)
+
+The char2 command is recorded in `tests/results/char2/red-first.txt`.
+It is **deferred (heavy-run 75)**: the guard refused to start, so no acceptance
+verdict is reported. On admission, the expected results are manifest GREEN and
+completeness, per-joint, combined and facing RED because `scenes/char2.tscn`
+and `characters/char2/parts.json` do not exist. This is an expected missing-rig
+failure, with zero captured poses; no synthetic raster results are substituted.
+The planned schedule remains 30 singles + 420 pair extremes + 200 random poses.
+
+M4, including fresh trenchcoat legacy/body verdicts, byte-equivalent verdict
+comparison, all mutants, current lifecycle proof, and old-harness red-first
+policy proof, remains **deferred (heavy-run 75)**. Exact guarded reruns and last
+refusal timestamps are in the local `.codex-q/DEFERRED.md` handoff.
+The driver also appends capped deferrals there automatically for runner calls.
+The mutation entrypoints inspect `ps -eo pid,pgid,sid,etime,args` first and
+refuse concurrent mutation work from another invocation. They never signal
+those processes. No existing assertion changed in this M3 follow-up; the new
+source-canvas equality check adds a completeness failure when a subject uses
+the wrong selected canvas. Static shell/Python/JSON checks pass; runtime
+verification remains deferred and the overall status is DEFERRED, not PASS.
+
+The refused current-validation batch is retained in
+`tests/results/current-validation-deferred.txt`. No command in that batch
+executed. `tests/compare_body_verdicts.py` compares fresh trenchcoat `tests`
+objects as canonical JSON bytes, plus the complete pose hash, against the
+retained v2 acceptance. It requires a full green run and returns DEFERRED/79
+when that fresh result is absent. This is the existing acceptance regression
+comparison, not an additional kind of rig test.
+
+The final static audit parsed every Python test/helper, checked every shell
+runner with `bash -n`, parsed both new manifest files, and confirmed the
+trenchcoat manifest is byte-identical to the starting revision. Stubbed policy
+cases inject a fixed daytime clock so the 75/0, 75-forever and 78 expectations
+are deterministic without replacing `driver.heavy`. These static checks do
+not establish runtime green or red results. Refusal logs survive scratch
+cleanup, and the driver enforces the 23:40 ET cutoff before starting an attempt.
+
+## Verification evidence review
+
+The runtime deferrals above are superseded by the [Phase B evidence review](tests/results/verify-char2/README.md). All eight scheduled commands completed in one attempt each on 2026-10-31, 12:26:50Z-12:33:14Z. Launcher STATUS=COMPLETE; overall verification **FAIL**. The current harness policy returned rc 1: normal-exit and TERM lifecycle checks both failed because the real X server lock was absent. The driver retry-policy control passed, but lifecycle cleanup remains unproved and the cause is unresolved. No assertions or tolerances were changed.
+
+The old harness dffcb51 and char2 missing-rig acceptance are **expected-RED** (rc 1 each). Char2 manifest passed; its four runtime acceptance groups rejected missing inputs and captured zero poses. Oracle controls, trenchcoat legacy 1-5 in both modes, full trenchcoat body acceptance and verdict/pose-hash equality all **PASS** (rc 0 each). Trenchcoat mutation **PASS** (rc 0): a,b,d,e,f,g,h killed, c explicitly skipped for absent raw source PNGs. Char2 mutants remain **not-run / CANNOT_PLANT** without a rig; no kill is claimed.
+
+Exact ledger commands, return codes, attempt counts, UTC intervals and sanitized per-attempt logs are retained under `tests/results/verify-char2/`. Phase B executed no tests or heavy commands. The lifecycle failure leaves the rig evidence gate unresolved.
+
+## Issue 18: real Xvfb lock repair verification
+
+The [Xvfb lock evidence](tests/results/xvfb-lock/README.md) supersedes the earlier
+unresolved lifecycle result. The verification controller recorded item **03
+GREEN**: the fixed harness returned **0**, with normal-exit, TERM and retry-policy
+checks all passing; old harness `dffcb51` returned **1**, with both lifecycle
+checks failing at the recorded-PID assertion (plus three retry-policy failures).
+All five scheduled probe/policy items ran once, from **2026-10-31T21:38:55Z**
+to **2026-10-31T21:42:52Z**. The evidence records each command, rc and UTC interval.
+
+The initial display-fd server had a socket but no real lock. Change commit
+`4141db3e6a2dfa12b957945ee82ae51603d69882` uses an explicit display candidate and
+SIGUSR1 readiness while retaining recorded-PID ownership. The fixed probe shows
+its real lock contains that PID. Existing desktop resources remained unchanged.
+No assertions or timing budgets changed. This evidence review ran no tests or
+heavy commands; sanitized logs and controller-verdict hashes are retained beside
+the report. Any controller completion or review gate is recorded separately.

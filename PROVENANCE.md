@@ -16,7 +16,7 @@ License files: `LICENSE` (Apache-2.0 for code/skill), `LICENSE-ART` (CC BY 4.0 h
 
 ## Summary counts
 
-- Hand-made / code-drawn / derived-from-code-drawn (tracked media rows): **227** (CC BY 4.0)
+- Hand-made / code-drawn / derived-from-code-drawn (tracked media rows): **243** (CC BY 4.0)
 - AI-generated source stills: **22** (CC0 1.0; 21× Grok Imagine via cursor `GenerateImage`, 1× local mirror derived from one of them)
 - Imagine cutout prototype (§2c): **33** Grok Imagine Segments source stills (not committed; `.gen.json` sidecars only) and **193** committed derived stills (CC0 1.0)
 - Derived from AI sources (atlases, shots, work, prototype binaries): **147** (CC0 with sources), plus the 193 imagine-cutout stills in §2c
@@ -41,6 +41,12 @@ Engine JS under `docs/play/engine/` is a published copy of `skills/toon2d-runtim
 
 ### Evidence
 
+- Taste teaching sheets: the 16 SVG files under `skills/toon2d-runtime-animation/reference/taste-examples/`
+  are original fictional geometry drawn by `scripts/taste-examples.mjs`, added 2026-11-03 (UTC).
+  Each of `proportions`, `silhouette`, `line-weight`, `palette`, `shading`, `on-model`, `game-scale`
+  and `appeal` has a `-clear.svg` and an `-adverse.svg` sheet. No external source images or
+  image-generation service was used. CC BY 4.0, credited to the toon2d contributors;
+  the generator is Apache-2.0. These are unscored public teaching examples, not calibration evidence.
 - Toon prototype: `README.md` / `REVIEW-styles.md` — canvas character painted by code (`paint.js`, `limbmesh.js`, `pixelface.js`); `parts.json` uses `"image": null`.
 - Skill fixture: `skills/toon2d-runtime-animation/evals/fixtures/make_vex_sheet.py` generates Vex pixel parts with Pillow.
 - Eval runs: cold Codex/Claude captures of builds from that skill + fixture.

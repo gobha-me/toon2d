@@ -30,9 +30,12 @@ silhouette and a small palette can score 5 on every axis. A cluttered sheet wher
 (or itself) scores **low** on silhouette, palette, game-scale readability and appeal, however much effort it shows. When
 a fix adds detail, check that the 1x view got easier to read, not harder.
 
-## Reference style targets (described, not supplied)
+## Reference style targets
 
-Aim at one of these looks. They are descriptions so that you build your own art; do not copy any existing game's sprites.
+The [original teaching sheets](taste-examples/README.md) show clear and deliberately
+damaged cel treatments for every axis above. Compare them at their intrinsic size
+before enlarging. They illustrate defects, not calibrated scores or hidden grader
+references. Aim at one of these looks; do not copy any existing game's sprites.
 
 1. **Clean pixel art.** Low-resolution buffer, integer upscale. One dark 1-pixel outline (or a darker shade of the fill
    colour). About 12-16 colours. Two-tone cel shading with light from the upper left. Flat or very quiet background with

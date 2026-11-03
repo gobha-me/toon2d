@@ -1,0 +1,7 @@
+{
+  "generator": "Godot 4.7.2 runtime capture",
+  "timestamp_utc": "2026-11-03T01:24:31.851960+00:00",
+  "source": "scenes/pixel.tscn",
+  "derived_from": "idle frame 6, aim endpoint, fire frame 2, cooldown frame 10; nearest enlargement for the 3x view",
+  "sha256": "57bc54006aae22f9637d8c65b0fc4192d681dcc83c094f9ef6f7bae833e2a73a"
+}

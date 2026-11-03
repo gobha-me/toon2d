@@ -1,0 +1,21 @@
+{
+  "clip_checks": 3842,
+  "clip_failures": 0,
+  "mutants": {
+    "m1": "KILLED",
+    "m2": "KILLED",
+    "m3": "KILLED",
+    "m3b": "KILLED",
+    "m4": "KILLED",
+    "m4b": "KILLED",
+    "m4c": "KILLED",
+    "m5": "KILLED"
+  },
+  "mutant_subject_commit": "1e79fd7",
+  "mutant_note": "Before shadow-palette polish; attachment shapes and animation tracks are identical to the final subject. Final clip and legacy suites were rerun after palette polish.",
+  "frozen_test_sha256": {
+    "tests/clip_driver.py": "b80fc6a56b1f09fceb720da38f2d76ccde6af132fd3a6309b50018f7c671af47",
+    "tests/check_clips.gd": "b21cc522641faf7ac04f46ab6fef180e0b4a63d33207f20785c29c312583bcd3",
+    "body_parts.yml": "9650b5714447a517897dc872458f3865d9be095cf513cb96dfbb397dc9ae3bec"
+  }
+}

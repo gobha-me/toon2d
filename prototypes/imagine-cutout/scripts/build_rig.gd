@@ -156,15 +156,22 @@ func pixel_clip_backing(bone: Bone2D) -> void:
 	if source.region_enabled:
 		region = Rect2i(source.region_rect)
 		pivot += source.region_rect.position
-	var distance := INF
-	var color := Color.TRANSPARENT
+	var samples: Array = []
 	for y in range(region.position.y, region.end.y):
 		for x in range(region.position.x, region.end.x):
 			var candidate := image_.get_pixel(x, y)
 			var squared := (Vector2(x, y) - pivot).length_squared()
-			if candidate.a >= 0.5 and squared < distance:
-				distance = squared
-				color = candidate
+			if candidate.a >= 0.5:
+				samples.append({"distance": squared, "color": candidate})
+	if samples.is_empty():
+		push_error("Empty pixel attachment material: " + bone.name)
+		return
+	samples.sort_custom(func(a, b): return a.distance < b.distance)
+	var nearby := samples.slice(0, mini(16, samples.size()))
+	nearby.sort_custom(func(a, b): return a.color.get_luminance() < b.color.get_luminance())
+	# A shadow tone from the local palette keeps a single bright highlight
+	# from becoming a large patch when exposed at a rotating attachment.
+	var color: Color = nearby[nearby.size() / 4].color
 	var cap := Polygon2D.new()
 	cap.name = "ClipBacking_" + bone.name
 	# Include the rounding margin needed when a cap rotates across the grid.

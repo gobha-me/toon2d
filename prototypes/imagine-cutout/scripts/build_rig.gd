@@ -101,6 +101,11 @@ func build() -> void:
 			cap.z_index = backing.z_order
 			cap.z_as_relative = false
 			owned(cap, bones[backing.bone])
+		# Rotating the original pixel cutouts exposes seams that their HD
+		# replacements already back. Keep a palette-matched cap behind each
+		# affected attachment, including the transplanted weapon hand.
+		for name_ in ["torso", "coat", "right_upper", "left_arm", "hem_left", "right_fore", "right_hand"]:
+			pixel_clip_backing(bones[name_])
 	# One gun sprite, no animation tracks target its transform or texture.
 	var flash := Node2D.new()
 	flash.name = "MuzzleFlash"
@@ -135,6 +140,46 @@ func build() -> void:
 	var error := ResourceSaver.save(packed, path)
 	print("Baked ", path, " result=", error)
 	rig.free()
+
+func pixel_clip_backing(bone: Bone2D) -> void:
+	var source: Sprite2D
+	for child in bone.get_children():
+		if child is Sprite2D and child.name != "Gun":
+			if source == null or child.z_index > source.z_index:
+				source = child
+	if source == null:
+		push_error("Missing pixel attachment material: " + bone.name)
+		return
+	var image_ := source.texture.get_image()
+	var pivot := source.transform.affine_inverse() * Vector2.ZERO
+	var region := Rect2i(Vector2i.ZERO, image_.get_size())
+	if source.region_enabled:
+		region = Rect2i(source.region_rect)
+		pivot += source.region_rect.position
+	var distance := INF
+	var color := Color.TRANSPARENT
+	for y in range(region.position.y, region.end.y):
+		for x in range(region.position.x, region.end.x):
+			var candidate := image_.get_pixel(x, y)
+			var squared := (Vector2(x, y) - pivot).length_squared()
+			if candidate.a >= 0.5 and squared < distance:
+				distance = squared
+				color = candidate
+	var cap := Polygon2D.new()
+	cap.name = "ClipBacking_" + bone.name
+	# Include the rounding margin needed when a cap rotates across the grid.
+	var radius := ceilf(float(data.overlap_px) * float(data.pixel_scale)) + 3.0
+	if bone.name in ["right_fore", "right_hand"]:
+		# The weapon arm compounds shoulder and elbow origin snapping.
+		radius += 1.0
+	var points := PackedVector2Array()
+	for index in 24:
+		points.append((Vector2.from_angle(TAU * index / 24.0) * radius).round())
+	cap.polygon = points
+	cap.color = color
+	cap.z_index = source.z_index - 1
+	cap.z_as_relative = false
+	owned(cap, bone)
 
 func track(anim: Animation, path: String, property: String, keys: Array, discrete: bool = false) -> void:
 	var index := anim.add_track(Animation.TYPE_VALUE)

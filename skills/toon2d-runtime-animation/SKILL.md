@@ -29,6 +29,11 @@ measuring it; the scripts prove a result instead of trusting a screenshot.
    the rubric catches what metrics can't (appeal, readability).
 6. Fix the lowest rubric axis first using [reference/pitfalls.md](reference/pitfalls.md), re-run 4-5, record before/after.
 
+For the eight-axis art review, use the [bounded visual review workflow](reference/self-review.md).
+`scripts/self-review.mjs` captures native key poses, a 3x view and a motion strip,
+records pixel-specific observations, and stops after a pass or three rounds.
+Author scores remain provisional; they do not enter the separate grader.
+
 `<skill>` = the directory containing this file. All scripts are zero-dependency Node ≥ 22 ES modules; capture/score
 need a Chrome/Chromium binary (auto-found, or set `CHROME_PATH`).
 

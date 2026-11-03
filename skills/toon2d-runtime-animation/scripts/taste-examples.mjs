@@ -47,12 +47,12 @@ function character(axis, adverse, frame) {
   parts += arm(0);
   parts += `<path d="M-11 34 Q0 30 11 34 L14 62 Q0 68 -14 62 Z" fill="${coat}" stroke="${ink}" stroke-width="${line}"/>`;
   const reverseLight = adverse && axis === 'shading' && frame % 2;
-  parts += `<path d="${reverseLight ? 'M-11 36 L-2 39 L-1 63 L-12 61 Z' : 'M9 36 L2 42 L3 64 L12 61 Z'}" fill="${shade}"/>`;
+  parts += `<path d="${reverseLight ? 'M-11 35 L1 37 L1 65 L-12 61 Z' : 'M10 35 L-1 37 L-1 65 L12 61 Z'}" fill="${shade}"/>`;
   parts += `<path d="M-11 33 L10 34 L${rigid ? 10 : -22} ${rigid ? 49 : 29 + frame} L-8 27 Z" fill="${scarf}" stroke="${ink}" stroke-width="${line}"/>`;
   parts += arm(1);
   parts += `<g transform="translate(0 20) scale(${headScale})">`;
   parts += `<path d="M-12 -10 Q-16 0 -9 11 Q3 17 13 6 L14 -8 Z" fill="${skin}" stroke="${ink}" stroke-width="${line}"/>`;
-  parts += `<path d="${reverseLight ? 'M-11 -6 Q-13 6 -5 11 L-1 3 Z' : 'M11 -6 L5 3 L4 12 Q12 9 13 5 Z'}" fill="${silhouette ? ink : muddy ? coat : '#cc916b'}"/>`;
+  parts += `<path d="${reverseLight ? 'M-11 -6 Q-13 6 -4 12 L1 12 L1 1 Z' : 'M11 -6 L2 1 L2 13 Q12 9 13 5 Z'}" fill="${silhouette ? ink : muddy ? coat : '#cc916b'}"/>`;
   const hairTop = drift && frame === 2 ? -20 : -15;
   parts += `<path d="M-14 2 L-15 -10 L-7 ${hairTop} L3 -13 L11 -16 L16 -6 L10 -3 L4 -7 L-2 -2 L-8 -5 L-9 5 Z" fill="${ink}"/>`;
   if (!silhouette) {

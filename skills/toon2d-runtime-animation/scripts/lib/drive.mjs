@@ -7,18 +7,30 @@ import { crop, fromB64 } from './img.mjs';
 
 export async function open(projectDir, query = '') {
   const server = await startServer(projectDir);
-  const page = await launch();
-  const sep = query ? `&${query}` : '';
-  const ok = await page.goto(`${server.url}index.html?harness=1${sep}`);
-  if (!ok) {
-    const errs = page.errors.join('\n');
-    await page.close();
-    server.close();
-    throw new Error(`page never exposed window.__toon (contract missing or boot error)\n${errs}`);
+  let page;
+  const close = async () => {
+    try {
+      await page?.close();
+    } finally {
+      server.close();
+    }
+  };
+  try {
+    page = await launch();
+    const sep = query ? `&${query}` : '';
+    const ok = await page.goto(`${server.url}index.html?harness=1${sep}`);
+    if (!ok) {
+      const errs = page.errors.join('\n');
+      throw new Error(`page never exposed window.__toon (contract missing or boot error)\n${errs}`);
+    }
+    await page.eval('window.__toon.manual && window.__toon.manual(true), true');
+    const view = await page.eval('window.__toon.view()');
+    return { page, server, view, close };
+  } catch (error) {
+    // Cleanup must not replace the error that explains why capture setup failed.
+    try { await close(); } catch { /* preserve setup error */ }
+    throw error;
   }
-  await page.eval('window.__toon.manual && window.__toon.manual(true), true');
-  const view = await page.eval('window.__toon.view()');
-  return { page, server, view, close: async () => { await page.close(); server.close(); } };
 }
 
 const REC = `(seg) => {

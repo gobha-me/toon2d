@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "manifest_sha256": "080892f267590f07bd422edaaeff76885cef4e698409991b3d4615234ad4c923",
+  "source_kind": "original scripted design; no Segments export supplied",
+  "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+  "slots": [
+    {
+      "slot": "head_face",
+      "part": "head",
+      "bone": "head",
+      "pivot": [
+        256,
+        160
+      ],
+      "parent": "torso",
+      "overlap_px": 12,
+      "action": "scripted",
+      "method": "profile face, nose, ear, hair and courier cap; rounded neck backing"
+    },
+    {
+      "slot": "upper_arm_left",
+      "part": "left_arm",
+      "bone": "left_arm",
+      "pivot": [
+        330,
+        250
+      ],
+      "parent": "torso",
+      "overlap_px": 12,
+      "action": "scripted",
+      "method": "far teal sleeve capsule; proximal round backing and manifest dilation"
+    },
+    {
+      "slot": "lower_arm_left",
+      "part": "left_fore",
+      "bone": "left_fore",
+      "pivot": [
+        344,
+        340
+      ],
+      "parent": "left_arm",
+      "overlap_px": 12,
+      "action": "scripted",
+      "method": "far teal forearm capsule and cuff; proximal backing and manifest dilation"
+    },
+    {
+      "slot": "hand_left",
+      "part": "left_hand",
+      "bone": "left_hand",
+      "pivot": [
+        352,
+        430
+      ],
+      "parent": "left_fore",
+      "overlap_px": 12,
+      "action": "scripted",
+      "method": "far mitten with thumb; proximal backing and manifest dilation"
+    },
+    {
+      "slot": "upper_arm_right",
+      "part": "right_upper",
+      "bone": "right_upper",
+      "pivot": [
+        182,
+        250
+      ],
+      "parent": "torso",
+      "overlap_px": 12,
+      "action": "scripted",
+      "method": "near teal sleeve capsule; proximal round backing and manifest dilation"
+    },
+    {
+      "slot": "lower_arm_right",
+      "part": "right_fore",
+      "bone": "right_fore",
+      "pivot": [
+        168,
+        340
+      ],
+      "parent": "right_upper",
+      "overlap_px": 12,
+      "action": "scripted",
+      "method": "near teal forearm capsule and cuff; proximal backing and manifest dilation"
+    },
+    {
+      "slot": "hand_right",
+      "part": "right_hand",
+      "bone": "right_hand",
+      "pivot": [
+        160,
+        430
+      ],
+      "parent": "right_fore",
+      "overlap_px": 12,
+      "action": "scripted",
+      "method": "near gripping mitten; proximal backing and manifest dilation"
+    },
+    {
+      "slot": "upper_leg_left",
+      "part": "leg_left",
+      "bone": "leg_left",
+      "pivot": [
+        216,
+        420
+      ],
+      "parent": "hip",
+      "overlap_px": 12,
+      "action": "scripted",
+      "method": "navy trouser capsule; proximal backing and manifest dilation"
+    },
+    {
+      "slot": "lower_leg_left",
+      "part": "shin_left",
+      "bone": "knee_left",
+      "pivot": [
+        216,
+        550
+      ],
+      "parent": "leg_left",
+      "overlap_px": 12,
+      "action": "scripted",
+      "method": "navy trouser calf capsule; proximal backing and manifest dilation"
+    },
+    {
+      "slot": "foot_left",
+      "part": "boot_left",
+      "bone": "boot_left",
+      "pivot": [
+        216,
+        680
+      ],
+      "parent": "knee_left",
+      "overlap_px": 12,
+      "action": "scripted",
+      "method": "right-pointing leather boot and sole; ankle backing and manifest dilation"
+    },
+    {
+      "slot": "upper_leg_right",
+      "part": "leg_right",
+      "bone": "leg_right",
+      "pivot": [
+        296,
+        420
+      ],
+      "parent": "hip",
+      "overlap_px": 12,
+      "action": "scripted",
+      "method": "navy trouser capsule; proximal backing and manifest dilation"
+    },
+    {
+      "slot": "lower_leg_right",
+      "part": "shin_right",
+      "bone": "knee_right",
+      "pivot": [
+        296,
+        550
+      ],
+      "parent": "leg_right",
+      "overlap_px": 12,
+      "action": "scripted",
+      "method": "navy trouser calf capsule; proximal backing and manifest dilation"
+    },
+    {
+      "slot": "foot_right",
+      "part": "boot_right",
+      "bone": "boot_right",
+      "pivot": [
+        296,
+        680
+      ],
+      "parent": "knee_right",
+      "overlap_px": 12,
+      "action": "scripted",
+      "method": "right-pointing leather boot and sole; ankle backing and manifest dilation"
+    },
+    {
+      "slot": "held_prop_satchel",
+      "part": "satchel",
+      "bone": "right_hand",
+      "pivot": [
+        160,
+        430
+      ],
+      "parent": "right_fore",
+      "overlap_px": 0,
+      "action": "scripted",
+      "method": "ochre satchel, flap, buckle and handle; rigid undilated prop"
+    }
+  ],
+  "generation_requested": false
+}

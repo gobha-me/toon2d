@@ -1,0 +1,550 @@
+{
+  "timestamp_utc": "2026-11-01T15:27:20.014480+00:00",
+  "tests": {
+    "1": {
+      "name": "hierarchy",
+      "passed": true,
+      "errors": []
+    },
+    "2": {
+      "name": "timing",
+      "passed": false,
+      "errors": [
+        "hd: idle track 0 key 0 off-grid 0.010000000",
+        "pixel: idle track 0 key 0 off-grid 0.010000000"
+      ]
+    },
+    "3": {
+      "name": "flash",
+      "passed": true,
+      "errors": []
+    },
+    "4": {
+      "name": "gun rigidity",
+      "passed": true,
+      "errors": []
+    },
+    "5": {
+      "name": "joint gaps",
+      "passed": true,
+      "errors": []
+    }
+  },
+  "samples": {
+    "hd/aim": {
+      "endpoint_checked": true,
+      "flash_frames": [],
+      "frames": 10
+    },
+    "hd/cooldown": {
+      "endpoint_checked": true,
+      "flash_frames": [],
+      "frames": 14
+    },
+    "hd/fire": {
+      "endpoint_checked": true,
+      "flash_frames": [
+        0,
+        1,
+        2
+      ],
+      "frames": 6
+    },
+    "hd/idle": {
+      "endpoint_checked": true,
+      "flash_frames": [],
+      "frames": 48
+    },
+    "pixel/aim": {
+      "endpoint_checked": true,
+      "flash_frames": [],
+      "frames": 10
+    },
+    "pixel/cooldown": {
+      "endpoint_checked": true,
+      "flash_frames": [],
+      "frames": 14
+    },
+    "pixel/fire": {
+      "endpoint_checked": true,
+      "flash_frames": [
+        0,
+        1,
+        2
+      ],
+      "frames": 6
+    },
+    "pixel/idle": {
+      "endpoint_checked": true,
+      "flash_frames": [],
+      "frames": 48
+    }
+  },
+  "passed": false,
+  "joint_observation_count": 84,
+  "joint_failures": [],
+  "joint_aggregates": [
+    {
+      "kind_or_mode": "hd",
+      "joint": "boot_left",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3228,
+      "stencil_max": 3228,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "hd",
+      "joint": "boot_right",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3228,
+      "stencil_max": 3228,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "hd",
+      "joint": "coat",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3130,
+      "stencil_max": 3133,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "hd",
+      "joint": "collar",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3086,
+      "stencil_max": 3087,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "hd",
+      "joint": "hair",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3228,
+      "stencil_max": 3228,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "hd",
+      "joint": "head",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3228,
+      "stencil_max": 3228,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "hd",
+      "joint": "hem_center",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3228,
+      "stencil_max": 3228,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "hd",
+      "joint": "hem_left",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3071,
+      "stencil_max": 3071,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "hd",
+      "joint": "hem_right",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3228,
+      "stencil_max": 3228,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "hd",
+      "joint": "hip",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3228,
+      "stencil_max": 3228,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "hd",
+      "joint": "knee_left",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3228,
+      "stencil_max": 3228,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "hd",
+      "joint": "knee_right",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3228,
+      "stencil_max": 3228,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "hd",
+      "joint": "left_arm",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 1974,
+      "stencil_max": 1977,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "hd",
+      "joint": "left_fore",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3221,
+      "stencil_max": 3223,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "hd",
+      "joint": "left_hand",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3228,
+      "stencil_max": 3228,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "hd",
+      "joint": "leg_left",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3228,
+      "stencil_max": 3228,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "hd",
+      "joint": "leg_right",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3228,
+      "stencil_max": 3228,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "hd",
+      "joint": "right_fore",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3228,
+      "stencil_max": 3228,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "hd",
+      "joint": "right_hand",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3228,
+      "stencil_max": 3228,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "hd",
+      "joint": "right_upper",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 786,
+      "stencil_max": 1432,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "hd",
+      "joint": "torso",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 2919,
+      "stencil_max": 2919,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "pixel",
+      "joint": "boot_left",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 29,
+      "stencil_max": 32,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "pixel",
+      "joint": "boot_right",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 28,
+      "stencil_max": 32,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "pixel",
+      "joint": "coat",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 27,
+      "stencil_max": 29,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "pixel",
+      "joint": "collar",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 30,
+      "stencil_max": 30,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "pixel",
+      "joint": "hair",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 32,
+      "stencil_max": 32,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "pixel",
+      "joint": "head",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 32,
+      "stencil_max": 32,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "pixel",
+      "joint": "hem_center",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 32,
+      "stencil_max": 32,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "pixel",
+      "joint": "hem_left",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 24,
+      "stencil_max": 24,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "pixel",
+      "joint": "hem_right",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 26,
+      "stencil_max": 28,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "pixel",
+      "joint": "hip",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 28,
+      "stencil_max": 32,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "pixel",
+      "joint": "knee_left",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 32,
+      "stencil_max": 32,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "pixel",
+      "joint": "knee_right",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 32,
+      "stencil_max": 32,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "pixel",
+      "joint": "left_arm",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 9,
+      "stencil_max": 11,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "pixel",
+      "joint": "left_fore",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 27,
+      "stencil_max": 32,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "pixel",
+      "joint": "left_hand",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 32,
+      "stencil_max": 32,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "pixel",
+      "joint": "leg_left",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 30,
+      "stencil_max": 32,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "pixel",
+      "joint": "leg_right",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 32,
+      "stencil_max": 32,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "pixel",
+      "joint": "right_fore",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 31,
+      "stencil_max": 32,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "pixel",
+      "joint": "right_hand",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 15,
+      "stencil_max": 24,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "pixel",
+      "joint": "right_upper",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 6,
+      "stencil_max": 13,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "pixel",
+      "joint": "torso",
+      "checked": 2,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 27,
+      "stencil_max": 27,
+      "stencil_unknown_count": 0
+    }
+  ]
+}

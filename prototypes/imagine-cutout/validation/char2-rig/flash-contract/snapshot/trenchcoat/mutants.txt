@@ -1,0 +1,76 @@
+mutant | file changed | expected test | observed red tests | result
+--- | --- | --- | --- | ---
+a (flash) | scenes/hd.tscn, scenes/pixel.tscn | 3 | 3 | KILLED
+b (bone) | scenes/hd.tscn, scenes/pixel.tscn | 1 | 1,5 | KILLED
+c (overlap) |  | 5 |  | SKIPPED
+d (timing) | scenes/hd.tscn, scenes/pixel.tscn | 2 | 2 | KILLED
+
+Baseline red tests:
+KILLED requires a newly red expected test, or increased gap pixels for the already-red overlap test.
+
+[
+  {
+    "mutant": "a",
+    "kind": "flash",
+    "files_changed": [
+      "scenes/hd.tscn",
+      "scenes/pixel.tscn"
+    ],
+    "expected_test": "3",
+    "observed_red_tests": [
+      "3"
+    ],
+    "new_red_tests": [
+      "3"
+    ],
+    "worsened_joints": [],
+    "status": "KILLED"
+  },
+  {
+    "mutant": "b",
+    "kind": "bone",
+    "files_changed": [
+      "scenes/hd.tscn",
+      "scenes/pixel.tscn"
+    ],
+    "expected_test": "1",
+    "observed_red_tests": [
+      "1",
+      "5"
+    ],
+    "new_red_tests": [
+      "1",
+      "5"
+    ],
+    "worsened_joints": [],
+    "status": "KILLED"
+  },
+  {
+    "mutant": "c",
+    "kind": "overlap",
+    "status": "SKIPPED",
+    "reason": "src/parts/raw-hd Segments PNG inputs (including original.png; not committed)",
+    "files_changed": [],
+    "expected_test": "5",
+    "observed_red_tests": [],
+    "new_red_tests": [],
+    "worsened_joints": []
+  },
+  {
+    "mutant": "d",
+    "kind": "timing",
+    "files_changed": [
+      "scenes/hd.tscn",
+      "scenes/pixel.tscn"
+    ],
+    "expected_test": "2",
+    "observed_red_tests": [
+      "2"
+    ],
+    "new_red_tests": [
+      "2"
+    ],
+    "worsened_joints": [],
+    "status": "KILLED"
+  }
+]

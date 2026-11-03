@@ -1,0 +1,790 @@
+{
+  "timestamp_utc": "2026-11-01T16:38:53.679562+00:00",
+  "character": "char2",
+  "random_n": 200,
+  "seed": 20261031,
+  "full_acceptance_run": false,
+  "pose_counts": {
+    "single": 30,
+    "pair": 0,
+    "random": 0
+  },
+  "pose_sha256": "63e1946263b6a2b973cd208c395e28d4a0d2e6663866ffb03a100aaffc747868",
+  "manifest_sha256": "080892f267590f07bd422edaaeff76885cef4e698409991b3d4615234ad4c923",
+  "tests": {
+    "manifest": {
+      "name": "manifest schema and frozen inventory",
+      "passed": true,
+      "errors": []
+    },
+    "completeness": {
+      "name": "required slots, bones, parents, pivots, limits and overlap",
+      "passed": false,
+      "errors": [
+        {
+          "case_id": "slot/head_face",
+          "error": "missing required textured slot head"
+        }
+      ]
+    },
+    "per_joint": {
+      "name": "per-joint limit gaps",
+      "passed": false,
+      "errors": [
+        {
+          "pose": "single/hip/min",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/hip/min/head"
+        },
+        {
+          "pose": "single/hip/max",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/hip/max/head"
+        },
+        {
+          "pose": "single/torso/min",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/torso/min/head"
+        },
+        {
+          "pose": "single/torso/max",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/torso/max/head"
+        },
+        {
+          "pose": "single/head/min",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/head/min/head"
+        },
+        {
+          "pose": "single/head/max",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/head/max/head"
+        },
+        {
+          "pose": "single/right_upper/min",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/right_upper/min/head"
+        },
+        {
+          "pose": "single/right_upper/max",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/right_upper/max/head"
+        },
+        {
+          "pose": "single/right_fore/min",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/right_fore/min/head"
+        },
+        {
+          "pose": "single/right_fore/max",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/right_fore/max/head"
+        },
+        {
+          "pose": "single/right_hand/min",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/right_hand/min/head"
+        },
+        {
+          "pose": "single/right_hand/max",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/right_hand/max/head"
+        },
+        {
+          "pose": "single/left_arm/min",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/left_arm/min/head"
+        },
+        {
+          "pose": "single/left_arm/max",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/left_arm/max/head"
+        },
+        {
+          "pose": "single/left_fore/min",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/left_fore/min/head"
+        },
+        {
+          "pose": "single/left_fore/max",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/left_fore/max/head"
+        },
+        {
+          "pose": "single/left_hand/min",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/left_hand/min/head"
+        },
+        {
+          "pose": "single/left_hand/max",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/left_hand/max/head"
+        },
+        {
+          "pose": "single/leg_left/min",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/leg_left/min/head"
+        },
+        {
+          "pose": "single/leg_left/max",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/leg_left/max/head"
+        },
+        {
+          "pose": "single/leg_right/min",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/leg_right/min/head"
+        },
+        {
+          "pose": "single/leg_right/max",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/leg_right/max/head"
+        },
+        {
+          "pose": "single/knee_left/min",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/knee_left/min/head"
+        },
+        {
+          "pose": "single/knee_left/max",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/knee_left/max/head"
+        },
+        {
+          "pose": "single/knee_right/min",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/knee_right/min/head"
+        },
+        {
+          "pose": "single/knee_right/max",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/knee_right/max/head"
+        },
+        {
+          "pose": "single/boot_left/min",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/boot_left/min/head"
+        },
+        {
+          "pose": "single/boot_left/max",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/boot_left/max/head"
+        },
+        {
+          "pose": "single/boot_right/min",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/boot_right/min/head"
+        },
+        {
+          "pose": "single/boot_right/max",
+          "kind": "single",
+          "joint": "head",
+          "gap_pixels": 0,
+          "stencil_pixels": 0,
+          "passed": false,
+          "error": "empty non-root stencil",
+          "case_id": "single/boot_right/max/head"
+        }
+      ],
+      "checked_seams": 450,
+      "gap_pixels": 0
+    },
+    "facing": {
+      "name": "head/face and weapon arm direction",
+      "passed": false,
+      "errors": [
+        {
+          "case_id": "facing/required-nodes",
+          "error": "missing head/face, gun or AnimationPlayer"
+        }
+      ],
+      "samples": []
+    }
+  },
+  "passed": false,
+  "joint_summary": [
+    {
+      "kind": "single",
+      "joint": "boot_left",
+      "observations": 30,
+      "passed": 30,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 96840
+    },
+    {
+      "kind": "single",
+      "joint": "boot_right",
+      "observations": 30,
+      "passed": 30,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 96840
+    },
+    {
+      "kind": "single",
+      "joint": "head",
+      "observations": 30,
+      "passed": 0,
+      "failed": 30,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 0
+    },
+    {
+      "kind": "single",
+      "joint": "hip",
+      "observations": 30,
+      "passed": 30,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 96840
+    },
+    {
+      "kind": "single",
+      "joint": "knee_left",
+      "observations": 30,
+      "passed": 30,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 96840
+    },
+    {
+      "kind": "single",
+      "joint": "knee_right",
+      "observations": 30,
+      "passed": 30,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 96840
+    },
+    {
+      "kind": "single",
+      "joint": "left_arm",
+      "observations": 30,
+      "passed": 30,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 96840
+    },
+    {
+      "kind": "single",
+      "joint": "left_fore",
+      "observations": 30,
+      "passed": 30,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 96840
+    },
+    {
+      "kind": "single",
+      "joint": "left_hand",
+      "observations": 30,
+      "passed": 30,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 96840
+    },
+    {
+      "kind": "single",
+      "joint": "leg_left",
+      "observations": 30,
+      "passed": 30,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 96840
+    },
+    {
+      "kind": "single",
+      "joint": "leg_right",
+      "observations": 30,
+      "passed": 30,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 96840
+    },
+    {
+      "kind": "single",
+      "joint": "right_fore",
+      "observations": 30,
+      "passed": 30,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 96840
+    },
+    {
+      "kind": "single",
+      "joint": "right_hand",
+      "observations": 30,
+      "passed": 30,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 96840
+    },
+    {
+      "kind": "single",
+      "joint": "right_upper",
+      "observations": 30,
+      "passed": 30,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 96840
+    },
+    {
+      "kind": "single",
+      "joint": "torso",
+      "observations": 30,
+      "passed": 30,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 96840
+    }
+  ],
+  "failed_joint_observations": [
+    {
+      "pose": "single/hip/min",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/hip/max",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/torso/min",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/torso/max",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/head/min",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/head/max",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/right_upper/min",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/right_upper/max",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/right_fore/min",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/right_fore/max",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/right_hand/min",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/right_hand/max",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/left_arm/min",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/left_arm/max",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/left_fore/min",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/left_fore/max",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/left_hand/min",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/left_hand/max",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/leg_left/min",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/leg_left/max",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/leg_right/min",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/leg_right/max",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/knee_left/min",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/knee_left/max",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/knee_right/min",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/knee_right/max",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/boot_left/min",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/boot_left/max",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/boot_right/min",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    },
+    {
+      "pose": "single/boot_right/max",
+      "kind": "single",
+      "joint": "head",
+      "gap_pixels": 0,
+      "stencil_pixels": 0,
+      "passed": false,
+      "error": "empty non-root stencil"
+    }
+  ]
+}

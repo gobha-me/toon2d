@@ -1,0 +1,10 @@
+{
+  "tool": "Python/Pillow/OpenCV procedural cutout authoring",
+  "model": "none (scripted)",
+  "date": "2026-11-01T15:17:33.491488Z",
+  "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+  "prompt": "not applicable (scripted)",
+  "image_sha256": "de941574b82e141cc1396a777d0ee717a1fda5067e781c05c858bb02c662e2f1",
+  "license": "CC0-1.0",
+  "description": "Original fictional courier; scripted shapes only"
+}

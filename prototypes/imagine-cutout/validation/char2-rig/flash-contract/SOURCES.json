@@ -1,0 +1,444 @@
+{
+  "base": "059f4ebf472a50a9917724723d42208495b1650f",
+  "tested_head": "30d7bfefe549f058c9956e670fa393d245e45507",
+  "tests_head": "2e036060c9c42d235d0b5efb1b9d714651e36f2a",
+  "launcher_sha256": "9d1be7b45a0566deb7603b249dbe6bd277a6f8165ff1a2791d676482729f0a33",
+  "brief_sha256": "dd7a94b27a3d18e996be1421e8810f65db28a86dfabab94dad906551d20f740b",
+  "heavy_run_sha256": "3bc14651d44b4438d3823dfa582f767094ca8a95681721e743be3b8a57011a0b",
+  "heavy_run_label": "staged v5c; self-label v5 (2026-10-30)",
+  "lane": "change",
+  "mode": "-s danger-full-access",
+  "recorded_suite_status": "COMPLETE",
+  "base_red_as_expected": true,
+  "flash_nodes": 1,
+  "flash_visible_tracks": 4,
+  "hd_pixel_equal_base": true,
+  "actual_tmpdir_removed_findings": [],
+  "generated_utc": "2026-11-01T16:44:45.052220+00:00",
+  "sources": [
+    {
+      "source": "LEDGER.tsv",
+      "source_bytes": 1281,
+      "source_sha256": "4daf9a74997a3ef0a35582c950d32ac5f9c26eb2cc9f25586172981462fdb18d",
+      "evidence": "LEDGER.tsv",
+      "evidence_sha256": "a8166bd22275ea421186bd98f97f3eb8f8d1e91569cd748e6daa8194405e8796",
+      "transformation": "ledger unchanged except mandatory private output path placeholder"
+    },
+    {
+      "source": "C1-char2-body.a1.log",
+      "source_bytes": 512,
+      "source_sha256": "6671aa073249117f340fceba9a9d76cf1e6cf460ed6292a5146f7e4d870c33f7",
+      "evidence": "logs/C1-char2-body.a1.txt",
+      "evidence_sha256": "43b485997de90eb81b9e8be8eebde4cbf1462292ec9f40fb6909eb1fe53122fd",
+      "transformation": "complete text; sanitized placeholders; line order retained"
+    },
+    {
+      "source": "C2-trenchcoat-body.a1.log",
+      "source_bytes": 517,
+      "source_sha256": "db377f16bc501106dd8e6ddfe47aa31937bdca1a3c83417fa98d5ff8c5e3f31d",
+      "evidence": "logs/C2-trenchcoat-body.a1.txt",
+      "evidence_sha256": "02ee4e388170c0d86abc0250ae202b77e96d7b64c9a5f1242471fafa6d33b114",
+      "transformation": "complete text; sanitized placeholders; line order retained"
+    },
+    {
+      "source": "C3-trenchcoat-legacy.a1.log",
+      "source_bytes": 5404,
+      "source_sha256": "8db34cd2aeec71bf17030401d8e96d88d778e6f3fdc536a9b247b7e591ed92d9",
+      "evidence": "logs/C3-trenchcoat-legacy.a1.txt",
+      "evidence_sha256": "68fa091c426237b0cebe064e52be1af275cb43fc59ed79af6f5f1b4e51ca7f44",
+      "transformation": "complete text; sanitized placeholders; line order retained"
+    },
+    {
+      "source": "C4-harness-policy.a1.log",
+      "source_bytes": 877,
+      "source_sha256": "7e43d83e5f67a5f8537cfe8750e5515f9522a7aa7c30fa09906b79136a705929",
+      "evidence": "logs/C4-harness-policy.a1.txt",
+      "evidence_sha256": "9967f879d2505d5a531a3321e9b07a363f8e26f18222fed58417aadc675dd587",
+      "transformation": "complete text; sanitized placeholders; line order retained"
+    },
+    {
+      "source": "C5-char2-mutants.a1.log",
+      "source_bytes": 1062,
+      "source_sha256": "4239e4c83e6728d8f850bd1b395c2da14744681a39f23939ad217957aaa882e2",
+      "evidence": "logs/C5-char2-mutants.a1.txt",
+      "evidence_sha256": "43dd27677a0e93fc7ee2d652628cd15637e9bcc581f262f6e2a58295c6fdd84f",
+      "transformation": "complete text; sanitized placeholders; line order retained"
+    },
+    {
+      "source": "C6-trenchcoat-mutants.a1.log",
+      "source_bytes": 1193,
+      "source_sha256": "d417ce6ef1c5608f97b9cd23803cd56458ea4d9d24906bd4acb6a29117a617c6",
+      "evidence": "logs/C6-trenchcoat-mutants.a1.txt",
+      "evidence_sha256": "fd3c9a0c48dc28ec6e3d546aca214b044ef7c4c1d4812eccc3bbf79800487e2b",
+      "transformation": "complete text; sanitized placeholders; line order retained"
+    },
+    {
+      "source": "C7-base-char2-legacy.a1.log",
+      "source_bytes": 2224,
+      "source_sha256": "6a5854779249454b927bd8bba411bfc2a7bbfc5391ed49ca333d63c514ecda9d",
+      "evidence": "logs/C7-base-char2-legacy.a1.txt",
+      "evidence_sha256": "925789463e7ef21d98e1592ccb23c0d1f86c5eb0e45841cb3138c2ccbdeb65a0",
+      "transformation": "complete text; sanitized placeholders; line order retained"
+    },
+    {
+      "source": "C7-char2-legacy.a1.log",
+      "source_bytes": 2224,
+      "source_sha256": "fe414eafb947e46708d97165de0d4db9fa0ff7064c376b977b9e3a6048c69cde",
+      "evidence": "logs/C7-char2-legacy.a1.txt",
+      "evidence_sha256": "3a10ffa535a64d21367c7fda28652c0b7022b34b51649ba5de888d102ca0a2fd",
+      "transformation": "complete text; sanitized placeholders; line order retained"
+    },
+    {
+      "source": "base/legacy.godot.txt",
+      "source_bytes": 19169,
+      "source_sha256": "9c6fae3be039e5665d81ec280a3c8fced1f8187976b2d7d1c0e43937b3424660",
+      "evidence": "base/legacy.godot.txt.excerpt.json",
+      "evidence_sha256": "824f93f76342291cac6ad2f2dc48f8a2aac2c1960396e17efffed6c63e70c27c",
+      "transformation": "first/last 12 lines plus every distinct diagnostic line and occurrence count"
+    },
+    {
+      "source": "base/legacy.json",
+      "source_bytes": 8613,
+      "source_sha256": "fcd270db729bb26ca1dc3ebab89d915ed5ff46106b2fe49ec8a72b84a5c4c8bf",
+      "evidence": "base/legacy.json",
+      "evidence_sha256": "fcd270db729bb26ca1dc3ebab89d915ed5ff46106b2fe49ec8a72b84a5c4c8bf",
+      "transformation": "complete JSON; sanitized placeholders"
+    },
+    {
+      "source": "snapshot/char2/body.godot.txt",
+      "source_bytes": 19333,
+      "source_sha256": "c7543318c77ecad7c05afa82fcaffb4af7320ce753bbd0883c568572e6681df2",
+      "evidence": "snapshot/char2/body.godot.txt.excerpt.json",
+      "evidence_sha256": "a0c2df527ed3282bbcc1053dc17d09794752d5b69b86e58148b038cf0c9fe6ae",
+      "transformation": "first/last 12 lines plus every distinct diagnostic line and occurrence count"
+    },
+    {
+      "source": "snapshot/char2/body.json",
+      "source_bytes": 1317697,
+      "source_sha256": "7124c0e420fb4279c06a736267af0fd95b293d2fe50b0bde127dd4daedac3be3",
+      "evidence": "snapshot/char2/body.summary.json",
+      "evidence_sha256": "fc8ca7399c92572bf26794651f6d51898df3683d32983407ebcc25510c850a80",
+      "transformation": "all metadata, tests, errors and facing samples retained; joints grouped by kind/joint; all failed observations retained"
+    },
+    {
+      "source": "snapshot/char2/body.poses.json",
+      "source_bytes": 252110,
+      "source_sha256": "19be88fab358cbbad820e8ef546c174e11ea1dde6504bedda0b0f9e591a64b0c",
+      "evidence": "snapshot/char2/body.poses.summary.json",
+      "evidence_sha256": "d67947bdd3bcaa51d1c3fcde5bf84217fcddcda0d3fc885b06ec38cd0e05da0f",
+      "transformation": "pose vectors reduced to kind counts; original digest retained"
+    },
+    {
+      "source": "snapshot/char2/legacy-mutants.json",
+      "source_bytes": 823,
+      "source_sha256": "3d16b2a6e5df85c39820838114671ecc75cc6583f6ea801f6198b1d4a19d3acd",
+      "evidence": "snapshot/char2/legacy-mutants.json",
+      "evidence_sha256": "3d16b2a6e5df85c39820838114671ecc75cc6583f6ea801f6198b1d4a19d3acd",
+      "transformation": "complete JSON; sanitized placeholders"
+    },
+    {
+      "source": "snapshot/char2/legacy.godot.txt",
+      "source_bytes": 19169,
+      "source_sha256": "59ce5afef101a00c56c76aedd2073df586c3030e2ab63b89a0a01ed436162481",
+      "evidence": "snapshot/char2/legacy.godot.txt.excerpt.json",
+      "evidence_sha256": "58c5ff9dcbd7295140aea92a72aba68dd27e8fa6c72a6b55da6827a103f6f935",
+      "transformation": "first/last 12 lines plus every distinct diagnostic line and occurrence count"
+    },
+    {
+      "source": "snapshot/char2/legacy.json",
+      "source_bytes": 8609,
+      "source_sha256": "a4b2b563896c596e5efdfd4af1ae39931bd1bfdd651eff5af540412e82c73e32",
+      "evidence": "snapshot/char2/legacy.json",
+      "evidence_sha256": "a4b2b563896c596e5efdfd4af1ae39931bd1bfdd651eff5af540412e82c73e32",
+      "transformation": "complete JSON; sanitized placeholders"
+    },
+    {
+      "source": "snapshot/char2/mutant-a.godot.txt",
+      "source_bytes": 19169,
+      "source_sha256": "f4b49f920b1dd20373bef6df7ab36c1b9d22b4ec21c8f9dc438b2591da32a78a",
+      "evidence": "snapshot/char2/mutant-a.godot.txt.excerpt.json",
+      "evidence_sha256": "4c7150565e21516bd4d263e6fd3618a75ab4169404d3c02cbd89d6c4a68f03e1",
+      "transformation": "first/last 12 lines plus every distinct diagnostic line and occurrence count"
+    },
+    {
+      "source": "snapshot/char2/mutant-a.json",
+      "source_bytes": 8702,
+      "source_sha256": "4edea44f351897e33009a48b6e9802d1bb040c98d1e86a8860b4d3ed37d6b6b6",
+      "evidence": "snapshot/char2/mutant-a.json",
+      "evidence_sha256": "4edea44f351897e33009a48b6e9802d1bb040c98d1e86a8860b4d3ed37d6b6b6",
+      "transformation": "complete JSON; sanitized placeholders"
+    },
+    {
+      "source": "snapshot/char2/mutant-b.godot.txt",
+      "source_bytes": 89289,
+      "source_sha256": "d02267e9a891fbd4ab69afb5d0aceeb81e703ec113e5069e9793965a0c65458f",
+      "evidence": "snapshot/char2/mutant-b.godot.txt.excerpt.json",
+      "evidence_sha256": "15dcbc8f2254f44857560d2443528942ccfa129993b4e7d6ab836b6b029839c0",
+      "transformation": "first/last 12 lines plus every distinct diagnostic line and occurrence count"
+    },
+    {
+      "source": "snapshot/char2/mutant-b.json",
+      "source_bytes": 8833,
+      "source_sha256": "d0f95cb46c62f175658ff38ecc086cbc9b7b6023d674d5752abadea7bbd3dbe3",
+      "evidence": "snapshot/char2/mutant-b.json",
+      "evidence_sha256": "d0f95cb46c62f175658ff38ecc086cbc9b7b6023d674d5752abadea7bbd3dbe3",
+      "transformation": "complete JSON; sanitized placeholders"
+    },
+    {
+      "source": "snapshot/char2/mutant-d.godot.txt",
+      "source_bytes": 19169,
+      "source_sha256": "5ef2d9256f8df222bc1ec728824e5cb71a9f4a11e21f4e518f10b59e2bb9e357",
+      "evidence": "snapshot/char2/mutant-d.godot.txt.excerpt.json",
+      "evidence_sha256": "e05c1f8b27e3ea4544a69e6615b433fd88d506ef17c5f258a3d0dc81e6093aad",
+      "transformation": "first/last 12 lines plus every distinct diagnostic line and occurrence count"
+    },
+    {
+      "source": "snapshot/char2/mutant-d.json",
+      "source_bytes": 8672,
+      "source_sha256": "47ca6baab3fb8ade4b39619ed297021eceb9ce0e4f2c4fa48fa63e5cee35906f",
+      "evidence": "snapshot/char2/mutant-d.json",
+      "evidence_sha256": "47ca6baab3fb8ade4b39619ed297021eceb9ce0e4f2c4fa48fa63e5cee35906f",
+      "transformation": "complete JSON; sanitized placeholders"
+    },
+    {
+      "source": "snapshot/char2/mutant-e.godot.txt",
+      "source_bytes": 19207,
+      "source_sha256": "f22795621cd7d5906119fba8d82ab1137e09e4240b87aa7baf169bff0c232636",
+      "evidence": "snapshot/char2/mutant-e.godot.txt.excerpt.json",
+      "evidence_sha256": "d1c7225c390b85ddf6a69fa4d69906ae41cf59d751f28bd9a0392509bf329552",
+      "transformation": "first/last 12 lines plus every distinct diagnostic line and occurrence count"
+    },
+    {
+      "source": "snapshot/char2/mutant-e.json",
+      "source_bytes": 68451,
+      "source_sha256": "52f4c71699a1b5a03cbf45cbd40eeb744c291803d4d3a4f558ed7dc0e303bd10",
+      "evidence": "snapshot/char2/mutant-e.summary.json",
+      "evidence_sha256": "080f9b1023ea4e497ab24456aa5e3b35048bc52ed9cec4a6a30995795654959f",
+      "transformation": "all metadata, tests, errors and facing samples retained; joints grouped by kind/joint; all failed observations retained"
+    },
+    {
+      "source": "snapshot/char2/mutant-f.godot.txt",
+      "source_bytes": 19207,
+      "source_sha256": "cf73d13a160a97e8c7013ea3720cac42d3c6786ef78766d9d8246d8ccde6b6ac",
+      "evidence": "snapshot/char2/mutant-f.godot.txt.excerpt.json",
+      "evidence_sha256": "17f8789023a92bfae295f2736a69534a68db4ce1399eeb3a1b437564e4071902",
+      "transformation": "first/last 12 lines plus every distinct diagnostic line and occurrence count"
+    },
+    {
+      "source": "snapshot/char2/mutant-f.json",
+      "source_bytes": 82210,
+      "source_sha256": "bac47b3bf725da6bde4aeb6e3aae680eadc87893de2d0e143f2f95d379a534ac",
+      "evidence": "snapshot/char2/mutant-f.summary.json",
+      "evidence_sha256": "f1b6d25e3ca5568ee0a6667849f8ecf51652d4b1688817b94d74e379dbed3098",
+      "transformation": "all metadata, tests, errors and facing samples retained; joints grouped by kind/joint; all failed observations retained"
+    },
+    {
+      "source": "snapshot/char2/mutant-g.godot.txt",
+      "source_bytes": 1623035,
+      "source_sha256": "fd7973d6ae4b655a82487deed771493d929ec10cb491b942d3e2599b569f8e06",
+      "evidence": "snapshot/char2/mutant-g.godot.txt.excerpt.json",
+      "evidence_sha256": "56d582f1ae30e8c59d40d3d2219b7ebed321191116573d9dbb6d0446920da2ba",
+      "transformation": "first/last 12 lines plus every distinct diagnostic line and occurrence count"
+    },
+    {
+      "source": "snapshot/char2/mutant-g.json",
+      "source_bytes": 88130,
+      "source_sha256": "aa3d0b3ad9fe0fb0c932daf60b09f32c38c98964f4a5b51d7c3f30059538d796",
+      "evidence": "snapshot/char2/mutant-g.summary.json",
+      "evidence_sha256": "7efe04702aa9ec9a1427f5defa8a335fad7c64f25387b2953d3b2cd3d4104259",
+      "transformation": "all metadata, tests, errors and facing samples retained; joints grouped by kind/joint; all failed observations retained"
+    },
+    {
+      "source": "snapshot/char2/mutant-h.godot.txt",
+      "source_bytes": 19207,
+      "source_sha256": "c91528ab11898acf927335112127aee8d889359fa79e42dc271c166d87a295c3",
+      "evidence": "snapshot/char2/mutant-h.godot.txt.excerpt.json",
+      "evidence_sha256": "d17c9b75f704576b7e66737ff2b787cce14fed57ea9cce3a373cd6a2420c7e77",
+      "transformation": "first/last 12 lines plus every distinct diagnostic line and occurrence count"
+    },
+    {
+      "source": "snapshot/char2/mutant-h.json",
+      "source_bytes": 70802,
+      "source_sha256": "5f82a416b0e829eb7d402c4a94fa68f684a823070576778b14b398c90cbcf301",
+      "evidence": "snapshot/char2/mutant-h.summary.json",
+      "evidence_sha256": "169db6d87b4ef49399cd03d51ef782805eb191eada96ce78c513a1b824660c6e",
+      "transformation": "all metadata, tests, errors and facing samples retained; joints grouped by kind/joint; all failed observations retained"
+    },
+    {
+      "source": "snapshot/char2/mutants.json",
+      "source_bytes": 3109,
+      "source_sha256": "cbd0ec6d913e46a22a561fbfcc9633f2fa096ea7f3c68e8455a8f1ca633b42e6",
+      "evidence": "snapshot/char2/mutants.json",
+      "evidence_sha256": "4be5e0061e0d26db9d708c081916d34bd4d3301e03863bee9bc1ebe51a233482",
+      "transformation": "complete JSON; sanitized placeholders"
+    },
+    {
+      "source": "snapshot/char2/mutants.txt",
+      "source_bytes": 1186,
+      "source_sha256": "93ff664994e309e44c736aa630e964b1a7bc1bca237b671c969fe0a39b9be3c7",
+      "evidence": "snapshot/char2/mutants.txt",
+      "evidence_sha256": "07ef66ad15b09686d594794a041262e75b392a55ca36cdacdcb947564c6d80c0",
+      "transformation": "complete text; sanitized placeholders; line order retained"
+    },
+    {
+      "source": "snapshot/trenchcoat/body.godot.txt",
+      "source_bytes": 19428,
+      "source_sha256": "e31299ee6f7588209f8e859c3b9915c0bca862f00902059565592b0ecb090c54",
+      "evidence": "snapshot/trenchcoat/body.godot.txt.excerpt.json",
+      "evidence_sha256": "520a92b31df1956215cf952edb7b1f328f800a19a6b3845332ecced5a46db8c5",
+      "transformation": "first/last 12 lines plus every distinct diagnostic line and occurrence count"
+    },
+    {
+      "source": "snapshot/trenchcoat/body.json",
+      "source_bytes": 3074259,
+      "source_sha256": "77a3eb9f7c89ba1710c7f0b79fb08bd02ea9d521431026e5ed4aefd271e3e788",
+      "evidence": "snapshot/trenchcoat/body.summary.json",
+      "evidence_sha256": "fa961578c7deb59c07a5a0ae8f3cba2116c6c11aa97328a7bbce42e778da3863",
+      "transformation": "all metadata, tests, errors and facing samples retained; joints grouped by kind/joint; all failed observations retained"
+    },
+    {
+      "source": "snapshot/trenchcoat/legacy.godot.txt",
+      "source_bytes": 19169,
+      "source_sha256": "921c0ead2dc27315ba6ff4a75b7bd2fac785f143e954084687c43a9192b38e6b",
+      "evidence": "snapshot/trenchcoat/legacy.godot.txt.excerpt.json",
+      "evidence_sha256": "b062741624c1fb3df2af179937680f70005cea08ff457e1dff997f35cb5e8b00",
+      "transformation": "first/last 12 lines plus every distinct diagnostic line and occurrence count"
+    },
+    {
+      "source": "snapshot/trenchcoat/legacy.json",
+      "source_bytes": 22784,
+      "source_sha256": "5a7c80993e847d02a9503bf1408cf4355d422b56a84f085e21a7aa84c3476abe",
+      "evidence": "snapshot/trenchcoat/legacy.json",
+      "evidence_sha256": "5a7c80993e847d02a9503bf1408cf4355d422b56a84f085e21a7aa84c3476abe",
+      "transformation": "complete JSON; sanitized placeholders"
+    },
+    {
+      "source": "snapshot/trenchcoat/mutant-a.godot.txt",
+      "source_bytes": 19169,
+      "source_sha256": "8379f3d74576a303cc14a0cc4af97eb636670a82600052d173f20985554e65cb",
+      "evidence": "snapshot/trenchcoat/mutant-a.godot.txt.excerpt.json",
+      "evidence_sha256": "1c80cdfbcefd419fc668273f4c0a11435561ad7bca21fb50fc4ccd9d1273481f",
+      "transformation": "first/last 12 lines plus every distinct diagnostic line and occurrence count"
+    },
+    {
+      "source": "snapshot/trenchcoat/mutant-a.json",
+      "source_bytes": 22965,
+      "source_sha256": "ffbb0c0532ca375c43c501ca6c3fc85d93caa44d9c0c23aa5c66e794b49b3797",
+      "evidence": "snapshot/trenchcoat/mutant-a.json",
+      "evidence_sha256": "ffbb0c0532ca375c43c501ca6c3fc85d93caa44d9c0c23aa5c66e794b49b3797",
+      "transformation": "complete JSON; sanitized placeholders"
+    },
+    {
+      "source": "snapshot/trenchcoat/mutant-b.godot.txt",
+      "source_bytes": 204641,
+      "source_sha256": "44aa203e25f1888d5b7f1caddc05492cfd2c7212facd0c7ce3f9163f9c1db8c2",
+      "evidence": "snapshot/trenchcoat/mutant-b.godot.txt.excerpt.json",
+      "evidence_sha256": "03ed8f6fc1c98b5db8dadc356d8ea703fd722f9463915d2a6a03a088607a6c3d",
+      "transformation": "first/last 12 lines plus every distinct diagnostic line and occurrence count"
+    },
+    {
+      "source": "snapshot/trenchcoat/mutant-b.json",
+      "source_bytes": 23247,
+      "source_sha256": "b2c9726d8781aa3ca8e704c82666d7c35adb4de81dc9ff9b43aebc3cffa9fe0b",
+      "evidence": "snapshot/trenchcoat/mutant-b.json",
+      "evidence_sha256": "b2c9726d8781aa3ca8e704c82666d7c35adb4de81dc9ff9b43aebc3cffa9fe0b",
+      "transformation": "complete JSON; sanitized placeholders"
+    },
+    {
+      "source": "snapshot/trenchcoat/mutant-d.godot.txt",
+      "source_bytes": 19169,
+      "source_sha256": "17645d9bdf7d7879c39172ecb90e02ea4ac7d99b3213c5e90eb0ff32bf3ec93c",
+      "evidence": "snapshot/trenchcoat/mutant-d.godot.txt.excerpt.json",
+      "evidence_sha256": "4800339ee368edc31fbc72c6942d8e09d637826dd9a9acc85c129c6398d3e441",
+      "transformation": "first/last 12 lines plus every distinct diagnostic line and occurrence count"
+    },
+    {
+      "source": "snapshot/trenchcoat/mutant-d.json",
+      "source_bytes": 22905,
+      "source_sha256": "3fc9a1c3c64922036b50f1a5a09f5d4081cc6e9f3f65ef847c99b05db3e5b0a4",
+      "evidence": "snapshot/trenchcoat/mutant-d.json",
+      "evidence_sha256": "3fc9a1c3c64922036b50f1a5a09f5d4081cc6e9f3f65ef847c99b05db3e5b0a4",
+      "transformation": "complete JSON; sanitized placeholders"
+    },
+    {
+      "source": "snapshot/trenchcoat/mutant-e.godot.txt",
+      "source_bytes": 19207,
+      "source_sha256": "7f4db135134b5453c613aff80e57e36d40a67d493297bd222992e43220ca6e3e",
+      "evidence": "snapshot/trenchcoat/mutant-e.godot.txt.excerpt.json",
+      "evidence_sha256": "3bd009c0a46707873cb5b6a5f120667c48182b53efffe3f5e85ab747eec12f5d",
+      "transformation": "first/last 12 lines plus every distinct diagnostic line and occurrence count"
+    },
+    {
+      "source": "snapshot/trenchcoat/mutant-e.json",
+      "source_bytes": 118214,
+      "source_sha256": "ae1cf1abc87c63dcfbcba690641bc0457275f97a33ce3281bbee66e8c86e028d",
+      "evidence": "snapshot/trenchcoat/mutant-e.summary.json",
+      "evidence_sha256": "7d7d8baf9201e37dddaf6f8cd2da05dc8da48569298a543618dff543412efe90",
+      "transformation": "all metadata, tests, errors and facing samples retained; joints grouped by kind/joint; all failed observations retained"
+    },
+    {
+      "source": "snapshot/trenchcoat/mutant-f.godot.txt",
+      "source_bytes": 19207,
+      "source_sha256": "820ea25a374a6c9600bffc5979530003634f0d16935ab0911bb397628a18455e",
+      "evidence": "snapshot/trenchcoat/mutant-f.godot.txt.excerpt.json",
+      "evidence_sha256": "81ed5b96a62d108bdc7c1996f5b8c6bc102ff31884c92d13a4c1f58bed3f8c98",
+      "transformation": "first/last 12 lines plus every distinct diagnostic line and occurrence count"
+    },
+    {
+      "source": "snapshot/trenchcoat/mutant-f.json",
+      "source_bytes": 138978,
+      "source_sha256": "f54f66d08ca0b55d5bfea9bf2c265a79a96ecffda4322b3bd299151410d7a9ce",
+      "evidence": "snapshot/trenchcoat/mutant-f.summary.json",
+      "evidence_sha256": "2bf4c930130a3d0be7414cc93bb5a352759cbd9d025d7cfe044a59bf79ab9209",
+      "transformation": "all metadata, tests, errors and facing samples retained; joints grouped by kind/joint; all failed observations retained"
+    },
+    {
+      "source": "snapshot/trenchcoat/mutant-g.godot.txt",
+      "source_bytes": 3168707,
+      "source_sha256": "0848b9145f6cfd02c8cdcdd9c0c18969c37ba1fb55eed2991dfd26ea36cb5167",
+      "evidence": "snapshot/trenchcoat/mutant-g.godot.txt.excerpt.json",
+      "evidence_sha256": "dd8ca9400b48e53ee29b82b0a1c78b9b26d5761aa6bfb60199d1196f3599196e",
+      "transformation": "first/last 12 lines plus every distinct diagnostic line and occurrence count"
+    },
+    {
+      "source": "snapshot/trenchcoat/mutant-g.json",
+      "source_bytes": 151967,
+      "source_sha256": "6ec56f2fa960d570af8820584c9e2a69b3e34e72cfc4923111f189bdf9ceb903",
+      "evidence": "snapshot/trenchcoat/mutant-g.summary.json",
+      "evidence_sha256": "65076187e7da5b2187fb495aedceed1abc235f559e520c7868f6d4c7c18b8606",
+      "transformation": "all metadata, tests, errors and facing samples retained; joints grouped by kind/joint; all failed observations retained"
+    },
+    {
+      "source": "snapshot/trenchcoat/mutant-h.godot.txt",
+      "source_bytes": 19207,
+      "source_sha256": "2653845d6d1d93b5c5d83651016747bc97dc0276055637c0bac535b810480920",
+      "evidence": "snapshot/trenchcoat/mutant-h.godot.txt.excerpt.json",
+      "evidence_sha256": "becc721dce3f36d33203a117c3b5f37c183a41c199416608553809f1046aa890",
+      "transformation": "first/last 12 lines plus every distinct diagnostic line and occurrence count"
+    },
+    {
+      "source": "snapshot/trenchcoat/mutant-h.json",
+      "source_bytes": 127741,
+      "source_sha256": "4a1889f8422ab143c17b9d511145111e9a0e494269cecbdd1b5e9981c6437871",
+      "evidence": "snapshot/trenchcoat/mutant-h.summary.json",
+      "evidence_sha256": "7407c7f3cf4a872c981c7fd3ff07ab4a82937f32c943e380cc752e329ea6de46",
+      "transformation": "all metadata, tests, errors and facing samples retained; joints grouped by kind/joint; all failed observations retained"
+    },
+    {
+      "source": "snapshot/trenchcoat/mutants.txt",
+      "source_bytes": 1640,
+      "source_sha256": "3f38fd540d595cecceae594f105d695a79bb0fd0fdc579151c1c9e3551586b3e",
+      "evidence": "snapshot/trenchcoat/mutants.txt",
+      "evidence_sha256": "55aeb6f03eed78626b936b57db42d0177746517b4e9faba1ce19f4760e4b27ec",
+      "transformation": "complete text; sanitized placeholders; line order retained"
+    },
+    {
+      "source": "controller-state",
+      "source_bytes": 8354,
+      "source_sha256": "d6221b1f3a31a994a090fc39c179bc8e098b7fc81e5dfba1ad1d0d0002e1c46d",
+      "evidence": "controller-metadata.json",
+      "evidence_sha256": "9dc4a5341829366f973200fac1f42b5061e72d5314686ab10e0e0647903db9d2",
+      "transformation": "selected controller fields only; run identities and private locations omitted; snapshot at evidence review"
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "line_count": 2771,
+  "first_lines": [
+    {
+      "line": 1,
+      "text": "COMMAND ['godot', '--single-threaded-scene', '--headless', '--path', '<TMPDIR>/<PROJECT>/prototype', '--editor', '--import']"
+    },
+    {
+      "line": 2,
+      "text": "heavy-run: memory ok: memory.current 19.60 GiB, working set (minus inactive_file) 8.00 GiB; limits 17.50 GiB working set / 24.50 GiB memory.current (memory.max 28.00 GiB x 10/16, 14/16)"
+    },
+    {
+      "line": 3,
+      "text": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org"
+    },
+    {
+      "line": 4,
+      "text": ""
+    },
+    {
+      "line": 5,
+      "text": "[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Project initialization (5 steps)\u001b[39m\u001b[0m"
+    },
+    {
+      "line": 6,
+      "text": "[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Scanning file structure...\u001b[39m\u001b[0m"
+    },
+    {
+      "line": 7,
+      "text": "[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Loading global class names...\u001b[39m\u001b[0m"
+    },
+    {
+      "line": 8,
+      "text": "[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Verifying GDExtensions...\u001b[39m\u001b[0m"
+    },
+    {
+      "line": 9,
+      "text": "[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Creating autoload scripts...\u001b[39m\u001b[0m"
+    },
+    {
+      "line": 10,
+      "text": "[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Initializing plugins...\u001b[39m\u001b[0m"
+    },
+    {
+      "line": 11,
+      "text": "[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Starting file scan...\u001b[39m\u001b[0m"
+    },
+    {
+      "line": 12,
+      "text": "\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m"
+    }
+  ],
+  "last_lines": [
+    {
+      "line": 2760,
+      "text": "     GDScript backtrace (most recent call first):"
+    },
+    {
+      "line": 2761,
+      "text": "         [0] restore_rest (res://tests/check_rig.gd:53)"
+    },
+    {
+      "line": 2762,
+      "text": "         [1] joint_captures (res://tests/check_rig.gd:200)"
+    },
+    {
+      "line": 2763,
+      "text": "         [2] capture (res://tests/check_rig.gd:177)"
+    },
+    {
+      "line": 2764,
+      "text": "WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings."
+    },
+    {
+      "line": 2765,
+      "text": "     at: _update_caches (scene/animation/animation_mixer.cpp:725)"
+    },
+    {
+      "line": 2766,
+      "text": "     GDScript backtrace (most recent call first):"
+    },
+    {
+      "line": 2767,
+      "text": "         [0] restore_rest (res://tests/check_rig.gd:53)"
+    },
+    {
+      "line": 2768,
+      "text": "         [1] joint_captures (res://tests/check_rig.gd:200)"
+    },
+    {
+      "line": 2769,
+      "text": "         [2] capture (res://tests/check_rig.gd:177)"
+    },
+    {
+      "line": 2770,
+      "text": ""
+    },
+    {
+      "line": 2771,
+      "text": "EXIT 0"
+    }
+  ],
+  "diagnostic_line_counts": [
+    {
+      "text": "COMMAND ['godot', '--single-threaded-scene', '--headless', '--path', '<TMPDIR>/<PROJECT>/prototype', '--editor', '--import']",
+      "count": 1
+    },
+    {
+      "text": "heavy-run: memory ok: memory.current 19.60 GiB, working set (minus inactive_file) 8.00 GiB; limits 17.50 GiB working set / 24.50 GiB memory.current (memory.max 28.00 GiB x 10/16, 14/16)",
+      "count": 1
+    },
+    {
+      "text": "EXIT 0",
+      "count": 3
+    },
+    {
+      "text": "COMMAND ['godot', '--single-threaded-scene', '--headless', '--path', '<TMPDIR>/<PROJECT>/prototype', '--script', 'res://tests/check_rig.gd', '--', 'observe', '<TMPDIR>/<PROJECT>/captures']",
+      "count": 1
+    },
+    {
+      "text": "heavy-run: memory ok: memory.current 19.61 GiB, working set (minus inactive_file) 8.00 GiB; limits 17.50 GiB working set / 24.50 GiB memory.current (memory.max 28.00 GiB x 10/16, 14/16)",
+      "count": 2
+    },
+    {
+      "text": "WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.",
+      "count": 52
+    },
+    {
+      "text": "WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.",
+      "count": 52
+    },
+    {
+      "text": "WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.",
+      "count": 52
+    },
+    {
+      "text": "WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.",
+      "count": 52
+    },
+    {
+      "text": "WARNING: AnimationMixer (at: pixel.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.",
+      "count": 52
+    },
+    {
+      "text": "WARNING: AnimationMixer (at: pixel.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.",
+      "count": 52
+    },
+    {
+      "text": "WARNING: AnimationMixer (at: pixel.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.",
+      "count": 52
+    },
+    {
+      "text": "WARNING: AnimationMixer (at: pixel.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/torso/head/hair:rotation'. This warning can be disabled in Project Settings.",
+      "count": 52
+    },
+    {
+      "text": "COMMAND ['godot', '--single-threaded-scene', '--path', '<TMPDIR>/<PROJECT>/prototype', '--audio-driver', 'Dummy', '--script', 'res://tests/check_rig.gd', '--', 'render', '<TMPDIR>/<PROJECT>/captures']",
+      "count": 1
+    },
+    {
+      "text": "WARNING: Could not set V-Sync mode, as changing V-Sync mode is not supported by the graphics driver.",
+      "count": 1
+    }
+  ]
+}

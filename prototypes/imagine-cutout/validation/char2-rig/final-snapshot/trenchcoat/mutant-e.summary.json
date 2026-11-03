@@ -1,0 +1,285 @@
+{
+  "timestamp_utc": "2026-11-01T15:29:33.740900+00:00",
+  "character": "trenchcoat",
+  "random_n": 200,
+  "seed": 20261030,
+  "full_acceptance_run": false,
+  "pose_counts": {
+    "single": 42,
+    "pair": 0,
+    "random": 0
+  },
+  "pose_sha256": "a58f6806892c768bef852325834ca113ab344bcb42b9d15cc345d19c87562fbc",
+  "manifest_sha256": "9650b5714447a517897dc872458f3865d9be095cf513cb96dfbb397dc9ae3bec",
+  "tests": {
+    "manifest": {
+      "name": "manifest schema and frozen inventory",
+      "passed": true,
+      "errors": []
+    },
+    "completeness": {
+      "name": "required slots, bones, parents, pivots, limits and overlap",
+      "passed": false,
+      "errors": [
+        {
+          "case_id": "slot/head_face",
+          "error": "missing required textured slot head"
+        }
+      ]
+    },
+    "per_joint": {
+      "name": "per-joint limit gaps",
+      "passed": true,
+      "errors": [],
+      "checked_seams": 882,
+      "gap_pixels": 0
+    },
+    "facing": {
+      "name": "head/face and weapon arm direction",
+      "passed": false,
+      "errors": [
+        {
+          "case_id": "facing/required-nodes",
+          "error": "missing head/face, gun or AnimationPlayer"
+        }
+      ],
+      "samples": []
+    }
+  },
+  "passed": false,
+  "joint_observation_count": 882,
+  "joint_failures": [],
+  "joint_aggregates": [
+    {
+      "kind_or_mode": "single",
+      "joint": "boot_left",
+      "checked": 42,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3228,
+      "stencil_max": 3228,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "single",
+      "joint": "boot_right",
+      "checked": 42,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3228,
+      "stencil_max": 3228,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "single",
+      "joint": "coat",
+      "checked": 42,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3130,
+      "stencil_max": 3161,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "single",
+      "joint": "collar",
+      "checked": 42,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3086,
+      "stencil_max": 3102,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "single",
+      "joint": "hair",
+      "checked": 42,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 1918,
+      "stencil_max": 1974,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "single",
+      "joint": "head",
+      "checked": 42,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 867,
+      "stencil_max": 930,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "single",
+      "joint": "hem_center",
+      "checked": 42,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3228,
+      "stencil_max": 3228,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "single",
+      "joint": "hem_left",
+      "checked": 42,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3071,
+      "stencil_max": 3093,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "single",
+      "joint": "hem_right",
+      "checked": 42,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3228,
+      "stencil_max": 3228,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "single",
+      "joint": "hip",
+      "checked": 42,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3228,
+      "stencil_max": 3228,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "single",
+      "joint": "knee_left",
+      "checked": 42,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3228,
+      "stencil_max": 3228,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "single",
+      "joint": "knee_right",
+      "checked": 42,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3228,
+      "stencil_max": 3228,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "single",
+      "joint": "left_arm",
+      "checked": 42,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 1974,
+      "stencil_max": 2073,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "single",
+      "joint": "left_fore",
+      "checked": 42,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3221,
+      "stencil_max": 3227,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "single",
+      "joint": "left_hand",
+      "checked": 42,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3228,
+      "stencil_max": 3228,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "single",
+      "joint": "leg_left",
+      "checked": 42,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3228,
+      "stencil_max": 3228,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "single",
+      "joint": "leg_right",
+      "checked": 42,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3228,
+      "stencil_max": 3228,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "single",
+      "joint": "right_fore",
+      "checked": 42,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3228,
+      "stencil_max": 3228,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "single",
+      "joint": "right_hand",
+      "checked": 42,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 3228,
+      "stencil_max": 3228,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "single",
+      "joint": "right_upper",
+      "checked": 42,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 786,
+      "stencil_max": 1543,
+      "stencil_unknown_count": 0
+    },
+    {
+      "kind_or_mode": "single",
+      "joint": "torso",
+      "checked": 42,
+      "failed": 0,
+      "gap_pixels_known_sum": 0,
+      "gap_pixels_unknown_count": 0,
+      "stencil_min": 2919,
+      "stencil_max": 2948,
+      "stencil_unknown_count": 0
+    }
+  ]
+}

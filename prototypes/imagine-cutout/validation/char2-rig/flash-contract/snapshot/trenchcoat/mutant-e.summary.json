@@ -1,0 +1,284 @@
+{
+  "timestamp_utc": "2026-11-01T16:42:23.820056+00:00",
+  "character": "trenchcoat",
+  "random_n": 200,
+  "seed": 20261030,
+  "full_acceptance_run": false,
+  "pose_counts": {
+    "single": 42,
+    "pair": 0,
+    "random": 0
+  },
+  "pose_sha256": "a58f6806892c768bef852325834ca113ab344bcb42b9d15cc345d19c87562fbc",
+  "manifest_sha256": "9650b5714447a517897dc872458f3865d9be095cf513cb96dfbb397dc9ae3bec",
+  "tests": {
+    "manifest": {
+      "name": "manifest schema and frozen inventory",
+      "passed": true,
+      "errors": []
+    },
+    "completeness": {
+      "name": "required slots, bones, parents, pivots, limits and overlap",
+      "passed": false,
+      "errors": [
+        {
+          "case_id": "slot/head_face",
+          "error": "missing required textured slot head"
+        }
+      ]
+    },
+    "per_joint": {
+      "name": "per-joint limit gaps",
+      "passed": true,
+      "errors": [],
+      "checked_seams": 882,
+      "gap_pixels": 0
+    },
+    "facing": {
+      "name": "head/face and weapon arm direction",
+      "passed": false,
+      "errors": [
+        {
+          "case_id": "facing/required-nodes",
+          "error": "missing head/face, gun or AnimationPlayer"
+        }
+      ],
+      "samples": []
+    }
+  },
+  "passed": false,
+  "joint_summary": [
+    {
+      "kind": "single",
+      "joint": "boot_left",
+      "observations": 42,
+      "passed": 42,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 135576
+    },
+    {
+      "kind": "single",
+      "joint": "boot_right",
+      "observations": 42,
+      "passed": 42,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 135576
+    },
+    {
+      "kind": "single",
+      "joint": "coat",
+      "observations": 42,
+      "passed": 42,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 132622
+    },
+    {
+      "kind": "single",
+      "joint": "collar",
+      "observations": 42,
+      "passed": 42,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 130215
+    },
+    {
+      "kind": "single",
+      "joint": "hair",
+      "observations": 42,
+      "passed": 42,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 82719
+    },
+    {
+      "kind": "single",
+      "joint": "head",
+      "observations": 42,
+      "passed": 42,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 38858
+    },
+    {
+      "kind": "single",
+      "joint": "hem_center",
+      "observations": 42,
+      "passed": 42,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 135576
+    },
+    {
+      "kind": "single",
+      "joint": "hem_left",
+      "observations": 42,
+      "passed": 42,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 129855
+    },
+    {
+      "kind": "single",
+      "joint": "hem_right",
+      "observations": 42,
+      "passed": 42,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 135576
+    },
+    {
+      "kind": "single",
+      "joint": "hip",
+      "observations": 42,
+      "passed": 42,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 135576
+    },
+    {
+      "kind": "single",
+      "joint": "knee_left",
+      "observations": 42,
+      "passed": 42,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 135576
+    },
+    {
+      "kind": "single",
+      "joint": "knee_right",
+      "observations": 42,
+      "passed": 42,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 135576
+    },
+    {
+      "kind": "single",
+      "joint": "left_arm",
+      "observations": 42,
+      "passed": 42,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 86503
+    },
+    {
+      "kind": "single",
+      "joint": "left_fore",
+      "observations": 42,
+      "passed": 42,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 135453
+    },
+    {
+      "kind": "single",
+      "joint": "left_hand",
+      "observations": 42,
+      "passed": 42,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 135576
+    },
+    {
+      "kind": "single",
+      "joint": "leg_left",
+      "observations": 42,
+      "passed": 42,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 135576
+    },
+    {
+      "kind": "single",
+      "joint": "leg_right",
+      "observations": 42,
+      "passed": 42,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 135576
+    },
+    {
+      "kind": "single",
+      "joint": "right_fore",
+      "observations": 42,
+      "passed": 42,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 135576
+    },
+    {
+      "kind": "single",
+      "joint": "right_hand",
+      "observations": 42,
+      "passed": 42,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 135576
+    },
+    {
+      "kind": "single",
+      "joint": "right_upper",
+      "observations": 42,
+      "passed": 42,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 63857
+    },
+    {
+      "kind": "single",
+      "joint": "torso",
+      "observations": 42,
+      "passed": 42,
+      "failed": 0,
+      "null_gap_count": 0,
+      "gap_pixels": 0,
+      "max_gap_pixels": 0,
+      "stencil_pixels": 123757
+    }
+  ],
+  "failed_joint_observations": []
+}

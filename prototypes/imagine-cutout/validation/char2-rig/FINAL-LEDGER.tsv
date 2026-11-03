@@ -1,0 +1,7 @@
+item	attempt	start_utc	end_utc	rc	note	command
+C1-char2-body	1	2026-11-01T15:23:02Z	2026-11-01T15:23:38Z	0	ran	heavy-run prototypes/imagine-cutout/tests/run_body_tests.sh --character char2
+C2-trenchcoat-body	1	2026-11-01T15:23:38Z	2026-11-01T15:25:49Z	0	ran	heavy-run prototypes/imagine-cutout/tests/run_body_tests.sh --character trenchcoat
+C3-trenchcoat-legacy	1	2026-11-01T15:25:49Z	2026-11-01T15:26:10Z	0	ran	heavy-run prototypes/imagine-cutout/tests/run_tests.sh --character trenchcoat
+C4-harness-policy	1	2026-11-01T15:26:10Z	2026-11-01T15:26:11Z	1	ran	heavy-run "$TEST_PYTHON" prototypes/imagine-cutout/tests/test_harness_policy.py
+C5-char2-mutants	1	2026-11-01T15:26:11Z	2026-11-01T15:26:22Z	2	ran	heavy-run prototypes/imagine-cutout/tests/run_mutants.sh --character char2
+C6-trenchcoat-mutants	1	2026-11-01T15:26:22Z	2026-11-01T15:29:59Z	0	ran	heavy-run prototypes/imagine-cutout/tests/run_mutants.sh --character trenchcoat

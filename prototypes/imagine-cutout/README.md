@@ -21,7 +21,23 @@ render slots); on another machine, drop it or substitute your own. The Godot
 project alone needs none of this: it already contains its runtime textures and
 opens directly with `godot --path prototypes/imagine-cutout`. The test suite runs
 in place with `TEST_PYTHON=<python with Pillow+NumPy> prototypes/imagine-cutout/tests/run_tests.sh`
-(`heavy-run`, Godot and Xvfb on PATH); the mutant run additionally needs `<work>/src`.
+(`heavy-run`, Godot and Xvfb on PATH).
+
+The mutant runner uses the packaged preparation tools. Run it in a plain clone:
+
+```bash
+TEST_PYTHON=python3 prototypes/imagine-cutout/tests/run_mutants.sh
+# To also exercise overlap mutant c, supply the uncommitted Segments exports:
+TEST_PYTHON=python3 prototypes/imagine-cutout/tests/run_mutants.sh --src /path/to/exports
+```
+
+The source directory contains `parts/raw-hd/` and its original Segments PNGs.
+Without sources, c is reported as `SKIPPED` and mutants a, b and d still run.
+A skipped mutant does not count as a kill; any surviving executed mutant fails
+the command. An existing repository-root `src/` is also accepted by default.
+An invalid explicit `--src` is an invocation error. The runner overwrites the
+tracked `mutants.log` and `tests/results/*`, including old overlap evidence when
+c is skipped; inspect those generated changes before committing.
 
 **Per-frame dumps are not committed.** To keep this PR small, the per-frame PNG
 folders under `renders/{hd,pixel}/` (`idle/`, `aim/`, `fire/`, `cooldown/`,

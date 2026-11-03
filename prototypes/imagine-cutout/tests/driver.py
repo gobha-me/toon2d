@@ -218,13 +218,27 @@ def asset_hashes(project: Path) -> dict[str, str]:
             for path in paths}
 
 
-def mutants() -> bool:
+def mutants(source: Path | None = None) -> bool:
     phase("mutants", "start")
     baseline = suite(PROTOTYPE, TEMP / "baseline.json", announce=False)
     baseline_joints = {(j["mode"], j["joint"], j["limit"]): j for j in baseline["joints"]}
     report = []
+    result_dir = PROTOTYPE / "tests" / "results"
+    result_dir.mkdir(parents=True, exist_ok=True)
+    source = source if source is not None else REPO / "src"
     for name, kind, expected in (("a", "flash", "3"), ("b", "bone", "1"),
                                  ("c", "overlap", "5"), ("d", "timing", "2")):
+        if kind == "overlap" and not source.is_dir():
+            reason = "no src; supply Segments exports with --src <dir>"
+            item = {"mutant": name, "kind": kind, "status": "SKIPPED",
+                    "reason": reason, "files_changed": [], "expected_test": expected,
+                    "observed_red_tests": [], "new_red_tests": [], "worsened_joints": []}
+            report.append(item)
+            (result_dir / f"mutant-{name}.json").write_text(json.dumps(item, indent=2) + "\n")
+            for suffix in ("godot.txt", "prep.txt"):
+                (result_dir / f"mutant-{name}.{suffix}").write_text(f"SKIPPED: {reason}\n")
+            print(f"{name}: SKIPPED ({reason})", flush=True)
+            continue
         print(f"Running mutant {name}: {kind}", flush=True)
         work = Path(tempfile.mkdtemp(prefix=f"mutant-{name}-", dir=TEMP))
         project = work / "prototypes" / "imagine-cutout"
@@ -233,8 +247,8 @@ def mutants() -> bool:
         if kind == "overlap":
             guard()
             before_hashes = asset_hashes(project)
-            shutil.copytree(REPO / "tools", work / "tools", ignore=shutil.ignore_patterns("__pycache__"))
-            shutil.copytree(REPO / "src", work / "src")
+            shutil.copytree(PROTOTYPE / "tools", work / "tools", ignore=shutil.ignore_patterns("__pycache__"))
+            shutil.copytree(source, work / "src")
             prep_log = work / "prep.txt"
             heavy([sys.executable, str(work / "tools" / "prep_parts.py"), "--pixel", "120",
                    "--overlap-px", "0", "--defringe-px", "2"], work, prep_log)
@@ -278,17 +292,22 @@ def mutants() -> bool:
     (PROTOTYPE / "mutants.log").write_text("\n".join(lines) + "\n")
     (PROTOTYPE / "tests" / "results" / "mutants.json").write_text(json.dumps(report, indent=2) + "\n")
     phase("mutants", "end")
-    return all(item["status"] == "KILLED" for item in report)
+    return all(item["status"] in ("KILLED", "SKIPPED") for item in report)
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("mode", choices=("suite", "mutants"))
     parser.add_argument("--output", type=Path, default=PROTOTYPE / "tests" / "results" / "real.json")
+    parser.add_argument("--src", type=Path, help="optional Segments source directory for overlap mutant c")
     args = parser.parse_args()
+    if args.src is not None:
+        args.src = args.src.resolve()
+        if not args.src.is_dir():
+            parser.error("--src must name an existing directory")
     guard()
     if args.mode == "mutants":
-        return 0 if mutants() else 1
+        return 0 if mutants(args.src) else 1
     phase("real-suite", "start")
     result = suite(PROTOTYPE, args.output.resolve())
     phase("real-suite", "end")

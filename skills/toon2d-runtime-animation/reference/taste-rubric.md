@@ -53,3 +53,8 @@ Aim at one of these looks. They are descriptions so that you build your own art;
 
 This rubric sits beside [`review-rubric.md`](review-rubric.md) (puppet, motion and face) and does not replace the motion
 checks in `score.mjs`.
+
+For independently collected human and judge ratings, see
+[`taste-calibration.md`](taste-calibration.md) for the paired input format and
+the agreement report command. Actual ratings and a reviewed threshold are
+needed before using these scores as a grader gate.

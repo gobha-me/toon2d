@@ -390,6 +390,28 @@ required trailers were checked. The full change diff passes whitespace,
 private-path/host-name-pattern and redacted secret scans. No network/forge
 operation, installation, paid service, core dump or heavy-run bypass occurred.
 
+### Deferred suite verification after the review fixes
+
+The launcher executed all three previously deferred suites against
+`f3418a43e865d61af21e8d2618a91a53aacc13a1`. Its verdict is **PASS** for F1,
+F2 and F3, each with **rc 0 on one attempt**, and it records **PUSHGATE=OPEN**.
+The supplied verdict has no `STATUS`; final scope and hygiene status remains
+launcher-owned. No push was performed.
+
+[Verification evidence](tests/results/verify-fix19/SUMMARY.md) records every
+exact ledger command and start/end UTC time, sanitized complete attempt logs,
+the full final results snapshot, the launcher verdict and original-source hashes.
+The original tests 1-5 and all five body acceptance checks pass. Mutants
+**a, b, d, e, f, g and h are KILLED**; **c is explicitly SKIPPED** for missing
+raw Segments PNG inputs and is not credited as killed or passed. No suite is
+NOT-RUN in this launcher verdict; any NOT-RUN result remains deferred.
+
+The final snapshot's historical `body-parts/red-first.json` filename contains
+the passing fresh baseline from the mutant suite, not the earlier PoC reds or
+a separate saved body-suite attempt. Historical observations above remain
+historical. This phase only read and recorded existing evidence; it ran no
+tests, runners, suites or Godot, and changed no assertion, tolerance or harness.
+
 ## Issue 18: recorded Xvfb ownership (M1)
 
 The runner starts Xvfb with `-displayfd`, writes its child PID immediately to

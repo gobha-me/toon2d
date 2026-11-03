@@ -1,0 +1,4 @@
+verification=PASS
+F1=PASS F2=PASS F3=PASS
+PUSHGATE=OPEN
+WHY=F1: rc 0, verdict lines present; F2: rc 0, verdict lines present; F3: rc 0, verdict lines present

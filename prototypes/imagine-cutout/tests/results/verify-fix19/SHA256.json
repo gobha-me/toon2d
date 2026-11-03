@@ -1,0 +1,149 @@
+{
+  "algorithm": "sha256",
+  "files": [
+    {
+      "category": "launcher ledger",
+      "retained_path": "LEDGER.tsv",
+      "source_sha256": "bc53ac3edcf64c7bdd64d1e6a7497c1b37f2ed75ff8c13c29da60545afef6ca6",
+      "retained_sha256": "bc53ac3edcf64c7bdd64d1e6a7497c1b37f2ed75ff8c13c29da60545afef6ca6"
+    },
+    {
+      "category": "launcher attempt log",
+      "retained_path": "legacy.a1.log",
+      "source_sha256": "093c0ff2fdf8988a65521114c28e6538d950b25a431358e8f78cda464aa72666",
+      "retained_sha256": "16336e93cd826de9e0d952292fe7bce10ac1cf78cd1bebbe36afeda0907af25b"
+    },
+    {
+      "category": "launcher attempt log",
+      "retained_path": "body.a1.log",
+      "source_sha256": "c5d64b85b3b80be4342fa37bc4f974414e2a1e3775dc859bcad21b94f17b1015",
+      "retained_sha256": "7f6914cea348a39dd8b775f6f64e2fa26db799ea5f9f8776ef7abdee40b64441"
+    },
+    {
+      "category": "launcher attempt log",
+      "retained_path": "mutants.a1.log",
+      "source_sha256": "cf497426c6c8bb78438c776753636e454a2de470e3cfd74f309f25e1e8aa9e17",
+      "retained_sha256": "419fd166e5afca453856b4dd381db2eef3246ce7f7bf030011910cf267484624"
+    },
+    {
+      "category": "launcher results snapshot",
+      "retained_path": "snapshot/body-parts/mutant-e.godot.txt",
+      "source_sha256": "91661c95d9cd58948c39784c0768fb3059fbcd0bb90fd88585edf370e297e489",
+      "retained_sha256": "1a53df54ea431b69f786bdf8df348f8025bc4dacf091aaa9e34bd303a732d37e"
+    },
+    {
+      "category": "launcher results snapshot",
+      "retained_path": "snapshot/body-parts/mutant-e.json",
+      "source_sha256": "28801ceae164ae5c46eb1a7331bfb58bfd9abaa8c56c007ee273afa6d12c4f29",
+      "retained_sha256": "28801ceae164ae5c46eb1a7331bfb58bfd9abaa8c56c007ee273afa6d12c4f29"
+    },
+    {
+      "category": "launcher results snapshot",
+      "retained_path": "snapshot/body-parts/mutant-f.godot.txt",
+      "source_sha256": "effbfa1af59c3898425ac3875c29334ffb6dc52936e2e0a05b3b06cf62056940",
+      "retained_sha256": "011ef087d5f42ed0e204c3a9a48286cb6cf9cd99bb52735f5768dd8d86fca45c"
+    },
+    {
+      "category": "launcher results snapshot",
+      "retained_path": "snapshot/body-parts/mutant-f.json",
+      "source_sha256": "be24d544027d2b881c0b7e7137a2a1529b943151931e29e292ee7a6546855430",
+      "retained_sha256": "be24d544027d2b881c0b7e7137a2a1529b943151931e29e292ee7a6546855430"
+    },
+    {
+      "category": "launcher results snapshot",
+      "retained_path": "snapshot/body-parts/mutant-g.godot.txt",
+      "source_sha256": "10f280209c58fc60f89306ac01837d377e259c73f6dbc4b6d4f4cd20a5dd8cda",
+      "retained_sha256": "68f44f0a30d59218d2ebb460f8ccfb2055bf235bbb944fa64205147b02a0669e"
+    },
+    {
+      "category": "launcher results snapshot",
+      "retained_path": "snapshot/body-parts/mutant-g.json",
+      "source_sha256": "ad05668ad416a8c03957fb5b4cbc1d80dd98dbfd245c79bd4eb3fd6b0b8fdac3",
+      "retained_sha256": "ad05668ad416a8c03957fb5b4cbc1d80dd98dbfd245c79bd4eb3fd6b0b8fdac3"
+    },
+    {
+      "category": "launcher results snapshot",
+      "retained_path": "snapshot/body-parts/mutant-h.godot.txt",
+      "source_sha256": "b49f1cb91933a5788b3ff3d1dcc885ecbe2ef3e51412205334cb8d77eef7dc67",
+      "retained_sha256": "b3ab5148140d2e81d1f507c9feaa5c826ab243cc01144f0ec2062ece9eabe987"
+    },
+    {
+      "category": "launcher results snapshot",
+      "retained_path": "snapshot/body-parts/mutant-h.json",
+      "source_sha256": "46a16e306ba4819b5892f4650cb9fea03681243cc97cab518ed5558966f68b34",
+      "retained_sha256": "46a16e306ba4819b5892f4650cb9fea03681243cc97cab518ed5558966f68b34"
+    },
+    {
+      "category": "launcher results snapshot",
+      "retained_path": "snapshot/body-parts/mutants.json",
+      "source_sha256": "5b05e406d7c94b151b02131d2da6c4926cdba66b89b3b5a52ae62fafeb5155de",
+      "retained_sha256": "5b05e406d7c94b151b02131d2da6c4926cdba66b89b3b5a52ae62fafeb5155de"
+    },
+    {
+      "category": "launcher results snapshot",
+      "retained_path": "snapshot/body-parts/red-first.godot.txt",
+      "source_sha256": "d329a59b0be64b4d0f9ca42693c2e5b77fc2861f5601de23450e3ea4247865e0",
+      "retained_sha256": "19bdc10863d107a946f30cb9a3d9d6dda50c8284324d069e0073606c73bb5c4e"
+    },
+    {
+      "category": "launcher results snapshot",
+      "retained_path": "snapshot/body-parts/red-first.json",
+      "source_sha256": "e9a10e47cb5dec0e65f0e17b618505036b590cd702ec1b1376106082d8c9acf7",
+      "retained_sha256": "e9a10e47cb5dec0e65f0e17b618505036b590cd702ec1b1376106082d8c9acf7"
+    },
+    {
+      "category": "launcher results snapshot",
+      "retained_path": "snapshot/mutant-a.godot.txt",
+      "source_sha256": "8ea35690696cad5e8ce83ae25c1c39e569c70b001719f4e070ab39d6f087a026",
+      "retained_sha256": "8064170102fcbf85a145719d6d49a29f46b45e83d4b4baaccaaf7dd812d759f1"
+    },
+    {
+      "category": "launcher results snapshot",
+      "retained_path": "snapshot/mutant-a.json",
+      "source_sha256": "10e5d4dfe6d5618535ec618d3217ed46a7825bdd58d24a5251c61c0e5022b561",
+      "retained_sha256": "10e5d4dfe6d5618535ec618d3217ed46a7825bdd58d24a5251c61c0e5022b561"
+    },
+    {
+      "category": "launcher results snapshot",
+      "retained_path": "snapshot/mutant-b.godot.txt",
+      "source_sha256": "0861138134b3220a8b2ead9f8a28d9d85b65c1514253e5292a9351648e73d876",
+      "retained_sha256": "5655d7ffad529eaa9fffb590a83c9ffd32e57634d7446ae9593c7f3e500b3d36"
+    },
+    {
+      "category": "launcher results snapshot",
+      "retained_path": "snapshot/mutant-b.json",
+      "source_sha256": "ec71a29c32c1ddefbd9bf616595412d61a1b6b53f61e99c577cdcc69099e9043",
+      "retained_sha256": "ec71a29c32c1ddefbd9bf616595412d61a1b6b53f61e99c577cdcc69099e9043"
+    },
+    {
+      "category": "launcher results snapshot",
+      "retained_path": "snapshot/mutant-d.godot.txt",
+      "source_sha256": "96316c41bbe42123ceb9ceb8440924d8aed6512b60681cf00dac4d99cd120b79",
+      "retained_sha256": "8064170102fcbf85a145719d6d49a29f46b45e83d4b4baaccaaf7dd812d759f1"
+    },
+    {
+      "category": "launcher results snapshot",
+      "retained_path": "snapshot/mutant-d.json",
+      "source_sha256": "935326f22299800439d08eef91cdb56ad44c9c8c66d06f390aef96e690b805a2",
+      "retained_sha256": "935326f22299800439d08eef91cdb56ad44c9c8c66d06f390aef96e690b805a2"
+    },
+    {
+      "category": "launcher results snapshot",
+      "retained_path": "snapshot/real.godot.txt",
+      "source_sha256": "8ae59b9bace99ecb126d5aefbc63c00cd74b0aefe3b0e9f0803c8edf98cfd56d",
+      "retained_sha256": "aea53a1086649ef943c2d8adad9b248726d898aa05cdcc16af0a5f5fe69a4fd8"
+    },
+    {
+      "category": "launcher results snapshot",
+      "retained_path": "snapshot/real.json",
+      "source_sha256": "3f309ed209ccc2128c3c0719188d358923b81c306069581b19a4b9cc5e7de983",
+      "retained_sha256": "3f309ed209ccc2128c3c0719188d358923b81c306069581b19a4b9cc5e7de983"
+    },
+    {
+      "category": "launcher verdict",
+      "retained_path": "VERDICT.txt",
+      "source_sha256": "ccfb80514d2f2ef7676107278fc5290fd88f1a2bd27548460c18669aa61e89c0",
+      "retained_sha256": "2845c2a9e14f0e7840c964c86f4f856bf2bb021796764c51537ad7fc3e9ee156"
+    }
+  ]
+}

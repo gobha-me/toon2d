@@ -338,7 +338,7 @@ export async function renderVisualReview(project, out, { query = '' } = {}) {
   const images = {
     'keyposes.png': native, 'keyposes-3x.png': scaleNearest(native, 3),
     'silhouettes.png': contact(keyposes, true), 'motion.png': contact(motion),
-    ...Object.fromEntries(report.signals.map((s) => [`${s.id}.png`, contact(s.evidence)])),
+    ...Object.fromEntries(report.signals.map((s) => [`${s.id}.png`, contact(s.evidence, s.id === 'silhouette')])),
   };
   // Create only after rendering and validation; never overwrite earlier evidence.
   mkdirSync(dirname(out), { recursive: true });

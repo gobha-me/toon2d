@@ -5,12 +5,13 @@ the human-rated calibration set, reference style images, hidden judge and blind
 comparison are still separate work. It does not promote the advisory take-off
 check or change the grader.
 
-Run the motion checks first. Then capture a fresh round through the harness:
-
-For deterministic pass/warn observations and per-signal evidence before writing
+Run the motion checks first. For deterministic pass/warn observations and
+per-signal evidence before writing
 the critique, use the [measured visual diagnostic](visual-signals.md):
 `node scripts/visual-review.mjs <project> --out <new-evidence-dir>`.
 Its warning count is advisory and does not fill or score the critique form.
+
+Then capture a fresh critique round through the harness:
 
 ```bash
 node scripts/self-review.mjs capture <project> --out <review-dir>

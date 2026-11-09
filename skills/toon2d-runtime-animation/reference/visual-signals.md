@@ -47,7 +47,8 @@ overwrites previous captures. It writes:
 - `silhouettes.png`: the same poses, black alpha masks on white.
 - `motion.png`: ordered run ticks 0, 10, 20, 30, 40 and 50.
 - `<signal>.png`: up to six frames grounding each signal, including consecutive
-  triplets around extreme acceleration or rapid reversal measurements.
+  triplets around extreme acceleration or rapid reversal measurements. The
+  silhouette signal shows black masks of its own observed frames.
 - `frames.json`: seed, query, view, key-pose selection and ordered zero-based
   segment ticks for every evidence strip. Joint names identify motion samples.
 

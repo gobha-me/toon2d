@@ -37,6 +37,25 @@ node scripts/score.mjs templates/starter --query mode=smooth
 node scripts/capture.mjs templates/starter --out /tmp/cap
 ```
 
+## Measured visual self-review
+
+```bash
+node scripts/visual-review.mjs templates/starter --out shots/visual-pixel
+node scripts/visual-review.mjs templates/starter --query mode=smooth --out shots/visual-smooth
+```
+
+Choose a new output directory each time. Read `report.md` and open the linked
+native key poses, nearest 3x view, black silhouettes and per-signal evidence.
+The tool reports deterministic CPU-only pass/warn proxies for silhouette,
+spacing, jump anticipation, stop overshoot, pose holds, jitter and pixel edges.
+Warnings are advisory (exit 0); invalid input or rendering errors exit 2.
+No dependencies beyond Node ≥ 22 and Chrome/Chromium, no paid APIs or models.
+
+Definitions, thresholds and false-positive examples:
+[visual signals](reference/visual-signals.md). Use these observations in the
+existing [three-round critique loop](reference/self-review.md). This does not
+change required motion checks or substitute for independent taste calibration.
+
 ## Proof of repeatability
 `evals/` holds golden tasks, a fixture sheet and an objective grader. Give a *different* agent the bundle without
 `evals/`, then grade its output with `evals/run-evals.mjs` and review GIFs with `evals/review.md`.

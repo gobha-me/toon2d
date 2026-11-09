@@ -7,6 +7,11 @@ check or change the grader.
 
 Run the motion checks first. Then capture a fresh round through the harness:
 
+For deterministic pass/warn observations and per-signal evidence before writing
+the critique, use the [measured visual diagnostic](visual-signals.md):
+`node scripts/visual-review.mjs <project> --out <new-evidence-dir>`.
+Its warning count is advisory and does not fill or score the critique form.
+
 ```bash
 node scripts/self-review.mjs capture <project> --out <review-dir>
 ```

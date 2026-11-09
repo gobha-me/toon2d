@@ -34,3 +34,10 @@ mutant command return code. No tolerance, pose plan, assertion or deadline is
 changed. Direct build children retain cores; the immutable test harness may
 remove its own nested scratch before the outer validator regains control, as
 noted in PR #29. Any observed crash requires investigation.
+
+First actual admission: 12/12 provenance mutants KILLED. The inherited five-check
+suite passes hierarchy, timing, flash and rigid prop checks; gap checking is RED
+at right elbow minimum (5 pixels), right elbow maximum (2) and left ankle minimum
+(1). These reports are retained in legacy/. Source backing receives a small
+local margin correction; frozen limits, geometry, tolerances and deadlines stay
+unchanged. Fresh full acceptance and rendered mutation remain outstanding.

@@ -1,0 +1,284 @@
+{
+  "schema_version": 1,
+  "advisory": true,
+  "seed": 1,
+  "tick_hz": 60,
+  "mode": "smooth",
+  "standing_hip_height": 20.52094,
+  "thresholds": {
+    "mainComponent": 0.97,
+    "boxFill": 0.85,
+    "splitRows": 0.08,
+    "accelerationP95": 0.1,
+    "accelerationMax": 0.35,
+    "motionSpan": 0.02,
+    "crouchDepth": 0.15,
+    "crouchTicksMin": 3,
+    "crouchTicksMax": 18,
+    "overshootDegrees": 2,
+    "settleDegrees": 2,
+    "maxHoldTicks": 6,
+    "jitterFraction": 0.15,
+    "jitterStep": 0.015,
+    "partialAlphaFraction": 0.001
+  },
+  "signals": [
+    {
+      "id": "silhouette",
+      "status": "warn",
+      "detail": "Alpha-mask connectivity, box fill and separated lower-body spans; skirts and crossed limbs need visual review.",
+      "metrics": {
+        "min_component_share": 1,
+        "max_box_fill": 0.6839,
+        "min_split_rows": 0,
+        "empty_frames": 0,
+        "clipped_frames": 0,
+        "flagged_frames": 36,
+        "frames": 285
+      },
+      "evidence": [
+        {
+          "segment": "run",
+          "tick": 3
+        },
+        {
+          "segment": "run",
+          "tick": 4
+        },
+        {
+          "segment": "run",
+          "tick": 5
+        },
+        {
+          "segment": "run",
+          "tick": 6
+        },
+        {
+          "segment": "run",
+          "tick": 7
+        },
+        {
+          "segment": "run",
+          "tick": 8
+        }
+      ]
+    },
+    {
+      "id": "spacing",
+      "status": "pass",
+      "detail": "Worst-joint 95th-percentile and maximum endpoint acceleration in standing hip-heights/tick\u00b2; root-relative, run ticks 12 onward.",
+      "metrics": {
+        "acceleration_p95": 0.09079,
+        "acceleration_max": 0.15126,
+        "worst_joint": "legLF",
+        "max_joint": "legUF",
+        "max_motion_span": 1.11472,
+        "samples": 460,
+        "complete": true
+      },
+      "evidence": [
+        {
+          "segment": "run",
+          "tick": 42,
+          "joint": "legLF"
+        },
+        {
+          "segment": "run",
+          "tick": 43,
+          "joint": "legLF"
+        },
+        {
+          "segment": "run",
+          "tick": 44,
+          "joint": "legLF"
+        },
+        {
+          "segment": "run",
+          "tick": 21,
+          "joint": "legLF"
+        },
+        {
+          "segment": "run",
+          "tick": 22,
+          "joint": "legLF"
+        },
+        {
+          "segment": "run",
+          "tick": 23,
+          "joint": "legLF"
+        }
+      ]
+    },
+    {
+      "id": "anticipation",
+      "status": "pass",
+      "detail": "Grounded jump-squat depth and duration, followed by observed airborne flight and a grounded landing.",
+      "metrics": {
+        "depth_fraction": 0.61014,
+        "crouch_ticks": 6,
+        "launch_tick": 6,
+        "land_tick": 42,
+        "airborne_ticks": 36
+      },
+      "evidence": [
+        {
+          "segment": "jump",
+          "tick": 0
+        },
+        {
+          "segment": "jump",
+          "tick": 5
+        },
+        {
+          "segment": "jump",
+          "tick": 6
+        },
+        {
+          "segment": "jump",
+          "tick": 42
+        }
+      ]
+    },
+    {
+      "id": "overshoot",
+      "status": "warn",
+      "detail": "Stop torso crosses its final pitch, then settles during the final five ticks; not required in every style.",
+      "metrics": {
+        "initial_offset_degrees": 6.37624,
+        "excursion_degrees": 1.42814,
+        "tail_range_degrees": 0.07161
+      },
+      "evidence": [
+        {
+          "segment": "stop",
+          "tick": 0
+        },
+        {
+          "segment": "stop",
+          "tick": 25
+        },
+        {
+          "segment": "stop",
+          "tick": 40
+        },
+        {
+          "segment": "stop",
+          "tick": 44
+        }
+      ]
+    },
+    {
+      "id": "holds",
+      "status": "pass",
+      "detail": "Consecutive identical root-follow character rasters at 60 Hz; ones/twos/threes accepted, long run freezes flagged.",
+      "metrics": {
+        "max_hold_ticks": 1,
+        "pose_runs": 60,
+        "frames": 60
+      },
+      "evidence": [
+        {
+          "segment": "run",
+          "tick": 0
+        },
+        {
+          "segment": "run",
+          "tick": 0
+        },
+        {
+          "segment": "run",
+          "tick": 1
+        },
+        {
+          "segment": "run",
+          "tick": 1
+        },
+        {
+          "segment": "run",
+          "tick": 2
+        },
+        {
+          "segment": "run",
+          "tick": 2
+        }
+      ]
+    },
+    {
+      "id": "jitter",
+      "status": "pass",
+      "detail": "Worst-joint fraction of significant endpoint steps immediately reversing by more than 120\u00b0; deliberate impacts can warn.",
+      "metrics": {
+        "reversal_fraction": 0.04348,
+        "worst_joint": "armLF",
+        "samples": 460,
+        "complete": true,
+        "moving": true
+      },
+      "evidence": [
+        {
+          "segment": "run",
+          "tick": 42,
+          "joint": "armLF"
+        },
+        {
+          "segment": "run",
+          "tick": 43,
+          "joint": "armLF"
+        },
+        {
+          "segment": "run",
+          "tick": 44,
+          "joint": "armLF"
+        },
+        {
+          "segment": "run",
+          "tick": 53,
+          "joint": "armLF"
+        },
+        {
+          "segment": "run",
+          "tick": 54,
+          "joint": "armLF"
+        },
+        {
+          "segment": "run",
+          "tick": 55,
+          "joint": "armLF"
+        }
+      ]
+    }
+  ],
+  "warning_count": 2,
+  "keyposes": [
+    {
+      "pose": "idle",
+      "segment": "idle",
+      "tick": 0
+    },
+    {
+      "pose": "run",
+      "segment": "run",
+      "tick": 30
+    },
+    {
+      "pose": "crouch",
+      "segment": "jump",
+      "tick": 5
+    },
+    {
+      "pose": "takeoff",
+      "segment": "jump",
+      "tick": 6
+    },
+    {
+      "pose": "apex",
+      "segment": "jump",
+      "tick": 22
+    },
+    {
+      "pose": "land",
+      "segment": "jump",
+      "tick": 42
+    }
+  ]
+}

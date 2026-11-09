@@ -1,0 +1,13 @@
+test_driver_heavy_defer_policy (__main__.HarnessPolicy.test_driver_heavy_defer_policy) ... heavy stub [75, 0]: exit 0; attempts 2
+heavy stub [75]: exit 79; attempts 4
+heavy stub [78]: exit 78; attempts 1
+ok
+test_xvfb_no_orphan_normal_exit (__main__.HarnessPolicy.test_xvfb_no_orphan_normal_exit) ... NORMAL: recorded PID gone; display lock gone; scratch removed
+ok
+test_xvfb_no_orphan_on_term (__main__.HarnessPolicy.test_xvfb_no_orphan_on_term) ... TERM: recorded PID gone; display lock gone; scratch removed
+ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.264s
+
+OK

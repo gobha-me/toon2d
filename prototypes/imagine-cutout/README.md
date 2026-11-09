@@ -59,6 +59,28 @@ free space. Scratch and XDG state stay under a trapped temporary directory.
 Workers stay capped at two. A `heavy-run` exit 75 requires waiting and retrying.
 The tools write `.gen.json` directly with truthful prompt/model/date information.
 
+### Independent mutant runner
+
+The mutant runner uses the packaged `prototypes/imagine-cutout/tools/`; it does
+not require repository-root `tools/`. From the repository root, with
+`TOON_PYTHON` set as above:
+
+```bash
+TEST_PYTHON="$TOON_PYTHON" prototypes/imagine-cutout/tests/run_mutants.sh
+TEST_PYTHON="$TOON_PYTHON" prototypes/imagine-cutout/tests/run_mutants.sh --src path/to/segments-src
+```
+
+`--src <dir>` selects the Segments `src` tree containing `parts/raw-hd/`, including
+`original.png`. Both `mutants` and `all-mutants` driver modes accept it;
+`run_mutants.sh` selects `all-mutants`. Without this option, source lookup tries
+the prototype's `src/` first, then repository-root `src/`.
+
+When source exports are absent, overlap mutant c is recorded as `SKIPPED` and
+mutant d still runs. Any executed `SURVIVED` mutant causes exit 1, even after a
+skip. Each run overwrites tracked `mutants.log` and `tests/results/*` within the
+prototype, including old overlap JSON, render logs and preparation evidence
+when c is skipped.
+
 ## Preparation and rig
 
 `tools/prep_parts.py` locates all 17 supplied HD Segments crops using RGB template

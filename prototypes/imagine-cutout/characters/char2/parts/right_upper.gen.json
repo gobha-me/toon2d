@@ -1,19 +1,19 @@
 {
   "tool": "Python/Pillow/OpenCV scripted derivation from Grok Imagine (SpaceXAI)",
   "model": "no generative model used; source model not disclosed",
-  "date": "2026-11-09T22:34:07.845638Z",
+  "date": "2026-11-09T22:53:18.515027Z",
   "date_source": "scripted artifact creation time UTC",
   "source": "prototypes/imagine-cutout/tools/prep_char2.py",
   "license": "CC0 1.0",
   "credit": "Generated with Grok Imagine (SpaceXAI); scripted derivation where stated",
   "rights": "Original fictional art only; no real-person likeness.",
   "description": "Derived fictional courier part: right_upper",
-  "output_sha256": "038849f77a5f8369c6ab4c9fcb85faa4afb2bd9b5cd3260feafcfcebeebb437f",
-  "tool_sha256": "455ca7a499546027ac2adb110eecdbada29d893542756fea36c12d47cb37d9df",
+  "output_sha256": "e9d1ce92f7fe009ad007d5d8b652ff9e0e90919133369cffded8515e58476492",
+  "tool_sha256": "d2eb9d7ea2b8209ee4d5e35602f1185d81a756bf6193574553ec6a32e80a44cc",
   "manifest_sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4",
   "classification": "Segments-split",
   "scripted_fallback": false,
-  "derived_from": "Polygon split and affine fit of seg-be6a-teal-cropped-jacket.png; composited in listed order; uniform source-interior material elliptical proximal cap radii [18, 20]px and joint-only 12px dilation.",
+  "derived_from": "Polygon split and affine fit of seg-be6a-teal-cropped-jacket.png; composited in listed order; source-interior material joint supports right_upper proximal [18, 20]px with 12px local dilation, right_fore distal seam support [16, 16]px with 12px local dilation.",
   "imagine_sources": [
     {
       "file": "seg-be6a-teal-cropped-jacket.png",
@@ -100,7 +100,7 @@
       ]
     }
   ],
-  "joint_completion_added_pixels": 1883,
+  "joint_completion_added_pixels": 2725,
   "backing_material": {
     "rgb": [
       17,
@@ -111,13 +111,75 @@
       184,
       249
     ],
-    "selection": "retained opaque interior pixel closest to local median RGB",
+    "selection": "authored opaque interior pixel closest to local median RGB",
     "minimum_core_depth_px": 3,
     "search_radius_px": 52
   },
   "joint_cap_radii_px": [
     18,
     20
+  ],
+  "joint_backings": [
+    {
+      "joint": "right_upper",
+      "role": "proximal",
+      "pivot": [
+        182,
+        250
+      ],
+      "source_part": "right_upper",
+      "rasterization": "opaque pixel-centred source-material underlay",
+      "cap_radii_px": [
+        18,
+        20
+      ],
+      "overlap_px": 12,
+      "material": {
+        "rgb": [
+          17,
+          118,
+          134
+        ],
+        "sample_rig_px": [
+          184,
+          249
+        ],
+        "selection": "authored opaque interior pixel closest to local median RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 52
+      },
+      "added_opaque_pixels": 1932
+    },
+    {
+      "joint": "right_fore",
+      "role": "distal seam support",
+      "pivot": [
+        168,
+        340
+      ],
+      "source_part": "right_upper",
+      "rasterization": "opaque pixel-centred source-material underlay",
+      "cap_radii_px": [
+        16,
+        16
+      ],
+      "overlap_px": 12,
+      "material": {
+        "rgb": [
+          99,
+          108,
+          115
+        ],
+        "sample_rig_px": [
+          148,
+          331
+        ],
+        "selection": "local authored opaque cuff interior above elbow; median-nearest RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 48
+      },
+      "added_opaque_pixels": 793
+    }
   ],
   "source_post_url": "https://grok.com/imagine/post/be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8"
 }

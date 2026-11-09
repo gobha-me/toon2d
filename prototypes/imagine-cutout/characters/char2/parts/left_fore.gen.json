@@ -1,19 +1,19 @@
 {
   "tool": "Python/Pillow/OpenCV scripted derivation from Grok Imagine (SpaceXAI)",
   "model": "no generative model used; source model not disclosed",
-  "date": "2026-11-09T22:34:07.845638Z",
+  "date": "2026-11-09T22:53:18.515027Z",
   "date_source": "scripted artifact creation time UTC",
   "source": "prototypes/imagine-cutout/tools/prep_char2.py",
   "license": "CC0 1.0",
   "credit": "Generated with Grok Imagine (SpaceXAI); scripted derivation where stated",
   "rights": "Original fictional art only; no real-person likeness.",
   "description": "Derived fictional courier part: left_fore",
-  "output_sha256": "cdc54fbae0cf2d5f1dea89bb3204e7743502bcd304536ae08c77a9974b5302dd",
-  "tool_sha256": "455ca7a499546027ac2adb110eecdbada29d893542756fea36c12d47cb37d9df",
+  "output_sha256": "627161b6bdcb347240c20f7ee64bcf8063d84b10b04d2a50b3a159eb37d188bc",
+  "tool_sha256": "d2eb9d7ea2b8209ee4d5e35602f1185d81a756bf6193574553ec6a32e80a44cc",
   "manifest_sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4",
   "classification": "Segments-split",
   "scripted_fallback": false,
-  "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; uniform source-interior material elliptical proximal cap radii [18, 22]px and joint-only 12px dilation.",
+  "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; source-interior material joint supports left_fore proximal [22, 22]px with 12px local dilation, left_hand distal seam support [12, 14]px with 12px local dilation.",
   "imagine_sources": [
     {
       "file": "call1-base-best.jpg",
@@ -76,24 +76,86 @@
       ]
     }
   ],
-  "joint_completion_added_pixels": 1701,
+  "joint_completion_added_pixels": 3424,
   "backing_material": {
     "rgb": [
-      252,
-      211,
-      182
+      61,
+      43,
+      29
     ],
     "sample_rig_px": [
-      349,
-      340
+      363,
+      332
     ],
-    "selection": "retained opaque interior pixel closest to local median RGB",
+    "selection": "local authored opaque cuff interior above elbow; median-nearest RGB",
     "minimum_core_depth_px": 3,
     "search_radius_px": 54
   },
   "joint_cap_radii_px": [
-    18,
+    22,
     22
+  ],
+  "joint_backings": [
+    {
+      "joint": "left_fore",
+      "role": "proximal",
+      "pivot": [
+        344,
+        340
+      ],
+      "source_part": "left_fore",
+      "rasterization": "opaque pixel-centred source-material underlay",
+      "cap_radii_px": [
+        22,
+        22
+      ],
+      "overlap_px": 12,
+      "material": {
+        "rgb": [
+          61,
+          43,
+          29
+        ],
+        "sample_rig_px": [
+          363,
+          332
+        ],
+        "selection": "local authored opaque cuff interior above elbow; median-nearest RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 54
+      },
+      "added_opaque_pixels": 2190
+    },
+    {
+      "joint": "left_hand",
+      "role": "distal seam support",
+      "pivot": [
+        352,
+        430
+      ],
+      "source_part": "left_fore",
+      "rasterization": "opaque pixel-centred source-material underlay",
+      "cap_radii_px": [
+        12,
+        14
+      ],
+      "overlap_px": 12,
+      "material": {
+        "rgb": [
+          252,
+          212,
+          183
+        ],
+        "sample_rig_px": [
+          351,
+          399
+        ],
+        "selection": "authored opaque interior pixel closest to local median RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 46
+      },
+      "added_opaque_pixels": 1234
+    }
   ],
   "source_post_url": "https://grok.com/imagine/post/be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8"
 }

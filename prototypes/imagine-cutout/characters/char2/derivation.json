@@ -3,7 +3,7 @@
   "tool": "prototypes/imagine-cutout/tools/prep_char2.py",
   "source_post_id": "be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8",
   "manifest_sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4",
-  "tool_sha256": "455ca7a499546027ac2adb110eecdbada29d893542756fea36c12d47cb37d9df",
+  "tool_sha256": "d2eb9d7ea2b8209ee4d5e35602f1185d81a756bf6193574553ec6a32e80a44cc",
   "dependencies": {
     "OpenCV": "4.12.0",
     "NumPy": "2.5.4",
@@ -39,7 +39,7 @@
           "sha256": "975ae1b378e11ca1cd1f3ce26a74b4714a4357ceaa4ef52955f3d7627d98f416"
         }
       ],
-      "output_sha256": "8f98b7b880d04c16dcdd0c35a9412e1e482f1c03f1682bc38c2477a7ee194880",
+      "output_sha256": "c94a23b86931800fc0d24b746fee236d4aa226df337ad09afc3463e85cf6eb0f",
       "operations": [
         {
           "file": "call1-base-best.jpg",
@@ -190,9 +190,71 @@
           ]
         }
       ],
-      "joint_completion_added_pixels": 0,
+      "joint_completion_added_pixels": 2290,
       "backing_material": null,
-      "joint_cap_radii_px": null
+      "joint_cap_radii_px": null,
+      "joint_backings": [
+        {
+          "joint": "right_upper",
+          "role": "distal seam support",
+          "pivot": [
+            182,
+            250
+          ],
+          "source_part": "torso",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            18,
+            20
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              18,
+              118,
+              133
+            ],
+            "sample_rig_px": [
+              198,
+              225
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 52
+          },
+          "added_opaque_pixels": 1289
+        },
+        {
+          "joint": "left_arm",
+          "role": "distal seam support",
+          "pivot": [
+            330,
+            250
+          ],
+          "source_part": "torso",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            18,
+            20
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              18,
+              119,
+              134
+            ],
+            "sample_rig_px": [
+              311,
+              226
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 52
+          },
+          "added_opaque_pixels": 1001
+        }
+      ]
     },
     "hip_backing": {
       "classification": "Segments-split",
@@ -261,7 +323,8 @@
       ],
       "joint_completion_added_pixels": 0,
       "backing_material": null,
-      "joint_cap_radii_px": null
+      "joint_cap_radii_px": null,
+      "joint_backings": []
     },
     "head": {
       "classification": "Segments-split",
@@ -355,13 +418,45 @@
           274,
           120
         ],
-        "selection": "retained opaque interior pixel closest to local median RGB",
+        "selection": "authored opaque interior pixel closest to local median RGB",
         "minimum_core_depth_px": 3,
         "search_radius_px": 56
       },
       "joint_cap_radii_px": [
         8,
         24
+      ],
+      "joint_backings": [
+        {
+          "joint": "head",
+          "role": "proximal",
+          "pivot": [
+            256,
+            160
+          ],
+          "source_part": "head",
+          "rasterization": "clipped source-edge dilation",
+          "cap_radii_px": [
+            8,
+            24
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              246,
+              207,
+              176
+            ],
+            "sample_rig_px": [
+              274,
+              120
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 56
+          },
+          "added_opaque_pixels": 1002
+        }
       ]
     },
     "right_upper": {
@@ -372,7 +467,7 @@
           "sha256": "975ae1b378e11ca1cd1f3ce26a74b4714a4357ceaa4ef52955f3d7627d98f416"
         }
       ],
-      "output_sha256": "038849f77a5f8369c6ab4c9fcb85faa4afb2bd9b5cd3260feafcfcebeebb437f",
+      "output_sha256": "e9d1ce92f7fe009ad007d5d8b652ff9e0e90919133369cffded8515e58476492",
       "operations": [
         {
           "file": "seg-be6a-teal-cropped-jacket.png",
@@ -453,7 +548,7 @@
           ]
         }
       ],
-      "joint_completion_added_pixels": 1883,
+      "joint_completion_added_pixels": 2725,
       "backing_material": {
         "rgb": [
           17,
@@ -464,13 +559,75 @@
           184,
           249
         ],
-        "selection": "retained opaque interior pixel closest to local median RGB",
+        "selection": "authored opaque interior pixel closest to local median RGB",
         "minimum_core_depth_px": 3,
         "search_radius_px": 52
       },
       "joint_cap_radii_px": [
         18,
         20
+      ],
+      "joint_backings": [
+        {
+          "joint": "right_upper",
+          "role": "proximal",
+          "pivot": [
+            182,
+            250
+          ],
+          "source_part": "right_upper",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            18,
+            20
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              17,
+              118,
+              134
+            ],
+            "sample_rig_px": [
+              184,
+              249
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 52
+          },
+          "added_opaque_pixels": 1932
+        },
+        {
+          "joint": "right_fore",
+          "role": "distal seam support",
+          "pivot": [
+            168,
+            340
+          ],
+          "source_part": "right_upper",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            16,
+            16
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              99,
+              108,
+              115
+            ],
+            "sample_rig_px": [
+              148,
+              331
+            ],
+            "selection": "local authored opaque cuff interior above elbow; median-nearest RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 48
+          },
+          "added_opaque_pixels": 793
+        }
       ]
     },
     "left_arm": {
@@ -481,7 +638,7 @@
           "sha256": "975ae1b378e11ca1cd1f3ce26a74b4714a4357ceaa4ef52955f3d7627d98f416"
         }
       ],
-      "output_sha256": "4748da6f530a5f5a60a983ad6bf15366bbc254f739efc430202b6d3aa2fb43c4",
+      "output_sha256": "d06f33dbdcdd2094823e946c234f4463f08763873569cc6d9b9778fda9ab14fb",
       "operations": [
         {
           "file": "seg-be6a-teal-cropped-jacket.png",
@@ -562,7 +719,7 @@
           ]
         }
       ],
-      "joint_completion_added_pixels": 1829,
+      "joint_completion_added_pixels": 2719,
       "backing_material": {
         "rgb": [
           18,
@@ -573,13 +730,75 @@
           326,
           250
         ],
-        "selection": "retained opaque interior pixel closest to local median RGB",
+        "selection": "authored opaque interior pixel closest to local median RGB",
         "minimum_core_depth_px": 3,
         "search_radius_px": 52
       },
       "joint_cap_radii_px": [
         18,
         20
+      ],
+      "joint_backings": [
+        {
+          "joint": "left_arm",
+          "role": "proximal",
+          "pivot": [
+            330,
+            250
+          ],
+          "source_part": "left_arm",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            18,
+            20
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              18,
+              118,
+              133
+            ],
+            "sample_rig_px": [
+              326,
+              250
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 52
+          },
+          "added_opaque_pixels": 1880
+        },
+        {
+          "joint": "left_fore",
+          "role": "distal seam support",
+          "pivot": [
+            344,
+            340
+          ],
+          "source_part": "left_arm",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            16,
+            16
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              100,
+              108,
+              113
+            ],
+            "sample_rig_px": [
+              339,
+              334
+            ],
+            "selection": "local authored opaque cuff interior above elbow; median-nearest RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 48
+          },
+          "added_opaque_pixels": 839
+        }
       ]
     },
     "right_fore": {
@@ -590,7 +809,7 @@
           "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
         }
       ],
-      "output_sha256": "e5a58e40990b05038fa903d1438d6d5c64541a09134a056065a9c4f00a3d934d",
+      "output_sha256": "1221b020967256ba8b738199071a13a00c15aca7cd6d6bd99f8e6bc44499adc6",
       "operations": [
         {
           "file": "call1-base-best.jpg",
@@ -647,24 +866,86 @@
           ]
         }
       ],
-      "joint_completion_added_pixels": 1554,
+      "joint_completion_added_pixels": 3315,
       "backing_material": {
         "rgb": [
-          252,
-          211,
-          182
+          93,
+          67,
+          60
         ],
         "sample_rig_px": [
-          176,
-          342
+          182,
+          332
         ],
-        "selection": "retained opaque interior pixel closest to local median RGB",
+        "selection": "local authored opaque cuff interior above elbow; median-nearest RGB",
         "minimum_core_depth_px": 3,
         "search_radius_px": 54
       },
       "joint_cap_radii_px": [
-        18,
+        22,
         22
+      ],
+      "joint_backings": [
+        {
+          "joint": "right_fore",
+          "role": "proximal",
+          "pivot": [
+            168,
+            340
+          ],
+          "source_part": "right_fore",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            22,
+            22
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              93,
+              67,
+              60
+            ],
+            "sample_rig_px": [
+              182,
+              332
+            ],
+            "selection": "local authored opaque cuff interior above elbow; median-nearest RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 54
+          },
+          "added_opaque_pixels": 2046
+        },
+        {
+          "joint": "right_hand",
+          "role": "distal seam support",
+          "pivot": [
+            160,
+            430
+          ],
+          "source_part": "right_fore",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            12,
+            14
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              252,
+              211,
+              181
+            ],
+            "sample_rig_px": [
+              167,
+              387
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 46
+          },
+          "added_opaque_pixels": 1269
+        }
       ]
     },
     "left_fore": {
@@ -675,7 +956,7 @@
           "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
         }
       ],
-      "output_sha256": "cdc54fbae0cf2d5f1dea89bb3204e7743502bcd304536ae08c77a9974b5302dd",
+      "output_sha256": "627161b6bdcb347240c20f7ee64bcf8063d84b10b04d2a50b3a159eb37d188bc",
       "operations": [
         {
           "file": "call1-base-best.jpg",
@@ -732,24 +1013,86 @@
           ]
         }
       ],
-      "joint_completion_added_pixels": 1701,
+      "joint_completion_added_pixels": 3424,
       "backing_material": {
         "rgb": [
-          252,
-          211,
-          182
+          61,
+          43,
+          29
         ],
         "sample_rig_px": [
-          349,
-          340
+          363,
+          332
         ],
-        "selection": "retained opaque interior pixel closest to local median RGB",
+        "selection": "local authored opaque cuff interior above elbow; median-nearest RGB",
         "minimum_core_depth_px": 3,
         "search_radius_px": 54
       },
       "joint_cap_radii_px": [
-        18,
+        22,
         22
+      ],
+      "joint_backings": [
+        {
+          "joint": "left_fore",
+          "role": "proximal",
+          "pivot": [
+            344,
+            340
+          ],
+          "source_part": "left_fore",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            22,
+            22
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              61,
+              43,
+              29
+            ],
+            "sample_rig_px": [
+              363,
+              332
+            ],
+            "selection": "local authored opaque cuff interior above elbow; median-nearest RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 54
+          },
+          "added_opaque_pixels": 2190
+        },
+        {
+          "joint": "left_hand",
+          "role": "distal seam support",
+          "pivot": [
+            352,
+            430
+          ],
+          "source_part": "left_fore",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            12,
+            14
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              252,
+              212,
+              183
+            ],
+            "sample_rig_px": [
+              351,
+              399
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 46
+          },
+          "added_opaque_pixels": 1234
+        }
       ]
     },
     "right_hand": {
@@ -764,7 +1107,7 @@
           "sha256": "e025fbdac73f9d49457bdeee719e0f9b624cf2e703f5b8188abe78f0672b2d76"
         }
       ],
-      "output_sha256": "1835dd87829f2519fdc02fdca07efd32b2b8182469e54a02e54a79d91cd22e09",
+      "output_sha256": "43e9a5a1a346459a88e159ecf29196f539258e94c474093eb1fc3527c95f9c4b",
       "operations": [
         {
           "file": "call1-base-best.jpg",
@@ -887,7 +1230,7 @@
           ]
         }
       ],
-      "joint_completion_added_pixels": 1073,
+      "joint_completion_added_pixels": 1122,
       "backing_material": {
         "rgb": [
           46,
@@ -898,13 +1241,45 @@
           151,
           451
         ],
-        "selection": "retained opaque interior pixel closest to local median RGB",
+        "selection": "authored opaque interior pixel closest to local median RGB",
         "minimum_core_depth_px": 3,
         "search_radius_px": 46
       },
       "joint_cap_radii_px": [
         12,
         14
+      ],
+      "joint_backings": [
+        {
+          "joint": "right_hand",
+          "role": "proximal",
+          "pivot": [
+            160,
+            430
+          ],
+          "source_part": "right_hand",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            12,
+            14
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              46,
+              47,
+              50
+            ],
+            "sample_rig_px": [
+              151,
+              451
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 46
+          },
+          "added_opaque_pixels": 1122
+        }
       ]
     },
     "left_hand": {
@@ -919,7 +1294,7 @@
           "sha256": "39cd9a3cabacf5f36cddd9adbe7473de3ca55729cd45eeb9cc23e99dd4ec1c50"
         }
       ],
-      "output_sha256": "c4a5a5d4ae222a44a41547b214db345aaa242538fdf8cfde64d71c5bf6b950f6",
+      "output_sha256": "a5eccfae731f0a6a9ff399550d963bc11e53fb2783c9eb8c5bedddf3a39fdb77",
       "operations": [
         {
           "file": "call1-base-best.jpg",
@@ -1042,7 +1417,7 @@
           ]
         }
       ],
-      "joint_completion_added_pixels": 1075,
+      "joint_completion_added_pixels": 1126,
       "backing_material": {
         "rgb": [
           46,
@@ -1053,13 +1428,45 @@
           344,
           431
         ],
-        "selection": "retained opaque interior pixel closest to local median RGB",
+        "selection": "authored opaque interior pixel closest to local median RGB",
         "minimum_core_depth_px": 3,
         "search_radius_px": 46
       },
       "joint_cap_radii_px": [
         12,
         14
+      ],
+      "joint_backings": [
+        {
+          "joint": "left_hand",
+          "role": "proximal",
+          "pivot": [
+            352,
+            430
+          ],
+          "source_part": "left_hand",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            12,
+            14
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              46,
+              46,
+              48
+            ],
+            "sample_rig_px": [
+              344,
+              431
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 46
+          },
+          "added_opaque_pixels": 1126
+        }
       ]
     },
     "leg_left": {
@@ -1196,13 +1603,45 @@
           214,
           410
         ],
-        "selection": "retained opaque interior pixel closest to local median RGB",
+        "selection": "authored opaque interior pixel closest to local median RGB",
         "minimum_core_depth_px": 3,
         "search_radius_px": 52
       },
       "joint_cap_radii_px": [
         20,
         20
+      ],
+      "joint_backings": [
+        {
+          "joint": "leg_left",
+          "role": "proximal",
+          "pivot": [
+            216,
+            420
+          ],
+          "source_part": "leg_left",
+          "rasterization": "clipped source-edge dilation",
+          "cap_radii_px": [
+            20,
+            20
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              43,
+              44,
+              48
+            ],
+            "sample_rig_px": [
+              214,
+              410
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 52
+          },
+          "added_opaque_pixels": 925
+        }
       ]
     },
     "shin_left": {
@@ -1213,7 +1652,7 @@
           "sha256": "81cb16c6055b844919accf9b9e14d17d1853ab6a28163c2e982e555661441a3d"
         }
       ],
-      "output_sha256": "f971806e056e4cfdc0a4543646a1cab463bd550e3456183a2e80f1a4a8617975",
+      "output_sha256": "6e6d79ec620a78b44fd1be9b656825be1d6f19562c22f0fa0a6a45db1317ca1b",
       "operations": [
         {
           "file": "seg-be6a-gray-leggings.png",
@@ -1270,7 +1709,7 @@
           ]
         }
       ],
-      "joint_completion_added_pixels": 816,
+      "joint_completion_added_pixels": 2526,
       "backing_material": {
         "rgb": [
           137,
@@ -1281,13 +1720,75 @@
           220,
           582
         ],
-        "selection": "retained opaque interior pixel closest to local median RGB",
+        "selection": "authored opaque interior pixel closest to local median RGB",
         "minimum_core_depth_px": 3,
         "search_radius_px": 50
       },
       "joint_cap_radii_px": [
         14,
         18
+      ],
+      "joint_backings": [
+        {
+          "joint": "knee_left",
+          "role": "proximal",
+          "pivot": [
+            216,
+            550
+          ],
+          "source_part": "shin_left",
+          "rasterization": "clipped source-edge dilation",
+          "cap_radii_px": [
+            14,
+            18
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              137,
+              137,
+              142
+            ],
+            "sample_rig_px": [
+              220,
+              582
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 50
+          },
+          "added_opaque_pixels": 816
+        },
+        {
+          "joint": "boot_left",
+          "role": "distal seam support",
+          "pivot": [
+            216,
+            680
+          ],
+          "source_part": "shin_left",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            16,
+            18
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              138,
+              139,
+              143
+            ],
+            "sample_rig_px": [
+              207,
+              631
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 50
+          },
+          "added_opaque_pixels": 1710
+        }
       ]
     },
     "boot_left": {
@@ -1298,7 +1799,7 @@
           "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
         }
       ],
-      "output_sha256": "703ffad8f0b1d2316897ceffaa58af3c2b757cf6754e8c8473c4b6b43b7123c3",
+      "output_sha256": "1e9cfe9c3b23c08b5527be4e5e83c8ff224b16dc0f94318f944b62ae5e344e89",
       "operations": [
         {
           "file": "call1-base-best.jpg",
@@ -1355,7 +1856,7 @@
           ]
         }
       ],
-      "joint_completion_added_pixels": 702,
+      "joint_completion_added_pixels": 780,
       "backing_material": {
         "rgb": [
           200,
@@ -1366,13 +1867,45 @@
           221,
           715
         ],
-        "selection": "retained opaque interior pixel closest to local median RGB",
+        "selection": "authored opaque interior pixel closest to local median RGB",
         "minimum_core_depth_px": 3,
         "search_radius_px": 50
       },
       "joint_cap_radii_px": [
         16,
         18
+      ],
+      "joint_backings": [
+        {
+          "joint": "boot_left",
+          "role": "proximal",
+          "pivot": [
+            216,
+            680
+          ],
+          "source_part": "boot_left",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            16,
+            18
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              200,
+              112,
+              70
+            ],
+            "sample_rig_px": [
+              221,
+              715
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 50
+          },
+          "added_opaque_pixels": 780
+        }
       ]
     },
     "leg_right": {
@@ -1509,13 +2042,45 @@
           297,
           409
         ],
-        "selection": "retained opaque interior pixel closest to local median RGB",
+        "selection": "authored opaque interior pixel closest to local median RGB",
         "minimum_core_depth_px": 3,
         "search_radius_px": 52
       },
       "joint_cap_radii_px": [
         20,
         20
+      ],
+      "joint_backings": [
+        {
+          "joint": "leg_right",
+          "role": "proximal",
+          "pivot": [
+            296,
+            420
+          ],
+          "source_part": "leg_right",
+          "rasterization": "clipped source-edge dilation",
+          "cap_radii_px": [
+            20,
+            20
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              43,
+              44,
+              48
+            ],
+            "sample_rig_px": [
+              297,
+              409
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 52
+          },
+          "added_opaque_pixels": 944
+        }
       ]
     },
     "shin_right": {
@@ -1526,7 +2091,7 @@
           "sha256": "81cb16c6055b844919accf9b9e14d17d1853ab6a28163c2e982e555661441a3d"
         }
       ],
-      "output_sha256": "922969fd1b7eb219e19de1dbca27d1df2059adf7b7d1996b1ee90966857d1708",
+      "output_sha256": "18cb0f12f2bbf0fcfa1ddd6fa1d6a4bd8ac863f91b1b5ae93b3d31a3741c7cc3",
       "operations": [
         {
           "file": "seg-be6a-gray-leggings.png",
@@ -1583,7 +2148,7 @@
           ]
         }
       ],
-      "joint_completion_added_pixels": 785,
+      "joint_completion_added_pixels": 2496,
       "backing_material": {
         "rgb": [
           137,
@@ -1594,13 +2159,75 @@
           284,
           536
         ],
-        "selection": "retained opaque interior pixel closest to local median RGB",
+        "selection": "authored opaque interior pixel closest to local median RGB",
         "minimum_core_depth_px": 3,
         "search_radius_px": 50
       },
       "joint_cap_radii_px": [
         14,
         18
+      ],
+      "joint_backings": [
+        {
+          "joint": "knee_right",
+          "role": "proximal",
+          "pivot": [
+            296,
+            550
+          ],
+          "source_part": "shin_right",
+          "rasterization": "clipped source-edge dilation",
+          "cap_radii_px": [
+            14,
+            18
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              137,
+              138,
+              142
+            ],
+            "sample_rig_px": [
+              284,
+              536
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 50
+          },
+          "added_opaque_pixels": 785
+        },
+        {
+          "joint": "boot_right",
+          "role": "distal seam support",
+          "pivot": [
+            296,
+            680
+          ],
+          "source_part": "shin_right",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            16,
+            18
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              139,
+              140,
+              144
+            ],
+            "sample_rig_px": [
+              298,
+              631
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 50
+          },
+          "added_opaque_pixels": 1711
+        }
       ]
     },
     "boot_right": {
@@ -1611,7 +2238,7 @@
           "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
         }
       ],
-      "output_sha256": "c32646c738e503a1f302756dcad2cf5dece179a125fc37a666c3091d5f64cf03",
+      "output_sha256": "aa4417d8220619253305b8b6e17eb5cb15bc90ea975c98a6a2f1ba3121ab2e2c",
       "operations": [
         {
           "file": "call1-base-best.jpg",
@@ -1668,7 +2295,7 @@
           ]
         }
       ],
-      "joint_completion_added_pixels": 716,
+      "joint_completion_added_pixels": 790,
       "backing_material": {
         "rgb": [
           206,
@@ -1679,13 +2306,45 @@
           304,
           706
         ],
-        "selection": "retained opaque interior pixel closest to local median RGB",
+        "selection": "authored opaque interior pixel closest to local median RGB",
         "minimum_core_depth_px": 3,
         "search_radius_px": 50
       },
       "joint_cap_radii_px": [
         16,
         18
+      ],
+      "joint_backings": [
+        {
+          "joint": "boot_right",
+          "role": "proximal",
+          "pivot": [
+            296,
+            680
+          ],
+          "source_part": "boot_right",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            16,
+            18
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              206,
+              111,
+              73
+            ],
+            "sample_rig_px": [
+              304,
+              706
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 50
+          },
+          "added_opaque_pixels": 790
+        }
       ]
     },
     "satchel": {
@@ -1699,7 +2358,8 @@
       ],
       "joint_completion_added_pixels": 0,
       "backing_material": null,
-      "joint_cap_radii_px": null
+      "joint_cap_radii_px": null,
+      "joint_backings": []
     }
   }
 }

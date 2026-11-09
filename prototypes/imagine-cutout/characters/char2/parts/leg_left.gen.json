@@ -1,7 +1,7 @@
 {
   "tool": "Python/Pillow/OpenCV scripted derivation from Grok Imagine (SpaceXAI)",
   "model": "no generative model used; source model not disclosed",
-  "date": "2026-11-09T22:34:07.845638Z",
+  "date": "2026-11-09T22:53:18.515027Z",
   "date_source": "scripted artifact creation time UTC",
   "source": "prototypes/imagine-cutout/tools/prep_char2.py",
   "license": "CC0 1.0",
@@ -9,11 +9,11 @@
   "rights": "Original fictional art only; no real-person likeness.",
   "description": "Derived fictional courier part: leg_left",
   "output_sha256": "101e0119fe57c16f57d7294515cda5f763ca8b0323c2385888a818e142a9d463",
-  "tool_sha256": "455ca7a499546027ac2adb110eecdbada29d893542756fea36c12d47cb37d9df",
+  "tool_sha256": "d2eb9d7ea2b8209ee4d5e35602f1185d81a756bf6193574553ec6a32e80a44cc",
   "manifest_sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4",
   "classification": "Segments-merged",
   "scripted_fallback": false,
-  "derived_from": "Polygon split and affine fit of seg-be6a-black-shorts.png, seg-be6a-gray-leggings.png; composited in listed order; uniform source-interior material elliptical proximal cap radii [20, 20]px and joint-only 12px dilation.",
+  "derived_from": "Polygon split and affine fit of seg-be6a-black-shorts.png, seg-be6a-gray-leggings.png; composited in listed order; source-interior material joint supports leg_left proximal [20, 20]px with 12px local dilation.",
   "imagine_sources": [
     {
       "file": "seg-be6a-black-shorts.png",
@@ -145,13 +145,45 @@
       214,
       410
     ],
-    "selection": "retained opaque interior pixel closest to local median RGB",
+    "selection": "authored opaque interior pixel closest to local median RGB",
     "minimum_core_depth_px": 3,
     "search_radius_px": 52
   },
   "joint_cap_radii_px": [
     20,
     20
+  ],
+  "joint_backings": [
+    {
+      "joint": "leg_left",
+      "role": "proximal",
+      "pivot": [
+        216,
+        420
+      ],
+      "source_part": "leg_left",
+      "rasterization": "clipped source-edge dilation",
+      "cap_radii_px": [
+        20,
+        20
+      ],
+      "overlap_px": 12,
+      "material": {
+        "rgb": [
+          43,
+          44,
+          48
+        ],
+        "sample_rig_px": [
+          214,
+          410
+        ],
+        "selection": "authored opaque interior pixel closest to local median RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 52
+      },
+      "added_opaque_pixels": 925
+    }
   ],
   "source_post_url": "https://grok.com/imagine/post/be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8"
 }

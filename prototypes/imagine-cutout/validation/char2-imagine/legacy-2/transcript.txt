@@ -1,0 +1,35 @@
+PASS test 1: hierarchy (0 failures)
+PASS test 2: timing (0 failures)
+PASS test 3: flash (0 failures)
+PASS test 4: gun rigidity (0 failures)
+FAIL test 5: joint gaps (1 failures)
+PASS test 5 hd/hip/min angle=-4.0 gaps=0 stencil=2611
+PASS test 5 hd/hip/max angle=4.0 gaps=0 stencil=2611
+PASS test 5 hd/torso/min angle=-6.0 gaps=0 stencil=3228
+PASS test 5 hd/torso/max angle=6.0 gaps=0 stencil=3228
+PASS test 5 hd/head/min angle=-10.0 gaps=0 stencil=2255
+PASS test 5 hd/head/max angle=10.0 gaps=0 stencil=2254
+PASS test 5 hd/right_upper/min angle=-15.0 gaps=0 stencil=3047
+PASS test 5 hd/right_upper/max angle=35.0 gaps=0 stencil=3019
+PASS test 5 hd/right_fore/min angle=-20.0 gaps=0 stencil=3020
+PASS test 5 hd/right_fore/max angle=45.0 gaps=0 stencil=2987
+PASS test 5 hd/right_hand/min angle=-12.0 gaps=0 stencil=2368
+PASS test 5 hd/right_hand/max angle=12.0 gaps=0 stencil=2370
+PASS test 5 hd/left_arm/min angle=-15.0 gaps=0 stencil=3122
+FAIL test 5 hd/left_arm/max angle=35.0 gaps=1 stencil=3107
+PASS test 5 hd/left_fore/min angle=-20.0 gaps=0 stencil=3015
+PASS test 5 hd/left_fore/max angle=45.0 gaps=0 stencil=2983
+PASS test 5 hd/left_hand/min angle=-12.0 gaps=0 stencil=2207
+PASS test 5 hd/left_hand/max angle=12.0 gaps=0 stencil=2213
+PASS test 5 hd/leg_left/min angle=-10.0 gaps=0 stencil=3218
+PASS test 5 hd/leg_left/max angle=10.0 gaps=0 stencil=3217
+PASS test 5 hd/leg_right/min angle=-10.0 gaps=0 stencil=3228
+PASS test 5 hd/leg_right/max angle=10.0 gaps=0 stencil=3228
+PASS test 5 hd/knee_left/min angle=0.0 gaps=0 stencil=2676
+PASS test 5 hd/knee_left/max angle=60.0 gaps=0 stencil=2310
+PASS test 5 hd/knee_right/min angle=0.0 gaps=0 stencil=2659
+PASS test 5 hd/knee_right/max angle=60.0 gaps=0 stencil=2287
+PASS test 5 hd/boot_left/min angle=-8.0 gaps=0 stencil=2795
+PASS test 5 hd/boot_left/max angle=8.0 gaps=0 stencil=2792
+PASS test 5 hd/boot_right/min angle=-8.0 gaps=0 stencil=2783
+PASS test 5 hd/boot_right/max angle=8.0 gaps=0 stencil=2788

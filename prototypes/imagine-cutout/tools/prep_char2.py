@@ -132,7 +132,7 @@ def prepare(project, audit_only=False):
                            target_axis=[target_start,target_end], width_scale=width,
                            affine_source_to_rig=matrix)
 
-    def save(name, layers, bone, order, *, classification=None, radius=(16,18)):
+    def save(name, layers, bone, order, *, classification=None, radius=(18,20)):
         slot = slots.get(name)
         classification = classification or contract["slots"][slot["slot"]]["classification"]
         scripted, pivot = classification == SCRIPTED, joints[bone]["pivot"]
@@ -241,7 +241,7 @@ def prepare(project, audit_only=False):
         bone = slots[name]["bone"]
         end_pivot = next(j["pivot"] for j in joints.values() if j["parent"] == bone)
         save(name,[layer(BASE,polygon,start,end,joints[bone]["pivot"],end_pivot,.78)],bone,
-             14 if name == "right_fore" else 3,radius=(14,20))
+             14 if name == "right_fore" else 3,radius=(18,22))
     for name,start,end,polygon,glove,glove_axis in (
         ("right_hand",[451,585],[424,665],[[436,563],[479,581],[464,641],[448,679],[409,704],[389,696],[407,640]],
          "seg-be6a-black-fingerless-gloves-1.png",[[51,17],[26,79]]),
@@ -253,7 +253,7 @@ def prepare(project, audit_only=False):
         target_end = [x+(-13 if name == "right_hand" else 13),y+39]
         pixels = layer(BASE,polygon,start,end,[x,y],target_end,.68)
         overlay = layer(glove,[[0,0],[79,0],[79,102],[0,102]],*glove_axis,[x,y+1],[target_end[0],y+27],.58)
-        save(name,[pixels,overlay],bone,18 if name == "right_hand" else 4,radius=(10,12))
+        save(name,[pixels,overlay],bone,18 if name == "right_hand" else 4,radius=(12,14))
 
     for side,image_left in (("left",True),("right",False)):
         x = joints["leg_"+side]["pivot"][0]
@@ -280,7 +280,7 @@ def prepare(project, audit_only=False):
             polygon,start,end = [[497,1127],[608,1127],[608,1344],[497,1344]],[569,1182],[550,1305]
         else:
             polygon,start,end = [[799,1127],[910,1127],[910,1344],[799,1344]],[836,1182],[856,1305]
-        save("boot_"+side,[layer(BASE,polygon,start,end,[x,680],[x,732],.70)],"boot_"+side,6,radius=(14,16))
+        save("boot_"+side,[layer(BASE,polygon,start,end,[x,680],[x,732],.70)],"boot_"+side,6,radius=(16,18))
 
     satchel = Image.new("RGBA",size)
     draw = ImageDraw.Draw(satchel)

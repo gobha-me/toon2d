@@ -14,6 +14,7 @@ import numpy as np
 from PIL import Image
 
 import driver
+from imagine_provenance import provenance_suite
 
 # Frozen in the tests commit. Pairwise extremes are ADDITIONAL to these samples.
 COMBINED_RANDOM_N = 200
@@ -159,6 +160,7 @@ def body_suite(source: Path, output: Path, *, full: bool = True, announce: bool 
     driver.guard()
     manifest = read_manifest(source, character)
     config = manifest["_character"]
+    provenance = provenance_suite(source, manifest)
     joint_names = tuple(j["name"] for j in manifest["joints"])
     poses = pose_plan(manifest)
     if not full:
@@ -170,6 +172,8 @@ def body_suite(source: Path, output: Path, *, full: bool = True, announce: bool 
         # Absence is an acceptance failure, not a fabricated raster observation.
         error = {"case_id": "scene/required-inputs", "error": "missing rig input: " + ", ".join(missing)}
         tests = {"manifest": {"name": "manifest schema and frozen inventory", "passed": True, "errors": []}}
+        if provenance is not None:
+            tests["provenance"] = provenance
         for name in ("completeness", "per_joint", "combined", "facing"):
             if name != "combined" or full:
                 tests[name] = {"name": name, "passed": False, "errors": [error]}
@@ -187,7 +191,7 @@ def body_suite(source: Path, output: Path, *, full: bool = True, announce: bool 
         if announce:
             for name, test in tests.items():
                 print(f"{'PASS' if test['passed'] else 'FAIL'} body {character} {name}: " +
-                      ("manifest validated" if test["passed"] else error["error"]), flush=True)
+                      ("validated" if test["passed"] else "; ".join(e["error"] for e in test["errors"])), flush=True)
         return result
     work = Path(tempfile.mkdtemp(prefix="body-suite-", dir=driver.TEMP))
     try:
@@ -228,6 +232,8 @@ def body_suite(source: Path, output: Path, *, full: bool = True, announce: bool 
             "completeness": {"name": "required slots, bones, parents, pivots, limits and overlap",
                              "passed": not observed["completeness"], "errors": observed["completeness"]},
         }
+        if provenance is not None:
+            tests["provenance"] = provenance
         for name, kind in (("per_joint", "single"), ("combined", "combined")):
             selected = [e for e in entries if (e["kind"] == "single") == (kind == "single")]
             errors = [dict(e, case_id=e["pose"] + "/" + e["joint"]) for e in selected if not e["passed"]]
@@ -388,4 +394,7 @@ def body_mutants(baseline: dict | None = None, character: str = "trenchcoat") ->
             shutil.rmtree(work)
     results.mkdir(parents=True, exist_ok=True)
     (results / "mutants.json").write_text(evidence_text(report) + "\n")
+    if character == "char2":
+        # Missing rigs and unplantable knees/overlap cannot certify this kit.
+        return len(report) == 4 and all(item["status"] == "KILLED" for item in report)
     return all(item["status"] in ("KILLED", "CANNOT_PLANT") for item in report)

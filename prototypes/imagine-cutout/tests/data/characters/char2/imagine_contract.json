@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "source_directory": "characters/char2/imagine-source",
+  "calls": {
+    "1": {
+      "prompt": "Full-body front view of an original fictional anime-style bike courier girl standing straight in a relaxed A-pose, arms held slightly away from the body and legs apart so no limb overlaps the torso or another limb, flat cel shading, clean dark outlines, cropped teal jacket with rolled sleeves, fingerless black gloves, black bike shorts over grey leggings, orange high-top sneakers, short messy red hair, plain pure white background, no text, no props, no cast shadow, game character reference",
+      "post_id": "be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8",
+      "post_url": "https://grok.com/imagine/post/be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8",
+      "utc_time": "2026-11-09T14:56:57Z",
+      "action": "Image generation in Image mode; output count was set to 4; selected best full-body result",
+      "date_source": "recorded UTC call time"
+    },
+    "2": {
+      "prompt": "Full-body front view of an original fictional anime-style bike courier girl standing straight in a relaxed A-pose, arms held slightly away from the body and legs apart so no limb overlaps the torso or another limb, flat cel shading, clean dark outlines, cropped teal jacket with rolled sleeves, fingerless black gloves, black bike shorts over grey leggings, orange high-top sneakers, short messy red hair, plain pure white background, no text, no props, no cast shadow, game character reference",
+      "post_id": "be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8",
+      "post_url": "https://grok.com/imagine/post/be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8",
+      "utc_time": "2026-11-09T14:57:45Z",
+      "action": "Segments on the selected best result; Segments auto-started when its post was opened, then Download All was used",
+      "date_source": "Exact trigger time was not captured; the Segments result archive was timestamped 2026-11-09T14:58:07Z.",
+      "utc_time_is_approximate": true
+    }
+  },
+  "sources": {
+    "call1-base-best.jpg": {
+      "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2",
+      "call": 1
+    },
+    "seg-be6a-1.png": {
+      "sha256": "73844c78312c2e1b21cab406c045e879cce74bd0d7c7da2f7aa628075ebb3106",
+      "call": 2
+    },
+    "seg-be6a-black-fingerless-gloves-1.png": {
+      "sha256": "e025fbdac73f9d49457bdeee719e0f9b624cf2e703f5b8188abe78f0672b2d76",
+      "call": 2
+    },
+    "seg-be6a-black-fingerless-gloves-2.png": {
+      "sha256": "39cd9a3cabacf5f36cddd9adbe7473de3ca55729cd45eeb9cc23e99dd4ec1c50",
+      "call": 2
+    },
+    "seg-be6a-black-shorts.png": {
+      "sha256": "4b9ca939c6ba004b5a568220f49a4ae7b633bebd3715558ba6c8549740e87c2e",
+      "call": 2
+    },
+    "seg-be6a-black-sports-bra.png": {
+      "sha256": "66ec253fc0081f59e40c8d175b0b0a08f521b7cff051283dd7305ff867b753be",
+      "call": 2
+    },
+    "seg-be6a-gray-leggings.png": {
+      "sha256": "81cb16c6055b844919accf9b9e14d17d1853ab6a28163c2e982e555661441a3d",
+      "call": 2
+    },
+    "seg-be6a-orange-high-top-sneakers.png": {
+      "sha256": "103c597706330554412e18942083d43a637eb6d588fa4f7d64368585111e90cd",
+      "call": 2
+    },
+    "seg-be6a-orange-sleeve-patch.png": {
+      "sha256": "0756d883c6315875901e55e5fcb18f47dcae62980df3a9f8e494d16c3216b9cc",
+      "call": 2
+    },
+    "seg-be6a-red-eyes-1.png": {
+      "sha256": "30614fc6039c0fb31784dad95007b4fbc50349f08d7d619ca8f23c03cdbcc569",
+      "call": 2
+    },
+    "seg-be6a-red-eyes-2.png": {
+      "sha256": "55ccb35bc27d4e22eafece6f86339a0e46f9108375ea7ec49f39bba37e692e65",
+      "call": 2
+    },
+    "seg-be6a-red-hair.png": {
+      "sha256": "de2c53df1a1be6878144494cf967b8bb234be3e76ffd14c76d3a39a83c72cf41",
+      "call": 2
+    },
+    "seg-be6a-teal-cropped-jacket.png": {
+      "sha256": "975ae1b378e11ca1cd1f3ce26a74b4714a4357ceaa4ef52955f3d7627d98f416",
+      "call": 2
+    },
+    "seg-be6a-white-shoelaces-1.png": {
+      "sha256": "e2ec4230d0d37ff5971ed2b789db8f7ba048b3d95437a382ae1839679427d259",
+      "call": 2
+    },
+    "seg-be6a-white-shoelaces-2.png": {
+      "sha256": "794176d2f0737cc9b1f2e9f3385af6c4cf130ace80cfc20a6fea6173021db45b",
+      "call": 2
+    }
+  },
+  "slots": {
+    "head_face": {
+      "part": "head",
+      "classification": "Segments-split",
+      "required_sources": [
+        "call1-base-best.jpg"
+      ],
+      "reason": "Scripted crop/matte from the chosen full-body source; no separate Segments limb exists."
+    },
+    "upper_arm_left": {
+      "part": "left_arm",
+      "classification": "Segments-split",
+      "required_sources": [
+        "seg-be6a-teal-cropped-jacket.png"
+      ],
+      "reason": "Split the jacket sleeve from the combined jacket layer; bare seam backing may also use the base."
+    },
+    "lower_arm_left": {
+      "part": "left_fore",
+      "classification": "Segments-split",
+      "required_sources": [
+        "call1-base-best.jpg"
+      ],
+      "reason": "Scripted crop/matte from the chosen full-body source; no separate Segments limb exists."
+    },
+    "hand_left": {
+      "part": "left_hand",
+      "classification": "Segments-merged",
+      "required_sources": [
+        "call1-base-best.jpg",
+        "seg-be6a-black-fingerless-gloves-2.png"
+      ],
+      "reason": "Merge the isolated glove with fingers recovered from the base; left means image-right in the frozen rig."
+    },
+    "upper_arm_right": {
+      "part": "right_upper",
+      "classification": "Segments-split",
+      "required_sources": [
+        "seg-be6a-teal-cropped-jacket.png"
+      ],
+      "reason": "Split the jacket sleeve from the combined jacket layer; bare seam backing may also use the base."
+    },
+    "lower_arm_right": {
+      "part": "right_fore",
+      "classification": "Segments-split",
+      "required_sources": [
+        "call1-base-best.jpg"
+      ],
+      "reason": "Scripted crop/matte from the chosen full-body source; no separate Segments limb exists."
+    },
+    "hand_right": {
+      "part": "right_hand",
+      "classification": "Segments-merged",
+      "required_sources": [
+        "call1-base-best.jpg",
+        "seg-be6a-black-fingerless-gloves-1.png"
+      ],
+      "reason": "Merge the isolated glove with fingers recovered from the base; left means image-right in the frozen rig."
+    },
+    "upper_leg_left": {
+      "part": "leg_left",
+      "classification": "Segments-merged",
+      "required_sources": [
+        "seg-be6a-black-shorts.png",
+        "seg-be6a-gray-leggings.png"
+      ],
+      "reason": "Split the paired shorts and leggings by leg, then merge the upper-leg clothing layers."
+    },
+    "lower_leg_left": {
+      "part": "shin_left",
+      "classification": "Segments-split",
+      "required_sources": [
+        "seg-be6a-gray-leggings.png"
+      ],
+      "reason": "Split one lower leg from the paired leggings layer."
+    },
+    "foot_left": {
+      "part": "boot_left",
+      "classification": "Segments-split",
+      "required_sources": [
+        "call1-base-best.jpg"
+      ],
+      "reason": "Split/matte the corresponding shoe and exposed ankle from the base; paired/nonspecific Segments shoe exports are supplemental."
+    },
+    "upper_leg_right": {
+      "part": "leg_right",
+      "classification": "Segments-merged",
+      "required_sources": [
+        "seg-be6a-black-shorts.png",
+        "seg-be6a-gray-leggings.png"
+      ],
+      "reason": "Split the paired shorts and leggings by leg, then merge the upper-leg clothing layers."
+    },
+    "lower_leg_right": {
+      "part": "shin_right",
+      "classification": "Segments-split",
+      "required_sources": [
+        "seg-be6a-gray-leggings.png"
+      ],
+      "reason": "Split one lower leg from the paired leggings layer."
+    },
+    "foot_right": {
+      "part": "boot_right",
+      "classification": "Segments-split",
+      "required_sources": [
+        "call1-base-best.jpg"
+      ],
+      "reason": "Split/matte the corresponding shoe and exposed ankle from the base; paired/nonspecific Segments shoe exports are supplemental."
+    },
+    "held_prop_satchel": {
+      "part": "satchel",
+      "classification": "SCRIPTED (flagged)",
+      "required_sources": [],
+      "reason": "The chosen base and all chosen Segments exports contain no satchel; flag a wholly scripted fallback."
+    }
+  },
+  "classifications": [
+    "Segments-usable",
+    "Segments-merged",
+    "Segments-split",
+    "SCRIPTED (flagged)"
+  ],
+  "license": "CC0 1.0",
+  "credit": "Generated with Grok Imagine (SpaceXAI); scripted derivation where stated",
+  "rights": "Original fictional art only; no real-person likeness."
+}

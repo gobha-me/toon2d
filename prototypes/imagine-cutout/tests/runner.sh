@@ -12,7 +12,7 @@ for mount in "$repo" /tmp; do
   available=$(df -Pk "$mount" | awk 'NR==2 {print $4}')
   if (( available < 5242880 )); then echo "Under 5 GiB free: $mount" >&2; exit 77; fi
 done
-export TMPDIR=$(mktemp -d /tmp/"tween-tests-XXXXXXXX")
+export TMPDIR=$(mktemp -d -p "${TMPDIR:?Set TMPDIR to a private temporary directory}" "toon2d-tests-XXXXXXXX")
 child_pid=
 xvfb_pid=
 cleanup() {

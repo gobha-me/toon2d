@@ -3,12 +3,12 @@
   "format_note": "JSON-compatible YAML 1.2; no additional parser dependency.",
   "units": "HD source pixels and local degrees",
   "character": "char2",
-  "description": "Original fictional stocky courier with a hand-held satchel; no existing IP or real-person likeness. No rig or artwork supplied.",
+  "description": "Original fictional red-haired bike courier from the supplied Imagine base; the satchel remains a flagged scripted fallback because it is absent from all chosen source images.",
   "source_canvas_px": [
     512,
     768
   ],
-  "canvas_reason": "v2-new, chosen: enough native pixels for broad torso, short limbs and a satchel without cropping.",
+  "canvas_reason": "Frozen test-owned rig coordinate system retained from the courier contract. The 1408 x 1408 Imagine image must be mapped explicitly into this 512 x 768 canvas; pivots and limits are unchanged.",
   "joints": [
     {
       "name": "hip",
@@ -630,7 +630,7 @@
       1,
       0
     ],
-    "head_axis_reason": "v2-new, chosen: intended courier head looks image-right; must be reviewed when actual art exists.",
+    "head_axis_reason": "Frozen image-right sprite-axis convention retained for regression testing. The supplied art faces front, so this axis checks sprite/held-prop transform consistency, not a visually observable left/right gaze.",
     "weapon_part": "satchel",
     "grip_texture_px": [
       16,
@@ -640,7 +640,7 @@
       48,
       8
     ],
-    "weapon_axis_reason": "v2-new, chosen: satchel handle attachment to outer handle endpoint defines the held-prop horizontal direction; provisional until real artwork is reviewed.",
+    "weapon_axis_reason": "Frozen satchel handle axis retained as the held-prop transform convention. The satchel is a flagged scripted fallback; the supplied Imagine art contains no prop.",
     "axis_epsilon": 1e-06,
     "epsilon_reason": "Numerical zero only, same strict observer as trenchcoat."
   }

@@ -35,6 +35,18 @@ FALLBACK = ("The supplied Imagine base has no held prop and neither Segments "
             "this rigid satchel is a wholly scripted fallback.")
 
 
+CAP_RADII = {
+    "head": (8,24), "right_upper": (18,20), "left_arm": (18,20),
+    "right_fore": (22,22), "left_fore": (22,22),
+    "right_hand": (12,14), "left_hand": (12,14),
+    "leg_left": (20,20), "leg_right": (20,20),
+    "shin_left": (14,18), "shin_right": (14,18),
+    "boot_left": (16,18), "boot_right": (16,18),
+}
+MATCHED_JOINTS = ("right_upper", "left_arm", "right_fore", "left_fore",
+                  "right_hand", "left_hand", "boot_left", "boot_right")
+
+
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -118,6 +130,7 @@ def prepare(project, audit_only=False):
         return
     joints = {j["name"]:j for j in manifest["joints"]}
     slots = {s["part"]:s for s in manifest["slots"]}
+    joint_slots = {s["bone"]:s for s in manifest["slots"] if s["overlap_px"]}
     size = tuple(manifest["source_canvas_px"])
     images = {name:Image.open(sources/name).convert("RGBA") for name in contract["sources"]}
     images[BASE] = white_background(images[BASE])
@@ -132,7 +145,7 @@ def prepare(project, audit_only=False):
                            target_axis=[target_start,target_end], width_scale=width,
                            affine_source_to_rig=matrix)
 
-    def save(name, layers, bone, order, *, classification=None, radius=(18,20)):
+    def save(name, layers, bone, order, *, classification=None):
         slot = slots.get(name)
         classification = classification or contract["slots"][slot["slot"]]["classification"]
         scripted, pivot = classification == SCRIPTED, joints[bone]["pivot"]
@@ -140,46 +153,82 @@ def prepare(project, audit_only=False):
         for pixels, recipe in layers:
             image.alpha_composite(pixels)
             recipes.append(recipe)
-        overlap, added = slot["overlap_px"] if slot else 0, 0
-        material = None
+        overlap = slot["overlap_px"] if slot else 0
+        supports = []
         if overlap:
-            x,y = pivot
-            rx,ry = (radius,radius) if isinstance(radius,int) else radius
-            yy,xx = np.ogrid[:size[1],:size[0]]
-            array = np.array(image)
+            supports.append((bone,pivot,CAP_RADII[name],overlap,"proximal"))
+        for child in MATCHED_JOINTS:
+            if joints[child]["parent"] == bone:
+                child_slot = joint_slots[child]
+                parent_radii = (16,16) if child in ("right_fore","left_fore") else CAP_RADII[child_slot["part"]]
+                supports.append((child,joints[child]["pivot"],parent_radii,
+                                 child_slot["overlap_px"],"distal seam support"))
+        array = np.array(image)
+        authored_source = array.copy()
+        opaque = (authored_source[:,:,3] >= 250).astype(np.uint8)
+        depth = cv2.distanceTransform(np.pad(opaque,1),cv2.DIST_L2,5)[1:-1,1:-1]
+        core = depth >= 3
+        yy,xx = np.ogrid[:size[1],:size[0]]
+        backing_records = []
+        for joint,anchor,radii,support_overlap,role in supports:
+            x,y = anchor
+            rx,ry = radii
             before = array[:,:,3] >= 128
-            # Sample actual opaque interior material, rather than the nearest
-            # outline/white fringe. A representative median-nearest pixel keeps
-            # added backing uniform and avoids radial ink/white streaks.
-            opaque = (array[:,:,3] >= 250).astype(np.uint8)
-            depth = cv2.distanceTransform(np.pad(opaque,1),cv2.DIST_L2,5)[1:-1,1:-1]
-            core = depth >= 3
-            nearby = core & ((xx-x)**2+(yy-y)**2 <= (max(rx,ry)+overlap+20)**2)
+            search_radius = max(rx,ry)+support_overlap+20
+            nearby = core & ((xx-x)**2+(yy-y)**2 <= search_radius**2)
             candidates = nearby if nearby.any() else core
+            selection = "authored opaque interior pixel closest to local median RGB"
+            if joint in ("right_fore","left_fore"):
+                # Both supplied sleeve images and the base retain real grey
+                # cuff pixels above the elbow; keep underlap in that material.
+                rgb = authored_source[:,:,:3].astype(np.int16)
+                cuff = nearby & (yy < y) & (np.ptp(rgb,axis=2) < 40) & (rgb.mean(axis=2) < 180)
+                if cuff.any():
+                    candidates = cuff
+                    selection = "local authored opaque cuff interior above elbow; median-nearest RGB"
             if not candidates.any():
                 candidates = opaque > 0
             if not candidates.any():
                 raise ValueError(f"{name}: no opaque source material for backing")
-            colors = array[:,:,:3][candidates].astype(np.float32)
+            colors = authored_source[:,:,:3][candidates].astype(np.float32)
             median = np.median(colors,axis=0)
             choice = int(np.square(colors-median).sum(axis=1).argmin())
             sy,sx = np.argwhere(candidates)[choice]
-            color = array[sy,sx,:3].copy()
+            color = authored_source[sy,sx,:3].copy()
             material = dict(rgb=color.tolist(),sample_rig_px=[int(sx),int(sy)],
-                            selection="retained opaque interior pixel closest to local median RGB",
-                            minimum_core_depth_px=3,search_radius_px=max(rx,ry)+overlap+20)
-            cap = (((xx-x)/rx)**2+((yy-y)/ry)**2 <= 1) & (array[:,:,3] < 128)
-            array[:,:,:3][cap] = color
-            array[:,:,3][cap] = 255
-            authored = array[:,:,3] > 0
-            reach = max(rx,ry)+overlap+1
-            array = extend_joint_pixels(array,overlap,[(x-reach,y-reach,x+reach,y+reach)])
-            rounded = ((xx-x)/(rx+overlap))**2+((yy-y)/(ry+overlap))**2 <= 1
-            array[:,:,3][~(authored | rounded)] = 0
+                            selection=selection,
+                            minimum_core_depth_px=3,search_radius_px=search_radius)
+            if joint in MATCHED_JOINTS:
+                # Complete the opaque local envelope beneath the source.
+                # Pixel centres put both supports on the frozen bone pivot.
+                support_mask = ((xx+.5-x)/(rx+support_overlap))**2+((yy+.5-y)/(ry+support_overlap))**2 <= 1
+                alpha = array[:,:,3:4].astype(np.float32)/255
+                composite = np.rint(array[:,:,:3].astype(np.float32)*alpha+color*(1-alpha)).astype(np.uint8)
+                array[:,:,:3][support_mask] = composite[support_mask]
+                array[:,:,3][support_mask] = 255
+                rasterization = "opaque pixel-centred source-material underlay"
+            else:
+                cap = (((xx-x)/rx)**2+((yy-y)/ry)**2 <= 1) & (array[:,:,3] < 128)
+                array[:,:,:3][cap] = color
+                array[:,:,3][cap] = 255
+                retained = array[:,:,3] > 0
+                reach = max(rx,ry)+support_overlap+1
+                array = extend_joint_pixels(array,support_overlap,[(x-reach,y-reach,x+reach,y+reach)])
+                rounded = ((xx-x)/(rx+support_overlap))**2+((yy-y)/(ry+support_overlap))**2 <= 1
+                array[:,:,3][~(retained | rounded)] = 0
+                rasterization = "clipped source-edge dilation"
             new_backing = (array[:,:,3] >= 128) & ~before
-            array[:,:,:3][new_backing] = color
-            added = int(new_backing.sum())
-            image = Image.fromarray(array)
+            if joint not in MATCHED_JOINTS:
+                array[:,:,:3][new_backing] = color
+            backing_records.append(dict(joint=joint,role=role,pivot=anchor,source_part=name,
+                rasterization=rasterization,
+                cap_radii_px=list(radii),overlap_px=support_overlap,
+                material=material,added_opaque_pixels=int(new_backing.sum())))
+        image = Image.fromarray(array)
+        added = sum(record["added_opaque_pixels"] for record in backing_records)
+        primary = next((record for record in backing_records if record["role"] == "proximal"),None)
+        material = primary["material"] if primary else None
+        primary_radii = primary["cap_radii_px"] if primary else None
         bbox = image.getbbox()
         if bbox is None:
             raise ValueError(f"{name}: empty derived part")
@@ -189,13 +238,15 @@ def prepare(project, audit_only=False):
         refs = [dict(file=n,sha256=contract["sources"][n]["sha256"]) for n in names]
         derivation = ("Wholly scripted satchel, flap, buckle and handle; no Imagine pixels." if scripted else
                       "Polygon split and affine fit of "+", ".join(names)+"; composited in listed order; "+
-                      (f"uniform source-interior material elliptical proximal cap radii {list((rx,ry))}px and joint-only {overlap}px dilation."
-                       if overlap else "no joint dilation."))
+                      ("source-interior material joint supports "+", ".join(
+                          record["joint"]+" "+record["role"]+" "+str(record["cap_radii_px"])+
+                          "px with "+str(record["overlap_px"])+"px local dilation" for record in backing_records)+"."
+                       if backing_records else "no joint dilation."))
         metadata = dict(tool_sha256=digest(Path(__file__)), manifest_sha256=digest(manifest_path),
                         classification=classification,scripted_fallback=scripted,
                         derived_from=derivation,imagine_sources=refs,operations=recipes,
                         joint_completion_added_pixels=added,backing_material=material,
-                        joint_cap_radii_px=list((rx,ry)) if overlap else None)
+                        joint_cap_radii_px=primary_radii,joint_backings=backing_records)
         if not scripted:
             metadata["source_post_url"] = contract["calls"]["1"]["post_url"]
         if scripted:
@@ -211,7 +262,7 @@ def prepare(project, audit_only=False):
         parts.append(part)
         ledger[name] = dict(classification=classification,imagine_sources=refs,
                             output_sha256=digest(path),operations=recipes,joint_completion_added_pixels=added,
-                            backing_material=material,joint_cap_radii_px=list((rx,ry)) if overlap else None)
+                            backing_material=material,joint_cap_radii_px=primary_radii,joint_backings=backing_records)
 
     torso = layer(BASE,[[625,218],[665,235],[741,235],[783,218],[813,275],
                         [795,465],[780,510],[625,510],[605,465],[593,275]],
@@ -223,7 +274,7 @@ def prepare(project, audit_only=False):
     save("hip_backing",[hip],"hip",0,classification="Segments-split")
     head = layer(BASE,[[570,15],[825,15],[825,223],[734,229],[734,277],[676,277],[676,229],[570,223]],
                  [700,260],[700,60],[256,160],[256,60],.50)
-    save("head",[head],"head",12,radius=(8,24))
+    save("head",[head],"head",12)
 
     # Left hand is image-right. Leg labels retain the frozen image-side convention.
     for name,start,end,polygon in (
@@ -233,7 +284,7 @@ def prepare(project, audit_only=False):
         bone = slots[name]["bone"]
         end_pivot = next(j["pivot"] for j in joints.values() if j["parent"] == bone)
         save(name,[layer(JACKET,polygon,start,end,joints[bone]["pivot"],end_pivot,.70)],bone,
-             14 if name == "right_upper" else 3)
+             14 if name == "right_upper" else 9)
     for name,start,end,polygon in (
         ("right_fore",[520,482],[458,574],[[503,455],[546,481],[477,585],[435,569]]),
         ("left_fore",[884,482],[946,574],[[862,481],[905,455],[973,569],[931,585]]),
@@ -241,7 +292,7 @@ def prepare(project, audit_only=False):
         bone = slots[name]["bone"]
         end_pivot = next(j["pivot"] for j in joints.values() if j["parent"] == bone)
         save(name,[layer(BASE,polygon,start,end,joints[bone]["pivot"],end_pivot,.78)],bone,
-             14 if name == "right_fore" else 3,radius=(18,22))
+             14 if name == "right_fore" else 9)
     for name,start,end,polygon,glove,glove_axis in (
         ("right_hand",[451,585],[424,665],[[436,563],[479,581],[464,641],[448,679],[409,704],[389,696],[407,640]],
          "seg-be6a-black-fingerless-gloves-1.png",[[51,17],[26,79]]),
@@ -253,7 +304,7 @@ def prepare(project, audit_only=False):
         target_end = [x+(-13 if name == "right_hand" else 13),y+39]
         pixels = layer(BASE,polygon,start,end,[x,y],target_end,.68)
         overlay = layer(glove,[[0,0],[79,0],[79,102],[0,102]],*glove_axis,[x,y+1],[target_end[0],y+27],.58)
-        save(name,[pixels,overlay],bone,18 if name == "right_hand" else 4,radius=(12,14))
+        save(name,[pixels,overlay],bone,18 if name == "right_hand" else 10)
 
     for side,image_left in (("left",True),("right",False)):
         x = joints["leg_"+side]["pivot"][0]
@@ -271,16 +322,16 @@ def prepare(project, audit_only=False):
         upper_polygon[2][1] = upper_polygon[3][1] = 203
         legging = layer(LEGGINGS,upper_polygon,axis[0],axis[1],[x,420],[x,550],.60)
         shorts = layer(SHORTS,shorts_half,shorts_start,shorts_end,[x,420],[x,493],.60)
-        save("leg_"+side,[legging,shorts],"leg_"+side,5,radius=(20,20))
+        save("leg_"+side,[legging,shorts],"leg_"+side,5)
         lower_polygon = [[a,b] for a,b in half]
         lower_polygon[0][1] = lower_polygon[1][1] = 148
         shin = layer(LEGGINGS,lower_polygon,axis[1],axis[2],[x,550],[x,680],.60)
-        save("shin_"+side,[shin],"knee_"+side,5,radius=(14,18))
+        save("shin_"+side,[shin],"knee_"+side,5)
         if image_left:
             polygon,start,end = [[497,1127],[608,1127],[608,1344],[497,1344]],[569,1182],[550,1305]
         else:
             polygon,start,end = [[799,1127],[910,1127],[910,1344],[799,1344]],[836,1182],[856,1305]
-        save("boot_"+side,[layer(BASE,polygon,start,end,[x,680],[x,732],.70)],"boot_"+side,6,radius=(16,18))
+        save("boot_"+side,[layer(BASE,polygon,start,end,[x,680],[x,732],.70)],"boot_"+side,6)
 
     satchel = Image.new("RGBA",size)
     draw = ImageDraw.Draw(satchel)

@@ -1,7 +1,7 @@
 {
   "tool": "Python/Pillow/OpenCV scripted derivation from Grok Imagine (SpaceXAI)",
   "model": "no generative model used; source model not disclosed",
-  "date": "2026-11-09T22:53:18.515027Z",
+  "date": "2026-11-09T22:56:43.303087Z",
   "date_source": "scripted artifact creation time UTC",
   "source": "prototypes/imagine-cutout/tools/prep_char2.py",
   "license": "CC0 1.0",
@@ -9,11 +9,11 @@
   "rights": "Original fictional art only; no real-person likeness.",
   "description": "Derived fictional courier part: shin_right",
   "output_sha256": "18cb0f12f2bbf0fcfa1ddd6fa1d6a4bd8ac863f91b1b5ae93b3d31a3741c7cc3",
-  "tool_sha256": "d2eb9d7ea2b8209ee4d5e35602f1185d81a756bf6193574553ec6a32e80a44cc",
+  "tool_sha256": "358baa5072012b7431f3b1cdb109fc465f6261808a1a6d99ac0223b78ebe47a1",
   "manifest_sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4",
   "classification": "Segments-split",
   "scripted_fallback": false,
-  "derived_from": "Polygon split and affine fit of seg-be6a-gray-leggings.png; composited in listed order; source-interior material joint supports knee_right proximal [14, 18]px with 12px local dilation, boot_right distal seam support [16, 18]px with 12px local dilation.",
+  "derived_from": "Polygon split and affine fit of seg-be6a-gray-leggings.png; composited in listed order; source-interior material joint supports knee_right proximal [14, 18]px with 12px local overlap margin, boot_right distal seam support [16, 18]px with 12px local overlap margin.",
   "imagine_sources": [
     {
       "file": "seg-be6a-gray-leggings.png",

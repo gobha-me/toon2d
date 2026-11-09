@@ -1,0 +1,496 @@
+{
+  "timestamp_utc": "2026-11-09T22:55:27.473882+00:00",
+  "scope": "actual char2 provenance",
+  "baseline": {
+    "name": "Imagine source provenance and flagged scripted fallbacks",
+    "passed": true,
+    "errors": [],
+    "slot_tally": {
+      "Segments-usable": 0,
+      "Segments-merged": 4,
+      "Segments-split": 9,
+      "SCRIPTED (flagged)": 1
+    },
+    "distinct_imagine_sources": [
+      "call1-base-best.jpg",
+      "seg-be6a-black-fingerless-gloves-1.png",
+      "seg-be6a-black-fingerless-gloves-2.png",
+      "seg-be6a-black-shorts.png",
+      "seg-be6a-gray-leggings.png",
+      "seg-be6a-teal-cropped-jacket.png"
+    ],
+    "required_slots": 14,
+    "expected_source_files": 15,
+    "authenticated_source_files": 15
+  },
+  "mutants": [
+    {
+      "mutant": "i",
+      "description": "missing source image",
+      "expected_failure": "source/call1-base-best.jpg/image",
+      "status": "KILLED",
+      "new_failure_cases": [
+        "source/call1-base-best.jpg/image"
+      ],
+      "observed": {
+        "name": "Imagine source provenance and flagged scripted fallbacks",
+        "passed": false,
+        "errors": [
+          {
+            "case_id": "source/call1-base-best.jpg/image",
+            "error": "committed Imagine source is missing"
+          }
+        ],
+        "slot_tally": {
+          "Segments-usable": 0,
+          "Segments-merged": 4,
+          "Segments-split": 9,
+          "SCRIPTED (flagged)": 1
+        },
+        "distinct_imagine_sources": [
+          "call1-base-best.jpg",
+          "seg-be6a-black-fingerless-gloves-1.png",
+          "seg-be6a-black-fingerless-gloves-2.png",
+          "seg-be6a-black-shorts.png",
+          "seg-be6a-gray-leggings.png",
+          "seg-be6a-teal-cropped-jacket.png"
+        ],
+        "required_slots": 14,
+        "expected_source_files": 15,
+        "authenticated_source_files": 14
+      }
+    },
+    {
+      "mutant": "j",
+      "description": "missing source sidecar",
+      "expected_failure": "source/seg-be6a-red-hair.png/sidecar",
+      "status": "KILLED",
+      "new_failure_cases": [
+        "source/seg-be6a-red-hair.png/sidecar"
+      ],
+      "observed": {
+        "name": "Imagine source provenance and flagged scripted fallbacks",
+        "passed": false,
+        "errors": [
+          {
+            "case_id": "source/seg-be6a-red-hair.png/sidecar",
+            "error": "Imagine source sidecar missing, unsafe or invalid"
+          }
+        ],
+        "slot_tally": {
+          "Segments-usable": 0,
+          "Segments-merged": 4,
+          "Segments-split": 9,
+          "SCRIPTED (flagged)": 1
+        },
+        "distinct_imagine_sources": [
+          "call1-base-best.jpg",
+          "seg-be6a-black-fingerless-gloves-1.png",
+          "seg-be6a-black-fingerless-gloves-2.png",
+          "seg-be6a-black-shorts.png",
+          "seg-be6a-gray-leggings.png",
+          "seg-be6a-teal-cropped-jacket.png"
+        ],
+        "required_slots": 14,
+        "expected_source_files": 15,
+        "authenticated_source_files": 14
+      }
+    },
+    {
+      "mutant": "k",
+      "description": "changed source bytes",
+      "expected_failure": "source/call1-base-best.jpg/hash",
+      "status": "KILLED",
+      "new_failure_cases": [
+        "source/call1-base-best.jpg/hash"
+      ],
+      "observed": {
+        "name": "Imagine source provenance and flagged scripted fallbacks",
+        "passed": false,
+        "errors": [
+          {
+            "case_id": "source/call1-base-best.jpg/hash",
+            "error": "Imagine source bytes differ from the authenticated output"
+          }
+        ],
+        "slot_tally": {
+          "Segments-usable": 0,
+          "Segments-merged": 4,
+          "Segments-split": 9,
+          "SCRIPTED (flagged)": 1
+        },
+        "distinct_imagine_sources": [
+          "call1-base-best.jpg",
+          "seg-be6a-black-fingerless-gloves-1.png",
+          "seg-be6a-black-fingerless-gloves-2.png",
+          "seg-be6a-black-shorts.png",
+          "seg-be6a-gray-leggings.png",
+          "seg-be6a-teal-cropped-jacket.png"
+        ],
+        "required_slots": 14,
+        "expected_source_files": 15,
+        "authenticated_source_files": 14
+      }
+    },
+    {
+      "mutant": "l",
+      "description": "approximate call presented as exact",
+      "expected_failure": "source/seg-be6a-red-hair.png/approximate",
+      "status": "KILLED",
+      "new_failure_cases": [
+        "source/seg-be6a-red-hair.png/approximate"
+      ],
+      "observed": {
+        "name": "Imagine source provenance and flagged scripted fallbacks",
+        "passed": false,
+        "errors": [
+          {
+            "case_id": "source/seg-be6a-red-hair.png/approximate",
+            "error": "approximate call time must remain explicitly approximate"
+          }
+        ],
+        "slot_tally": {
+          "Segments-usable": 0,
+          "Segments-merged": 4,
+          "Segments-split": 9,
+          "SCRIPTED (flagged)": 1
+        },
+        "distinct_imagine_sources": [
+          "call1-base-best.jpg",
+          "seg-be6a-black-fingerless-gloves-1.png",
+          "seg-be6a-black-fingerless-gloves-2.png",
+          "seg-be6a-black-shorts.png",
+          "seg-be6a-gray-leggings.png",
+          "seg-be6a-teal-cropped-jacket.png"
+        ],
+        "required_slots": 14,
+        "expected_source_files": 15,
+        "authenticated_source_files": 14
+      }
+    },
+    {
+      "mutant": "m",
+      "description": "missing derived sidecar",
+      "expected_failure": "provenance/part/head/sidecar",
+      "status": "KILLED",
+      "new_failure_cases": [
+        "provenance/part/head/sidecar"
+      ],
+      "observed": {
+        "name": "Imagine source provenance and flagged scripted fallbacks",
+        "passed": false,
+        "errors": [
+          {
+            "case_id": "provenance/part/head/sidecar",
+            "error": "derived PNG or sidecar missing, unsafe or invalid"
+          }
+        ],
+        "slot_tally": {
+          "Segments-usable": 0,
+          "Segments-merged": 4,
+          "Segments-split": 9,
+          "SCRIPTED (flagged)": 1
+        },
+        "distinct_imagine_sources": [
+          "call1-base-best.jpg",
+          "seg-be6a-black-fingerless-gloves-1.png",
+          "seg-be6a-black-fingerless-gloves-2.png",
+          "seg-be6a-black-shorts.png",
+          "seg-be6a-gray-leggings.png",
+          "seg-be6a-teal-cropped-jacket.png"
+        ],
+        "required_slots": 14,
+        "expected_source_files": 15,
+        "authenticated_source_files": 15
+      }
+    },
+    {
+      "mutant": "n",
+      "description": "lost Imagine trace",
+      "expected_failure": "provenance/part/head/required-sources",
+      "status": "KILLED",
+      "new_failure_cases": [
+        "provenance/part/head/required-sources",
+        "provenance/part/head/sources"
+      ],
+      "observed": {
+        "name": "Imagine source provenance and flagged scripted fallbacks",
+        "passed": false,
+        "errors": [
+          {
+            "case_id": "provenance/part/head/sources",
+            "error": "non-scripted part must trace to an authenticated Imagine source"
+          },
+          {
+            "case_id": "provenance/part/head/required-sources",
+            "error": "slot does not trace to all reviewed Imagine inputs"
+          }
+        ],
+        "slot_tally": {
+          "Segments-usable": 0,
+          "Segments-merged": 4,
+          "Segments-split": 9,
+          "SCRIPTED (flagged)": 1
+        },
+        "distinct_imagine_sources": [
+          "call1-base-best.jpg",
+          "seg-be6a-black-fingerless-gloves-1.png",
+          "seg-be6a-black-fingerless-gloves-2.png",
+          "seg-be6a-black-shorts.png",
+          "seg-be6a-gray-leggings.png",
+          "seg-be6a-teal-cropped-jacket.png"
+        ],
+        "required_slots": 14,
+        "expected_source_files": 15,
+        "authenticated_source_files": 15
+      }
+    },
+    {
+      "mutant": "o",
+      "description": "unflagged scripted satchel",
+      "expected_failure": "provenance/part/satchel/flag",
+      "status": "KILLED",
+      "new_failure_cases": [
+        "provenance/part/satchel/flag"
+      ],
+      "observed": {
+        "name": "Imagine source provenance and flagged scripted fallbacks",
+        "passed": false,
+        "errors": [
+          {
+            "case_id": "provenance/part/satchel/flag",
+            "error": "scripted_fallback must explicitly match the classification"
+          }
+        ],
+        "slot_tally": {
+          "Segments-usable": 0,
+          "Segments-merged": 4,
+          "Segments-split": 9,
+          "SCRIPTED (flagged)": 1
+        },
+        "distinct_imagine_sources": [
+          "call1-base-best.jpg",
+          "seg-be6a-black-fingerless-gloves-1.png",
+          "seg-be6a-black-fingerless-gloves-2.png",
+          "seg-be6a-black-shorts.png",
+          "seg-be6a-gray-leggings.png",
+          "seg-be6a-teal-cropped-jacket.png"
+        ],
+        "required_slots": 14,
+        "expected_source_files": 15,
+        "authenticated_source_files": 15
+      }
+    },
+    {
+      "mutant": "p",
+      "description": "Imagine head replaced with scripted fallback",
+      "expected_failure": "provenance/part/head/slot-class",
+      "status": "KILLED",
+      "new_failure_cases": [
+        "provenance/part/head/fallback-reason",
+        "provenance/part/head/metadata/classification",
+        "provenance/part/head/metadata/scripted_fallback",
+        "provenance/part/head/scripted-source",
+        "provenance/part/head/slot-class"
+      ],
+      "observed": {
+        "name": "Imagine source provenance and flagged scripted fallbacks",
+        "passed": false,
+        "errors": [
+          {
+            "case_id": "provenance/part/head/slot-class",
+            "error": "slot classification differs from the reviewed source map"
+          },
+          {
+            "case_id": "provenance/part/head/fallback-reason",
+            "error": "scripted fallback must explain the missing Imagine source"
+          },
+          {
+            "case_id": "provenance/part/head/metadata/classification",
+            "error": "derived sidecar differs from declared classification"
+          },
+          {
+            "case_id": "provenance/part/head/metadata/scripted_fallback",
+            "error": "derived sidecar differs from declared scripted_fallback"
+          },
+          {
+            "case_id": "provenance/part/head/scripted-source",
+            "error": "wholly scripted fallback must not claim an Imagine source"
+          }
+        ],
+        "slot_tally": {
+          "Segments-usable": 0,
+          "Segments-merged": 4,
+          "Segments-split": 8,
+          "SCRIPTED (flagged)": 2
+        },
+        "distinct_imagine_sources": [
+          "call1-base-best.jpg",
+          "seg-be6a-black-fingerless-gloves-1.png",
+          "seg-be6a-black-fingerless-gloves-2.png",
+          "seg-be6a-black-shorts.png",
+          "seg-be6a-gray-leggings.png",
+          "seg-be6a-teal-cropped-jacket.png"
+        ],
+        "required_slots": 14,
+        "expected_source_files": 15,
+        "authenticated_source_files": 15
+      }
+    },
+    {
+      "mutant": "q",
+      "description": "missing head declaration",
+      "expected_failure": "provenance/slot/head_face",
+      "status": "KILLED",
+      "new_failure_cases": [
+        "provenance/slot/head_face"
+      ],
+      "observed": {
+        "name": "Imagine source provenance and flagged scripted fallbacks",
+        "passed": false,
+        "errors": [
+          {
+            "case_id": "provenance/slot/head_face",
+            "error": "required Imagine/scripted part missing or duplicated"
+          }
+        ],
+        "slot_tally": {
+          "Segments-usable": 0,
+          "Segments-merged": 4,
+          "Segments-split": 8,
+          "SCRIPTED (flagged)": 1
+        },
+        "distinct_imagine_sources": [
+          "call1-base-best.jpg",
+          "seg-be6a-black-fingerless-gloves-1.png",
+          "seg-be6a-black-fingerless-gloves-2.png",
+          "seg-be6a-black-shorts.png",
+          "seg-be6a-gray-leggings.png",
+          "seg-be6a-teal-cropped-jacket.png"
+        ],
+        "required_slots": 14,
+        "expected_source_files": 15,
+        "authenticated_source_files": 15
+      }
+    },
+    {
+      "mutant": "r",
+      "description": "unclassified extra backing",
+      "expected_failure": "provenance/part/extra_backing/classification",
+      "status": "KILLED",
+      "new_failure_cases": [
+        "provenance/part/extra_backing/classification",
+        "provenance/part/extra_backing/flag",
+        "provenance/part/extra_backing/sidecar"
+      ],
+      "observed": {
+        "name": "Imagine source provenance and flagged scripted fallbacks",
+        "passed": false,
+        "errors": [
+          {
+            "case_id": "provenance/part/extra_backing/classification",
+            "error": "part must use one of the four disclosed source classes"
+          },
+          {
+            "case_id": "provenance/part/extra_backing/flag",
+            "error": "scripted_fallback must explicitly match the classification"
+          },
+          {
+            "case_id": "provenance/part/extra_backing/sidecar",
+            "error": "derived PNG or sidecar missing, unsafe or invalid"
+          }
+        ],
+        "slot_tally": {
+          "Segments-usable": 0,
+          "Segments-merged": 4,
+          "Segments-split": 9,
+          "SCRIPTED (flagged)": 1
+        },
+        "distinct_imagine_sources": [
+          "call1-base-best.jpg",
+          "seg-be6a-black-fingerless-gloves-1.png",
+          "seg-be6a-black-fingerless-gloves-2.png",
+          "seg-be6a-black-shorts.png",
+          "seg-be6a-gray-leggings.png",
+          "seg-be6a-teal-cropped-jacket.png"
+        ],
+        "required_slots": 14,
+        "expected_source_files": 15,
+        "authenticated_source_files": 15
+      }
+    },
+    {
+      "mutant": "s",
+      "description": "changed runtime texture bytes",
+      "expected_failure": "provenance/part/head/metadata/output_sha256",
+      "status": "KILLED",
+      "new_failure_cases": [
+        "provenance/part/head/metadata/output_sha256"
+      ],
+      "observed": {
+        "name": "Imagine source provenance and flagged scripted fallbacks",
+        "passed": false,
+        "errors": [
+          {
+            "case_id": "provenance/part/head/metadata/output_sha256",
+            "error": "derived sidecar differs from declared output_sha256"
+          }
+        ],
+        "slot_tally": {
+          "Segments-usable": 0,
+          "Segments-merged": 4,
+          "Segments-split": 9,
+          "SCRIPTED (flagged)": 1
+        },
+        "distinct_imagine_sources": [
+          "call1-base-best.jpg",
+          "seg-be6a-black-fingerless-gloves-1.png",
+          "seg-be6a-black-fingerless-gloves-2.png",
+          "seg-be6a-black-shorts.png",
+          "seg-be6a-gray-leggings.png",
+          "seg-be6a-teal-cropped-jacket.png"
+        ],
+        "required_slots": 14,
+        "expected_source_files": 15,
+        "authenticated_source_files": 15
+      }
+    },
+    {
+      "mutant": "t",
+      "description": "invented recorded prompt",
+      "expected_failure": "source/call1-base-best.jpg/metadata/prompt",
+      "status": "KILLED",
+      "new_failure_cases": [
+        "source/call1-base-best.jpg/metadata/prompt"
+      ],
+      "observed": {
+        "name": "Imagine source provenance and flagged scripted fallbacks",
+        "passed": false,
+        "errors": [
+          {
+            "case_id": "source/call1-base-best.jpg/metadata/prompt",
+            "error": "source sidecar differs from recorded prompt"
+          }
+        ],
+        "slot_tally": {
+          "Segments-usable": 0,
+          "Segments-merged": 4,
+          "Segments-split": 9,
+          "SCRIPTED (flagged)": 1
+        },
+        "distinct_imagine_sources": [
+          "call1-base-best.jpg",
+          "seg-be6a-black-fingerless-gloves-1.png",
+          "seg-be6a-black-fingerless-gloves-2.png",
+          "seg-be6a-black-shorts.png",
+          "seg-be6a-gray-leggings.png",
+          "seg-be6a-teal-cropped-jacket.png"
+        ],
+        "required_slots": 14,
+        "expected_source_files": 15,
+        "authenticated_source_files": 14
+      }
+    }
+  ],
+  "passed": true
+}

@@ -1,14 +1,14 @@
 {
   "tool": "Godot scripted scene capture",
   "model": "no generative model used; source model not disclosed",
-  "date": "2026-11-09T22:53:25.734305Z",
+  "date": "2026-11-09T22:56:50.136770Z",
   "date_source": "scripted artifact creation time UTC",
   "source": "prototypes/imagine-cutout/scripts/capture_v2.gd",
   "license": "CC0 1.0",
   "credit": "Generated with Grok Imagine (SpaceXAI); scripted derivation where stated",
   "rights": "Original fictional art only; no real-person likeness.",
   "description": "Unretouched Imagine courier review pose: rest",
-  "output_sha256": "44109376330c56f7234ce55f60f2d6fbf6346b660d5ab43c2f97872ceb15c063",
+  "output_sha256": "75aeaa7f292e153018cb79415988672e60f6e33f4d908cb5bdc2ec25b21fc9e8",
   "pose": "rest",
   "artifact_kind": "rendered assembly",
   "derived_from": "Godot capture of scenes/char2.tscn; textures declared in characters/char2/parts.json; Imagine-derived cutouts plus the explicitly listed scripted fallback parts.",
@@ -111,14 +111,14 @@
     {
       "part": "left_fore",
       "texture": "characters/char2/parts/left_fore.png",
-      "sha256": "627161b6bdcb347240c20f7ee64bcf8063d84b10b04d2a50b3a159eb37d188bc",
+      "sha256": "522a58595422f28333bfa2d551a61a3bb1398d916d71ce6a6e58eaf07c7cf6f5",
       "classification": "Segments-split",
       "scripted_fallback": false
     },
     {
       "part": "left_hand",
       "texture": "characters/char2/parts/left_hand.png",
-      "sha256": "a5eccfae731f0a6a9ff399550d963bc11e53fb2783c9eb8c5bedddf3a39fdb77",
+      "sha256": "590f9d243d8c63cee90c3cb119d3a446913ad8a6dbe7f87d3334d5b4ea3b4690",
       "classification": "Segments-merged",
       "scripted_fallback": false
     },
@@ -139,7 +139,7 @@
     {
       "part": "right_fore",
       "texture": "characters/char2/parts/right_fore.png",
-      "sha256": "1221b020967256ba8b738199071a13a00c15aca7cd6d6bd99f8e6bc44499adc6",
+      "sha256": "74dc11d1062ff9bd8677a3b2b6dee422af76f1b8d6a172c363d90d36a2880067",
       "classification": "Segments-split",
       "scripted_fallback": false
     },
@@ -154,7 +154,7 @@
     {
       "part": "right_hand",
       "texture": "characters/char2/parts/right_hand.png",
-      "sha256": "43e9a5a1a346459a88e159ecf29196f539258e94c474093eb1fc3527c95f9c4b",
+      "sha256": "a7853288e3c556864b7480a06a885694d415890a0fe463da6d30ecd52283a4b0",
       "classification": "Segments-merged",
       "scripted_fallback": false
     }
@@ -171,11 +171,11 @@
   "inputs": {
     "scene": {
       "file": "scenes/char2.tscn",
-      "sha256": "81e3aea667129ca2986f8c082d8258e117ccc0b2d910dd551ea4078f45665500"
+      "sha256": "ae3fee3662d310a97f1f6a2a1d43167b187a17cbeda23c95cee4be9f961c574d"
     },
     "subject": {
       "file": "characters/char2/parts.json",
-      "sha256": "c13f09f2e1128c05aba9b46f6ea7d91cd8100c052bbb7278c9d595dc7efa0b5d"
+      "sha256": "59f139db20d5a0444409b74a005848c8450decb5ed9f9e0c7c49bf5ca18b794e"
     },
     "manifest": {
       "file": "tests/data/characters/char2/body_parts.yml",

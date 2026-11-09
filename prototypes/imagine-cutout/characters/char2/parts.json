@@ -339,7 +339,7 @@
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
       "classification": "Segments-merged",
       "scripted_fallback": false,
-      "derived_from": "Polygon split and affine fit of seg-be6a-black-shorts.png, seg-be6a-gray-leggings.png; composited in listed order; source-interior material joint supports leg_left proximal [20, 20]px with 12px local dilation."
+      "derived_from": "Polygon split and affine fit of seg-be6a-black-shorts.png, seg-be6a-gray-leggings.png; composited in listed order; source-interior material joint supports leg_left proximal [20, 20]px with 12px local overlap margin."
     },
     {
       "id": "shin_left",
@@ -369,7 +369,7 @@
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
       "classification": "Segments-split",
       "scripted_fallback": false,
-      "derived_from": "Polygon split and affine fit of seg-be6a-gray-leggings.png; composited in listed order; source-interior material joint supports knee_left proximal [14, 18]px with 12px local dilation, boot_left distal seam support [16, 18]px with 12px local dilation."
+      "derived_from": "Polygon split and affine fit of seg-be6a-gray-leggings.png; composited in listed order; source-interior material joint supports knee_left proximal [14, 18]px with 12px local overlap margin, boot_left distal seam support [16, 18]px with 12px local overlap margin."
     },
     {
       "id": "leg_right",
@@ -399,7 +399,7 @@
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
       "classification": "Segments-merged",
       "scripted_fallback": false,
-      "derived_from": "Polygon split and affine fit of seg-be6a-black-shorts.png, seg-be6a-gray-leggings.png; composited in listed order; source-interior material joint supports leg_right proximal [20, 20]px with 12px local dilation."
+      "derived_from": "Polygon split and affine fit of seg-be6a-black-shorts.png, seg-be6a-gray-leggings.png; composited in listed order; source-interior material joint supports leg_right proximal [20, 20]px with 12px local overlap margin."
     },
     {
       "id": "shin_right",
@@ -429,7 +429,7 @@
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
       "classification": "Segments-split",
       "scripted_fallback": false,
-      "derived_from": "Polygon split and affine fit of seg-be6a-gray-leggings.png; composited in listed order; source-interior material joint supports knee_right proximal [14, 18]px with 12px local dilation, boot_right distal seam support [16, 18]px with 12px local dilation."
+      "derived_from": "Polygon split and affine fit of seg-be6a-gray-leggings.png; composited in listed order; source-interior material joint supports knee_right proximal [14, 18]px with 12px local overlap margin, boot_right distal seam support [16, 18]px with 12px local overlap margin."
     },
     {
       "id": "boot_left",
@@ -459,7 +459,7 @@
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
       "classification": "Segments-split",
       "scripted_fallback": false,
-      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; source-interior material joint supports boot_left proximal [16, 18]px with 12px local dilation."
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; source-interior material joint supports boot_left proximal [16, 18]px with 12px local overlap margin."
     },
     {
       "id": "boot_right",
@@ -489,7 +489,7 @@
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
       "classification": "Segments-split",
       "scripted_fallback": false,
-      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; source-interior material joint supports boot_right proximal [16, 18]px with 12px local dilation."
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; source-interior material joint supports boot_right proximal [16, 18]px with 12px local overlap margin."
     },
     {
       "id": "torso",
@@ -519,7 +519,7 @@
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
       "classification": "Segments-merged",
       "scripted_fallback": false,
-      "derived_from": "Polygon split and affine fit of call1-base-best.jpg, seg-be6a-teal-cropped-jacket.png; composited in listed order; source-interior material joint supports right_upper distal seam support [18, 20]px with 12px local dilation, left_arm distal seam support [18, 20]px with 12px local dilation."
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg, seg-be6a-teal-cropped-jacket.png; composited in listed order; source-interior material joint supports right_upper distal seam support [18, 20]px with 12px local overlap margin, left_arm distal seam support [18, 20]px with 12px local overlap margin."
     },
     {
       "id": "left_arm",
@@ -549,7 +549,7 @@
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
       "classification": "Segments-split",
       "scripted_fallback": false,
-      "derived_from": "Polygon split and affine fit of seg-be6a-teal-cropped-jacket.png; composited in listed order; source-interior material joint supports left_arm proximal [18, 20]px with 12px local dilation, left_fore distal seam support [16, 16]px with 12px local dilation."
+      "derived_from": "Polygon split and affine fit of seg-be6a-teal-cropped-jacket.png; composited in listed order; source-interior material joint supports left_arm proximal [18, 20]px with 12px local overlap margin, left_fore distal seam support [16, 16]px with 12px local overlap margin."
     },
     {
       "id": "left_fore",
@@ -567,7 +567,7 @@
         310,
         306,
         378,
-        456
+        458
       ],
       "texture_hd": "characters/char2/parts/left_fore.png",
       "z_order": 9,
@@ -579,7 +579,7 @@
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
       "classification": "Segments-split",
       "scripted_fallback": false,
-      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; source-interior material joint supports left_fore proximal [22, 22]px with 12px local dilation, left_hand distal seam support [12, 14]px with 12px local dilation."
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; source-interior material joint supports left_fore proximal [22, 22]px with 12px local overlap margin, left_hand distal seam support [14, 16]px with 12px local overlap margin."
     },
     {
       "id": "left_hand",
@@ -590,12 +590,12 @@
         430
       ],
       "offset": [
-        -24,
-        -26
+        -26,
+        -28
       ],
       "bbox": [
-        328,
-        404,
+        326,
+        402,
         386,
         487
       ],
@@ -609,7 +609,7 @@
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
       "classification": "Segments-merged",
       "scripted_fallback": false,
-      "derived_from": "Polygon split and affine fit of call1-base-best.jpg, seg-be6a-black-fingerless-gloves-2.png; composited in listed order; source-interior material joint supports left_hand proximal [12, 14]px with 12px local dilation."
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg, seg-be6a-black-fingerless-gloves-2.png; composited in listed order; source-interior material joint supports left_hand proximal [14, 16]px with 12px local overlap margin."
     },
     {
       "id": "head",
@@ -639,7 +639,7 @@
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
       "classification": "Segments-split",
       "scripted_fallback": false,
-      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; source-interior material joint supports head proximal [8, 24]px with 12px local dilation."
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; source-interior material joint supports head proximal [8, 24]px with 12px local overlap margin."
     },
     {
       "id": "right_upper",
@@ -669,7 +669,7 @@
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
       "classification": "Segments-split",
       "scripted_fallback": false,
-      "derived_from": "Polygon split and affine fit of seg-be6a-teal-cropped-jacket.png; composited in listed order; source-interior material joint supports right_upper proximal [18, 20]px with 12px local dilation, right_fore distal seam support [16, 16]px with 12px local dilation."
+      "derived_from": "Polygon split and affine fit of seg-be6a-teal-cropped-jacket.png; composited in listed order; source-interior material joint supports right_upper proximal [18, 20]px with 12px local overlap margin, right_fore distal seam support [16, 16]px with 12px local overlap margin."
     },
     {
       "id": "right_fore",
@@ -687,7 +687,7 @@
         134,
         306,
         202,
-        456
+        458
       ],
       "texture_hd": "characters/char2/parts/right_fore.png",
       "z_order": 14,
@@ -699,7 +699,7 @@
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
       "classification": "Segments-split",
       "scripted_fallback": false,
-      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; source-interior material joint supports right_fore proximal [22, 22]px with 12px local dilation, right_hand distal seam support [12, 14]px with 12px local dilation."
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; source-interior material joint supports right_fore proximal [22, 22]px with 12px local overlap margin, right_hand distal seam support [14, 16]px with 12px local overlap margin."
     },
     {
       "id": "satchel",
@@ -742,12 +742,12 @@
       ],
       "offset": [
         -33,
-        -26
+        -28
       ],
       "bbox": [
         127,
-        404,
-        184,
+        402,
+        186,
         487
       ],
       "texture_hd": "characters/char2/parts/right_hand.png",
@@ -760,7 +760,7 @@
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
       "classification": "Segments-merged",
       "scripted_fallback": false,
-      "derived_from": "Polygon split and affine fit of call1-base-best.jpg, seg-be6a-black-fingerless-gloves-1.png; composited in listed order; source-interior material joint supports right_hand proximal [12, 14]px with 12px local dilation."
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg, seg-be6a-black-fingerless-gloves-1.png; composited in listed order; source-interior material joint supports right_hand proximal [14, 16]px with 12px local overlap margin."
     }
   ]
 }

@@ -1,10 +1,169 @@
 {
-  "tool": "Python/Pillow/OpenCV procedural cutout authoring",
-  "model": "none (scripted)",
-  "date": "2026-11-01T15:17:33.491488Z",
+  "tool": "Python/Pillow/OpenCV scripted derivation from Grok Imagine (SpaceXAI)",
+  "model": "no generative model used; source model not disclosed",
+  "date": "2026-11-09T20:39:10.154307Z",
+  "date_source": "scripted artifact creation time UTC",
   "source": "prototypes/imagine-cutout/tools/prep_char2.py",
-  "prompt": "not applicable (scripted)",
-  "image_sha256": "203de7910d82f85fbca2d88a1582f62e2daf6f8f2e663eee9ce10d955d8f2245",
-  "license": "CC0-1.0",
-  "description": "Original fictional courier; scripted shapes only"
+  "license": "CC0 1.0",
+  "credit": "Generated with Grok Imagine (SpaceXAI); scripted derivation where stated",
+  "rights": "Original fictional art only; no real-person likeness.",
+  "description": "Derived fictional courier part: left_hand",
+  "output_sha256": "153b45d388697bf35957074c369031f18907e9655311b860d968db9fa728fd8f",
+  "tool_sha256": "56f3577e9a57910350df831fe9ac0e4a338f008685031cf8d5e14e9eb23feacd",
+  "manifest_sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4",
+  "classification": "Segments-merged",
+  "scripted_fallback": false,
+  "derived_from": "Polygon split and affine fit of call1-base-best.jpg, seg-be6a-black-fingerless-gloves-2.png; composited in listed order; uniform source-interior material elliptical proximal cap radii [10, 12]px and joint-only 12px dilation.",
+  "imagine_sources": [
+    {
+      "file": "call1-base-best.jpg",
+      "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
+    },
+    {
+      "file": "seg-be6a-black-fingerless-gloves-2.png",
+      "sha256": "39cd9a3cabacf5f36cddd9adbe7473de3ca55729cd45eeb9cc23e99dd4ec1c50"
+    }
+  ],
+  "operations": [
+    {
+      "file": "call1-base-best.jpg",
+      "polygon": [
+        [
+          925,
+          581
+        ],
+        [
+          968,
+          563
+        ],
+        [
+          997,
+          640
+        ],
+        [
+          1015,
+          696
+        ],
+        [
+          995,
+          704
+        ],
+        [
+          956,
+          679
+        ],
+        [
+          940,
+          641
+        ]
+      ],
+      "source_axis": [
+        [
+          953,
+          585
+        ],
+        [
+          980,
+          665
+        ]
+      ],
+      "target_axis": [
+        [
+          352,
+          430
+        ],
+        [
+          365,
+          469
+        ]
+      ],
+      "width_scale": 0.68,
+      "affine_source_to_rig": [
+        [
+          0.6604673610718799,
+          -0.060407734361758135,
+          -242.0868704998731
+        ],
+        [
+          -0.056037360722367466,
+          0.5064126092437986,
+          187.15222836079406
+        ]
+      ]
+    },
+    {
+      "file": "seg-be6a-black-fingerless-gloves-2.png",
+      "polygon": [
+        [
+          0,
+          0
+        ],
+        [
+          79,
+          0
+        ],
+        [
+          79,
+          102
+        ],
+        [
+          0,
+          102
+        ]
+      ],
+      "source_axis": [
+        [
+          27,
+          17
+        ],
+        [
+          53,
+          79
+        ]
+      ],
+      "target_axis": [
+        [
+          352,
+          431
+        ],
+        [
+          365,
+          457
+        ]
+      ],
+      "width_scale": 0.58,
+      "affine_source_to_rig": [
+        [
+          0.553183387622333,
+          -0.022302710938399365,
+          337.4431946201498
+        ],
+        [
+          -0.08964478255614289,
+          0.45694781203967266,
+          425.6522963243414
+        ]
+      ]
+    }
+  ],
+  "joint_completion_added_pixels": 838,
+  "backing_material": {
+    "rgb": [
+      46,
+      46,
+      48
+    ],
+    "sample_rig_px": [
+      344,
+      431
+    ],
+    "selection": "retained opaque interior pixel closest to local median RGB",
+    "minimum_core_depth_px": 3,
+    "search_radius_px": 44
+  },
+  "joint_cap_radii_px": [
+    10,
+    12
+  ],
+  "source_post_url": "https://grok.com/imagine/post/be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8"
 }

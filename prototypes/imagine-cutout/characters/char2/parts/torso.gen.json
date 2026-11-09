@@ -1,10 +1,181 @@
 {
-  "tool": "Python/Pillow/OpenCV procedural cutout authoring",
-  "model": "none (scripted)",
-  "date": "2026-11-01T15:17:33.491488Z",
+  "tool": "Python/Pillow/OpenCV scripted derivation from Grok Imagine (SpaceXAI)",
+  "model": "no generative model used; source model not disclosed",
+  "date": "2026-11-09T20:39:10.154307Z",
+  "date_source": "scripted artifact creation time UTC",
   "source": "prototypes/imagine-cutout/tools/prep_char2.py",
-  "prompt": "not applicable (scripted)",
-  "image_sha256": "bfcb3b8e93f0badc56d477cc0dabf9ab14299a8e266aaf3a337b3c3d2fda9ac8",
-  "license": "CC0-1.0",
-  "description": "Original fictional courier; scripted shapes only"
+  "license": "CC0 1.0",
+  "credit": "Generated with Grok Imagine (SpaceXAI); scripted derivation where stated",
+  "rights": "Original fictional art only; no real-person likeness.",
+  "description": "Derived fictional courier part: torso",
+  "output_sha256": "8f98b7b880d04c16dcdd0c35a9412e1e482f1c03f1682bc38c2477a7ee194880",
+  "tool_sha256": "56f3577e9a57910350df831fe9ac0e4a338f008685031cf8d5e14e9eb23feacd",
+  "manifest_sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4",
+  "classification": "Segments-merged",
+  "scripted_fallback": false,
+  "derived_from": "Polygon split and affine fit of call1-base-best.jpg, seg-be6a-teal-cropped-jacket.png; composited in listed order; no joint dilation.",
+  "imagine_sources": [
+    {
+      "file": "call1-base-best.jpg",
+      "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
+    },
+    {
+      "file": "seg-be6a-teal-cropped-jacket.png",
+      "sha256": "975ae1b378e11ca1cd1f3ce26a74b4714a4357ceaa4ef52955f3d7627d98f416"
+    }
+  ],
+  "operations": [
+    {
+      "file": "call1-base-best.jpg",
+      "polygon": [
+        [
+          625,
+          218
+        ],
+        [
+          665,
+          235
+        ],
+        [
+          741,
+          235
+        ],
+        [
+          783,
+          218
+        ],
+        [
+          813,
+          275
+        ],
+        [
+          795,
+          465
+        ],
+        [
+          780,
+          510
+        ],
+        [
+          625,
+          510
+        ],
+        [
+          605,
+          465
+        ],
+        [
+          593,
+          275
+        ]
+      ],
+      "source_axis": [
+        [
+          700,
+          300
+        ],
+        [
+          700,
+          500
+        ]
+      ],
+      "target_axis": [
+        [
+          256,
+          240
+        ],
+        [
+          256,
+          412
+        ]
+      ],
+      "width_scale": 0.74,
+      "affine_source_to_rig": [
+        [
+          0.7399999999999997,
+          0.0,
+          -261.99999999999983
+        ],
+        [
+          -1.7256037868459576e-16,
+          0.86,
+          -17.99999999999988
+        ]
+      ]
+    },
+    {
+      "file": "seg-be6a-teal-cropped-jacket.png",
+      "polygon": [
+        [
+          113,
+          0
+        ],
+        [
+          304,
+          0
+        ],
+        [
+          315,
+          70
+        ],
+        [
+          302,
+          170
+        ],
+        [
+          310,
+          260
+        ],
+        [
+          100,
+          260
+        ],
+        [
+          112,
+          170
+        ],
+        [
+          100,
+          70
+        ]
+      ],
+      "source_axis": [
+        [
+          209,
+          75
+        ],
+        [
+          209,
+          240
+        ]
+      ],
+      "target_axis": [
+        [
+          256,
+          240
+        ],
+        [
+          256,
+          371
+        ]
+      ],
+      "width_scale": 0.67,
+      "affine_source_to_rig": [
+        [
+          0.6699999999999998,
+          0.0,
+          115.97000000000001
+        ],
+        [
+          -1.3598904033686127e-16,
+          0.793939393939394,
+          180.45454545454547
+        ]
+      ]
+    }
+  ],
+  "joint_completion_added_pixels": 0,
+  "backing_material": null,
+  "joint_cap_radii_px": null,
+  "source_post_url": "https://grok.com/imagine/post/be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8"
 }

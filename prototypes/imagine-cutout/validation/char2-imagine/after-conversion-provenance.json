@@ -1,0 +1,27 @@
+{
+  "timestamp_utc": "2026-11-09T20:40:09.747087+00:00",
+  "result": {
+    "name": "Imagine source provenance and flagged scripted fallbacks",
+    "passed": true,
+    "errors": [],
+    "slot_tally": {
+      "Segments-usable": 0,
+      "Segments-merged": 4,
+      "Segments-split": 9,
+      "SCRIPTED (flagged)": 1
+    },
+    "distinct_imagine_sources": [
+      "call1-base-best.jpg",
+      "seg-be6a-black-fingerless-gloves-1.png",
+      "seg-be6a-black-fingerless-gloves-2.png",
+      "seg-be6a-black-shorts.png",
+      "seg-be6a-gray-leggings.png",
+      "seg-be6a-teal-cropped-jacket.png"
+    ],
+    "required_slots": 14,
+    "expected_source_files": 15,
+    "authenticated_source_files": 15
+  },
+  "subject_sha256": "bdba97a7d610799a8e65679380bb4b63de8a1cf928ce6061aebabb26fa115f84",
+  "validator_sha256": "cffcaf7d0f86391907b56c4fcfe97e602f6afdb4acbc92cbb9e7701acf7de26a"
+}

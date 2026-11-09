@@ -1,8 +1,11 @@
 {
-  "schema_version": 1,
-  "manifest_sha256": "080892f267590f07bd422edaaeff76885cef4e698409991b3d4615234ad4c923",
-  "source_kind": "original scripted design; no Segments export supplied",
-  "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+  "schema_version": 2,
+  "manifest_sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4",
+  "source_kind": "supplied Grok Imagine base and Segments; scripted fitting",
+  "source_post_id": "be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8",
+  "generation_calls_used": 3,
+  "generation_calls_remaining": 0,
+  "generation_requested": false,
   "slots": [
     {
       "slot": "head_face",
@@ -14,8 +17,12 @@
       ],
       "parent": "torso",
       "overlap_px": 12,
-      "action": "scripted",
-      "method": "profile face, nose, ear, hair and courier cap; rounded neck backing"
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "imagine_sources": [
+        "call1-base-best.jpg"
+      ],
+      "method": "Scripted crop/matte from the chosen full-body source; no separate Segments limb exists."
     },
     {
       "slot": "upper_arm_left",
@@ -27,8 +34,12 @@
       ],
       "parent": "torso",
       "overlap_px": 12,
-      "action": "scripted",
-      "method": "far teal sleeve capsule; proximal round backing and manifest dilation"
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "imagine_sources": [
+        "seg-be6a-teal-cropped-jacket.png"
+      ],
+      "method": "Split the jacket sleeve from the combined jacket layer; bare seam backing may also use the base."
     },
     {
       "slot": "lower_arm_left",
@@ -40,8 +51,12 @@
       ],
       "parent": "left_arm",
       "overlap_px": 12,
-      "action": "scripted",
-      "method": "far teal forearm capsule and cuff; proximal backing and manifest dilation"
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "imagine_sources": [
+        "call1-base-best.jpg"
+      ],
+      "method": "Scripted crop/matte from the chosen full-body source; no separate Segments limb exists."
     },
     {
       "slot": "hand_left",
@@ -53,8 +68,13 @@
       ],
       "parent": "left_fore",
       "overlap_px": 12,
-      "action": "scripted",
-      "method": "far mitten with thumb; proximal backing and manifest dilation"
+      "classification": "Segments-merged",
+      "scripted_fallback": false,
+      "imagine_sources": [
+        "call1-base-best.jpg",
+        "seg-be6a-black-fingerless-gloves-2.png"
+      ],
+      "method": "Merge the isolated glove with fingers recovered from the base; left means image-right in the frozen rig."
     },
     {
       "slot": "upper_arm_right",
@@ -66,8 +86,12 @@
       ],
       "parent": "torso",
       "overlap_px": 12,
-      "action": "scripted",
-      "method": "near teal sleeve capsule; proximal round backing and manifest dilation"
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "imagine_sources": [
+        "seg-be6a-teal-cropped-jacket.png"
+      ],
+      "method": "Split the jacket sleeve from the combined jacket layer; bare seam backing may also use the base."
     },
     {
       "slot": "lower_arm_right",
@@ -79,8 +103,12 @@
       ],
       "parent": "right_upper",
       "overlap_px": 12,
-      "action": "scripted",
-      "method": "near teal forearm capsule and cuff; proximal backing and manifest dilation"
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "imagine_sources": [
+        "call1-base-best.jpg"
+      ],
+      "method": "Scripted crop/matte from the chosen full-body source; no separate Segments limb exists."
     },
     {
       "slot": "hand_right",
@@ -92,8 +120,13 @@
       ],
       "parent": "right_fore",
       "overlap_px": 12,
-      "action": "scripted",
-      "method": "near gripping mitten; proximal backing and manifest dilation"
+      "classification": "Segments-merged",
+      "scripted_fallback": false,
+      "imagine_sources": [
+        "call1-base-best.jpg",
+        "seg-be6a-black-fingerless-gloves-1.png"
+      ],
+      "method": "Merge the isolated glove with fingers recovered from the base; left means image-right in the frozen rig."
     },
     {
       "slot": "upper_leg_left",
@@ -105,8 +138,13 @@
       ],
       "parent": "hip",
       "overlap_px": 12,
-      "action": "scripted",
-      "method": "navy trouser capsule; proximal backing and manifest dilation"
+      "classification": "Segments-merged",
+      "scripted_fallback": false,
+      "imagine_sources": [
+        "seg-be6a-black-shorts.png",
+        "seg-be6a-gray-leggings.png"
+      ],
+      "method": "Split the paired shorts and leggings by leg, then merge the upper-leg clothing layers."
     },
     {
       "slot": "lower_leg_left",
@@ -118,8 +156,12 @@
       ],
       "parent": "leg_left",
       "overlap_px": 12,
-      "action": "scripted",
-      "method": "navy trouser calf capsule; proximal backing and manifest dilation"
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "imagine_sources": [
+        "seg-be6a-gray-leggings.png"
+      ],
+      "method": "Split one lower leg from the paired leggings layer."
     },
     {
       "slot": "foot_left",
@@ -131,8 +173,12 @@
       ],
       "parent": "knee_left",
       "overlap_px": 12,
-      "action": "scripted",
-      "method": "right-pointing leather boot and sole; ankle backing and manifest dilation"
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "imagine_sources": [
+        "call1-base-best.jpg"
+      ],
+      "method": "Split/matte the corresponding shoe and exposed ankle from the base; paired/nonspecific Segments shoe exports are supplemental."
     },
     {
       "slot": "upper_leg_right",
@@ -144,8 +190,13 @@
       ],
       "parent": "hip",
       "overlap_px": 12,
-      "action": "scripted",
-      "method": "navy trouser capsule; proximal backing and manifest dilation"
+      "classification": "Segments-merged",
+      "scripted_fallback": false,
+      "imagine_sources": [
+        "seg-be6a-black-shorts.png",
+        "seg-be6a-gray-leggings.png"
+      ],
+      "method": "Split the paired shorts and leggings by leg, then merge the upper-leg clothing layers."
     },
     {
       "slot": "lower_leg_right",
@@ -157,8 +208,12 @@
       ],
       "parent": "leg_right",
       "overlap_px": 12,
-      "action": "scripted",
-      "method": "navy trouser calf capsule; proximal backing and manifest dilation"
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "imagine_sources": [
+        "seg-be6a-gray-leggings.png"
+      ],
+      "method": "Split one lower leg from the paired leggings layer."
     },
     {
       "slot": "foot_right",
@@ -170,8 +225,12 @@
       ],
       "parent": "knee_right",
       "overlap_px": 12,
-      "action": "scripted",
-      "method": "right-pointing leather boot and sole; ankle backing and manifest dilation"
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "imagine_sources": [
+        "call1-base-best.jpg"
+      ],
+      "method": "Split/matte the corresponding shoe and exposed ankle from the base; paired/nonspecific Segments shoe exports are supplemental."
     },
     {
       "slot": "held_prop_satchel",
@@ -183,9 +242,17 @@
       ],
       "parent": "right_fore",
       "overlap_px": 0,
-      "action": "scripted",
-      "method": "ochre satchel, flap, buckle and handle; rigid undilated prop"
+      "classification": "SCRIPTED (flagged)",
+      "scripted_fallback": true,
+      "imagine_sources": [],
+      "method": "The chosen base and all chosen Segments exports contain no satchel; flag a wholly scripted fallback.",
+      "fallback_reason": "The supplied Imagine base has no held prop and neither Segments run supplied a satchel. All three allowed calls were already used; this rigid satchel is a wholly scripted fallback."
     }
   ],
-  "generation_requested": false
+  "slot_tally": {
+    "Segments-usable": 0,
+    "Segments-merged": 4,
+    "Segments-split": 9,
+    "SCRIPTED (flagged)": 1
+  }
 }

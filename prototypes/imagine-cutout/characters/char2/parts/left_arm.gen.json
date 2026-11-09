@@ -1,10 +1,123 @@
 {
-  "tool": "Python/Pillow/OpenCV procedural cutout authoring",
-  "model": "none (scripted)",
-  "date": "2026-11-01T15:17:33.491488Z",
+  "tool": "Python/Pillow/OpenCV scripted derivation from Grok Imagine (SpaceXAI)",
+  "model": "no generative model used; source model not disclosed",
+  "date": "2026-11-09T20:39:10.154307Z",
+  "date_source": "scripted artifact creation time UTC",
   "source": "prototypes/imagine-cutout/tools/prep_char2.py",
-  "prompt": "not applicable (scripted)",
-  "image_sha256": "c7e5c96bd97dd6658b0c1581823ec77460013cd18f657b1f1d7c9f2211487034",
-  "license": "CC0-1.0",
-  "description": "Original fictional courier; scripted shapes only"
+  "license": "CC0 1.0",
+  "credit": "Generated with Grok Imagine (SpaceXAI); scripted derivation where stated",
+  "rights": "Original fictional art only; no real-person likeness.",
+  "description": "Derived fictional courier part: left_arm",
+  "output_sha256": "14482737dd15e9587b0b59e883f410d84eb91f474313023befa64a176bbae69b",
+  "tool_sha256": "56f3577e9a57910350df831fe9ac0e4a338f008685031cf8d5e14e9eb23feacd",
+  "manifest_sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4",
+  "classification": "Segments-split",
+  "scripted_fallback": false,
+  "derived_from": "Polygon split and affine fit of seg-be6a-teal-cropped-jacket.png; composited in listed order; uniform source-interior material elliptical proximal cap radii [16, 18]px and joint-only 12px dilation.",
+  "imagine_sources": [
+    {
+      "file": "seg-be6a-teal-cropped-jacket.png",
+      "sha256": "975ae1b378e11ca1cd1f3ce26a74b4714a4357ceaa4ef52955f3d7627d98f416"
+    }
+  ],
+  "operations": [
+    {
+      "file": "seg-be6a-teal-cropped-jacket.png",
+      "polygon": [
+        [
+          289,
+          64
+        ],
+        [
+          337,
+          48
+        ],
+        [
+          365,
+          96
+        ],
+        [
+          385,
+          145
+        ],
+        [
+          400,
+          205
+        ],
+        [
+          418,
+          257
+        ],
+        [
+          363,
+          280
+        ],
+        [
+          322,
+          256
+        ],
+        [
+          316,
+          205
+        ],
+        [
+          290,
+          146
+        ]
+      ],
+      "source_axis": [
+        [
+          302,
+          70
+        ],
+        [
+          377,
+          239
+        ]
+      ],
+      "target_axis": [
+        [
+          330,
+          250
+        ],
+        [
+          344,
+          340
+        ]
+      ],
+      "width_scale": 0.7,
+      "affine_source_to_rig": [
+        [
+          0.6629350664121479,
+          -0.2113617158633795,
+          144.5889300539679
+        ],
+        [
+          0.09910380127800024,
+          0.4885634017997039,
+          185.87121388806466
+        ]
+      ]
+    }
+  ],
+  "joint_completion_added_pixels": 1545,
+  "backing_material": {
+    "rgb": [
+      18,
+      118,
+      133
+    ],
+    "sample_rig_px": [
+      326,
+      250
+    ],
+    "selection": "retained opaque interior pixel closest to local median RGB",
+    "minimum_core_depth_px": 3,
+    "search_radius_px": 50
+  },
+  "joint_cap_radii_px": [
+    16,
+    18
+  ],
+  "source_post_url": "https://grok.com/imagine/post/be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8"
 }

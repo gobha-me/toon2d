@@ -23,6 +23,6 @@ test_tampered_source_bytes_and_derived_output_hash_are_rejected (test_imagine_pr
 test_unknown_source_hash_and_missing_derived_sidecar_are_rejected (test_imagine_provenance.ImagineProvenanceControls.test_unknown_source_hash_and_missing_derived_sidecar_are_rejected) ... ok
 
 ----------------------------------------------------------------------
-Ran 23 tests in 15.247s
+Ran 23 tests in 7.737s
 
 OK

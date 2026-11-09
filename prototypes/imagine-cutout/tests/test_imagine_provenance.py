@@ -36,6 +36,7 @@ class ImagineProvenanceControls(unittest.TestCase):
     def test_complete_declared_source_chain_and_flagged_fallback(self):
         result = provenance_suite(self.root, self.manifest)
         self.assertTrue(result["passed"], result["errors"])
+        self.assertEqual(result["authenticated_source_files"], 15)
         self.assertEqual(result["slot_tally"], {"Segments-usable": 0, "Segments-merged": 4,
                                               "Segments-split": 9, "SCRIPTED (flagged)": 1})
 
@@ -55,6 +56,7 @@ class ImagineProvenanceControls(unittest.TestCase):
         ids = self.failures()
         self.assertIn("source/call1-base-best.jpg/image", ids)
         self.assertIn("source/seg-be6a-red-hair.png/sidecar", ids)
+        self.assertEqual(provenance_suite(self.root, self.manifest)["authenticated_source_files"], 13)
 
     def test_tampered_source_bytes_and_derived_output_hash_are_rejected(self):
         with (self.images / "call1-base-best.jpg").open("ab") as stream:

@@ -103,6 +103,8 @@ def provenance_suite(source: Path, manifest: dict) -> dict | None:
     if contract is None:
         return None
     errors = source_errors(source, contract)
+    authenticated = sum(not any(error["case_id"].startswith("source/" + filename + "/")
+                                for error in errors) for filename in contract["sources"])
 
     def reject(key, message):
         errors.append({"case_id": key, "error": message})
@@ -200,4 +202,5 @@ def provenance_suite(source: Path, manifest: dict) -> dict | None:
             "passed": not errors, "errors": errors,
             "slot_tally": {label: classes[label] for label in contract["classifications"]},
             "distinct_imagine_sources": sorted(used_sources),
-            "required_slots": len(required), "authenticated_source_files": len(contract["sources"])}
+            "required_slots": len(required), "expected_source_files": len(contract["sources"]),
+            "authenticated_source_files": authenticated}

@@ -1,0 +1,13 @@
+i missing source image: CANNOT_PLANT
+j missing source sidecar: CANNOT_PLANT
+k changed source bytes: CANNOT_PLANT
+l approximate call presented as exact: CANNOT_PLANT
+m missing derived sidecar: CANNOT_PLANT
+n lost Imagine trace: CANNOT_PLANT
+o unflagged scripted satchel: CANNOT_PLANT
+p Imagine head replaced with scripted fallback: CANNOT_PLANT
+q missing head declaration: CANNOT_PLANT
+r unclassified extra backing: CANNOT_PLANT
+s changed runtime texture bytes: CANNOT_PLANT
+t invented recorded prompt: CANNOT_PLANT
+0/12 KILLED; actual char2 provenance

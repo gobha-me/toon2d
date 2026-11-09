@@ -1,0 +1,74 @@
+{
+  "timestamp_utc": "2026-11-09T15:58:19.692251+00:00",
+  "character": "char2",
+  "random_n": 200,
+  "seed": 20261031,
+  "full_acceptance_run": true,
+  "pose_counts": {"single": 30, "pair": 420, "random": 200},
+  "pose_sha256": "da555e908a46d1600cb8caee43e2807e961e5de9a12b7ca672626262e1529029",
+  "manifest_sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4",
+  "tests": {
+    "manifest": {
+      "name": "manifest schema and frozen inventory",
+      "passed": true,
+      "errors": []
+    },
+    "provenance": {
+      "name": "Imagine source provenance and flagged scripted fallbacks",
+      "passed": false,
+      "errors": [
+        {"case_id": "provenance/required-subject", "error": "missing or invalid char2 part declarations; Imagine-derived parts are required"},
+        {"case_id": "provenance/slot/head_face", "error": "required Imagine/scripted part missing or duplicated"},
+        {"case_id": "provenance/slot/upper_arm_left", "error": "required Imagine/scripted part missing or duplicated"},
+        {"case_id": "provenance/slot/lower_arm_left", "error": "required Imagine/scripted part missing or duplicated"},
+        {"case_id": "provenance/slot/hand_left", "error": "required Imagine/scripted part missing or duplicated"},
+        {"case_id": "provenance/slot/upper_arm_right", "error": "required Imagine/scripted part missing or duplicated"},
+        {"case_id": "provenance/slot/lower_arm_right", "error": "required Imagine/scripted part missing or duplicated"},
+        {"case_id": "provenance/slot/hand_right", "error": "required Imagine/scripted part missing or duplicated"},
+        {"case_id": "provenance/slot/upper_leg_left", "error": "required Imagine/scripted part missing or duplicated"},
+        {"case_id": "provenance/slot/lower_leg_left", "error": "required Imagine/scripted part missing or duplicated"},
+        {"case_id": "provenance/slot/foot_left", "error": "required Imagine/scripted part missing or duplicated"},
+        {"case_id": "provenance/slot/upper_leg_right", "error": "required Imagine/scripted part missing or duplicated"},
+        {"case_id": "provenance/slot/lower_leg_right", "error": "required Imagine/scripted part missing or duplicated"},
+        {"case_id": "provenance/slot/foot_right", "error": "required Imagine/scripted part missing or duplicated"},
+        {"case_id": "provenance/slot/held_prop_satchel", "error": "required Imagine/scripted part missing or duplicated"}
+      ],
+      "slot_tally": {"Segments-usable": 0, "Segments-merged": 0, "Segments-split": 0, "SCRIPTED (flagged)": 0},
+      "distinct_imagine_sources": [],
+      "required_slots": 14,
+      "expected_source_files": 15,
+      "authenticated_source_files": 15
+    },
+    "completeness": {
+      "name": "completeness",
+      "passed": false,
+      "errors": [
+        {"case_id": "scene/required-inputs", "error": "missing rig input: scenes/char2.tscn, characters/char2/parts.json"}
+      ]
+    },
+    "per_joint": {
+      "name": "per_joint",
+      "passed": false,
+      "errors": [
+        {"case_id": "scene/required-inputs", "error": "missing rig input: scenes/char2.tscn, characters/char2/parts.json"}
+      ]
+    },
+    "combined": {
+      "name": "combined",
+      "passed": false,
+      "errors": [
+        {"case_id": "scene/required-inputs", "error": "missing rig input: scenes/char2.tscn, characters/char2/parts.json"}
+      ]
+    },
+    "facing": {
+      "name": "facing",
+      "passed": false,
+      "errors": [
+        {"case_id": "scene/required-inputs", "error": "missing rig input: scenes/char2.tscn, characters/char2/parts.json"}
+      ]
+    }
+  },
+  "joints": [],
+  "captured_poses": 0,
+  "passed": false
+}

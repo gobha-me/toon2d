@@ -1,0 +1,155 @@
+{
+  "timestamp_utc": "2026-11-09T19:35:23.681481+00:00",
+  "scope": "actual char2 provenance",
+  "baseline": {
+    "name": "Imagine source provenance and flagged scripted fallbacks",
+    "passed": false,
+    "errors": [
+      {
+        "case_id": "provenance/required-subject",
+        "error": "missing or invalid char2 part declarations; Imagine-derived parts are required"
+      },
+      {
+        "case_id": "provenance/slot/head_face",
+        "error": "required Imagine/scripted part missing or duplicated"
+      },
+      {
+        "case_id": "provenance/slot/upper_arm_left",
+        "error": "required Imagine/scripted part missing or duplicated"
+      },
+      {
+        "case_id": "provenance/slot/lower_arm_left",
+        "error": "required Imagine/scripted part missing or duplicated"
+      },
+      {
+        "case_id": "provenance/slot/hand_left",
+        "error": "required Imagine/scripted part missing or duplicated"
+      },
+      {
+        "case_id": "provenance/slot/upper_arm_right",
+        "error": "required Imagine/scripted part missing or duplicated"
+      },
+      {
+        "case_id": "provenance/slot/lower_arm_right",
+        "error": "required Imagine/scripted part missing or duplicated"
+      },
+      {
+        "case_id": "provenance/slot/hand_right",
+        "error": "required Imagine/scripted part missing or duplicated"
+      },
+      {
+        "case_id": "provenance/slot/upper_leg_left",
+        "error": "required Imagine/scripted part missing or duplicated"
+      },
+      {
+        "case_id": "provenance/slot/lower_leg_left",
+        "error": "required Imagine/scripted part missing or duplicated"
+      },
+      {
+        "case_id": "provenance/slot/foot_left",
+        "error": "required Imagine/scripted part missing or duplicated"
+      },
+      {
+        "case_id": "provenance/slot/upper_leg_right",
+        "error": "required Imagine/scripted part missing or duplicated"
+      },
+      {
+        "case_id": "provenance/slot/lower_leg_right",
+        "error": "required Imagine/scripted part missing or duplicated"
+      },
+      {
+        "case_id": "provenance/slot/foot_right",
+        "error": "required Imagine/scripted part missing or duplicated"
+      },
+      {
+        "case_id": "provenance/slot/held_prop_satchel",
+        "error": "required Imagine/scripted part missing or duplicated"
+      }
+    ],
+    "slot_tally": {
+      "Segments-usable": 0,
+      "Segments-merged": 0,
+      "Segments-split": 0,
+      "SCRIPTED (flagged)": 0
+    },
+    "distinct_imagine_sources": [],
+    "required_slots": 14,
+    "expected_source_files": 15,
+    "authenticated_source_files": 15
+  },
+  "mutants": [
+    {
+      "mutant": "i",
+      "description": "missing source image",
+      "status": "CANNOT_PLANT",
+      "reason": "provenance baseline is red; no existing error counts as a kill"
+    },
+    {
+      "mutant": "j",
+      "description": "missing source sidecar",
+      "status": "CANNOT_PLANT",
+      "reason": "provenance baseline is red; no existing error counts as a kill"
+    },
+    {
+      "mutant": "k",
+      "description": "changed source bytes",
+      "status": "CANNOT_PLANT",
+      "reason": "provenance baseline is red; no existing error counts as a kill"
+    },
+    {
+      "mutant": "l",
+      "description": "approximate call presented as exact",
+      "status": "CANNOT_PLANT",
+      "reason": "provenance baseline is red; no existing error counts as a kill"
+    },
+    {
+      "mutant": "m",
+      "description": "missing derived sidecar",
+      "status": "CANNOT_PLANT",
+      "reason": "provenance baseline is red; no existing error counts as a kill"
+    },
+    {
+      "mutant": "n",
+      "description": "lost Imagine trace",
+      "status": "CANNOT_PLANT",
+      "reason": "provenance baseline is red; no existing error counts as a kill"
+    },
+    {
+      "mutant": "o",
+      "description": "unflagged scripted satchel",
+      "status": "CANNOT_PLANT",
+      "reason": "provenance baseline is red; no existing error counts as a kill"
+    },
+    {
+      "mutant": "p",
+      "description": "Imagine head replaced with scripted fallback",
+      "status": "CANNOT_PLANT",
+      "reason": "provenance baseline is red; no existing error counts as a kill"
+    },
+    {
+      "mutant": "q",
+      "description": "missing head declaration",
+      "status": "CANNOT_PLANT",
+      "reason": "provenance baseline is red; no existing error counts as a kill"
+    },
+    {
+      "mutant": "r",
+      "description": "unclassified extra backing",
+      "status": "CANNOT_PLANT",
+      "reason": "provenance baseline is red; no existing error counts as a kill"
+    },
+    {
+      "mutant": "s",
+      "description": "changed runtime texture bytes",
+      "status": "CANNOT_PLANT",
+      "reason": "provenance baseline is red; no existing error counts as a kill"
+    },
+    {
+      "mutant": "t",
+      "description": "invented recorded prompt",
+      "status": "CANNOT_PLANT",
+      "reason": "provenance baseline is red; no existing error counts as a kill"
+    }
+  ],
+  "passed": false
+}

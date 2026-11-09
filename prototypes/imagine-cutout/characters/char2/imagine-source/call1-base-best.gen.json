@@ -1,0 +1,21 @@
+{
+  "prompt": "Full-body front view of an original fictional anime-style bike courier girl standing straight in a relaxed A-pose, arms held slightly away from the body and legs apart so no limb overlaps the torso or another limb, flat cel shading, clean dark outlines, cropped teal jacket with rolled sleeves, fingerless black gloves, black bike shorts over grey leggings, orange high-top sneakers, short messy red hair, plain pure white background, no text, no props, no cast shadow, game character reference",
+  "source_post_url": "https://grok.com/imagine/post/be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8",
+  "source": "be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8",
+  "tool": "Grok Imagine (SpaceXAI)",
+  "feature": "Image",
+  "model": "not disclosed",
+  "date": "2026-11-09T14:56:57Z",
+  "date_source": "recorded UTC call time",
+  "source_date": "2026-11-09T14:56:57Z",
+  "derived_from": "call1-base-best.jpg (unmodified supplied output)",
+  "license": "CC0 1.0",
+  "credit": "Generated with Grok Imagine (SpaceXAI); scripted derivation where stated",
+  "rights": "Original fictional art only; no real-person likeness.",
+  "call_number": 1,
+  "action": "Image generation in Image mode; output count was set to 4; selected best full-body result",
+  "post_id": "be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8",
+  "post_url": "https://grok.com/imagine/post/be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8",
+  "utc_time": "2026-11-09T14:56:57Z",
+  "output_sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
+}

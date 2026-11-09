@@ -110,7 +110,9 @@ silhouette separation, spacing, anticipation, stop overshoot, held-pose timing,
 jitter and pixel edges (pixel styles only). Each signal links to its observed
 frames; `frames.json` lists their order and ticks, and `report.json` records
 thresholds, measurements and image hashes. Headless Chromium runs with the GPU
-disabled. No model, API key, network service or additional npm package is needed.
+disabled. No model, API key, external network service or additional npm package
+is needed. Use plain Chrome/Chromium via `CHROME_PATH` for repeatable pixels;
+the tool rejects modified canvas readback before recording.
 
 These are advisory proxies, not a taste ranking. Warnings exit 0; malformed
 input or capture failures exit 2. Existing evidence is never overwritten.
@@ -119,6 +121,9 @@ three-round critique log, use the existing
 [bounded self-review loop](skills/toon2d-runtime-animation/reference/self-review.md).
 See [signal definitions and limits](skills/toon2d-runtime-animation/reference/visual-signals.md)
 before interpreting warnings. `score.mjs` and advisory `takeoff.mjs` are unchanged.
+
+An [archived starter sample](evals/taste/visual-proxy-smoke/README.md) includes the
+pixel report, native/smooth evidence and measured take-off margins for #13.
 
 ## What's in the repo
 

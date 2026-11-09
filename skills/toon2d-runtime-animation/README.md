@@ -50,6 +50,8 @@ The tool reports deterministic CPU-only pass/warn proxies for silhouette,
 spacing, jump anticipation, stop overshoot, pose holds, jitter and pixel edges.
 Warnings are advisory (exit 0); invalid input or rendering errors exit 2.
 No dependencies beyond Node ≥ 22 and Chrome/Chromium, no paid APIs or models.
+Select plain Chrome/Chromium with `CHROME_PATH` for repeatable pixels; altered
+canvas readback is rejected before recording.
 
 Definitions, thresholds and false-positive examples:
 [visual signals](reference/visual-signals.md). Use these observations in the

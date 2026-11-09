@@ -1,0 +1,252 @@
+{
+  "seed": 1,
+  "query": "mode=pixel",
+  "view": {
+    "mode": "pixel",
+    "W": 320,
+    "H": 180,
+    "s": 1,
+    "k": 3,
+    "camX": 0,
+    "camY": 0,
+    "canvas": "#game"
+  },
+  "keyposes": [
+    {
+      "pose": "idle",
+      "segment": "idle",
+      "tick": 0
+    },
+    {
+      "pose": "run",
+      "segment": "run",
+      "tick": 30
+    },
+    {
+      "pose": "crouch",
+      "segment": "jump",
+      "tick": 5
+    },
+    {
+      "pose": "takeoff",
+      "segment": "jump",
+      "tick": 6
+    },
+    {
+      "pose": "apex",
+      "segment": "jump",
+      "tick": 22
+    },
+    {
+      "pose": "land",
+      "segment": "jump",
+      "tick": 42
+    }
+  ],
+  "motion": [
+    {
+      "segment": "run",
+      "tick": 0
+    },
+    {
+      "segment": "run",
+      "tick": 10
+    },
+    {
+      "segment": "run",
+      "tick": 20
+    },
+    {
+      "segment": "run",
+      "tick": 30
+    },
+    {
+      "segment": "run",
+      "tick": 40
+    },
+    {
+      "segment": "run",
+      "tick": 50
+    }
+  ],
+  "signals": {
+    "silhouette": [
+      {
+        "segment": "idle",
+        "tick": 0
+      },
+      {
+        "segment": "idle",
+        "tick": 3
+      },
+      {
+        "segment": "idle",
+        "tick": 4
+      },
+      {
+        "segment": "idle",
+        "tick": 5
+      },
+      {
+        "segment": "idle",
+        "tick": 6
+      },
+      {
+        "segment": "idle",
+        "tick": 7
+      }
+    ],
+    "spacing": [
+      {
+        "segment": "run",
+        "tick": 18,
+        "joint": "armLF"
+      },
+      {
+        "segment": "run",
+        "tick": 19,
+        "joint": "armLF"
+      },
+      {
+        "segment": "run",
+        "tick": 20,
+        "joint": "armLF"
+      },
+      {
+        "segment": "run",
+        "tick": 37,
+        "joint": "armLF"
+      },
+      {
+        "segment": "run",
+        "tick": 38,
+        "joint": "armLF"
+      },
+      {
+        "segment": "run",
+        "tick": 39,
+        "joint": "armLF"
+      }
+    ],
+    "anticipation": [
+      {
+        "segment": "jump",
+        "tick": 0
+      },
+      {
+        "segment": "jump",
+        "tick": 5
+      },
+      {
+        "segment": "jump",
+        "tick": 6
+      },
+      {
+        "segment": "jump",
+        "tick": 42
+      }
+    ],
+    "overshoot": [
+      {
+        "segment": "stop",
+        "tick": 0
+      },
+      {
+        "segment": "stop",
+        "tick": 26
+      },
+      {
+        "segment": "stop",
+        "tick": 40
+      },
+      {
+        "segment": "stop",
+        "tick": 44
+      }
+    ],
+    "holds": [
+      {
+        "segment": "run",
+        "tick": 0
+      },
+      {
+        "segment": "run",
+        "tick": 0
+      },
+      {
+        "segment": "run",
+        "tick": 1
+      },
+      {
+        "segment": "run",
+        "tick": 1
+      },
+      {
+        "segment": "run",
+        "tick": 2
+      },
+      {
+        "segment": "run",
+        "tick": 2
+      }
+    ],
+    "jitter": [
+      {
+        "segment": "run",
+        "tick": 12,
+        "joint": "armUB"
+      },
+      {
+        "segment": "run",
+        "tick": 13,
+        "joint": "armUB"
+      },
+      {
+        "segment": "run",
+        "tick": 14,
+        "joint": "armUB"
+      },
+      {
+        "segment": "run",
+        "tick": 17,
+        "joint": "armUB"
+      },
+      {
+        "segment": "run",
+        "tick": 18,
+        "joint": "armUB"
+      },
+      {
+        "segment": "run",
+        "tick": 19,
+        "joint": "armUB"
+      }
+    ],
+    "pixel_grid": [
+      {
+        "segment": "idle",
+        "tick": 0
+      },
+      {
+        "segment": "idle",
+        "tick": 1
+      },
+      {
+        "segment": "idle",
+        "tick": 2
+      },
+      {
+        "segment": "idle",
+        "tick": 3
+      },
+      {
+        "segment": "idle",
+        "tick": 4
+      },
+      {
+        "segment": "idle",
+        "tick": 5
+      }
+    ]
+  }
+}

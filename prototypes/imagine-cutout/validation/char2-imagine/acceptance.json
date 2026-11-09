@@ -1,0 +1,253 @@
+{
+  "created_utc": "2026-11-09T23:00:23.819870Z",
+  "validated_head": "b51137f8f9e1a6a1b8ec9e8fa8d533a094ba37cc",
+  "passed": true,
+  "records": {
+    "oracle": {
+      "record": "oracle-4/verification.json",
+      "record_sha256": "79f44498c57494d200f7eebfd269094c415c71035dfb29f57528c3d293a9978f",
+      "started_utc": "2026-11-09T22:58:27.006907Z",
+      "finished_utc": "2026-11-09T22:58:31.367196Z",
+      "exit": 0,
+      "input_files_verified": 380
+    },
+    "harness": {
+      "record": "harness-3/verification.json",
+      "record_sha256": "b855a5716c981728c3592047cee3e6422d1d8604b839e00153ac2544504428a6",
+      "started_utc": "2026-11-09T22:58:31.530819Z",
+      "finished_utc": "2026-11-09T22:58:34.461638Z",
+      "exit": 0,
+      "input_files_verified": 380
+    },
+    "provenance-mutants": {
+      "record": "provenance-mutants-5/verification.json",
+      "record_sha256": "2d600baf3fb76dffe86f7175d5aa95e05c09ec617d10de0e5a6f78be1e8170cf",
+      "started_utc": "2026-11-09T22:57:10.779197Z",
+      "finished_utc": "2026-11-09T22:57:11.688357Z",
+      "exit": 0,
+      "input_files_verified": 379
+    },
+    "body": {
+      "record": "body-4/verification.json",
+      "record_sha256": "e06a4c94074d32e62d13b1a3a5c2970c8c90f8fabd048ae5319e5dbbeab995d9",
+      "started_utc": "2026-11-09T22:57:12.064715Z",
+      "finished_utc": "2026-11-09T22:58:01.219811Z",
+      "exit": 0,
+      "input_files_verified": 379
+    },
+    "legacy": {
+      "record": "legacy-4/verification.json",
+      "record_sha256": "46c91805b8109601a02f55a58e9937ed47974c539b564fdfc4221261affabfc8",
+      "started_utc": "2026-11-09T22:58:01.649889Z",
+      "finished_utc": "2026-11-09T22:58:11.128395Z",
+      "exit": 0,
+      "input_files_verified": 379
+    },
+    "body-mutants": {
+      "record": "body-mutants/verification.json",
+      "record_sha256": "44df2b4289b88a27ca98ad3b0a123c3eb8c3315fba30f4a7b0fcb259a78f40d5",
+      "started_utc": "2026-11-09T22:58:11.517142Z",
+      "finished_utc": "2026-11-09T22:59:25.775542Z",
+      "exit": 0,
+      "input_files_verified": 379
+    }
+  },
+  "pose_counts": {
+    "single": 30,
+    "pair": 420,
+    "random": 200
+  },
+  "pose_sha256": "da555e908a46d1600cb8caee43e2807e961e5de9a12b7ca672626262e1529029",
+  "manifest_sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4",
+  "checked_seams": 9750,
+  "gap_pixels": 0,
+  "source_provenance": {
+    "name": "Imagine source provenance and flagged scripted fallbacks",
+    "passed": true,
+    "errors": [],
+    "slot_tally": {
+      "Segments-usable": 0,
+      "Segments-merged": 4,
+      "Segments-split": 9,
+      "SCRIPTED (flagged)": 1
+    },
+    "distinct_imagine_sources": [
+      "call1-base-best.jpg",
+      "seg-be6a-black-fingerless-gloves-1.png",
+      "seg-be6a-black-fingerless-gloves-2.png",
+      "seg-be6a-black-shorts.png",
+      "seg-be6a-gray-leggings.png",
+      "seg-be6a-teal-cropped-jacket.png"
+    ],
+    "required_slots": 14,
+    "expected_source_files": 15,
+    "authenticated_source_files": 15
+  },
+  "provenance_mutants_killed": 12,
+  "rendered_mutants": [
+    {
+      "mutant": "e",
+      "kind": "missing_slot",
+      "expected_test": "completeness",
+      "files_changed": [
+        "scenes/char2.tscn"
+      ],
+      "status": "KILLED",
+      "new_failure_cases": [
+        "slot/head_face"
+      ],
+      "worsened_joints": [],
+      "observed_red_tests": [
+        "completeness",
+        "facing"
+      ]
+    },
+    {
+      "mutant": "f",
+      "kind": "flipped_facing",
+      "expected_test": "facing",
+      "files_changed": [
+        "scenes/char2.tscn"
+      ],
+      "status": "KILLED",
+      "new_failure_cases": [
+        "facing/aim/0",
+        "facing/aim/1",
+        "facing/aim/10",
+        "facing/aim/2",
+        "facing/aim/3",
+        "facing/aim/4",
+        "facing/aim/5",
+        "facing/aim/6",
+        "facing/aim/7",
+        "facing/aim/8",
+        "facing/aim/9",
+        "facing/cooldown/0",
+        "facing/cooldown/1",
+        "facing/cooldown/10",
+        "facing/cooldown/11",
+        "facing/cooldown/12",
+        "facing/cooldown/13",
+        "facing/cooldown/14",
+        "facing/cooldown/2",
+        "facing/cooldown/3",
+        "facing/cooldown/4",
+        "facing/cooldown/5",
+        "facing/cooldown/6",
+        "facing/cooldown/7",
+        "facing/cooldown/8",
+        "facing/cooldown/9",
+        "facing/fire/0",
+        "facing/fire/1",
+        "facing/fire/2",
+        "facing/fire/3",
+        "facing/fire/4",
+        "facing/fire/5",
+        "facing/fire/6",
+        "facing/idle/0",
+        "facing/idle/1",
+        "facing/idle/10",
+        "facing/idle/11",
+        "facing/idle/12",
+        "facing/idle/13",
+        "facing/idle/14",
+        "facing/idle/15",
+        "facing/idle/16",
+        "facing/idle/17",
+        "facing/idle/18",
+        "facing/idle/19",
+        "facing/idle/2",
+        "facing/idle/20",
+        "facing/idle/21",
+        "facing/idle/22",
+        "facing/idle/23",
+        "facing/idle/24",
+        "facing/idle/25",
+        "facing/idle/26",
+        "facing/idle/27",
+        "facing/idle/28",
+        "facing/idle/29",
+        "facing/idle/3",
+        "facing/idle/30",
+        "facing/idle/31",
+        "facing/idle/32",
+        "facing/idle/33",
+        "facing/idle/34",
+        "facing/idle/35",
+        "facing/idle/36",
+        "facing/idle/37",
+        "facing/idle/38",
+        "facing/idle/39",
+        "facing/idle/4",
+        "facing/idle/40",
+        "facing/idle/41",
+        "facing/idle/42",
+        "facing/idle/43",
+        "facing/idle/44",
+        "facing/idle/45",
+        "facing/idle/46",
+        "facing/idle/47",
+        "facing/idle/48",
+        "facing/idle/5",
+        "facing/idle/6",
+        "facing/idle/7",
+        "facing/idle/8",
+        "facing/idle/9"
+      ],
+      "worsened_joints": [],
+      "observed_red_tests": [
+        "facing"
+      ]
+    },
+    {
+      "mutant": "g",
+      "kind": "removed_knee",
+      "expected_test": "completeness",
+      "files_changed": [
+        "scenes/char2.tscn"
+      ],
+      "status": "KILLED",
+      "new_failure_cases": [
+        "bone/knee_left",
+        "parent/boot_left",
+        "pivot/boot_left",
+        "slot/lower_leg_left/parent"
+      ],
+      "worsened_joints": [],
+      "observed_red_tests": [
+        "completeness",
+        "per_joint"
+      ]
+    },
+    {
+      "mutant": "h",
+      "kind": "zero_overlap",
+      "expected_test": "per_joint",
+      "files_changed": [
+        "characters/char2/parts/right_fore.png",
+        "characters/char2/parts.json"
+      ],
+      "removed_overlap_pixels": 2871,
+      "meaning": "zero shared rest alpha between right upper/lower arm; no source regeneration claimed",
+      "status": "KILLED",
+      "new_failure_cases": [
+        "single/right_fore/min/right_fore"
+      ],
+      "worsened_joints": [
+        {
+          "pose": "single/right_fore/min",
+          "joint": "right_fore",
+          "before": 0,
+          "after": 38
+        }
+      ],
+      "observed_red_tests": [
+        "completeness",
+        "provenance",
+        "per_joint"
+      ]
+    }
+  ],
+  "input_hashes_match_current": true,
+  "test_owned_paths_edited_by_implementation": false
+}

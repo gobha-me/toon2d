@@ -1,0 +1,11 @@
+BODY char2 poses {'single': 30, 'pair': 420, 'random': 200}; random N=200 seed=20261031
+PASS body manifest: 0 failures
+PASS body completeness: 0 failures
+PASS body provenance: 0 failures
+PASS body per_joint: 0 failures
+PASS body combined: 0 failures
+PASS body facing: 0 failures
+PASS mutant e: KILLED; new relevant failures 1, increased-gap seams 0
+PASS mutant f: KILLED; new relevant failures 82, increased-gap seams 0
+PASS mutant g: KILLED; new relevant failures 4, increased-gap seams 0
+PASS mutant h: KILLED; new relevant failures 1, increased-gap seams 1

@@ -816,7 +816,7 @@ _data = {
 &"idle": SubResource("Animation_8ynkh")
 }
 
-[node name="Courier" type="Node2D" unique_id=1997237010]
+[node name="Courier" type="Node2D" unique_id=2001461231]
 texture_filter = 2
 position = Vector2(350, 20)
 script = ExtResource("1_v7jgs")
@@ -826,9 +826,9 @@ metadata/fps = 24
 metadata/flash_frames = 3
 metadata/overlap_px = 12.0
 
-[node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=349594886]
+[node name="Skeleton2D" type="Skeleton2D" parent="." unique_id=1960913510]
 
-[node name="hip" type="Bone2D" parent="Skeleton2D" unique_id=1588537874]
+[node name="hip" type="Bone2D" parent="Skeleton2D" unique_id=95103743]
 position = Vector2(256, 400)
 rest = Transform2D(1, 0, 0, 1, 256, 400)
 auto_calculate_length_and_angle = false
@@ -836,7 +836,7 @@ length = 80.0
 bone_angle = 0.0
 metadata/rotation_limits_deg = [-4.0, 4.0]
 
-[node name="torso" type="Bone2D" parent="Skeleton2D/hip" unique_id=681562030]
+[node name="torso" type="Bone2D" parent="Skeleton2D/hip" unique_id=2033397536]
 position = Vector2(0, -160)
 rest = Transform2D(1, 0, 0, 1, 0, -160)
 auto_calculate_length_and_angle = false
@@ -844,7 +844,7 @@ length = 80.0
 bone_angle = 0.0
 metadata/rotation_limits_deg = [-6.0, 6.0]
 
-[node name="head" type="Bone2D" parent="Skeleton2D/hip/torso" unique_id=1955041381]
+[node name="head" type="Bone2D" parent="Skeleton2D/hip/torso" unique_id=1615069947]
 position = Vector2(0, -80)
 rest = Transform2D(1, 0, 0, 1, 0, -80)
 auto_calculate_length_and_angle = false
@@ -852,7 +852,7 @@ length = 80.0
 bone_angle = 0.0
 metadata/rotation_limits_deg = [-10.0, 10.0]
 
-[node name="Part_head" type="Sprite2D" parent="Skeleton2D/hip/torso/head" unique_id=1754273455]
+[node name="Part_head" type="Sprite2D" parent="Skeleton2D/hip/torso/head" unique_id=1789408684]
 z_index = 12
 z_as_relative = false
 position = Vector2(-59, -116)
@@ -861,7 +861,7 @@ centered = false
 metadata/source = "prototypes/imagine-cutout/tools/prep_char2.py"
 metadata/classification = "Segments-split"
 
-[node name="right_upper" type="Bone2D" parent="Skeleton2D/hip/torso" unique_id=1790152446]
+[node name="right_upper" type="Bone2D" parent="Skeleton2D/hip/torso" unique_id=178836222]
 position = Vector2(-74, 10)
 rest = Transform2D(1, 0, 0, 1, -74, 10)
 auto_calculate_length_and_angle = false
@@ -869,7 +869,7 @@ length = 80.0
 bone_angle = 0.0
 metadata/rotation_limits_deg = [-15.0, 35.0]
 
-[node name="right_fore" type="Bone2D" parent="Skeleton2D/hip/torso/right_upper" unique_id=186517895]
+[node name="right_fore" type="Bone2D" parent="Skeleton2D/hip/torso/right_upper" unique_id=652720459]
 position = Vector2(-14, 90)
 rest = Transform2D(1, 0, 0, 1, -14, 90)
 auto_calculate_length_and_angle = false
@@ -877,7 +877,7 @@ length = 80.0
 bone_angle = 0.0
 metadata/rotation_limits_deg = [-20.0, 45.0]
 
-[node name="right_hand" type="Bone2D" parent="Skeleton2D/hip/torso/right_upper/right_fore" unique_id=1051857593]
+[node name="right_hand" type="Bone2D" parent="Skeleton2D/hip/torso/right_upper/right_fore" unique_id=1578135696]
 position = Vector2(-8, 90)
 rest = Transform2D(1, 0, 0, 1, -8, 90)
 auto_calculate_length_and_angle = false
@@ -885,7 +885,7 @@ length = 80.0
 bone_angle = 0.0
 metadata/rotation_limits_deg = [-12.0, 12.0]
 
-[node name="Part_satchel" type="Sprite2D" parent="Skeleton2D/hip/torso/right_upper/right_fore/right_hand" unique_id=772553153]
+[node name="Part_satchel" type="Sprite2D" parent="Skeleton2D/hip/torso/right_upper/right_fore/right_hand" unique_id=1997420414]
 z_index = 16
 z_as_relative = false
 position = Vector2(-16, -8)
@@ -894,16 +894,16 @@ centered = false
 metadata/source = "prototypes/imagine-cutout/tools/prep_char2.py"
 metadata/classification = "SCRIPTED (flagged)"
 
-[node name="Part_right_hand" type="Sprite2D" parent="Skeleton2D/hip/torso/right_upper/right_fore/right_hand" unique_id=1456884195]
+[node name="Part_right_hand" type="Sprite2D" parent="Skeleton2D/hip/torso/right_upper/right_fore/right_hand" unique_id=748812002]
 z_index = 18
 z_as_relative = false
-position = Vector2(-33, -24)
+position = Vector2(-33, -26)
 texture = ExtResource("4_olof2")
 centered = false
 metadata/source = "prototypes/imagine-cutout/tools/prep_char2.py"
 metadata/classification = "Segments-merged"
 
-[node name="MuzzleFlash" type="Node2D" parent="Skeleton2D/hip/torso/right_upper/right_fore/right_hand" unique_id=43358499]
+[node name="MuzzleFlash" type="Node2D" parent="Skeleton2D/hip/torso/right_upper/right_fore/right_hand" unique_id=1430755526]
 visible = false
 z_index = 30
 z_as_relative = false
@@ -912,25 +912,25 @@ rotation = -0.31415927
 script = ExtResource("5_85pj1")
 metadata/pixel_mode = false
 
-[node name="Part_right_fore" type="Sprite2D" parent="Skeleton2D/hip/torso/right_upper/right_fore" unique_id=1587335539]
+[node name="Part_right_fore" type="Sprite2D" parent="Skeleton2D/hip/torso/right_upper/right_fore" unique_id=36657965]
 z_index = 14
 z_as_relative = false
-position = Vector2(-26, -32)
+position = Vector2(-30, -34)
 texture = ExtResource("6_kprmt")
 centered = false
 metadata/source = "prototypes/imagine-cutout/tools/prep_char2.py"
 metadata/classification = "Segments-split"
 
-[node name="Part_right_upper" type="Sprite2D" parent="Skeleton2D/hip/torso/right_upper" unique_id=672584341]
+[node name="Part_right_upper" type="Sprite2D" parent="Skeleton2D/hip/torso/right_upper" unique_id=1393630239]
 z_index = 14
 z_as_relative = false
-position = Vector2(-41, -30)
+position = Vector2(-41, -32)
 texture = ExtResource("7_tvfmh")
 centered = false
 metadata/source = "prototypes/imagine-cutout/tools/prep_char2.py"
 metadata/classification = "Segments-split"
 
-[node name="left_arm" type="Bone2D" parent="Skeleton2D/hip/torso" unique_id=1805760707]
+[node name="left_arm" type="Bone2D" parent="Skeleton2D/hip/torso" unique_id=1485646213]
 position = Vector2(74, 10)
 rest = Transform2D(1, 0, 0, 1, 74, 10)
 auto_calculate_length_and_angle = false
@@ -938,7 +938,7 @@ length = 80.0
 bone_angle = 0.0
 metadata/rotation_limits_deg = [-15.0, 35.0]
 
-[node name="left_fore" type="Bone2D" parent="Skeleton2D/hip/torso/left_arm" unique_id=577785240]
+[node name="left_fore" type="Bone2D" parent="Skeleton2D/hip/torso/left_arm" unique_id=1977272476]
 position = Vector2(14, 90)
 rest = Transform2D(1, 0, 0, 1, 14, 90)
 auto_calculate_length_and_angle = false
@@ -946,7 +946,7 @@ length = 80.0
 bone_angle = 0.0
 metadata/rotation_limits_deg = [-20.0, 45.0]
 
-[node name="left_hand" type="Bone2D" parent="Skeleton2D/hip/torso/left_arm/left_fore" unique_id=761927182]
+[node name="left_hand" type="Bone2D" parent="Skeleton2D/hip/torso/left_arm/left_fore" unique_id=1023604021]
 position = Vector2(8, 90)
 rest = Transform2D(1, 0, 0, 1, 8, 90)
 auto_calculate_length_and_angle = false
@@ -954,34 +954,34 @@ length = 80.0
 bone_angle = 0.0
 metadata/rotation_limits_deg = [-12.0, 12.0]
 
-[node name="Part_left_hand" type="Sprite2D" parent="Skeleton2D/hip/torso/left_arm/left_fore/left_hand" unique_id=151807374]
+[node name="Part_left_hand" type="Sprite2D" parent="Skeleton2D/hip/torso/left_arm/left_fore/left_hand" unique_id=1295291303]
 z_index = 4
 z_as_relative = false
-position = Vector2(-22, -24)
+position = Vector2(-24, -26)
 texture = ExtResource("8_h66nm")
 centered = false
 metadata/source = "prototypes/imagine-cutout/tools/prep_char2.py"
 metadata/classification = "Segments-merged"
 
-[node name="Part_left_fore" type="Sprite2D" parent="Skeleton2D/hip/torso/left_arm/left_fore" unique_id=1731702403]
+[node name="Part_left_fore" type="Sprite2D" parent="Skeleton2D/hip/torso/left_arm/left_fore" unique_id=1386791200]
 z_index = 3
 z_as_relative = false
-position = Vector2(-26, -32)
+position = Vector2(-30, -34)
 texture = ExtResource("9_42yxw")
 centered = false
 metadata/source = "prototypes/imagine-cutout/tools/prep_char2.py"
 metadata/classification = "Segments-split"
 
-[node name="Part_left_arm" type="Sprite2D" parent="Skeleton2D/hip/torso/left_arm" unique_id=30943247]
+[node name="Part_left_arm" type="Sprite2D" parent="Skeleton2D/hip/torso/left_arm" unique_id=335823318]
 z_index = 3
 z_as_relative = false
-position = Vector2(-28, -30)
+position = Vector2(-30, -32)
 texture = ExtResource("10_yrrsy")
 centered = false
 metadata/source = "prototypes/imagine-cutout/tools/prep_char2.py"
 metadata/classification = "Segments-split"
 
-[node name="Part_torso" type="Sprite2D" parent="Skeleton2D/hip/torso" unique_id=1229160461]
+[node name="Part_torso" type="Sprite2D" parent="Skeleton2D/hip/torso" unique_id=271038781]
 z_index = 8
 z_as_relative = false
 position = Vector2(-80, -63)
@@ -990,7 +990,7 @@ centered = false
 metadata/source = "prototypes/imagine-cutout/tools/prep_char2.py"
 metadata/classification = "Segments-merged"
 
-[node name="leg_left" type="Bone2D" parent="Skeleton2D/hip" unique_id=1701225238]
+[node name="leg_left" type="Bone2D" parent="Skeleton2D/hip" unique_id=285188969]
 position = Vector2(-40, 20)
 rest = Transform2D(1, 0, 0, 1, -40, 20)
 auto_calculate_length_and_angle = false
@@ -998,7 +998,7 @@ length = 80.0
 bone_angle = 0.0
 metadata/rotation_limits_deg = [-10.0, 10.0]
 
-[node name="knee_left" type="Bone2D" parent="Skeleton2D/hip/leg_left" unique_id=361193082]
+[node name="knee_left" type="Bone2D" parent="Skeleton2D/hip/leg_left" unique_id=1723397462]
 position = Vector2(0, 130)
 rest = Transform2D(1, 0, 0, 1, 0, 130)
 auto_calculate_length_and_angle = false
@@ -1006,7 +1006,7 @@ length = 80.0
 bone_angle = 0.0
 metadata/rotation_limits_deg = [0.0, 60.0]
 
-[node name="boot_left" type="Bone2D" parent="Skeleton2D/hip/leg_left/knee_left" unique_id=297184977]
+[node name="boot_left" type="Bone2D" parent="Skeleton2D/hip/leg_left/knee_left" unique_id=129060744]
 position = Vector2(0, 130)
 rest = Transform2D(1, 0, 0, 1, 0, 130)
 auto_calculate_length_and_angle = false
@@ -1014,16 +1014,16 @@ length = 80.0
 bone_angle = 0.0
 metadata/rotation_limits_deg = [-8.0, 8.0]
 
-[node name="Part_boot_left" type="Sprite2D" parent="Skeleton2D/hip/leg_left/knee_left/boot_left" unique_id=1582707289]
+[node name="Part_boot_left" type="Sprite2D" parent="Skeleton2D/hip/leg_left/knee_left/boot_left" unique_id=2108515143]
 z_index = 6
 z_as_relative = false
-position = Vector2(-35, -28)
+position = Vector2(-35, -30)
 texture = ExtResource("12_53xd4")
 centered = false
 metadata/source = "prototypes/imagine-cutout/tools/prep_char2.py"
 metadata/classification = "Segments-split"
 
-[node name="Part_shin_left" type="Sprite2D" parent="Skeleton2D/hip/leg_left/knee_left" unique_id=1736689701]
+[node name="Part_shin_left" type="Sprite2D" parent="Skeleton2D/hip/leg_left/knee_left" unique_id=2092447823]
 z_index = 5
 z_as_relative = false
 position = Vector2(-31, -30)
@@ -1032,7 +1032,7 @@ centered = false
 metadata/source = "prototypes/imagine-cutout/tools/prep_char2.py"
 metadata/classification = "Segments-split"
 
-[node name="Part_leg_left" type="Sprite2D" parent="Skeleton2D/hip/leg_left" unique_id=403475721]
+[node name="Part_leg_left" type="Sprite2D" parent="Skeleton2D/hip/leg_left" unique_id=1904962818]
 z_index = 5
 z_as_relative = false
 position = Vector2(-38, -32)
@@ -1041,7 +1041,7 @@ centered = false
 metadata/source = "prototypes/imagine-cutout/tools/prep_char2.py"
 metadata/classification = "Segments-merged"
 
-[node name="leg_right" type="Bone2D" parent="Skeleton2D/hip" unique_id=1328585122]
+[node name="leg_right" type="Bone2D" parent="Skeleton2D/hip" unique_id=66896229]
 position = Vector2(40, 20)
 rest = Transform2D(1, 0, 0, 1, 40, 20)
 auto_calculate_length_and_angle = false
@@ -1049,7 +1049,7 @@ length = 80.0
 bone_angle = 0.0
 metadata/rotation_limits_deg = [-10.0, 10.0]
 
-[node name="knee_right" type="Bone2D" parent="Skeleton2D/hip/leg_right" unique_id=547857272]
+[node name="knee_right" type="Bone2D" parent="Skeleton2D/hip/leg_right" unique_id=18090837]
 position = Vector2(0, 130)
 rest = Transform2D(1, 0, 0, 1, 0, 130)
 auto_calculate_length_and_angle = false
@@ -1057,7 +1057,7 @@ length = 80.0
 bone_angle = 0.0
 metadata/rotation_limits_deg = [0.0, 60.0]
 
-[node name="boot_right" type="Bone2D" parent="Skeleton2D/hip/leg_right/knee_right" unique_id=1769089423]
+[node name="boot_right" type="Bone2D" parent="Skeleton2D/hip/leg_right/knee_right" unique_id=457169748]
 position = Vector2(0, 130)
 rest = Transform2D(1, 0, 0, 1, 0, 130)
 auto_calculate_length_and_angle = false
@@ -1065,16 +1065,16 @@ length = 80.0
 bone_angle = 0.0
 metadata/rotation_limits_deg = [-8.0, 8.0]
 
-[node name="Part_boot_right" type="Sprite2D" parent="Skeleton2D/hip/leg_right/knee_right/boot_right" unique_id=984993554]
+[node name="Part_boot_right" type="Sprite2D" parent="Skeleton2D/hip/leg_right/knee_right/boot_right" unique_id=1515501425]
 z_index = 6
 z_as_relative = false
-position = Vector2(-32, -28)
+position = Vector2(-32, -30)
 texture = ExtResource("15_gntdm")
 centered = false
 metadata/source = "prototypes/imagine-cutout/tools/prep_char2.py"
 metadata/classification = "Segments-split"
 
-[node name="Part_shin_right" type="Sprite2D" parent="Skeleton2D/hip/leg_right/knee_right" unique_id=1302664642]
+[node name="Part_shin_right" type="Sprite2D" parent="Skeleton2D/hip/leg_right/knee_right" unique_id=1659795788]
 z_index = 5
 z_as_relative = false
 position = Vector2(-26, -30)
@@ -1083,7 +1083,7 @@ centered = false
 metadata/source = "prototypes/imagine-cutout/tools/prep_char2.py"
 metadata/classification = "Segments-split"
 
-[node name="Part_leg_right" type="Sprite2D" parent="Skeleton2D/hip/leg_right" unique_id=1397770757]
+[node name="Part_leg_right" type="Sprite2D" parent="Skeleton2D/hip/leg_right" unique_id=1371596724]
 z_index = 5
 z_as_relative = false
 position = Vector2(-39, -32)
@@ -1092,7 +1092,7 @@ centered = false
 metadata/source = "prototypes/imagine-cutout/tools/prep_char2.py"
 metadata/classification = "Segments-merged"
 
-[node name="Part_hip_backing" type="Sprite2D" parent="Skeleton2D/hip" unique_id=945949828]
+[node name="Part_hip_backing" type="Sprite2D" parent="Skeleton2D/hip" unique_id=1209147647]
 z_as_relative = false
 position = Vector2(-84, -23)
 texture = ExtResource("18_qx1tc")
@@ -1100,8 +1100,8 @@ centered = false
 metadata/source = "prototypes/imagine-cutout/tools/prep_char2.py"
 metadata/classification = "Segments-split"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1675188088]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=229896984]
 libraries/ = SubResource("AnimationLibrary_covbw")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1230566774]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1334491123]
 position = Vector2(256, 384)

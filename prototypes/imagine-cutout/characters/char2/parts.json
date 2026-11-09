@@ -320,12 +320,12 @@
         250
       ],
       "offset": [
-        -28,
-        -30
+        -30,
+        -32
       ],
       "bbox": [
-        302,
-        220,
+        300,
+        218,
         369,
         357
       ],
@@ -339,7 +339,7 @@
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
       "classification": "Segments-split",
       "scripted_fallback": false,
-      "derived_from": "Polygon split and affine fit of seg-be6a-teal-cropped-jacket.png; composited in listed order; uniform source-interior material elliptical proximal cap radii [16, 18]px and joint-only 12px dilation."
+      "derived_from": "Polygon split and affine fit of seg-be6a-teal-cropped-jacket.png; composited in listed order; uniform source-interior material elliptical proximal cap radii [18, 20]px and joint-only 12px dilation."
     },
     {
       "id": "left_fore",
@@ -350,13 +350,13 @@
         340
       ],
       "offset": [
-        -26,
-        -32
+        -30,
+        -34
       ],
       "bbox": [
-        318,
-        308,
-        371,
+        314,
+        306,
+        375,
         438
       ],
       "texture_hd": "characters/char2/parts/left_fore.png",
@@ -369,7 +369,7 @@
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
       "classification": "Segments-split",
       "scripted_fallback": false,
-      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; uniform source-interior material elliptical proximal cap radii [14, 20]px and joint-only 12px dilation."
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; uniform source-interior material elliptical proximal cap radii [18, 22]px and joint-only 12px dilation."
     },
     {
       "id": "left_hand",
@@ -380,12 +380,12 @@
         430
       ],
       "offset": [
-        -22,
-        -24
+        -24,
+        -26
       ],
       "bbox": [
-        330,
-        406,
+        328,
+        404,
         386,
         487
       ],
@@ -399,7 +399,7 @@
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
       "classification": "Segments-merged",
       "scripted_fallback": false,
-      "derived_from": "Polygon split and affine fit of call1-base-best.jpg, seg-be6a-black-fingerless-gloves-2.png; composited in listed order; uniform source-interior material elliptical proximal cap radii [10, 12]px and joint-only 12px dilation."
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg, seg-be6a-black-fingerless-gloves-2.png; composited in listed order; uniform source-interior material elliptical proximal cap radii [12, 14]px and joint-only 12px dilation."
     },
     {
       "id": "leg_left",
@@ -531,11 +531,11 @@
       ],
       "offset": [
         -35,
-        -28
+        -30
       ],
       "bbox": [
         181,
-        652,
+        650,
         248,
         747
       ],
@@ -549,7 +549,7 @@
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
       "classification": "Segments-split",
       "scripted_fallback": false,
-      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; uniform source-interior material elliptical proximal cap radii [14, 16]px and joint-only 12px dilation."
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; uniform source-interior material elliptical proximal cap radii [16, 18]px and joint-only 12px dilation."
     },
     {
       "id": "boot_right",
@@ -561,11 +561,11 @@
       ],
       "offset": [
         -32,
-        -28
+        -30
       ],
       "bbox": [
         264,
-        652,
+        650,
         331,
         747
       ],
@@ -579,7 +579,7 @@
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
       "classification": "Segments-split",
       "scripted_fallback": false,
-      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; uniform source-interior material elliptical proximal cap radii [14, 16]px and joint-only 12px dilation."
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; uniform source-interior material elliptical proximal cap radii [16, 18]px and joint-only 12px dilation."
     },
     {
       "id": "torso",
@@ -651,12 +651,12 @@
       ],
       "offset": [
         -41,
-        -30
+        -32
       ],
       "bbox": [
         141,
-        220,
-        211,
+        218,
+        213,
         358
       ],
       "texture_hd": "characters/char2/parts/right_upper.png",
@@ -669,7 +669,7 @@
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
       "classification": "Segments-split",
       "scripted_fallback": false,
-      "derived_from": "Polygon split and affine fit of seg-be6a-teal-cropped-jacket.png; composited in listed order; uniform source-interior material elliptical proximal cap radii [16, 18]px and joint-only 12px dilation."
+      "derived_from": "Polygon split and affine fit of seg-be6a-teal-cropped-jacket.png; composited in listed order; uniform source-interior material elliptical proximal cap radii [18, 20]px and joint-only 12px dilation."
     },
     {
       "id": "right_fore",
@@ -680,13 +680,13 @@
         340
       ],
       "offset": [
-        -26,
-        -32
+        -30,
+        -34
       ],
       "bbox": [
-        142,
-        308,
-        195,
+        138,
+        306,
+        199,
         436
       ],
       "texture_hd": "characters/char2/parts/right_fore.png",
@@ -699,7 +699,7 @@
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
       "classification": "Segments-split",
       "scripted_fallback": false,
-      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; uniform source-interior material elliptical proximal cap radii [14, 20]px and joint-only 12px dilation."
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; uniform source-interior material elliptical proximal cap radii [18, 22]px and joint-only 12px dilation."
     },
     {
       "id": "satchel",
@@ -742,12 +742,12 @@
       ],
       "offset": [
         -33,
-        -24
+        -26
       ],
       "bbox": [
         127,
-        406,
-        183,
+        404,
+        185,
         487
       ],
       "texture_hd": "characters/char2/parts/right_hand.png",
@@ -760,7 +760,7 @@
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
       "classification": "Segments-merged",
       "scripted_fallback": false,
-      "derived_from": "Polygon split and affine fit of call1-base-best.jpg, seg-be6a-black-fingerless-gloves-1.png; composited in listed order; uniform source-interior material elliptical proximal cap radii [10, 12]px and joint-only 12px dilation."
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg, seg-be6a-black-fingerless-gloves-1.png; composited in listed order; uniform source-interior material elliptical proximal cap radii [12, 14]px and joint-only 12px dilation."
     }
   ]
 }

@@ -41,3 +41,12 @@ at right elbow minimum (5 pixels), right elbow maximum (2) and left ankle minimu
 (1). These reports are retained in legacy/. Source backing receives a small
 local margin correction; frozen limits, geometry, tolerances and deadlines stay
 unchanged. Fresh full acceptance and rendered mutation remain outstanding.
+
+The first full body run captured all 650 frozen poses with pose hash
+da555e908a46d1600cb8caee43e2807e961e5de9a12b7ca672626262e1529029.
+Manifest, completeness, provenance and facing pass. It retains one single-limit
+gap pixel and 132 combined failing seams (212 pixels), concentrated at the right
+elbow with small shoulder/wrist/ankle edge cases. Native representative atlases
+and every seam count are retained under body/. The next correction extends only
+local source-material backing at those joint families; head and knee backing
+remain unchanged.

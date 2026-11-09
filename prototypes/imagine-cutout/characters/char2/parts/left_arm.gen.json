@@ -1,19 +1,19 @@
 {
   "tool": "Python/Pillow/OpenCV scripted derivation from Grok Imagine (SpaceXAI)",
   "model": "no generative model used; source model not disclosed",
-  "date": "2026-11-09T22:28:36.661409Z",
+  "date": "2026-11-09T22:34:07.845638Z",
   "date_source": "scripted artifact creation time UTC",
   "source": "prototypes/imagine-cutout/tools/prep_char2.py",
   "license": "CC0 1.0",
   "credit": "Generated with Grok Imagine (SpaceXAI); scripted derivation where stated",
   "rights": "Original fictional art only; no real-person likeness.",
   "description": "Derived fictional courier part: left_arm",
-  "output_sha256": "14482737dd15e9587b0b59e883f410d84eb91f474313023befa64a176bbae69b",
-  "tool_sha256": "516d91f357de30b76a8cf66a855217117be999c7239ec5dc895261f27ba1ecee",
+  "output_sha256": "4748da6f530a5f5a60a983ad6bf15366bbc254f739efc430202b6d3aa2fb43c4",
+  "tool_sha256": "455ca7a499546027ac2adb110eecdbada29d893542756fea36c12d47cb37d9df",
   "manifest_sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4",
   "classification": "Segments-split",
   "scripted_fallback": false,
-  "derived_from": "Polygon split and affine fit of seg-be6a-teal-cropped-jacket.png; composited in listed order; uniform source-interior material elliptical proximal cap radii [16, 18]px and joint-only 12px dilation.",
+  "derived_from": "Polygon split and affine fit of seg-be6a-teal-cropped-jacket.png; composited in listed order; uniform source-interior material elliptical proximal cap radii [18, 20]px and joint-only 12px dilation.",
   "imagine_sources": [
     {
       "file": "seg-be6a-teal-cropped-jacket.png",
@@ -100,7 +100,7 @@
       ]
     }
   ],
-  "joint_completion_added_pixels": 1545,
+  "joint_completion_added_pixels": 1829,
   "backing_material": {
     "rgb": [
       18,
@@ -113,11 +113,11 @@
     ],
     "selection": "retained opaque interior pixel closest to local median RGB",
     "minimum_core_depth_px": 3,
-    "search_radius_px": 50
+    "search_radius_px": 52
   },
   "joint_cap_radii_px": [
-    16,
-    18
+    18,
+    20
   ],
   "source_post_url": "https://grok.com/imagine/post/be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8"
 }

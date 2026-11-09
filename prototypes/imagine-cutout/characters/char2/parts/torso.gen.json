@@ -1,7 +1,7 @@
 {
   "tool": "Python/Pillow/OpenCV scripted derivation from Grok Imagine (SpaceXAI)",
   "model": "no generative model used; source model not disclosed",
-  "date": "2026-11-09T22:28:36.661409Z",
+  "date": "2026-11-09T22:34:07.845638Z",
   "date_source": "scripted artifact creation time UTC",
   "source": "prototypes/imagine-cutout/tools/prep_char2.py",
   "license": "CC0 1.0",
@@ -9,7 +9,7 @@
   "rights": "Original fictional art only; no real-person likeness.",
   "description": "Derived fictional courier part: torso",
   "output_sha256": "8f98b7b880d04c16dcdd0c35a9412e1e482f1c03f1682bc38c2477a7ee194880",
-  "tool_sha256": "516d91f357de30b76a8cf66a855217117be999c7239ec5dc895261f27ba1ecee",
+  "tool_sha256": "455ca7a499546027ac2adb110eecdbada29d893542756fea36c12d47cb37d9df",
   "manifest_sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4",
   "classification": "Segments-merged",
   "scripted_fallback": false,

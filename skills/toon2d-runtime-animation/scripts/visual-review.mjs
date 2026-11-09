@@ -182,7 +182,8 @@ function motion(rec, height) {
       hasMotion ? 'Worst-joint fraction of significant endpoint steps immediately reversing by more than 120°; deliberate impacts can warn.'
         : 'Insufficient moving geometry to assess jitter; inspect missing bones, standing height or a frozen run.',
       { reversal_fraction: rounded(fraction), worst_joint: worstJitter?.name ?? null, samples: jitter.length, complete, moving: hasMotion },
-      neighbors(jitter.sort((a, b) => Number(b.reversal) - Number(a.reversal)))),
+      neighbors(jitter.filter((j) => j.joint === worstJitter?.name)
+        .sort((a, b) => Number(b.reversal) - Number(a.reversal)))),
   ];
 }
 

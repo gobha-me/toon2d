@@ -1,0 +1,9 @@
+{
+  "prompt": "prompt not applicable (capture)",
+  "tool": "Godot via tests/check_body_parts.gd atlas; tests/body_driver.py",
+  "date": "2026-11-09T22:56:17.317142+00:00",
+  "date_source": "suite result timestamp; individual capture time not recorded",
+  "derived_from": "../body.json",
+  "pose": "random/196",
+  "image_sha256": "20ccfb55d0f4818ca52c6a4f900e3e3868d57407328b01adf81bb2d4f30e9fa8"
+}

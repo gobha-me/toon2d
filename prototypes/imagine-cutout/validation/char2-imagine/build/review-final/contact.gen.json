@@ -1,14 +1,14 @@
 {
   "tool": "Python/Pillow contact sheet",
   "model": "no generative model used; source model not disclosed",
-  "date": "2026-11-09T22:53:25.817090Z",
+  "date": "2026-11-09T22:56:50.219352Z",
   "date_source": "scripted artifact creation time UTC",
   "source": "prototypes/imagine-cutout/tools/build_v2.py",
   "license": "CC0 1.0",
   "credit": "Generated with Grok Imagine (SpaceXAI); scripted derivation where stated",
   "rights": "Original fictional art only; no real-person likeness.",
   "description": "Imagine courier Godot review poses reduced to half size",
-  "output_sha256": "f46f582f3968838b66faf5e1adecd4459feb71d166c4822be29654cb5f1dd51a",
+  "output_sha256": "e079d59be3ce033f64dd03a9c6d1ce7cc5acd4c524254fa0fb4654ae0ebb66f4",
   "artifact_kind": "contact sheet",
   "derived_from": "Half-size LANCZOS contact sheet of the four unretouched Godot capture PNGs; captured component and source hashes are retained below.",
   "imagine_sources": [
@@ -110,14 +110,14 @@
     {
       "part": "left_fore",
       "texture": "characters/char2/parts/left_fore.png",
-      "sha256": "627161b6bdcb347240c20f7ee64bcf8063d84b10b04d2a50b3a159eb37d188bc",
+      "sha256": "522a58595422f28333bfa2d551a61a3bb1398d916d71ce6a6e58eaf07c7cf6f5",
       "classification": "Segments-split",
       "scripted_fallback": false
     },
     {
       "part": "left_hand",
       "texture": "characters/char2/parts/left_hand.png",
-      "sha256": "a5eccfae731f0a6a9ff399550d963bc11e53fb2783c9eb8c5bedddf3a39fdb77",
+      "sha256": "590f9d243d8c63cee90c3cb119d3a446913ad8a6dbe7f87d3334d5b4ea3b4690",
       "classification": "Segments-merged",
       "scripted_fallback": false
     },
@@ -138,7 +138,7 @@
     {
       "part": "right_fore",
       "texture": "characters/char2/parts/right_fore.png",
-      "sha256": "1221b020967256ba8b738199071a13a00c15aca7cd6d6bd99f8e6bc44499adc6",
+      "sha256": "74dc11d1062ff9bd8677a3b2b6dee422af76f1b8d6a172c363d90d36a2880067",
       "classification": "Segments-split",
       "scripted_fallback": false
     },
@@ -153,7 +153,7 @@
     {
       "part": "right_hand",
       "texture": "characters/char2/parts/right_hand.png",
-      "sha256": "43e9a5a1a346459a88e159ecf29196f539258e94c474093eb1fc3527c95f9c4b",
+      "sha256": "a7853288e3c556864b7480a06a885694d415890a0fe463da6d30ecd52283a4b0",
       "classification": "Segments-merged",
       "scripted_fallback": false
     }
@@ -170,11 +170,11 @@
   "inputs": {
     "scene": {
       "file": "scenes/char2.tscn",
-      "sha256": "81e3aea667129ca2986f8c082d8258e117ccc0b2d910dd551ea4078f45665500"
+      "sha256": "ae3fee3662d310a97f1f6a2a1d43167b187a17cbeda23c95cee4be9f961c574d"
     },
     "subject": {
       "file": "characters/char2/parts.json",
-      "sha256": "c13f09f2e1128c05aba9b46f6ea7d91cd8100c052bbb7278c9d595dc7efa0b5d"
+      "sha256": "59f139db20d5a0444409b74a005848c8450decb5ed9f9e0c7c49bf5ca18b794e"
     },
     "manifest": {
       "file": "tests/data/characters/char2/body_parts.yml",
@@ -192,19 +192,19 @@
   "capture_inputs": [
     {
       "file": "rest.png",
-      "sha256": "44109376330c56f7234ce55f60f2d6fbf6346b660d5ab43c2f97872ceb15c063"
+      "sha256": "75aeaa7f292e153018cb79415988672e60f6e33f4d908cb5bdc2ec25b21fc9e8"
     },
     {
       "file": "aim.png",
-      "sha256": "fa78e6c5d61da9f4ea3597b6fc7dd7e38c612567b9f58955c2232033e4c02aca"
+      "sha256": "a6d89e8418be30b7fbf1ff88c18be9f17c605005417b285d7821d96cacd0eafe"
     },
     {
       "file": "fire.png",
-      "sha256": "a5bc8c5f84ee84f8966a81bdb0259fb8661835c414e9f2eee15ebd54e87a666e"
+      "sha256": "1bd35fb3a9d754525dc72dbde4322c3b9f2d3f80b0f41424184fa8279e01aaf0"
     },
     {
       "file": "knees.png",
-      "sha256": "dd51613ea99733120811f8c6afb3d5ba2bfa7074aaffc9bd314cf9da75084be6"
+      "sha256": "623c880f183c1da2f808f2ed112a2485de4692f539254726685b37212ee17f90"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "tool": "Python/Pillow/OpenCV scripted derivation from Grok Imagine (SpaceXAI)",
   "model": "no generative model used; source model not disclosed",
-  "date": "2026-11-09T22:53:18.515027Z",
+  "date": "2026-11-09T22:56:43.303087Z",
   "date_source": "scripted artifact creation time UTC",
   "source": "prototypes/imagine-cutout/tools/prep_char2.py",
   "license": "CC0 1.0",
@@ -9,11 +9,11 @@
   "rights": "Original fictional art only; no real-person likeness.",
   "description": "Derived fictional courier part: right_upper",
   "output_sha256": "e9d1ce92f7fe009ad007d5d8b652ff9e0e90919133369cffded8515e58476492",
-  "tool_sha256": "d2eb9d7ea2b8209ee4d5e35602f1185d81a756bf6193574553ec6a32e80a44cc",
+  "tool_sha256": "358baa5072012b7431f3b1cdb109fc465f6261808a1a6d99ac0223b78ebe47a1",
   "manifest_sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4",
   "classification": "Segments-split",
   "scripted_fallback": false,
-  "derived_from": "Polygon split and affine fit of seg-be6a-teal-cropped-jacket.png; composited in listed order; source-interior material joint supports right_upper proximal [18, 20]px with 12px local dilation, right_fore distal seam support [16, 16]px with 12px local dilation.",
+  "derived_from": "Polygon split and affine fit of seg-be6a-teal-cropped-jacket.png; composited in listed order; source-interior material joint supports right_upper proximal [18, 20]px with 12px local overlap margin, right_fore distal seam support [16, 16]px with 12px local overlap margin.",
   "imagine_sources": [
     {
       "file": "seg-be6a-teal-cropped-jacket.png",
@@ -174,7 +174,7 @@
           148,
           331
         ],
-        "selection": "local authored opaque cuff interior above elbow; median-nearest RGB",
+        "selection": "local authored low-chroma opaque interior above elbow; median-nearest RGB",
         "minimum_core_depth_px": 3,
         "search_radius_px": 48
       },

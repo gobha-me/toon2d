@@ -1,19 +1,19 @@
 {
   "tool": "Python/Pillow/OpenCV scripted derivation from Grok Imagine (SpaceXAI)",
   "model": "no generative model used; source model not disclosed",
-  "date": "2026-11-09T22:53:18.515027Z",
+  "date": "2026-11-09T22:56:43.303087Z",
   "date_source": "scripted artifact creation time UTC",
   "source": "prototypes/imagine-cutout/tools/prep_char2.py",
   "license": "CC0 1.0",
   "credit": "Generated with Grok Imagine (SpaceXAI); scripted derivation where stated",
   "rights": "Original fictional art only; no real-person likeness.",
   "description": "Derived fictional courier part: right_fore",
-  "output_sha256": "1221b020967256ba8b738199071a13a00c15aca7cd6d6bd99f8e6bc44499adc6",
-  "tool_sha256": "d2eb9d7ea2b8209ee4d5e35602f1185d81a756bf6193574553ec6a32e80a44cc",
+  "output_sha256": "74dc11d1062ff9bd8677a3b2b6dee422af76f1b8d6a172c363d90d36a2880067",
+  "tool_sha256": "358baa5072012b7431f3b1cdb109fc465f6261808a1a6d99ac0223b78ebe47a1",
   "manifest_sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4",
   "classification": "Segments-split",
   "scripted_fallback": false,
-  "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; source-interior material joint supports right_fore proximal [22, 22]px with 12px local dilation, right_hand distal seam support [12, 14]px with 12px local dilation.",
+  "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; source-interior material joint supports right_fore proximal [22, 22]px with 12px local overlap margin, right_hand distal seam support [14, 16]px with 12px local overlap margin.",
   "imagine_sources": [
     {
       "file": "call1-base-best.jpg",
@@ -76,7 +76,7 @@
       ]
     }
   ],
-  "joint_completion_added_pixels": 3315,
+  "joint_completion_added_pixels": 3588,
   "backing_material": {
     "rgb": [
       93,
@@ -87,7 +87,7 @@
       182,
       332
     ],
-    "selection": "local authored opaque cuff interior above elbow; median-nearest RGB",
+    "selection": "local authored low-chroma opaque interior above elbow; median-nearest RGB",
     "minimum_core_depth_px": 3,
     "search_radius_px": 54
   },
@@ -120,7 +120,7 @@
           182,
           332
         ],
-        "selection": "local authored opaque cuff interior above elbow; median-nearest RGB",
+        "selection": "local authored low-chroma opaque interior above elbow; median-nearest RGB",
         "minimum_core_depth_px": 3,
         "search_radius_px": 54
       },
@@ -136,8 +136,8 @@
       "source_part": "right_fore",
       "rasterization": "opaque pixel-centred source-material underlay",
       "cap_radii_px": [
-        12,
-        14
+        14,
+        16
       ],
       "overlap_px": 12,
       "material": {
@@ -152,9 +152,9 @@
         ],
         "selection": "authored opaque interior pixel closest to local median RGB",
         "minimum_core_depth_px": 3,
-        "search_radius_px": 46
+        "search_radius_px": 48
       },
-      "added_opaque_pixels": 1269
+      "added_opaque_pixels": 1542
     }
   ],
   "source_post_url": "https://grok.com/imagine/post/be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8"

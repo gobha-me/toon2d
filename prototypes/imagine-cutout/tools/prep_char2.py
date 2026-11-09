@@ -165,7 +165,8 @@ def prepare(project, audit_only=False):
                       "Polygon split and affine fit of "+", ".join(names)+"; composited in listed order; "+
                       (f"nearest-source material proximal cap radius {radius}px and joint-only {overlap}px dilation."
                        if overlap else "no joint dilation."))
-        metadata = dict(classification=classification,scripted_fallback=scripted,
+        metadata = dict(tool_sha256=digest(Path(__file__)), manifest_sha256=digest(manifest_path),
+                        classification=classification,scripted_fallback=scripted,
                         derived_from=derivation,imagine_sources=refs,operations=recipes,
                         joint_completion_added_pixels=added)
         if not scripted:
@@ -229,22 +230,22 @@ def prepare(project, audit_only=False):
     for side,image_left in (("left",True),("right",False)):
         x = joints["leg_"+side]["pivot"][0]
         if image_left:
-            axis = [[78,18],[61,220],[47,398]]
+            axis = [[78,18],[64,175],[47,398]]
             half = [[0,0],[155,0],[155,417],[0,417]]
             shorts_half = [[0,0],[130,0],[130,246],[0,246]]
             shorts_start,shorts_end = [68,42],[65,220]
         else:
-            axis = [[233,18],[249,220],[268,398]]
+            axis = [[233,18],[249,175],[268,398]]
             half = [[155,0],[311,0],[311,417],[155,417]]
             shorts_half = [[124,0],[254,0],[254,246],[124,246]]
             shorts_start,shorts_end = [186,42],[190,220]
         upper_polygon = [[a,b] for a,b in half]
-        upper_polygon[2][1] = upper_polygon[3][1] = 248
+        upper_polygon[2][1] = upper_polygon[3][1] = 203
         legging = layer(LEGGINGS,upper_polygon,axis[0],axis[1],[x,420],[x,550],.60)
         shorts = layer(SHORTS,shorts_half,shorts_start,shorts_end,[x,420],[x,493],.60)
         save("leg_"+side,[legging,shorts],"leg_"+side,5,radius=28)
         lower_polygon = [[a,b] for a,b in half]
-        lower_polygon[0][1] = lower_polygon[1][1] = 185
+        lower_polygon[0][1] = lower_polygon[1][1] = 148
         shin = layer(LEGGINGS,lower_polygon,axis[1],axis[2],[x,550],[x,680],.60)
         save("shin_"+side,[shin],"knee_"+side,5,radius=28)
         if image_left:
@@ -269,6 +270,8 @@ def prepare(project, audit_only=False):
     (project / config["subject"]).write_text(json.dumps(data,indent=2)+"\n")
     (destination/"derivation.json").write_text(json.dumps(dict(schema_version=1,tool=SOURCE,
         source_post_id=contract["calls"]["1"]["post_id"],manifest_sha256=digest(manifest_path),
+        tool_sha256=digest(Path(__file__)),
+        dependencies=dict(OpenCV=cv2.__version__,NumPy=np.__version__,Pillow=Image.__version__),
         source_sha256={n:r["sha256"] for n,r in contract["sources"].items()},parts=ledger),indent=2)+"\n")
     print(f"Prepared Imagine courier: {len(parts)} parts, {len(joints)} frozen joints")
 

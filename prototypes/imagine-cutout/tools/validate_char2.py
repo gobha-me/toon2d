@@ -121,7 +121,8 @@ def command_for(mode: str) -> list[str]:
     return {
         "oracle": ["bash", "tests/runner.sh", "oracle", "--character", "char2"],
         "harness": [sys.executable, "tests/test_harness_policy.py"],
-        "legacy": ["bash", "tests/run_tests.sh", "--character", "char2"],
+        "legacy": ["bash", "tests/run_tests.sh", "--character", "char2",
+                   "--output", "tests/results/char2/real.json"],
         "body": ["bash", "tests/run_body_tests.sh", "--character", "char2"],
         "provenance-mutants": [sys.executable, "tests/run_imagine_mutants.py",
                                "--output", "tests/results/char2/provenance-mutants.json"],
@@ -132,7 +133,7 @@ def command_for(mode: str) -> list[str]:
 def verdict(mode: str, results: Path) -> dict:
     """Summarize real reports, including the rendered mutants' green control."""
     if mode == "legacy":
-        report = json.loads((results / "char2/legacy.json").read_text())
+        report = json.loads((results / "char2/real.json").read_text())
         tests = report["tests"]
         return {"baseline_passed": report["passed"],
                 "tests": {number: case["passed"] for number, case in tests.items()},

@@ -30,6 +30,14 @@ world-space bones, not an image-based pose estimator. Keep the fixed viewport,
 Chrome version, query and runtime unchanged when comparing byte-level results.
 Cross-platform browser rasterization is not guaranteed identical.
 
+Use plain Chrome/Chromium for byte-reproducible captures.
+[Brave documents canvas-readback randomization](https://github.com/brave/brave-browser/wiki/Deviations-from-Chromium-%28features-we-disable-or-remove%29).
+A small known-RGBA self-check runs
+before recording and rejects altered readback with an error mentioning
+`CHROME_PATH`; no evidence directory is created. Select a compatible binary:
+`CHROME_PATH=/path/to/chromium node scripts/visual-review.mjs ...`.
+This does not change browser settings or strip noise from captured art.
+
 ## Evidence
 
 The output directory must not exist. Rendering and validation complete before

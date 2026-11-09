@@ -326,6 +326,18 @@ export async function renderVisualReview(project, out, { query = '' } = {}) {
   try {
     const dt = await session.page.eval('window.__toon.dt');
     if (!Number.isFinite(dt) || Math.abs(dt - 1 / 60) > 1e-9) throw new Error('visual review needs the 60 Hz runtime contract');
+    const exactReadback = await session.page.eval(`(() => {
+      const canvas = document.createElement('canvas');
+      canvas.width = canvas.height = 64;
+      const ctx = canvas.getContext('2d');
+      const expected = ctx.createImageData(64, 64);
+      for (let n = 0; n < 4096; n++) {
+        expected.data.set([n % 251, (n * 17) % 253, (n * 31) % 241, 255], n * 4);
+      }
+      ctx.putImageData(expected, 0, 0);
+      return ctx.getImageData(0, 0, 64, 64).data.every((v, i) => v === expected.data[i]);
+    })()`);
+    if (exactReadback !== true) throw new Error('browser alters Canvas RGBA readback; select plain Chrome/Chromium with CHROME_PATH');
     await session.page.eval('window.__toon.reset({ seed: 1 })');
     rec = await record(session.page, [
       { name: 'idle', ticks: 90, input: {}, every: 1 },

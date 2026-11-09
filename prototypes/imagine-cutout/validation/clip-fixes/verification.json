@@ -1,0 +1,76 @@
+{
+  "issue": "https://github.com/gobha-me/toon2d/issues/23",
+  "status": "runtime verification deferred",
+  "original_red_revision": "ec3bedbeb50cc425190d86bb972fd252068e068c",
+  "inherited_fix_revision": "2cad2e6170b93a7c4caa4837e54875fc926d705c",
+  "context": "The starting branch already includes the implementation from PR #26, rebased into PR #28. No further implementation change is established as necessary. This report does not claim a fresh GREEN result.",
+  "frozen_inputs_sha256": {
+    "tests/clip_driver.py": "b80fc6a56b1f09fceb720da38f2d76ccde6af132fd3a6309b50018f7c671af47",
+    "tests/check_clips.gd": "b21cc522641faf7ac04f46ab6fef180e0b4a63d33207f20785c29c312583bcd3",
+    "tests/check_rig.gd": "b97358b78fb3d70b4574924721b37ce8f3609f8e2d8f1ee0ee855f4570d40625",
+    "tests/body_driver.py": "0658c659e597a388f5e622b9e50b05739bf7d7a9373e91e12705541c47e318eb",
+    "tests/driver.py": "19cae3c25a36f474ea2fa4e78c0f723bf3670e50d09ec55981f4a29d82255e9d",
+    "tests/runner.sh": "a27942717a03f986128bbadd9c6e25a313b8fb8d96d8603b31c5cdd76b32b8a8",
+    "body_parts.yml": "9650b5714447a517897dc872458f3865d9be095cf513cb96dfbb397dc9ae3bec",
+    "parts.json": "b0b353ca77e64826b0cf67d483bdf77a6da6aa1527b181cac37511a6e1ed8793"
+  },
+  "frozen_inputs_equal_original": true,
+  "python_driver_compilation": "PASS: compile() for clip_driver.py, body_driver.py and driver.py",
+  "godot_version": "4.7.2.stable.official.ed1daf0bf",
+  "worker_limits": {
+    "MAKEFLAGS": "-j2",
+    "OMP_NUM_THREADS": 2,
+    "OPENBLAS_NUM_THREADS": 2,
+    "LP_NUM_THREADS": 2,
+    "godot_worker_pool": 2,
+    "concurrent_heavy_jobs": 1
+  },
+  "defer_reason": "heavy-run exit 75: shared working set exceeds its 10 GiB threshold; no unguarded execution or guard override attempted.",
+  "attempts": [
+    {
+      "subject": "inherited fixes",
+      "mode": "clips",
+      "rc": 75,
+      "timestamp_utc": "2026-11-09T14:32:52.681991+00:00",
+      "acceptance": "not evaluated; heavy-run refused before Godot started"
+    },
+    {
+      "subject": "original RED revision",
+      "mode": "clips",
+      "rc": 75,
+      "start_utc": "2026-11-09T14:33:36.646350+00:00",
+      "end_utc": "2026-11-09T14:33:36.985384+00:00",
+      "acceptance": "not evaluated; heavy-run refused before Godot started"
+    },
+    {
+      "subject": "original RED revision",
+      "mode": "clips",
+      "rc": 75,
+      "start_utc": "2026-11-09T14:34:14.570609+00:00",
+      "end_utc": "2026-11-09T14:34:14.923512+00:00",
+      "acceptance": "not evaluated; heavy-run refused before Godot started"
+    },
+    {
+      "subject": "original RED revision",
+      "mode": "clips",
+      "rc": 75,
+      "start_utc": "2026-11-09T14:35:40.482514+00:00",
+      "end_utc": "2026-11-09T14:35:40.822339+00:00",
+      "acceptance": "not evaluated; heavy-run refused before Godot started"
+    },
+    {
+      "subject": "original RED revision",
+      "mode": "clips",
+      "rc": 75,
+      "start_utc": "2026-11-09T14:37:14.385959+00:00",
+      "end_utc": "2026-11-09T14:37:14.699583+00:00",
+      "acceptance": "not evaluated; heavy-run refused before Godot started"
+    }
+  ],
+  "remaining": [
+    "Run original RED clip suite and all eight clip mutants.",
+    "Run inherited-fix clip suite and all eight clip mutants.",
+    "Run unchanged legacy and body-facing suites."
+  ],
+  "agent": "Codex (gpt-6.1-sol)"
+}

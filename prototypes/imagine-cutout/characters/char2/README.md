@@ -64,6 +64,7 @@ export PYTHONDONTWRITEBYTECODE=1 MAKEFLAGS=-j2 OMP_NUM_THREADS=2 OPENBLAS_NUM_TH
 "$HEAVY_RUN" -j2 "$TEST_PYTHON" prototypes/imagine-cutout/tools/build_v2.py --character char2 --capture
 "$TEST_PYTHON" prototypes/imagine-cutout/tools/validate_char2.py oracle
 "$TEST_PYTHON" prototypes/imagine-cutout/tools/validate_char2.py harness
+"$HEAVY_RUN" -j2 "$TEST_PYTHON" prototypes/imagine-cutout/tools/validate_char2.py legacy
 "$HEAVY_RUN" -j2 "$TEST_PYTHON" prototypes/imagine-cutout/tools/validate_char2.py body
 flock "$MUTATION_LOCK" "$HEAVY_RUN" -j2 "$TEST_PYTHON" prototypes/imagine-cutout/tools/validate_char2.py provenance-mutants
 flock "$MUTATION_LOCK" "$HEAVY_RUN" -j2 "$TEST_PYTHON" prototypes/imagine-cutout/tools/validate_char2.py body-mutants
@@ -79,7 +80,9 @@ mutant suite must separately certify **12/12 KILLED** on the actual kit.
 
 Open `scenes/char2.tscn` for the HD rig. Keys 1–4 select idle, aim, fire and
 cooldown; Space presents and lowers the satchel. Compatibility clip names retain
-the existing sampler. Rounded seam backing and proportion changes are visible
+the existing sampler. The fire capture also contains the pre-existing procedural
+`MuzzleFlash` effect; its script hash and effect disclosure accompany captures,
+separately from the body-part slot tally. Rounded seam backing and proportion changes are visible
 at large diagnostic angles. This is a rigid cutout study, with no locomotion,
 expressions or reverse/side art. Historical procedural-courier captures in
 `validation/char2-rig/` predate this Imagine conversion.

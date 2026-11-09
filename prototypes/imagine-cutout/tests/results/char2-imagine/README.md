@@ -51,7 +51,7 @@ satchel. Current observed runtime slot count is zero.
   failure or a mutant kill.
 
 Ephemeral paths are replaced by `<TMPDIR>`/`<REPO>`; guard owner names and
-unrelated job arguments are omitted. Original transcripts remain unchanged in
+unrelated job arguments are omitted; terminal blank lines are trimmed. Original transcripts remain unchanged in
 private scratch. All frozen char2 geometry, facing vectors, N=200, seed=20261031
 and pose values remain unchanged; the trenchcoat manifest is byte-identical.
 

@@ -801,3 +801,27 @@ TEST_PYTHON=python3 prototypes/imagine-cutout/tests/runner.sh body-mutants --cha
 Light verification: **23/23 oracle/source controls PASS** and **3/3 harness policy/lifecycle controls PASS**. The real char2 acceptance run returns **1 (expected RED)**: manifest passes; provenance rejects missing `characters/char2/parts.json` and all 14 missing slot declarations; completeness, per-joint, combined and facing reject missing `scenes/char2.tscn` and `characters/char2/parts.json`. It captures zero poses and fabricates no rasters. Source authentication itself is green.
 
 Existing test edits and reasons: `body_driver.py` adds provenance to acceptance and tightens char2 mutation success from allowed CANNOT_PLANT to four required kills; `driver.py` includes the new provenance controls in the existing oracle entrypoint and resolves the heavy executable to an absolute path; `runner.sh` uses the caller-provided private temporary root. No existing numerical or geometry assertion is deleted, no timeout/deadline changes, and no production rig, tool or CI change is included.
+
+### Guarded Imagine verification completed
+
+The [Imagine verification evidence](tests/results/char2-imagine/README.md)
+records the completed guarded batch on code `37a544b`, ending
+**2026-11-09T19:35:24Z**. Godot observer syntax **PASS**; provenance-only fixture
+mutants **12/12 KILLED** with a green control. All planted mutants are killed.
+The prior **23/23 light** and **3/3 lifecycle/policy** controls remain green.
+
+Actual char2 provenance and rendered-mutation commands both return **1**:
+the actual provenance control is red and its twelve scenarios are CANNOT_PLANT;
+the four real rendered mutants e/f/g/h are CANNOT_PLANT without the scene and
+subject. These are failures, with zero actual mutants planted, and are never
+credited as kills. Actual acceptance remains expected-RED in provenance,
+completeness, per-joint, combined and facing, with zero captured poses.
+All fifteen committed sources authenticate; the fresh 650-pose plan/hash
+matches the retained source-aware red-first admission.
+
+The observer now binds each real char2 Sprite2D texture to the authenticated
+declaration; syntax passes, while execution of that assertion awaits the actual
+rig. The executed commands, two-worker adapter, selected sanitized admission
+logs, individual exits and source-code hashes are retained beside the reports.
+Queued refusals did not execute tests. No existing assertion, tolerance or
+timeout changed in this evidence-only update.

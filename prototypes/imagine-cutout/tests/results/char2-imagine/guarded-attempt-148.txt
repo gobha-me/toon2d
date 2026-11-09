@@ -1,0 +1,40 @@
+heavy-run: memory ok: memory.current 12.37 GiB, working set (minus inactive_file) 4.26 GiB, non-reclaimable 3.37 GiB; limits 10.00 GiB working set / 14.00 GiB non-reclaimable (memory.max 16.00 GiB x 10/16, 14/16)
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+i missing source image: KILLED
+j missing source sidecar: KILLED
+k changed source bytes: KILLED
+l approximate call presented as exact: KILLED
+m missing derived sidecar: KILLED
+n lost Imagine trace: KILLED
+o unflagged scripted satchel: KILLED
+p Imagine head replaced with scripted fallback: KILLED
+q missing head declaration: KILLED
+r unclassified extra backing: KILLED
+s changed runtime texture bytes: KILLED
+t invented recorded prompt: KILLED
+12/12 KILLED; provenance-only control fixture; NOT rig acceptance
+i missing source image: CANNOT_PLANT
+j missing source sidecar: CANNOT_PLANT
+k changed source bytes: CANNOT_PLANT
+l approximate call presented as exact: CANNOT_PLANT
+m missing derived sidecar: CANNOT_PLANT
+n lost Imagine trace: CANNOT_PLANT
+o unflagged scripted satchel: CANNOT_PLANT
+p Imagine head replaced with scripted fallback: CANNOT_PLANT
+q missing head declaration: CANNOT_PLANT
+r unclassified extra backing: CANNOT_PLANT
+s changed runtime texture bytes: CANNOT_PLANT
+t invented recorded prompt: CANNOT_PLANT
+0/12 KILLED; actual char2 provenance
+PASS body char2 manifest: validated
+FAIL body char2 provenance: missing or invalid char2 part declarations; Imagine-derived parts are required; required Imagine/scripted part missing or duplicated; required Imagine/scripted part missing or duplicated; required Imagine/scripted part missing or duplicated; required Imagine/scripted part missing or duplicated; required Imagine/scripted part missing or duplicated; required Imagine/scripted part missing or duplicated; required Imagine/scripted part missing or duplicated; required Imagine/scripted part missing or duplicated; required Imagine/scripted part missing or duplicated; required Imagine/scripted part missing or duplicated; required Imagine/scripted part missing or duplicated; required Imagine/scripted part missing or duplicated; required Imagine/scripted part missing or duplicated; required Imagine/scripted part missing or duplicated
+FAIL body char2 completeness: missing rig input: scenes/char2.tscn, characters/char2/parts.json
+FAIL body char2 per_joint: missing rig input: scenes/char2.tscn, characters/char2/parts.json
+FAIL body char2 combined: missing rig input: scenes/char2.tscn, characters/char2/parts.json
+FAIL body char2 facing: missing rig input: scenes/char2.tscn, characters/char2/parts.json
+SKIP mutant e: char2 rig/scene does not exist; cannot plant missing_slot
+SKIP mutant f: char2 rig/scene does not exist; cannot plant flipped_facing
+SKIP mutant g: char2 rig/scene does not exist; cannot plant removed_knee
+SKIP mutant h: char2 rig/scene does not exist; cannot plant zero_overlap
+Actual provenance mutants exit=1 (expected 1 without parts); body mutants exit=1 (expected 1 without rig)

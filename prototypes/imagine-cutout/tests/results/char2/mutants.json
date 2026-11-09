@@ -1,0 +1,6 @@
+[
+  {"mutant": "e", "kind": "missing_slot", "expected_test": "completeness", "skip": "char2 rig/scene does not exist; cannot plant missing_slot", "status": "CANNOT_PLANT"},
+  {"mutant": "f", "kind": "flipped_facing", "expected_test": "facing", "skip": "char2 rig/scene does not exist; cannot plant flipped_facing", "status": "CANNOT_PLANT"},
+  {"mutant": "g", "kind": "removed_knee", "expected_test": "completeness", "skip": "char2 rig/scene does not exist; cannot plant removed_knee", "status": "CANNOT_PLANT"},
+  {"mutant": "h", "kind": "zero_overlap", "expected_test": "per_joint", "skip": "char2 rig/scene does not exist; cannot plant zero_overlap", "status": "CANNOT_PLANT"}
+]

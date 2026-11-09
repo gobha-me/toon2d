@@ -1,0 +1,20 @@
+{
+  "code_revision": "37a544b9ab475eae098d432b6e4e97c194d6bc02",
+  "guarded_admission_attempt": 148,
+  "prior_queued_exit_75": 147,
+  "guarded_batch_completed_utc": "2026-11-09T19:35:24Z",
+  "godot_syntax_exit": 0,
+  "fixture_mutants_exit": 0,
+  "actual_provenance_mutants_exit": 1,
+  "rendered_body_mutants_exit": 1,
+  "fixture_timestamp_utc": "2026-11-09T19:35:23.210852+00:00",
+  "actual_provenance_timestamp_utc": "2026-11-09T19:35:23.681481+00:00",
+  "body_timestamp_utc": "2026-11-09T19:35:24.007387+00:00",
+  "meaning": "Twelve provenance-only fixture mutants killed; actual char2 remains missing and red. Batch exit 0 verifies expected command exits, not rig acceptance.",
+  "source_hashes": {
+    "imagine_provenance.py": "cffcaf7d0f86391907b56c4fcfe97e602f6afdb4acbc92cbb9e7701acf7de26a",
+    "run_imagine_mutants.py": "77e369a337273c03894bda2c6d4a2d94979cf5fba50f6d2d48f7ce898abc9a69",
+    "check_body_parts.gd": "2c43f6de8b5eb895e230c9e7b02a2ded7cac605f826cc25179f8dc81b22ad9cc",
+    "runner.sh": "f1d6b1168cc65ea7c23b4c0942bd18e9c244438d3e5e9c64718483593fcd6b54"
+  }
+}

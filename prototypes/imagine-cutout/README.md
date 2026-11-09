@@ -18,6 +18,22 @@ The current evidence and remaining plan work are recorded in
 The checked-in `renders/`, `comparisons/` and earlier diagnostic images show the
 **historical PoC**, before v2. Current review images are under `validation/v2/review-final/`.
 
+## Second character: Imagine courier (#18)
+
+[Char2](characters/char2/README.md) fits the supplied red-haired courier to the
+second frozen body-part manifest. Its required-slot tally is **0 usable + 4
+merged + 9 split = 13 Imagine-derived slots; 1 SCRIPTED (flagged)** satchel.
+The extra torso and pelvis backing also use supplied pixels. The complete
+source-free fallback list is the satchel. All three allowed calls were already
+used; this conversion makes no new model calls. The source README discloses
+approximate times for calls 2/3 and the unintended third Segments run.
+
+The source-fitting tool records polygon/affine recipes and input/output hashes.
+The unchanged acceptance checks require all 650 frozen poses plus four rendered
+mutant kills. New execution evidence belongs in `validation/char2-imagine/`;
+the earlier procedural courier evidence remains historical. See the character
+README for the slot map, rebuild commands and front-view/facing limitations.
+
 ## Run and rebuild
 
 Open this folder as a Godot project. From the repository root:

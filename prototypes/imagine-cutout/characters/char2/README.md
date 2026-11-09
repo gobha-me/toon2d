@@ -1,40 +1,85 @@
-# Original scripted courier
+# Imagine courier
 
-Char2 is an original fictional courier drawn entirely by the procedural recipes
-in `tools/prep_char2.py`. No external source artwork or generative service is
-used. The gap report classifies all fourteen required slots as `scripted`.
-Each of the sixteen PNGs, including the torso and pelvis backing panels, has a
-sidecar identifying its script, UTC authoring date and image hash.
+Char2 uses the supplied fictional bike courier from post
+`be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8`. The unmodified base image, 14 Segments
+exports and their provenance are in [imagine-source/](imagine-source/README.md).
+All three allowed Imagine calls were already used. This implementation makes
+zero new generation calls and uses no paid service. Calls 2 and 3 were not
+recorded at the instant of invocation; their approximate timestamps and the
+unintended extra Segments run remain disclosed in the source README.
 
-Preparation uses the frozen manifest selected by `characters.yml`: canvas,
-joints, pivots, parents, limits and per-slot overlap are read from that input.
-The v2 preparation helpers complete round material backing and apply the exact
-manifest dilation at the proximal attachments. Added backing is clipped to a
-round attachment to avoid rectangular gate edges. The satchel receives no
-dilation; its handle grip and outer endpoint are texture coordinates (16, 8)
-and (48, 8). The head profile and handle both face image-right.
+Required-slot tally: **0 usable + 4 merged + 9 split = 13 Imagine-derived
+slots**, from six distinct supplied files; **1 SCRIPTED (flagged)** satchel.
+The two additional runtime parts are a merged torso and split pelvis backing.
+Across all 16 runtime parts: **0 usable + 5 merged + 10 split = 15
+Imagine-derived parts; 1 SCRIPTED (flagged)**. These counts distinguish usable
+Segments exports from later scripted splitting, fitting and material completion.
 
-From the repository root, with an existing Python providing Pillow, NumPy and
-OpenCV:
+| Required part | Classification | Actual pixels used |
+|---|---|---|
+| head | Segments-split | `call1-base-best.jpg`: face, hair and neck |
+| left_arm, right_upper | Segments-split | `seg-be6a-teal-cropped-jacket.png`: separate sleeve polygons |
+| left_fore, right_fore | Segments-split | `call1-base-best.jpg`: exposed forearms |
+| left_hand | Segments-merged | Base fingers/hand + `seg-be6a-black-fingerless-gloves-2.png` |
+| right_hand | Segments-merged | Base fingers/hand + `seg-be6a-black-fingerless-gloves-1.png` |
+| leg_left, leg_right | Segments-merged | Separate halves of `seg-be6a-black-shorts.png` + `seg-be6a-gray-leggings.png` |
+| shin_left, shin_right | Segments-split | Separate calf sections of `seg-be6a-gray-leggings.png` |
+| boot_left, boot_right | Segments-split | `call1-base-best.jpg`: orange sneakers and ankles |
+| satchel | SCRIPTED (flagged) | None; wholly procedural prop |
+
+The base prompt explicitly requested no prop. Neither Segments run supplied a
+satchel, and no generation calls remain. The satchel is the complete list of
+source-free scripted fallbacks. Its flag and reason appear in `parts.json`,
+`gap-report.json` and its sidecar. Hidden joint backing on sourced parts borrows
+material from those parts; it is scripted derivation, not recovered unseen art.
+
+`tools/prep_char2.py` removes only border-connected near-white background from
+the base, preserving enclosed shoe/eye whites. Explicit source polygons split
+limbs; an affine centreline fit adapts their proportions to the frozen rig.
+Premultiplied-alpha interpolation avoids dark fringes during fitting. Hands and
+upper legs composite their declared sources. Each proximal attachment receives
+nearest-source material completion and the exact manifest overlap, clipped to a
+round boundary. `derivation.json` and every texture sidecar retain source hashes,
+polygons, fitted axes, affine matrices, output hashes and completion pixel counts.
+Source sidecars retain their original call metadata; derived dates describe
+artifact creation only.
+
+The canvas, 15 joints, pivots, hierarchy, limits and 12px overlap come from the
+unchanged manifest selected by `characters.yml`. The satchel has no dilation;
+its rigid handle endpoints remain texture coordinates (16,8) and (48,8). Left
+hand means image-right. Leg labels retain the manifest's image-side convention.
+The source face looks forward. The frozen facing test compares sprite and prop
+transforms; it does not establish sideways gaze or an alternate camera view.
+
+From the repository root, set `HEAVY_RUN` to the installed absolute guard and
+`TEST_PYTHON` to a Python with Pillow, NumPy and OpenCV. Use a private temporary
+root and two workers; environments whose guard treats `-j2` as the command need
+an executable adapter of that name on a private PATH that sets the worker caps
+and executes its arguments. Preserve the guard itself and all its checks.
 
 ```bash
-heavy-run "$TEST_PYTHON" prototypes/imagine-cutout/tools/prep_char2.py
-heavy-run "$TEST_PYTHON" prototypes/imagine-cutout/tools/build_v2.py --character char2 --capture
+export TMPDIR="$ONESHOT_TMP"
+export PYTHONDONTWRITEBYTECODE=1 MAKEFLAGS=-j2 OMP_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 LP_NUM_THREADS=2
+"$HEAVY_RUN" -j2 "$TEST_PYTHON" prototypes/imagine-cutout/tools/prep_char2.py
+"$HEAVY_RUN" -j2 "$TEST_PYTHON" prototypes/imagine-cutout/tools/build_v2.py --character char2 --capture
+"$TEST_PYTHON" prototypes/imagine-cutout/tools/validate_char2.py oracle
+"$TEST_PYTHON" prototypes/imagine-cutout/tools/validate_char2.py harness
+"$HEAVY_RUN" -j2 "$TEST_PYTHON" prototypes/imagine-cutout/tools/validate_char2.py body
+flock "$MUTATION_LOCK" "$HEAVY_RUN" -j2 "$TEST_PYTHON" prototypes/imagine-cutout/tools/validate_char2.py provenance-mutants
+flock "$MUTATION_LOCK" "$HEAVY_RUN" -j2 "$TEST_PYTHON" prototypes/imagine-cutout/tools/validate_char2.py body-mutants
 ```
 
-Preparation changes only char2's art, declarations and gap report. Baking uses
-a disposable project and copies back char2's native scene and import sidecars.
-The shared v2 builder retains the default trenchcoat mode. Each Godot step is
-sequential; the tools contain no retry policy. Respect the caller's admission,
-scratch-directory and quiet-hour rules.
+`MUTATION_LOCK` is the shared engine mutation lock. Run commands sequentially;
+exit 75 means defer/retry, and 78 means stop for guard configuration investigation.
+Baking uses a disposable project; validation runs the committed observers
+unchanged and retains new evidence only in `validation/char2-imagine/`. Existing
+test-owned red-first evidence remains untouched. The real rendered mutant check
+must certify a green full baseline plus **4/4 KILLED**; the source-provenance
+mutant suite must separately certify **12/12 KILLED** on the actual kit.
 
-Open `scenes/char2.tscn` to preview. Keys 1–4 select the compatibility clip names
-idle, aim, fire and cooldown; Space presents, settles and lowers the satchel.
-These names keep the existing facing sampler usable; the courier does not fire
-a weapon. The prop stays rigid on the right hand. Animation targets are
-fractions of the manifest limits, including knees, elbows and separate hands.
-
-Authoring observations and visual limitations are documented in
-`validation/char2-rig/`. Launcher acceptance and mutation results are recorded
-separately after authoring. Passing seam checks does not certify animation
-appeal, expressions, locomotion, or every possible pose.
+Open `scenes/char2.tscn` for the HD rig. Keys 1–4 select idle, aim, fire and
+cooldown; Space presents and lowers the satchel. Compatibility clip names retain
+the existing sampler. Rounded seam backing and proportion changes are visible
+at large diagnostic angles. This is a rigid cutout study, with no locomotion,
+expressions or reverse/side art. Historical procedural-courier captures in
+`validation/char2-rig/` predate this Imagine conversion.

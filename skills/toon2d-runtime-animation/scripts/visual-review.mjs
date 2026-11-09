@@ -179,8 +179,9 @@ function motion(rec, height) {
         max_motion_span: rounded(span), samples: acceleration.length, complete },
       neighbors(acceleration.sort((a, b) => b.value - a.value))),
     signal('jitter', hasMotion && fraction !== null && fraction <= VISUAL_LIMITS.jitterFraction,
-      'Fraction of significant endpoint steps immediately reversing by more than 120°; deliberate impacts can warn.',
-      { reversal_fraction: rounded(fraction), worst_joint: worstJitter?.name ?? null, samples: jitter.length, complete },
+      hasMotion ? 'Worst-joint fraction of significant endpoint steps immediately reversing by more than 120°; deliberate impacts can warn.'
+        : 'Insufficient moving geometry to assess jitter; inspect missing bones, standing height or a frozen run.',
+      { reversal_fraction: rounded(fraction), worst_joint: worstJitter?.name ?? null, samples: jitter.length, complete, moving: hasMotion },
       neighbors(jitter.sort((a, b) => Number(b.reversal) - Number(a.reversal)))),
   ];
 }

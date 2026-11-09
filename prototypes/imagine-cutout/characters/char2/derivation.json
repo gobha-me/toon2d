@@ -3,7 +3,7 @@
   "tool": "prototypes/imagine-cutout/tools/prep_char2.py",
   "source_post_id": "be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8",
   "manifest_sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4",
-  "tool_sha256": "516d91f357de30b76a8cf66a855217117be999c7239ec5dc895261f27ba1ecee",
+  "tool_sha256": "455ca7a499546027ac2adb110eecdbada29d893542756fea36c12d47cb37d9df",
   "dependencies": {
     "OpenCV": "4.12.0",
     "NumPy": "2.5.4",
@@ -372,7 +372,7 @@
           "sha256": "975ae1b378e11ca1cd1f3ce26a74b4714a4357ceaa4ef52955f3d7627d98f416"
         }
       ],
-      "output_sha256": "8050de7f3407b5f5c25a3ef6b50ff68b9a43d2d214761f669121e187478c8b03",
+      "output_sha256": "038849f77a5f8369c6ab4c9fcb85faa4afb2bd9b5cd3260feafcfcebeebb437f",
       "operations": [
         {
           "file": "seg-be6a-teal-cropped-jacket.png",
@@ -453,7 +453,7 @@
           ]
         }
       ],
-      "joint_completion_added_pixels": 1594,
+      "joint_completion_added_pixels": 1883,
       "backing_material": {
         "rgb": [
           17,
@@ -466,11 +466,11 @@
         ],
         "selection": "retained opaque interior pixel closest to local median RGB",
         "minimum_core_depth_px": 3,
-        "search_radius_px": 50
+        "search_radius_px": 52
       },
       "joint_cap_radii_px": [
-        16,
-        18
+        18,
+        20
       ]
     },
     "left_arm": {
@@ -481,7 +481,7 @@
           "sha256": "975ae1b378e11ca1cd1f3ce26a74b4714a4357ceaa4ef52955f3d7627d98f416"
         }
       ],
-      "output_sha256": "14482737dd15e9587b0b59e883f410d84eb91f474313023befa64a176bbae69b",
+      "output_sha256": "4748da6f530a5f5a60a983ad6bf15366bbc254f739efc430202b6d3aa2fb43c4",
       "operations": [
         {
           "file": "seg-be6a-teal-cropped-jacket.png",
@@ -562,7 +562,7 @@
           ]
         }
       ],
-      "joint_completion_added_pixels": 1545,
+      "joint_completion_added_pixels": 1829,
       "backing_material": {
         "rgb": [
           18,
@@ -575,11 +575,11 @@
         ],
         "selection": "retained opaque interior pixel closest to local median RGB",
         "minimum_core_depth_px": 3,
-        "search_radius_px": 50
+        "search_radius_px": 52
       },
       "joint_cap_radii_px": [
-        16,
-        18
+        18,
+        20
       ]
     },
     "right_fore": {
@@ -590,7 +590,7 @@
           "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
         }
       ],
-      "output_sha256": "fa684550148e3e81d1934bdcaf9cda761d6cc93e447341aca7b3ef69b442da13",
+      "output_sha256": "e5a58e40990b05038fa903d1438d6d5c64541a09134a056065a9c4f00a3d934d",
       "operations": [
         {
           "file": "call1-base-best.jpg",
@@ -647,7 +647,7 @@
           ]
         }
       ],
-      "joint_completion_added_pixels": 1050,
+      "joint_completion_added_pixels": 1554,
       "backing_material": {
         "rgb": [
           252,
@@ -660,11 +660,11 @@
         ],
         "selection": "retained opaque interior pixel closest to local median RGB",
         "minimum_core_depth_px": 3,
-        "search_radius_px": 52
+        "search_radius_px": 54
       },
       "joint_cap_radii_px": [
-        14,
-        20
+        18,
+        22
       ]
     },
     "left_fore": {
@@ -675,7 +675,7 @@
           "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
         }
       ],
-      "output_sha256": "025e30f7a427cbda2dcc2a0afb54e66335bca1b8f16d2d9f49444a82e45dfeaf",
+      "output_sha256": "cdc54fbae0cf2d5f1dea89bb3204e7743502bcd304536ae08c77a9974b5302dd",
       "operations": [
         {
           "file": "call1-base-best.jpg",
@@ -732,7 +732,7 @@
           ]
         }
       ],
-      "joint_completion_added_pixels": 1181,
+      "joint_completion_added_pixels": 1701,
       "backing_material": {
         "rgb": [
           252,
@@ -745,11 +745,11 @@
         ],
         "selection": "retained opaque interior pixel closest to local median RGB",
         "minimum_core_depth_px": 3,
-        "search_radius_px": 52
+        "search_radius_px": 54
       },
       "joint_cap_radii_px": [
-        14,
-        20
+        18,
+        22
       ]
     },
     "right_hand": {
@@ -764,7 +764,7 @@
           "sha256": "e025fbdac73f9d49457bdeee719e0f9b624cf2e703f5b8188abe78f0672b2d76"
         }
       ],
-      "output_sha256": "14c80124ad4ad2691b0ad02b0198796ce3950e09cf94a9f7c7ce50deb279d050",
+      "output_sha256": "1835dd87829f2519fdc02fdca07efd32b2b8182469e54a02e54a79d91cd22e09",
       "operations": [
         {
           "file": "call1-base-best.jpg",
@@ -887,24 +887,24 @@
           ]
         }
       ],
-      "joint_completion_added_pixels": 839,
+      "joint_completion_added_pixels": 1073,
       "backing_material": {
         "rgb": [
           46,
-          45,
+          47,
           50
         ],
         "sample_rig_px": [
-          157,
-          441
+          151,
+          451
         ],
         "selection": "retained opaque interior pixel closest to local median RGB",
         "minimum_core_depth_px": 3,
-        "search_radius_px": 44
+        "search_radius_px": 46
       },
       "joint_cap_radii_px": [
-        10,
-        12
+        12,
+        14
       ]
     },
     "left_hand": {
@@ -919,7 +919,7 @@
           "sha256": "39cd9a3cabacf5f36cddd9adbe7473de3ca55729cd45eeb9cc23e99dd4ec1c50"
         }
       ],
-      "output_sha256": "153b45d388697bf35957074c369031f18907e9655311b860d968db9fa728fd8f",
+      "output_sha256": "c4a5a5d4ae222a44a41547b214db345aaa242538fdf8cfde64d71c5bf6b950f6",
       "operations": [
         {
           "file": "call1-base-best.jpg",
@@ -1042,7 +1042,7 @@
           ]
         }
       ],
-      "joint_completion_added_pixels": 838,
+      "joint_completion_added_pixels": 1075,
       "backing_material": {
         "rgb": [
           46,
@@ -1055,11 +1055,11 @@
         ],
         "selection": "retained opaque interior pixel closest to local median RGB",
         "minimum_core_depth_px": 3,
-        "search_radius_px": 44
+        "search_radius_px": 46
       },
       "joint_cap_radii_px": [
-        10,
-        12
+        12,
+        14
       ]
     },
     "leg_left": {
@@ -1298,7 +1298,7 @@
           "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
         }
       ],
-      "output_sha256": "79d43c6241501237189ce01ab395f4154d0ba111f24cd8f386641d83a588fcd9",
+      "output_sha256": "703ffad8f0b1d2316897ceffaa58af3c2b757cf6754e8c8473c4b6b43b7123c3",
       "operations": [
         {
           "file": "call1-base-best.jpg",
@@ -1355,7 +1355,7 @@
           ]
         }
       ],
-      "joint_completion_added_pixels": 476,
+      "joint_completion_added_pixels": 702,
       "backing_material": {
         "rgb": [
           200,
@@ -1368,11 +1368,11 @@
         ],
         "selection": "retained opaque interior pixel closest to local median RGB",
         "minimum_core_depth_px": 3,
-        "search_radius_px": 48
+        "search_radius_px": 50
       },
       "joint_cap_radii_px": [
-        14,
-        16
+        16,
+        18
       ]
     },
     "leg_right": {
@@ -1611,7 +1611,7 @@
           "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
         }
       ],
-      "output_sha256": "06046b8e57f43ad6793300ef9f64e23c68df3d95031f8e39b53ee0a826b76953",
+      "output_sha256": "c32646c738e503a1f302756dcad2cf5dece179a125fc37a666c3091d5f64cf03",
       "operations": [
         {
           "file": "call1-base-best.jpg",
@@ -1668,24 +1668,24 @@
           ]
         }
       ],
-      "joint_completion_added_pixels": 487,
+      "joint_completion_added_pixels": 716,
       "backing_material": {
         "rgb": [
-          193,
-          107,
-          69
+          206,
+          111,
+          73
         ],
         "sample_rig_px": [
-          284,
-          701
+          304,
+          706
         ],
         "selection": "retained opaque interior pixel closest to local median RGB",
         "minimum_core_depth_px": 3,
-        "search_radius_px": 48
+        "search_radius_px": 50
       },
       "joint_cap_radii_px": [
-        14,
-        16
+        16,
+        18
       ]
     },
     "satchel": {

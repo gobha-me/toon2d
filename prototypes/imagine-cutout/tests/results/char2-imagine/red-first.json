@@ -1,5 +1,5 @@
 {
-  "timestamp_utc": "2026-11-09T15:44:27.707800+00:00",
+  "timestamp_utc": "2026-11-09T15:58:19.692251+00:00",
   "character": "char2",
   "random_n": 200,
   "seed": 20261031,
@@ -36,6 +36,7 @@
       "slot_tally": {"Segments-usable": 0, "Segments-merged": 0, "Segments-split": 0, "SCRIPTED (flagged)": 0},
       "distinct_imagine_sources": [],
       "required_slots": 14,
+      "expected_source_files": 15,
       "authenticated_source_files": 15
     },
     "completeness": {

@@ -38,7 +38,7 @@ FALLBACK = ("The supplied Imagine base has no held prop and neither Segments "
 CAP_RADII = {
     "head": (8,24), "right_upper": (18,20), "left_arm": (18,20),
     "right_fore": (22,22), "left_fore": (22,22),
-    "right_hand": (12,14), "left_hand": (12,14),
+    "right_hand": (14,16), "left_hand": (14,16),
     "leg_left": (20,20), "leg_right": (20,20),
     "shin_left": (14,18), "shin_right": (14,18),
     "boot_left": (16,18), "boot_right": (16,18),
@@ -179,13 +179,13 @@ def prepare(project, audit_only=False):
             candidates = nearby if nearby.any() else core
             selection = "authored opaque interior pixel closest to local median RGB"
             if joint in ("right_fore","left_fore"):
-                # Both supplied sleeve images and the base retain real grey
-                # cuff pixels above the elbow; keep underlap in that material.
+                # Select existing low-chroma source material above the elbow;
+                # this heuristic can retain cuff shadows and brown edge paint.
                 rgb = authored_source[:,:,:3].astype(np.int16)
                 cuff = nearby & (yy < y) & (np.ptp(rgb,axis=2) < 40) & (rgb.mean(axis=2) < 180)
                 if cuff.any():
                     candidates = cuff
-                    selection = "local authored opaque cuff interior above elbow; median-nearest RGB"
+                    selection = "local authored low-chroma opaque interior above elbow; median-nearest RGB"
             if not candidates.any():
                 candidates = opaque > 0
             if not candidates.any():
@@ -240,7 +240,7 @@ def prepare(project, audit_only=False):
                       "Polygon split and affine fit of "+", ".join(names)+"; composited in listed order; "+
                       ("source-interior material joint supports "+", ".join(
                           record["joint"]+" "+record["role"]+" "+str(record["cap_radii_px"])+
-                          "px with "+str(record["overlap_px"])+"px local dilation" for record in backing_records)+"."
+                          "px with "+str(record["overlap_px"])+"px local overlap margin" for record in backing_records)+"."
                        if backing_records else "no joint dilation."))
         metadata = dict(tool_sha256=digest(Path(__file__)), manifest_sha256=digest(manifest_path),
                         classification=classification,scripted_fallback=scripted,

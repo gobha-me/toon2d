@@ -30,7 +30,8 @@ approximate times for calls 2/3 and the unintended third Segments run.
 
 The source-fitting tool records polygon/affine recipes and input/output hashes.
 The unchanged acceptance checks require all 650 frozen poses plus four rendered
-mutant kills. New execution evidence belongs in `validation/char2-imagine/`;
+mutant kills. The [current result and exact commands](validation/char2-imagine/SUMMARY.md)
+record execution outcomes. New evidence belongs in `validation/char2-imagine/`;
 the earlier procedural courier evidence remains historical. See the character
 README for the slot map, rebuild commands and front-view/facing limitations.
 

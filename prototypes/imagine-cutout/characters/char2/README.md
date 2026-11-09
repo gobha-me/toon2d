@@ -46,8 +46,8 @@ and child carry paired local support shapes, each sampled from its own
 retained source material. This closes rotating seams on both sides without
 expanding only the child edge. Added backing samples an actual opaque interior
 pixel closest to the local median; it avoids spreading source outlines into
-striped joint caps. Elbow supports select existing low-chroma cuff material
-above the pivot; the sampled pixel and criterion are recorded.
+striped joint caps. Elbow supports select existing low-chroma material above the pivot, including
+cuff shadows and brown source edge paint; the exact pixel and criterion are recorded.
 Source sidecars retain their original call metadata; derived dates describe
 artifact creation only.
 

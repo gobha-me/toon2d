@@ -10,6 +10,12 @@ Oracle and harness controls read the checkout and write only to private scratch.
 The oracle needs the real Git index to authenticate committed source inventory.
 Body and mutation checks use a disposable prototype snapshot, and their default
 tests/results outputs are copied only to validation/char2-imagine.
+
+Interrupted/error attempts retain sanitized transcripts, available reports and
+private scratch for investigation. The core scan covers only dumps surviving in
+this outer scratch directory. The immutable nested body harness can remove its
+own scratch, including a dump, before this wrapper can inspect it; this wrapper
+does not guarantee retention of those nested dumps.
 """
 from __future__ import annotations
 
@@ -32,6 +38,7 @@ REPO = PROJECT.parents[1]
 DESTINATION = PROJECT / "validation/char2-imagine"
 MODES = ("oracle", "harness", "body", "provenance-mutants", "body-mutants")
 IGNORED = {"validation", "results", "renders", ".godot", "__pycache__", ".git"}
+CORE_SCAN_SCOPE = "Surviving outer scratch only; nested harness cleanup can remove its own dumps before this scan."
 
 
 def utc_now() -> str:
@@ -91,6 +98,7 @@ def copy_evidence(source: Path, destination: Path, work: Path) -> list[str]:
 
 
 def core_dumps(work: Path) -> list[Path]:
+    """Find surviving outer-scratch dumps; nested harness cleanup is unchanged."""
     return [path for path in work.rglob("*") if path.is_file() and
             (re.fullmatch(r"core(?:\.\d+)?", path.name) or path.suffix == ".core")]
 
@@ -150,7 +158,7 @@ def run_command(command: list[str], project: Path, env: dict, raw_log: Path) -> 
                                    stderr=subprocess.STDOUT, start_new_session=True)
         previous = {}
 
-        def stop_child(signum, frame):
+        def stop_child():
             # This process group was created and recorded immediately above.
             try:
                 os.killpg(process.pid, signal.SIGTERM)
@@ -159,13 +167,24 @@ def run_command(command: list[str], project: Path, env: dict, raw_log: Path) -> 
             try:
                 process.wait(timeout=10)
             except subprocess.TimeoutExpired:
-                os.killpg(process.pid, signal.SIGKILL)
+                try:
+                    os.killpg(process.pid, signal.SIGKILL)
+                except ProcessLookupError:
+                    pass
                 process.wait()
+
+        def interrupted(signum, frame):
+            # Let the original wait unwind and release Popen's waitpid lock
+            # before cleanup waits for the same child.
             raise SystemExit(128 + signum)
 
         try:
-            previous = {sig: signal.signal(sig, stop_child) for sig in (signal.SIGINT, signal.SIGTERM)}
-            return process.wait()
+            previous = {sig: signal.signal(sig, interrupted) for sig in (signal.SIGINT, signal.SIGTERM)}
+            try:
+                return process.wait()
+            except BaseException:
+                stop_child()
+                raise
         finally:
             for sig, handler in previous.items():
                 signal.signal(sig, handler)
@@ -187,6 +206,18 @@ def main() -> int:
     snapshot = work / "repo/prototypes/imagine-cutout"
     result = 0
     preserve = False
+    head = None
+    active = None
+    target = raw_log = None
+    results = snapshot / "tests/results"
+    started = utc_now()
+
+    def interrupted(signum, frame):
+        raise SystemExit(128 + signum)
+
+    # Keep interruption handling active during snapshotting and evidence writes
+    # as well as the child wait. run_command restores these handlers on return.
+    previous = {sig: signal.signal(sig, interrupted) for sig in (signal.SIGINT, signal.SIGTERM)}
     try:
         if any(mode not in ("oracle", "harness") for mode in modes):
             shutil.copytree(PROJECT, snapshot, ignore=ignore)
@@ -201,7 +232,6 @@ def main() -> int:
             project = PROJECT if mode in ("oracle", "harness") else snapshot
             # Separate result directories prevent evidence from a preceding mode
             # from masquerading as this mode's output. Only private copies move.
-            results = snapshot / "tests/results"
             if mode not in ("oracle", "harness"):
                 results.mkdir(parents=True, exist_ok=True)
             command = command_for(mode)
@@ -209,10 +239,16 @@ def main() -> int:
             record = {"mode": mode, "started_utc": utc_now(), "head": head,
                       "cwd": "<PROJECT>", "command": shlex.join([
                           "<PYTHON>" if arg == sys.executable else arg for arg in command]),
-                      "inputs": source_hashes(project), "output": target.relative_to(PROJECT).as_posix()}
+                      "output": target.relative_to(PROJECT).as_posix(), "state": "running"}
+            active = record
+            record["inputs"] = source_hashes(project)
             print(mode + ": started " + record["started_utc"], flush=True)
             rc = run_command(command, project, env, raw_log)
             record.update(finished_utc=utc_now(), command_exit=rc, exit=rc)
+            if rc < 0 or rc in (130, 143):
+                preserve = True
+                rc = 128 - rc if rc < 0 else rc
+                record.update(exit=rc, state="interrupted", scratch_preserved=True)
             (target / "transcript.txt").write_text(public_text(raw_log.read_text(), work))
             if rc == 0 and mode not in ("oracle", "harness"):
                 try:
@@ -231,17 +267,21 @@ def main() -> int:
             dumps = core_dumps(work)
             record["core_dumps"] = [{"file": path.relative_to(work).as_posix(), "bytes": path.stat().st_size}
                                     for path in dumps]
-            preserve = bool(dumps)
-            if preserve:
+            record["core_scan_scope"] = CORE_SCAN_SCOPE
+            preserve = preserve or bool(dumps)
+            if dumps:
                 rc = rc or 2
                 record["exit"] = rc
                 record["core_investigation_required"] = True
-                print("Core dump found; private scratch retained for investigation: " + str(work), file=sys.stderr)
+            if record["state"] != "interrupted":
+                record["state"] = "completed"
             (target / "verification.json").write_text(json.dumps(record, indent=2) + "\n")
             records.append(record)
+            active = None
+            raw_log = None
             print(mode + ": exit " + str(rc) + "; " + record["output"], flush=True)
             if rc:
-                result = rc if rc in (75, 78, 79) else 1
+                result = rc if rc in (75, 78, 79) or record["state"] == "interrupted" else 1
                 # A refusal or a core dump must not fall through to another job.
                 if rc in (75, 78, 79) or preserve:
                     break
@@ -250,13 +290,58 @@ def main() -> int:
                    "records": records}
         (destination / "verification.json").write_text(json.dumps(summary, indent=2) + "\n")
         return result
+    except BaseException as exc:
+        # Set this before any persistence work: even an error while copying a
+        # partial report must leave the original private files recoverable.
+        preserve = True
+        status = (exc.code if isinstance(exc, SystemExit) and isinstance(exc.code, int) else
+                  130 if isinstance(exc, KeyboardInterrupt) else 1)
+        try:
+            if active is None:
+                target = available_target(destination, "initialization")
+                active = {"mode": args.mode, "started_utc": started, "head": head,
+                          "output": target.relative_to(PROJECT).as_posix()}
+            active.setdefault("command_exit", None)
+            active.update(finished_utc=utc_now(), exit=status, scratch_preserved=True,
+                          state="interrupted" if isinstance(exc, (SystemExit, KeyboardInterrupt)) else "error",
+                          error=public_text(type(exc).__name__ + ": " + str(exc), work).strip())
+            transcript = raw_log.read_text(errors="replace") if raw_log is not None and raw_log.is_file() else "NOT STARTED\n"
+            (target / "transcript.txt").write_text(public_text(transcript, work))
+            try:
+                active["evidence"] = copy_evidence(results, target / "results", work)
+            except Exception as copy_error:
+                active["evidence_copy_error"] = public_text(str(copy_error), work).strip()
+                active["evidence"] = [path.relative_to(target / "results").as_posix()
+                                      for path in sorted((target / "results").rglob("*")) if path.is_file()]
+            active["core_dumps"] = [{"file": path.relative_to(work).as_posix(), "bytes": path.stat().st_size}
+                                    for path in core_dumps(work)]
+            active["core_scan_scope"] = CORE_SCAN_SCOPE
+            (target / "verification.json").write_text(json.dumps(active, indent=2) + "\n")
+            if not any(record is active for record in records):
+                records.append(active)
+            summary = {"created_utc": utc_now(), "head": head, "requested_mode": args.mode,
+                       "passed": False, "exit": status, "records": records}
+            (destination / "verification.json").write_text(json.dumps(summary, indent=2) + "\n")
+        except Exception as persistence_error:
+            # A full filesystem must not replace an interrupted command's status.
+            print("Could not finish public evidence persistence; private scratch remains: " +
+                  public_text(str(persistence_error), work).strip(), file=sys.stderr)
+        # Preserve the existing signal exit status and unexpected-error behavior.
+        raise
     finally:
-        dumps = core_dumps(work)
+        try:
+            dumps = core_dumps(work)
+        except OSError:
+            dumps = []
+            preserve = True
         if dumps:
             preserve = True
-            print("Core dump found; private scratch retained for investigation: " + str(work), file=sys.stderr)
-        if not preserve:
+        if preserve:
+            print("Private validation scratch retained for investigation: " + str(work), file=sys.stderr)
+        else:
             shutil.rmtree(work)
+        for sig, handler in previous.items():
+            signal.signal(sig, handler)
 
 
 if __name__ == "__main__":

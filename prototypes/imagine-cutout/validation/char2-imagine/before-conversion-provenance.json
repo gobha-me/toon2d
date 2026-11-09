@@ -1,0 +1,719 @@
+{
+  "timestamp_utc": "2026-11-09T20:10:09.813047+00:00",
+  "description": "Actual inherited procedural kit before Imagine texture preparation; provenance only, no Godot render",
+  "result": {
+    "name": "Imagine source provenance and flagged scripted fallbacks",
+    "passed": false,
+    "errors": [
+      {
+        "case_id": "provenance/part/hip_backing/classification",
+        "error": "part must use one of the four disclosed source classes"
+      },
+      {
+        "case_id": "provenance/part/hip_backing/flag",
+        "error": "scripted_fallback must explicitly match the classification"
+      },
+      {
+        "case_id": "provenance/part/hip_backing/metadata/classification",
+        "error": "derived sidecar differs from declared classification"
+      },
+      {
+        "case_id": "provenance/part/hip_backing/metadata/scripted_fallback",
+        "error": "derived sidecar differs from declared scripted_fallback"
+      },
+      {
+        "case_id": "provenance/part/hip_backing/metadata/output_sha256",
+        "error": "derived sidecar differs from declared output_sha256"
+      },
+      {
+        "case_id": "provenance/part/hip_backing/metadata/license",
+        "error": "derived sidecar differs from declared license"
+      },
+      {
+        "case_id": "provenance/part/hip_backing/metadata/credit",
+        "error": "derived sidecar differs from declared credit"
+      },
+      {
+        "case_id": "provenance/part/hip_backing/metadata/rights",
+        "error": "derived sidecar differs from declared rights"
+      },
+      {
+        "case_id": "provenance/part/hip_backing/derivation",
+        "error": "derived sidecar must describe the scripted split/merge/matte or fallback"
+      },
+      {
+        "case_id": "provenance/part/hip_backing/sources",
+        "error": "imagine_sources must list authenticated source file/hash records"
+      },
+      {
+        "case_id": "provenance/part/left_arm/classification",
+        "error": "part must use one of the four disclosed source classes"
+      },
+      {
+        "case_id": "provenance/part/left_arm/slot-class",
+        "error": "slot classification differs from the reviewed source map"
+      },
+      {
+        "case_id": "provenance/part/left_arm/flag",
+        "error": "scripted_fallback must explicitly match the classification"
+      },
+      {
+        "case_id": "provenance/part/left_arm/metadata/classification",
+        "error": "derived sidecar differs from declared classification"
+      },
+      {
+        "case_id": "provenance/part/left_arm/metadata/scripted_fallback",
+        "error": "derived sidecar differs from declared scripted_fallback"
+      },
+      {
+        "case_id": "provenance/part/left_arm/metadata/output_sha256",
+        "error": "derived sidecar differs from declared output_sha256"
+      },
+      {
+        "case_id": "provenance/part/left_arm/metadata/license",
+        "error": "derived sidecar differs from declared license"
+      },
+      {
+        "case_id": "provenance/part/left_arm/metadata/credit",
+        "error": "derived sidecar differs from declared credit"
+      },
+      {
+        "case_id": "provenance/part/left_arm/metadata/rights",
+        "error": "derived sidecar differs from declared rights"
+      },
+      {
+        "case_id": "provenance/part/left_arm/derivation",
+        "error": "derived sidecar must describe the scripted split/merge/matte or fallback"
+      },
+      {
+        "case_id": "provenance/part/left_arm/sources",
+        "error": "imagine_sources must list authenticated source file/hash records"
+      },
+      {
+        "case_id": "provenance/part/left_fore/classification",
+        "error": "part must use one of the four disclosed source classes"
+      },
+      {
+        "case_id": "provenance/part/left_fore/slot-class",
+        "error": "slot classification differs from the reviewed source map"
+      },
+      {
+        "case_id": "provenance/part/left_fore/flag",
+        "error": "scripted_fallback must explicitly match the classification"
+      },
+      {
+        "case_id": "provenance/part/left_fore/metadata/classification",
+        "error": "derived sidecar differs from declared classification"
+      },
+      {
+        "case_id": "provenance/part/left_fore/metadata/scripted_fallback",
+        "error": "derived sidecar differs from declared scripted_fallback"
+      },
+      {
+        "case_id": "provenance/part/left_fore/metadata/output_sha256",
+        "error": "derived sidecar differs from declared output_sha256"
+      },
+      {
+        "case_id": "provenance/part/left_fore/metadata/license",
+        "error": "derived sidecar differs from declared license"
+      },
+      {
+        "case_id": "provenance/part/left_fore/metadata/credit",
+        "error": "derived sidecar differs from declared credit"
+      },
+      {
+        "case_id": "provenance/part/left_fore/metadata/rights",
+        "error": "derived sidecar differs from declared rights"
+      },
+      {
+        "case_id": "provenance/part/left_fore/derivation",
+        "error": "derived sidecar must describe the scripted split/merge/matte or fallback"
+      },
+      {
+        "case_id": "provenance/part/left_fore/sources",
+        "error": "imagine_sources must list authenticated source file/hash records"
+      },
+      {
+        "case_id": "provenance/part/left_hand/classification",
+        "error": "part must use one of the four disclosed source classes"
+      },
+      {
+        "case_id": "provenance/part/left_hand/slot-class",
+        "error": "slot classification differs from the reviewed source map"
+      },
+      {
+        "case_id": "provenance/part/left_hand/flag",
+        "error": "scripted_fallback must explicitly match the classification"
+      },
+      {
+        "case_id": "provenance/part/left_hand/metadata/classification",
+        "error": "derived sidecar differs from declared classification"
+      },
+      {
+        "case_id": "provenance/part/left_hand/metadata/scripted_fallback",
+        "error": "derived sidecar differs from declared scripted_fallback"
+      },
+      {
+        "case_id": "provenance/part/left_hand/metadata/output_sha256",
+        "error": "derived sidecar differs from declared output_sha256"
+      },
+      {
+        "case_id": "provenance/part/left_hand/metadata/license",
+        "error": "derived sidecar differs from declared license"
+      },
+      {
+        "case_id": "provenance/part/left_hand/metadata/credit",
+        "error": "derived sidecar differs from declared credit"
+      },
+      {
+        "case_id": "provenance/part/left_hand/metadata/rights",
+        "error": "derived sidecar differs from declared rights"
+      },
+      {
+        "case_id": "provenance/part/left_hand/derivation",
+        "error": "derived sidecar must describe the scripted split/merge/matte or fallback"
+      },
+      {
+        "case_id": "provenance/part/left_hand/sources",
+        "error": "imagine_sources must list authenticated source file/hash records"
+      },
+      {
+        "case_id": "provenance/part/leg_left/classification",
+        "error": "part must use one of the four disclosed source classes"
+      },
+      {
+        "case_id": "provenance/part/leg_left/slot-class",
+        "error": "slot classification differs from the reviewed source map"
+      },
+      {
+        "case_id": "provenance/part/leg_left/flag",
+        "error": "scripted_fallback must explicitly match the classification"
+      },
+      {
+        "case_id": "provenance/part/leg_left/metadata/classification",
+        "error": "derived sidecar differs from declared classification"
+      },
+      {
+        "case_id": "provenance/part/leg_left/metadata/scripted_fallback",
+        "error": "derived sidecar differs from declared scripted_fallback"
+      },
+      {
+        "case_id": "provenance/part/leg_left/metadata/output_sha256",
+        "error": "derived sidecar differs from declared output_sha256"
+      },
+      {
+        "case_id": "provenance/part/leg_left/metadata/license",
+        "error": "derived sidecar differs from declared license"
+      },
+      {
+        "case_id": "provenance/part/leg_left/metadata/credit",
+        "error": "derived sidecar differs from declared credit"
+      },
+      {
+        "case_id": "provenance/part/leg_left/metadata/rights",
+        "error": "derived sidecar differs from declared rights"
+      },
+      {
+        "case_id": "provenance/part/leg_left/derivation",
+        "error": "derived sidecar must describe the scripted split/merge/matte or fallback"
+      },
+      {
+        "case_id": "provenance/part/leg_left/sources",
+        "error": "imagine_sources must list authenticated source file/hash records"
+      },
+      {
+        "case_id": "provenance/part/shin_left/classification",
+        "error": "part must use one of the four disclosed source classes"
+      },
+      {
+        "case_id": "provenance/part/shin_left/slot-class",
+        "error": "slot classification differs from the reviewed source map"
+      },
+      {
+        "case_id": "provenance/part/shin_left/flag",
+        "error": "scripted_fallback must explicitly match the classification"
+      },
+      {
+        "case_id": "provenance/part/shin_left/metadata/classification",
+        "error": "derived sidecar differs from declared classification"
+      },
+      {
+        "case_id": "provenance/part/shin_left/metadata/scripted_fallback",
+        "error": "derived sidecar differs from declared scripted_fallback"
+      },
+      {
+        "case_id": "provenance/part/shin_left/metadata/output_sha256",
+        "error": "derived sidecar differs from declared output_sha256"
+      },
+      {
+        "case_id": "provenance/part/shin_left/metadata/license",
+        "error": "derived sidecar differs from declared license"
+      },
+      {
+        "case_id": "provenance/part/shin_left/metadata/credit",
+        "error": "derived sidecar differs from declared credit"
+      },
+      {
+        "case_id": "provenance/part/shin_left/metadata/rights",
+        "error": "derived sidecar differs from declared rights"
+      },
+      {
+        "case_id": "provenance/part/shin_left/derivation",
+        "error": "derived sidecar must describe the scripted split/merge/matte or fallback"
+      },
+      {
+        "case_id": "provenance/part/shin_left/sources",
+        "error": "imagine_sources must list authenticated source file/hash records"
+      },
+      {
+        "case_id": "provenance/part/leg_right/classification",
+        "error": "part must use one of the four disclosed source classes"
+      },
+      {
+        "case_id": "provenance/part/leg_right/slot-class",
+        "error": "slot classification differs from the reviewed source map"
+      },
+      {
+        "case_id": "provenance/part/leg_right/flag",
+        "error": "scripted_fallback must explicitly match the classification"
+      },
+      {
+        "case_id": "provenance/part/leg_right/metadata/classification",
+        "error": "derived sidecar differs from declared classification"
+      },
+      {
+        "case_id": "provenance/part/leg_right/metadata/scripted_fallback",
+        "error": "derived sidecar differs from declared scripted_fallback"
+      },
+      {
+        "case_id": "provenance/part/leg_right/metadata/output_sha256",
+        "error": "derived sidecar differs from declared output_sha256"
+      },
+      {
+        "case_id": "provenance/part/leg_right/metadata/license",
+        "error": "derived sidecar differs from declared license"
+      },
+      {
+        "case_id": "provenance/part/leg_right/metadata/credit",
+        "error": "derived sidecar differs from declared credit"
+      },
+      {
+        "case_id": "provenance/part/leg_right/metadata/rights",
+        "error": "derived sidecar differs from declared rights"
+      },
+      {
+        "case_id": "provenance/part/leg_right/derivation",
+        "error": "derived sidecar must describe the scripted split/merge/matte or fallback"
+      },
+      {
+        "case_id": "provenance/part/leg_right/sources",
+        "error": "imagine_sources must list authenticated source file/hash records"
+      },
+      {
+        "case_id": "provenance/part/shin_right/classification",
+        "error": "part must use one of the four disclosed source classes"
+      },
+      {
+        "case_id": "provenance/part/shin_right/slot-class",
+        "error": "slot classification differs from the reviewed source map"
+      },
+      {
+        "case_id": "provenance/part/shin_right/flag",
+        "error": "scripted_fallback must explicitly match the classification"
+      },
+      {
+        "case_id": "provenance/part/shin_right/metadata/classification",
+        "error": "derived sidecar differs from declared classification"
+      },
+      {
+        "case_id": "provenance/part/shin_right/metadata/scripted_fallback",
+        "error": "derived sidecar differs from declared scripted_fallback"
+      },
+      {
+        "case_id": "provenance/part/shin_right/metadata/output_sha256",
+        "error": "derived sidecar differs from declared output_sha256"
+      },
+      {
+        "case_id": "provenance/part/shin_right/metadata/license",
+        "error": "derived sidecar differs from declared license"
+      },
+      {
+        "case_id": "provenance/part/shin_right/metadata/credit",
+        "error": "derived sidecar differs from declared credit"
+      },
+      {
+        "case_id": "provenance/part/shin_right/metadata/rights",
+        "error": "derived sidecar differs from declared rights"
+      },
+      {
+        "case_id": "provenance/part/shin_right/derivation",
+        "error": "derived sidecar must describe the scripted split/merge/matte or fallback"
+      },
+      {
+        "case_id": "provenance/part/shin_right/sources",
+        "error": "imagine_sources must list authenticated source file/hash records"
+      },
+      {
+        "case_id": "provenance/part/boot_left/classification",
+        "error": "part must use one of the four disclosed source classes"
+      },
+      {
+        "case_id": "provenance/part/boot_left/slot-class",
+        "error": "slot classification differs from the reviewed source map"
+      },
+      {
+        "case_id": "provenance/part/boot_left/flag",
+        "error": "scripted_fallback must explicitly match the classification"
+      },
+      {
+        "case_id": "provenance/part/boot_left/metadata/classification",
+        "error": "derived sidecar differs from declared classification"
+      },
+      {
+        "case_id": "provenance/part/boot_left/metadata/scripted_fallback",
+        "error": "derived sidecar differs from declared scripted_fallback"
+      },
+      {
+        "case_id": "provenance/part/boot_left/metadata/output_sha256",
+        "error": "derived sidecar differs from declared output_sha256"
+      },
+      {
+        "case_id": "provenance/part/boot_left/metadata/license",
+        "error": "derived sidecar differs from declared license"
+      },
+      {
+        "case_id": "provenance/part/boot_left/metadata/credit",
+        "error": "derived sidecar differs from declared credit"
+      },
+      {
+        "case_id": "provenance/part/boot_left/metadata/rights",
+        "error": "derived sidecar differs from declared rights"
+      },
+      {
+        "case_id": "provenance/part/boot_left/derivation",
+        "error": "derived sidecar must describe the scripted split/merge/matte or fallback"
+      },
+      {
+        "case_id": "provenance/part/boot_left/sources",
+        "error": "imagine_sources must list authenticated source file/hash records"
+      },
+      {
+        "case_id": "provenance/part/boot_right/classification",
+        "error": "part must use one of the four disclosed source classes"
+      },
+      {
+        "case_id": "provenance/part/boot_right/slot-class",
+        "error": "slot classification differs from the reviewed source map"
+      },
+      {
+        "case_id": "provenance/part/boot_right/flag",
+        "error": "scripted_fallback must explicitly match the classification"
+      },
+      {
+        "case_id": "provenance/part/boot_right/metadata/classification",
+        "error": "derived sidecar differs from declared classification"
+      },
+      {
+        "case_id": "provenance/part/boot_right/metadata/scripted_fallback",
+        "error": "derived sidecar differs from declared scripted_fallback"
+      },
+      {
+        "case_id": "provenance/part/boot_right/metadata/output_sha256",
+        "error": "derived sidecar differs from declared output_sha256"
+      },
+      {
+        "case_id": "provenance/part/boot_right/metadata/license",
+        "error": "derived sidecar differs from declared license"
+      },
+      {
+        "case_id": "provenance/part/boot_right/metadata/credit",
+        "error": "derived sidecar differs from declared credit"
+      },
+      {
+        "case_id": "provenance/part/boot_right/metadata/rights",
+        "error": "derived sidecar differs from declared rights"
+      },
+      {
+        "case_id": "provenance/part/boot_right/derivation",
+        "error": "derived sidecar must describe the scripted split/merge/matte or fallback"
+      },
+      {
+        "case_id": "provenance/part/boot_right/sources",
+        "error": "imagine_sources must list authenticated source file/hash records"
+      },
+      {
+        "case_id": "provenance/part/torso/classification",
+        "error": "part must use one of the four disclosed source classes"
+      },
+      {
+        "case_id": "provenance/part/torso/flag",
+        "error": "scripted_fallback must explicitly match the classification"
+      },
+      {
+        "case_id": "provenance/part/torso/metadata/classification",
+        "error": "derived sidecar differs from declared classification"
+      },
+      {
+        "case_id": "provenance/part/torso/metadata/scripted_fallback",
+        "error": "derived sidecar differs from declared scripted_fallback"
+      },
+      {
+        "case_id": "provenance/part/torso/metadata/output_sha256",
+        "error": "derived sidecar differs from declared output_sha256"
+      },
+      {
+        "case_id": "provenance/part/torso/metadata/license",
+        "error": "derived sidecar differs from declared license"
+      },
+      {
+        "case_id": "provenance/part/torso/metadata/credit",
+        "error": "derived sidecar differs from declared credit"
+      },
+      {
+        "case_id": "provenance/part/torso/metadata/rights",
+        "error": "derived sidecar differs from declared rights"
+      },
+      {
+        "case_id": "provenance/part/torso/derivation",
+        "error": "derived sidecar must describe the scripted split/merge/matte or fallback"
+      },
+      {
+        "case_id": "provenance/part/torso/sources",
+        "error": "imagine_sources must list authenticated source file/hash records"
+      },
+      {
+        "case_id": "provenance/part/head/classification",
+        "error": "part must use one of the four disclosed source classes"
+      },
+      {
+        "case_id": "provenance/part/head/slot-class",
+        "error": "slot classification differs from the reviewed source map"
+      },
+      {
+        "case_id": "provenance/part/head/flag",
+        "error": "scripted_fallback must explicitly match the classification"
+      },
+      {
+        "case_id": "provenance/part/head/metadata/classification",
+        "error": "derived sidecar differs from declared classification"
+      },
+      {
+        "case_id": "provenance/part/head/metadata/scripted_fallback",
+        "error": "derived sidecar differs from declared scripted_fallback"
+      },
+      {
+        "case_id": "provenance/part/head/metadata/output_sha256",
+        "error": "derived sidecar differs from declared output_sha256"
+      },
+      {
+        "case_id": "provenance/part/head/metadata/license",
+        "error": "derived sidecar differs from declared license"
+      },
+      {
+        "case_id": "provenance/part/head/metadata/credit",
+        "error": "derived sidecar differs from declared credit"
+      },
+      {
+        "case_id": "provenance/part/head/metadata/rights",
+        "error": "derived sidecar differs from declared rights"
+      },
+      {
+        "case_id": "provenance/part/head/derivation",
+        "error": "derived sidecar must describe the scripted split/merge/matte or fallback"
+      },
+      {
+        "case_id": "provenance/part/head/sources",
+        "error": "imagine_sources must list authenticated source file/hash records"
+      },
+      {
+        "case_id": "provenance/part/right_upper/classification",
+        "error": "part must use one of the four disclosed source classes"
+      },
+      {
+        "case_id": "provenance/part/right_upper/slot-class",
+        "error": "slot classification differs from the reviewed source map"
+      },
+      {
+        "case_id": "provenance/part/right_upper/flag",
+        "error": "scripted_fallback must explicitly match the classification"
+      },
+      {
+        "case_id": "provenance/part/right_upper/metadata/classification",
+        "error": "derived sidecar differs from declared classification"
+      },
+      {
+        "case_id": "provenance/part/right_upper/metadata/scripted_fallback",
+        "error": "derived sidecar differs from declared scripted_fallback"
+      },
+      {
+        "case_id": "provenance/part/right_upper/metadata/output_sha256",
+        "error": "derived sidecar differs from declared output_sha256"
+      },
+      {
+        "case_id": "provenance/part/right_upper/metadata/license",
+        "error": "derived sidecar differs from declared license"
+      },
+      {
+        "case_id": "provenance/part/right_upper/metadata/credit",
+        "error": "derived sidecar differs from declared credit"
+      },
+      {
+        "case_id": "provenance/part/right_upper/metadata/rights",
+        "error": "derived sidecar differs from declared rights"
+      },
+      {
+        "case_id": "provenance/part/right_upper/derivation",
+        "error": "derived sidecar must describe the scripted split/merge/matte or fallback"
+      },
+      {
+        "case_id": "provenance/part/right_upper/sources",
+        "error": "imagine_sources must list authenticated source file/hash records"
+      },
+      {
+        "case_id": "provenance/part/right_fore/classification",
+        "error": "part must use one of the four disclosed source classes"
+      },
+      {
+        "case_id": "provenance/part/right_fore/slot-class",
+        "error": "slot classification differs from the reviewed source map"
+      },
+      {
+        "case_id": "provenance/part/right_fore/flag",
+        "error": "scripted_fallback must explicitly match the classification"
+      },
+      {
+        "case_id": "provenance/part/right_fore/metadata/classification",
+        "error": "derived sidecar differs from declared classification"
+      },
+      {
+        "case_id": "provenance/part/right_fore/metadata/scripted_fallback",
+        "error": "derived sidecar differs from declared scripted_fallback"
+      },
+      {
+        "case_id": "provenance/part/right_fore/metadata/output_sha256",
+        "error": "derived sidecar differs from declared output_sha256"
+      },
+      {
+        "case_id": "provenance/part/right_fore/metadata/license",
+        "error": "derived sidecar differs from declared license"
+      },
+      {
+        "case_id": "provenance/part/right_fore/metadata/credit",
+        "error": "derived sidecar differs from declared credit"
+      },
+      {
+        "case_id": "provenance/part/right_fore/metadata/rights",
+        "error": "derived sidecar differs from declared rights"
+      },
+      {
+        "case_id": "provenance/part/right_fore/derivation",
+        "error": "derived sidecar must describe the scripted split/merge/matte or fallback"
+      },
+      {
+        "case_id": "provenance/part/right_fore/sources",
+        "error": "imagine_sources must list authenticated source file/hash records"
+      },
+      {
+        "case_id": "provenance/part/satchel/classification",
+        "error": "part must use one of the four disclosed source classes"
+      },
+      {
+        "case_id": "provenance/part/satchel/slot-class",
+        "error": "slot classification differs from the reviewed source map"
+      },
+      {
+        "case_id": "provenance/part/satchel/flag",
+        "error": "scripted_fallback must explicitly match the classification"
+      },
+      {
+        "case_id": "provenance/part/satchel/metadata/classification",
+        "error": "derived sidecar differs from declared classification"
+      },
+      {
+        "case_id": "provenance/part/satchel/metadata/scripted_fallback",
+        "error": "derived sidecar differs from declared scripted_fallback"
+      },
+      {
+        "case_id": "provenance/part/satchel/metadata/output_sha256",
+        "error": "derived sidecar differs from declared output_sha256"
+      },
+      {
+        "case_id": "provenance/part/satchel/metadata/license",
+        "error": "derived sidecar differs from declared license"
+      },
+      {
+        "case_id": "provenance/part/satchel/metadata/credit",
+        "error": "derived sidecar differs from declared credit"
+      },
+      {
+        "case_id": "provenance/part/satchel/metadata/rights",
+        "error": "derived sidecar differs from declared rights"
+      },
+      {
+        "case_id": "provenance/part/satchel/derivation",
+        "error": "derived sidecar must describe the scripted split/merge/matte or fallback"
+      },
+      {
+        "case_id": "provenance/part/satchel/sources",
+        "error": "imagine_sources must list authenticated source file/hash records"
+      },
+      {
+        "case_id": "provenance/part/right_hand/classification",
+        "error": "part must use one of the four disclosed source classes"
+      },
+      {
+        "case_id": "provenance/part/right_hand/slot-class",
+        "error": "slot classification differs from the reviewed source map"
+      },
+      {
+        "case_id": "provenance/part/right_hand/flag",
+        "error": "scripted_fallback must explicitly match the classification"
+      },
+      {
+        "case_id": "provenance/part/right_hand/metadata/classification",
+        "error": "derived sidecar differs from declared classification"
+      },
+      {
+        "case_id": "provenance/part/right_hand/metadata/scripted_fallback",
+        "error": "derived sidecar differs from declared scripted_fallback"
+      },
+      {
+        "case_id": "provenance/part/right_hand/metadata/output_sha256",
+        "error": "derived sidecar differs from declared output_sha256"
+      },
+      {
+        "case_id": "provenance/part/right_hand/metadata/license",
+        "error": "derived sidecar differs from declared license"
+      },
+      {
+        "case_id": "provenance/part/right_hand/metadata/credit",
+        "error": "derived sidecar differs from declared credit"
+      },
+      {
+        "case_id": "provenance/part/right_hand/metadata/rights",
+        "error": "derived sidecar differs from declared rights"
+      },
+      {
+        "case_id": "provenance/part/right_hand/derivation",
+        "error": "derived sidecar must describe the scripted split/merge/matte or fallback"
+      },
+      {
+        "case_id": "provenance/part/right_hand/sources",
+        "error": "imagine_sources must list authenticated source file/hash records"
+      }
+    ],
+    "slot_tally": {
+      "Segments-usable": 0,
+      "Segments-merged": 0,
+      "Segments-split": 0,
+      "SCRIPTED (flagged)": 0
+    },
+    "distinct_imagine_sources": [],
+    "required_slots": 14,
+    "expected_source_files": 15,
+    "authenticated_source_files": 15
+  },
+  "head": "e38d92ccfa827a7265b82eef7912c7c5cde2c450",
+  "subject_sha256": "4bd976a17c95f6e2300dac8344e4e3e22a6bd015cf8c60f84007493a1184445a",
+  "validator_sha256": "cffcaf7d0f86391907b56c4fcfe97e602f6afdb4acbc92cbb9e7701acf7de26a"
+}

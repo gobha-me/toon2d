@@ -10,6 +10,9 @@ judged a procedural character and does not certify this conversion.
   provenance-only observation; it starts no Godot process.
 - `oracle/` and `oracle-2/`: 23/23 independent source/oracle controls PASS.
 - `harness/` and `harness-2/`: 3/3 lifecycle/policy controls PASS.
+- `ci.json`: pushed head `d68bf956392218e2173b4410246ef19305a69596` has
+  successful existing `ci` / `test-and-lint` checks, verified read-only; this does
+  not certify character acceptance.
 - `wrapper-signal-control/`: the synthetic TERM control initially found a wait
   deadlock; the unchanged 15-second control passes after correction. It verifies
   lifecycle/persistence only and cannot certify a rig.

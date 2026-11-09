@@ -1,0 +1,50 @@
+{
+  "scope": "Read-only authoring observation of rest alpha intersection; not rendered acceptance or a mutation run",
+  "pairs": [
+    {
+      "parent": "right_upper",
+      "child": "right_fore",
+      "shared_native_alpha_pixels": 1607
+    },
+    {
+      "parent": "left_arm",
+      "child": "left_fore",
+      "shared_native_alpha_pixels": 1556
+    },
+    {
+      "parent": "right_fore",
+      "child": "right_hand",
+      "shared_native_alpha_pixels": 684
+    },
+    {
+      "parent": "left_fore",
+      "child": "left_hand",
+      "shared_native_alpha_pixels": 709
+    },
+    {
+      "parent": "leg_left",
+      "child": "shin_left",
+      "shared_native_alpha_pixels": 1980
+    },
+    {
+      "parent": "leg_right",
+      "child": "shin_right",
+      "shared_native_alpha_pixels": 1984
+    },
+    {
+      "parent": "shin_left",
+      "child": "boot_left",
+      "shared_native_alpha_pixels": 772
+    },
+    {
+      "parent": "shin_right",
+      "child": "boot_right",
+      "shared_native_alpha_pixels": 826
+    },
+    {
+      "parent": "torso",
+      "child": "head",
+      "shared_native_alpha_pixels": 261
+    }
+  ]
+}

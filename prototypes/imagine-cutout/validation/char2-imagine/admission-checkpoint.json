@@ -1,0 +1,15 @@
+{
+  "observed_utc": "2026-11-09T21:40:21.981407+00:00",
+  "scope": "Timestamped admission observation, separate from acceptance results",
+  "queued_utc": "2026-11-09T20:44:53Z",
+  "state": "waiting for shared engine mutation lock",
+  "observed_batch_log_bytes": 0,
+  "command": "HEAVY_WAIT=55 flock \"$MUTATION_LOCK\" \"$HEAVY_RUN\" -j2 bash \"$VALIDATION_BATCH\"",
+  "scheduled_modes": [
+    "provenance-mutants",
+    "legacy",
+    "body",
+    "body-mutants"
+  ],
+  "note": "All existing test deadlines, attempt limits and retry intervals remain unchanged. Completed stages are reused only for identical complete input hashes."
+}

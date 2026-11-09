@@ -34,6 +34,7 @@ function validate(rec, view) {
   if (!view || !['pixel', 'smooth'].includes(view.mode) || !Number.isFinite(view.s) || view.s <= 0) {
     throw new Error('view needs mode pixel/smooth and a finite positive scale');
   }
+  let dimensions;
   for (const name of SEGMENTS) {
     const seg = rec[name];
     if (!seg || !Array.isArray(seg.states) || seg.states.length < 2 || !Array.isArray(seg.frames)) {
@@ -47,6 +48,10 @@ function validate(rec, view) {
           s.joints.some((j) => ![j.x, j.y, j.ex, j.ey].every(Number.isFinite))) {
         throw new Error(`${name}: roots and joint coordinates must be finite`);
       }
+      const names = s.joints.map((j) => j.name);
+      if (names.some((n) => typeof n !== 'string' || !n.trim()) || new Set(names).size !== names.length) {
+        throw new Error(`${name}: joint names must be nonempty and unique in each snapshot`);
+      }
     }
     for (const f of seg.frames) {
       const im = f.img;
@@ -54,7 +59,8 @@ function validate(rec, view) {
           im.w * im.h > 1_000_000 || !(im.data instanceof Uint8Array) || im.data.length !== im.w * im.h * 4) {
         throw new Error(`${name}: invalid RGBA image`);
       }
-      if (im.w !== seg.frames[0].img.w || im.h !== seg.frames[0].img.h) throw new Error(`${name}: inconsistent image dimensions`);
+      dimensions ??= { w: im.w, h: im.h };
+      if (im.w !== dimensions.w || im.h !== dimensions.h) throw new Error(`${name}: inconsistent image dimensions`);
     }
   }
 }
@@ -108,7 +114,7 @@ function analyzeSilhouette(rec) {
 function motion(rec, height) {
   const st = rec.run.states;
   // Skip the first 12 ticks of acceleration. Endpoints stay relative to the root.
-  const names = st[0].joints.filter((j) => j.name !== 'hip').map((j) => j.name);
+  const names = [...new Set(st.flatMap((s) => s.joints.filter((j) => j.name !== 'hip').map((j) => j.name)))];
   const acceleration = [];
   const jitter = [];
   const spans = [];

@@ -202,10 +202,13 @@ function anticipation(rec, height) {
   const deep = heights.length && heights.every((h) => Number.isFinite(h)) ? Math.min(...heights) : null;
   const depth = height > 0 && deep !== null ? (height - deep) / height : null;
   const ticks = window.length;
+  const flight = launch >= 0 && land > launch ? states.slice(launch, land) : [];
+  const airborne = flight.filter((s) => s.grounded === false).length;
+  const completeFlight = airborne > 0 && airborne === flight.length && states[land]?.grounded === true;
   const pass = depth !== null && depth >= VISUAL_LIMITS.crouchDepth && ticks >= VISUAL_LIMITS.crouchTicksMin &&
-    ticks <= VISUAL_LIMITS.crouchTicksMax && window.every((s) => s.grounded) && land > launch;
-  return signal('anticipation', pass, 'Grounded jump-squat depth and duration before an observed launch and landing.',
-    { depth_fraction: rounded(depth), crouch_ticks: ticks, launch_tick: launch, land_tick: land },
+    ticks <= VISUAL_LIMITS.crouchTicksMax && window.every((s) => s.grounded) && completeFlight;
+  return signal('anticipation', pass, 'Grounded jump-squat depth and duration, followed by observed airborne flight and a grounded landing.',
+    { depth_fraction: rounded(depth), crouch_ticks: ticks, launch_tick: launch, land_tick: land, airborne_ticks: airborne },
     [...new Set([Math.max(0, crouch - 1), crouch, deep === null ? -1 : crouch + heights.indexOf(deep), launch, land])]
       .filter((i) => i >= 0).map((i) => cite('jump', i)));
 }

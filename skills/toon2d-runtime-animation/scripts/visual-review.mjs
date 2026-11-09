@@ -154,30 +154,34 @@ function motion(rec, height) {
   const worstSpacing = [...perJoint].sort((a, b) => b.p95 - a.p95)[0];
   const worstJitter = [...perJoint].sort((a, b) => b.jitter - a.jitter)[0];
   const p95 = worstSpacing?.p95 ?? null;
-  const maximum = acceleration.length ? Math.max(...acceleration.map((a) => a.value)) : null;
+  const peak = [...acceleration].sort((a, b) => b.value - a.value)[0];
+  const maximum = peak?.value ?? null;
   const span = spans.length ? Math.max(...spans) : null;
   const fraction = worstJitter?.jitter ?? null;
   const hasMotion = complete && span >= VISUAL_LIMITS.motionSpan;
+  const spacingBone = maximum > VISUAL_LIMITS.accelerationMax ? peak?.joint : worstSpacing?.name;
+  const spacingEvidence = acceleration.filter((a) => a.joint === spacingBone);
   const neighbors = (samples) => {
     // Two local triplets expose spacing and reversals instead of isolated stills.
     const selected = [];
     const seen = new Set();
     for (const sample of samples) {
       if (selected.length >= 6) break;
-      for (const tick of [sample.tick - 1, sample.tick, sample.tick + 1]) {
-        if (seen.has(tick)) continue;
+      const ticks = [sample.tick - 1, sample.tick, sample.tick + 1];
+      if (ticks.some((tick) => seen.has(tick))) continue;
+      for (const tick of ticks) {
         seen.add(tick);
         selected.push({ ...cite('run', tick), joint: sample.joint });
       }
     }
-    return selected.slice(0, 6).length ? selected.slice(0, 6) : [cite('run', 0)];
+    return selected.length ? selected : [cite('run', 0)];
   };
   return [
     signal('spacing', hasMotion && p95 !== null && p95 <= VISUAL_LIMITS.accelerationP95 && maximum <= VISUAL_LIMITS.accelerationMax,
       'Worst-joint 95th-percentile and maximum endpoint acceleration in standing hip-heights/tick²; root-relative, run ticks 12 onward.',
-      { acceleration_p95: rounded(p95), acceleration_max: rounded(maximum), worst_joint: worstSpacing?.name ?? null,
+      { acceleration_p95: rounded(p95), acceleration_max: rounded(maximum), worst_joint: worstSpacing?.name ?? null, max_joint: peak?.joint ?? null,
         max_motion_span: rounded(span), samples: acceleration.length, complete },
-      neighbors(acceleration.sort((a, b) => b.value - a.value))),
+      neighbors(spacingEvidence.sort((a, b) => b.value - a.value))),
     signal('jitter', hasMotion && fraction !== null && fraction <= VISUAL_LIMITS.jitterFraction,
       hasMotion ? 'Worst-joint fraction of significant endpoint steps immediately reversing by more than 120°; deliberate impacts can warn.'
         : 'Insufficient moving geometry to assess jitter; inspect missing bones, standing height or a frozen run.',

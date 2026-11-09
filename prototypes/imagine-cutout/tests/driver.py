@@ -51,10 +51,10 @@ def public_log(text: str) -> str:
                      if not line.startswith("heavy-run: holding slot")) + "\n"
 
 
-def overlap_inputs() -> tuple[Path, Path, list[str]]:
+def overlap_inputs(src: Path | None = None) -> tuple[Path, Path, list[str]]:
     """Resolve the packaged tool; source exports are optional, never invented."""
     tool = PROTOTYPE / "tools" / "prep_parts.py"
-    candidates = (PROTOTYPE / "src", REPO / "src")
+    candidates = (src,) if src is not None else (PROTOTYPE / "src", REPO / "src")
     source = next((p for p in candidates if (p / "parts" / "raw-hd").is_dir()), candidates[0])
     missing = []
     if not tool.is_file():
@@ -245,7 +245,7 @@ def asset_hashes(project: Path) -> dict[str, str]:
             for path in paths}
 
 
-def mutants() -> bool:
+def mutants(src: Path | None = None) -> bool:
     phase("mutants", "start")
     baseline = suite(PROTOTYPE, TEMP / "baseline.json", announce=False)
     baseline_joints = {(j["mode"], j["joint"], j["limit"]): j for j in baseline["joints"]}
@@ -260,7 +260,7 @@ def mutants() -> bool:
         if kind == "overlap":
             guard()
             before_hashes = asset_hashes(project)
-            tool, source, missing = overlap_inputs()
+            tool, source, missing = overlap_inputs(src)
             if missing:
                 reason = "; ".join(missing)
                 report.append({"mutant": name, "kind": kind, "status": "SKIPPED",
@@ -328,6 +328,8 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("mode", choices=("suite", "mutants", "body", "body-mutants", "all-mutants", "oracle"))
     parser.add_argument("--output", type=Path, default=PROTOTYPE / "tests" / "results" / "real.json")
+    parser.add_argument("--src", type=Path,
+                        help="Segments src tree containing parts/raw-hd (mutants and all-mutants)")
     args = parser.parse_args()
     guard()
     if args.mode == "oracle":
@@ -337,7 +339,7 @@ def main() -> int:
                                     for case in (GapOracleControls, PoseCoverageControls))
         return 0 if unittest.TextTestRunner(verbosity=2).run(checks).wasSuccessful() else 1
     if args.mode in ("mutants", "all-mutants"):
-        legacy_passed = mutants()
+        legacy_passed = mutants(args.src)
         if args.mode == "mutants":
             return 0 if legacy_passed else 1
         from body_driver import body_mutants

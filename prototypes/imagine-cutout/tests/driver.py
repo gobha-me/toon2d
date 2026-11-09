@@ -86,7 +86,8 @@ def public_log(text: str) -> str:
     for path, label in ((str(TEMP), "<TMPDIR>"), (str(REPO), "<REPO>"),
                         (sys.executable, "<PYTHON>")):
         text = text.replace(path, label)
-    return "\n".join(line for line in text.splitlines()
+    return "\n".join(re.sub(r"^(slot[12] BUSY)\s+.*", r"\1 <other guarded job>", line)
+                     for line in text.splitlines()
                      if not line.startswith("heavy-run: holding slot")) + "\n"
 
 
@@ -118,7 +119,10 @@ def heavy(command: list[str], cwd: Path, log: Path) -> None:
             print("DEFERRED: 23:40 ET attempt cutoff reached (79)", flush=True)
             raise SystemExit(79)
         env = dict(os.environ, HEAVY_WAIT="30")
-        process = subprocess.Popen(["heavy-run", *command], cwd=cwd, env=env,
+        heavy_program = shutil.which("heavy-run")
+        if heavy_program is None:
+            raise RuntimeError("heavy-run is required; refusing an unguarded command")
+        process = subprocess.Popen([str(Path(heavy_program).resolve()), *command], cwd=cwd, env=env,
                                    stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                                    text=True, start_new_session=True)
         def stop_child(signum, frame):
@@ -450,8 +454,10 @@ def main() -> int:
     if args.mode == "oracle":
         import unittest
         from test_body_oracle import GapOracleControls, PoseCoverageControls, CharacterManifestControls
+        from test_imagine_provenance import ImagineProvenanceControls
         checks = unittest.TestSuite(unittest.defaultTestLoader.loadTestsFromTestCase(case)
-                                    for case in (GapOracleControls, PoseCoverageControls, CharacterManifestControls))
+                                    for case in (GapOracleControls, PoseCoverageControls, CharacterManifestControls,
+                                                 ImagineProvenanceControls))
         return 0 if unittest.TextTestRunner(verbosity=2).run(checks).wasSuccessful() else 1
     if args.mode in ("mutants", "all-mutants"):
         legacy_passed = mutants(args.character)

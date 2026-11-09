@@ -93,7 +93,8 @@
         "knee_right",
         "boot_left",
         "boot_right"
-      ]
+      ],
+      "imagine_contract": "tests/data/characters/char2/imagine_contract.json"
     }
   }
 }

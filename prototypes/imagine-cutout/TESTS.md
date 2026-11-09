@@ -715,3 +715,87 @@ its real lock contains that PID. Existing desktop resources remained unchanged.
 No assertions or timing budgets changed. This evidence review ran no tests or
 heavy commands; sanitized logs and controller-verdict hashes are retained beside
 the report. Any controller completion or review gate is recorded separately.
+
+## Issue 18: authenticated Imagine inputs and provenance acceptance
+
+The chosen source is post `be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8`. All 15 chosen outputs (one base JPEG and 14 Segments PNGs) and their sidecars are committed under [imagine-source](characters/char2/imagine-source/README.md). Their SHA-256 values match the supplied checksum list. The provenance README records all three used calls, the unintended alternate Segments run, and the approximate times for calls 2 and 3. No generation call remains and no generator was invoked.
+
+The new test-owned [source contract](tests/data/characters/char2/imagine_contract.json) pins every chosen output hash and the verbatim call metadata. `imagine_provenance.py` adds a separate `provenance` acceptance group to the existing char2 body suite. It checks source bytes and sidecars, slot-to-source links, derived texture hashes, licence/credit, and explicit scripted fallback flags. All additional declared torso, hair and backing parts must also disclose provenance. The light controls also require the source files and sidecars to be tracked in Git.
+
+These are declared-provenance checks. They do not prove a claimed algorithm produced particular pixels, certify visual quality, or replace the existing real-scene completeness/gap/facing observers. In particular the supplied head faces front: the unchanged facing test measures the frozen sprite-axis convention and held-prop transforms, not a visibly established sideways gaze.
+
+### Reviewed slot map
+
+The issue-18 convention calls a scripted split from either a Segments export **or the Imagine base image** `Segments-split`. A wholly scripted part with no Imagine-derived input must instead be `SCRIPTED (flagged)`. The gloves must be merged with base-image fingers; jacket sleeves and paired leg layers are not pre-separated limbs. Left/right below use the frozen rig names: left hand is image-right.
+
+| Slot | Part | Classification | Required authenticated sources |
+|---|---|---|---|
+| head_face | `head` | Segments-split | `call1-base-best.jpg` |
+| upper_arm_left | `left_arm` | Segments-split | `seg-be6a-teal-cropped-jacket.png` |
+| lower_arm_left | `left_fore` | Segments-split | `call1-base-best.jpg` |
+| hand_left | `left_hand` | Segments-merged | `call1-base-best.jpg`, `seg-be6a-black-fingerless-gloves-2.png` |
+| upper_arm_right | `right_upper` | Segments-split | `seg-be6a-teal-cropped-jacket.png` |
+| lower_arm_right | `right_fore` | Segments-split | `call1-base-best.jpg` |
+| hand_right | `right_hand` | Segments-merged | `call1-base-best.jpg`, `seg-be6a-black-fingerless-gloves-1.png` |
+| upper_leg_left | `leg_left` | Segments-merged | `seg-be6a-black-shorts.png`, `seg-be6a-gray-leggings.png` |
+| lower_leg_left | `shin_left` | Segments-split | `seg-be6a-gray-leggings.png` |
+| foot_left | `boot_left` | Segments-split | `call1-base-best.jpg` |
+| upper_leg_right | `leg_right` | Segments-merged | `seg-be6a-black-shorts.png`, `seg-be6a-gray-leggings.png` |
+| lower_leg_right | `shin_right` | Segments-split | `seg-be6a-gray-leggings.png` |
+| foot_right | `boot_right` | Segments-split | `call1-base-best.jpg` |
+| held_prop_satchel | `satchel` | SCRIPTED (flagged) | None; explicit scripted fallback reason required |
+
+Planned required-slot tally, in the same form as #17: **0 usable + 4 merged + 9 split = 13 Imagine-derived required slots**, from **6 distinct required source files**; **1 SCRIPTED (flagged) fallback**. This includes base-image derivations and does not claim 13 direct Segments limbs. Hair, torso and other backing parts are outside the 14 required slots and get a separate declaration check. The current rig is absent, so its **observed slot tally is zero**, not the planned tally.
+
+The existing 512 x 768 rig canvas, all 15 pivots, joint parents, limits, overlaps, tolerances, N=200, seed=20261031 and 650-pose order/values remain frozen. The source image is 1408 x 1408; implementation must describe its coordinate mapping. Manifest text now describes the supplied red-haired courier and the absent satchel rather than the earlier provisional stocky design.
+
+### Runtime part/sidecar interface
+
+Each `characters/char2/parts.json` part retains the existing geometry/texture fields and adds `classification` and Boolean `scripted_fallback`. Required-slot classifications and source sets are frozen in the map above. Optional extra Imagine sources may be listed; required sources may not be omitted. A scripted part also has a nonempty `fallback_reason`.
+
+Each derived `texture_hd` is a PNG below `characters/char2/`, outside `imagine-source/`, with a sibling `<stem>.gen.json`. The sidecar includes the same classification and fallback flag, the output file SHA-256 as `output_sha256`, a nonempty `derived_from` description of the split/merge/matte, and the existing source licence/credit/rights strings. `imagine_sources` is a list of `{"file": "call1-base-best.jpg", "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"}` records (file names only). Each record must match a committed source and its authenticated sidecar. `Segments-usable` requires one call-2 Segments output; `Segments-merged` requires at least two disclosed inputs. A wholly scripted fallback has `imagine_sources: []` and the same `fallback_reason` in both records.
+
+Unsafe relative paths and symlinks escaping the declared directories fail before reading the selected artifact. No credential location is used in controls. Source files remain unmodified. The wrapper still records its spawned Xvfb PID immediately and terminates/waits for exactly that child on EXIT; scratch now lives under the caller-provided private `TMPDIR`.
+
+### Planted provenance mutants and rendered rig mutants
+
+`run_imagine_mutants.py --fixture` plants twelve independent regressions into disposable provenance-only control subjects made from the committed inputs. The control is explicitly labelled **NOT rig acceptance**; its small derivative textures are never committed or supplied as a character rig. Each kill requires its specific newly failing case, with a green control. Missing baseline, zero mutants, CANNOT_PLANT or a surviving mutant returns failure.
+
+| Mutant | Planted regression | Required rejection |
+|---|---|---|
+| i | Remove base source | source image |
+| j | Remove source sidecar | source sidecar |
+| k | Change source bytes | authenticated source hash |
+| l | Drop approximate-time flag | approximate timestamp disclosure |
+| m | Remove derived sidecar | derived sidecar |
+| n | Erase head source trace | required Imagine inputs |
+| o | Clear scripted satchel flag | explicit fallback flag |
+| p | Replace Imagine head with scripted fallback | reviewed slot class |
+| q | Remove head declaration | required head slot |
+| r | Add unclassified backing | all-part provenance |
+| s | Change runtime texture bytes | output hash |
+| t | Invent a recorded prompt | verbatim source prompt |
+
+The existing rendered char2 mutants remain **e missing head sprite, f flipped head, g removed knee, h zero physical elbow overlap**. They are evaluated against the real rig, never the provenance fixture. The char2 runner now requires **4/4 KILLED**; an absent rig or CANNOT_PLANT does not count as success. Trenchcoat historical skip policy is unchanged. Every planted mutant must be killed; existing baseline reds are never counted as a kill. The actual-source provenance run (without `--fixture`) similarly returns failure until its baseline is green.
+
+### Commands and current observations
+
+From the repository root, with a private `TMPDIR` and Python/Pillow/NumPy available:
+
+```bash
+TEST_PYTHON=python3 prototypes/imagine-cutout/tests/runner.sh oracle --character char2
+python3 prototypes/imagine-cutout/tests/test_harness_policy.py
+TEST_PYTHON=python3 prototypes/imagine-cutout/tests/run_body_tests.sh --character char2
+```
+
+The last command currently takes only the missing-input path and starts no Godot process. Run it under the required heavy guard once a rig exists. Run each mutation command under the shared mutation lock and absolute heavy wrapper, with two workers:
+
+```bash
+python3 prototypes/imagine-cutout/tests/run_imagine_mutants.py --fixture --output prototypes/imagine-cutout/tests/results/char2-imagine/provenance-fixture-mutants.json
+python3 prototypes/imagine-cutout/tests/run_imagine_mutants.py --output prototypes/imagine-cutout/tests/results/char2-imagine/provenance-mutants.json
+TEST_PYTHON=python3 prototypes/imagine-cutout/tests/runner.sh body-mutants --character char2
+```
+
+Light verification: **23/23 oracle/source controls PASS** and **3/3 harness policy/lifecycle controls PASS**. The real char2 acceptance run returns **1 (expected RED)**: manifest passes; provenance rejects missing `characters/char2/parts.json` and all 14 missing slot declarations; completeness, per-joint, combined and facing reject missing `scenes/char2.tscn` and `characters/char2/parts.json`. It captures zero poses and fabricates no rasters. Source authentication itself is green.
+
+Existing test edits and reasons: `body_driver.py` adds provenance to acceptance and tightens char2 mutation success from allowed CANNOT_PLANT to four required kills; `driver.py` includes the new provenance controls in the existing oracle entrypoint and resolves the heavy executable to an absolute path; `runner.sh` uses the caller-provided private temporary root. No existing numerical or geometry assertion is deleted, no timeout/deadline changes, and no production rig, tool or CI change is included.

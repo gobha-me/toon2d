@@ -1,0 +1,41 @@
+{
+  "scope": "Existing GitHub CI only; not char2 legacy, body, provenance or mutant acceptance.",
+  "repository": "gobha-me/toon2d",
+  "pull_request": 29,
+  "head": "d68bf956392218e2173b4410246ef19305a69596",
+  "verified_utc": "2026-11-09T21:14:08Z",
+  "verification_read_only": true,
+  "workflow": {
+    "id": 42695434679,
+    "name": "ci",
+    "url": "https://github.com/gobha-me/toon2d/actions/runs/42695434679",
+    "event": "pull_request",
+    "attempt": 1,
+    "status": "completed",
+    "conclusion": "success",
+    "run_started_at": "2026-11-09T20:41:57Z",
+    "created_at": "2026-11-09T20:41:57Z",
+    "updated_at": "2026-11-09T20:42:38Z",
+    "timing_note": "The workflow API reports updated_at, not a separate completion timestamp. Job completion below is reported directly."
+  },
+  "job": {
+    "id": 129425910930,
+    "name": "test-and-lint",
+    "url": "https://github.com/gobha-me/toon2d/actions/runs/42695434679/job/129425910930",
+    "status": "completed",
+    "conclusion": "success",
+    "started_at": "2026-11-09T20:42:20Z",
+    "completed_at": "2026-11-09T20:42:37Z",
+    "steps": {
+      "Install": "success",
+      "Lint": "success",
+      "Test": "success"
+    }
+  },
+  "head_inventory": {
+    "workflow_runs": 1,
+    "check_runs": 1,
+    "legacy_commit_statuses": 0
+  },
+  "method": "Connected GitHub reads, supplemented by GET-only GitHub API reads for complete head inventory and reported timestamps. No workflows were started or rerun; no statuses, CI configuration or settings were changed."
+}

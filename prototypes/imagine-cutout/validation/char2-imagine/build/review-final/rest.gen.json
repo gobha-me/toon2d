@@ -1,0 +1,193 @@
+{
+  "tool": "Godot scripted scene capture",
+  "model": "no generative model used; source model not disclosed",
+  "date": "2026-11-09T20:39:17.731802Z",
+  "date_source": "scripted artifact creation time UTC",
+  "source": "prototypes/imagine-cutout/scripts/capture_v2.gd",
+  "license": "CC0 1.0",
+  "credit": "Generated with Grok Imagine (SpaceXAI); scripted derivation where stated",
+  "rights": "Original fictional art only; no real-person likeness.",
+  "description": "Unretouched Imagine courier review pose: rest",
+  "output_sha256": "cd00010a257ffc17d657816de627427326f553c540597aad379d86859438803a",
+  "pose": "rest",
+  "artifact_kind": "rendered assembly",
+  "derived_from": "Godot capture of scenes/char2.tscn; textures declared in characters/char2/parts.json; Imagine-derived cutouts plus the explicitly listed scripted fallback parts.",
+  "imagine_sources": [
+    {
+      "file": "call1-base-best.jpg",
+      "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
+    },
+    {
+      "file": "seg-be6a-black-fingerless-gloves-1.png",
+      "sha256": "e025fbdac73f9d49457bdeee719e0f9b624cf2e703f5b8188abe78f0672b2d76"
+    },
+    {
+      "file": "seg-be6a-black-fingerless-gloves-2.png",
+      "sha256": "39cd9a3cabacf5f36cddd9adbe7473de3ca55729cd45eeb9cc23e99dd4ec1c50"
+    },
+    {
+      "file": "seg-be6a-black-shorts.png",
+      "sha256": "4b9ca939c6ba004b5a568220f49a4ae7b633bebd3715558ba6c8549740e87c2e"
+    },
+    {
+      "file": "seg-be6a-gray-leggings.png",
+      "sha256": "81cb16c6055b844919accf9b9e14d17d1853ab6a28163c2e982e555661441a3d"
+    },
+    {
+      "file": "seg-be6a-teal-cropped-jacket.png",
+      "sha256": "975ae1b378e11ca1cd1f3ce26a74b4714a4357ceaa4ef52955f3d7627d98f416"
+    }
+  ],
+  "source_posts": [
+    {
+      "post_id": "be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8",
+      "post_url": "https://grok.com/imagine/post/be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8"
+    }
+  ],
+  "rendered_parts": [
+    {
+      "part": "hip_backing",
+      "texture": "characters/char2/parts/hip_backing.png",
+      "sha256": "d47e18f4ca796ffd124fa237a5053764cb22dc9f7ee6f43ea5677ab37a10f55e",
+      "classification": "Segments-split",
+      "scripted_fallback": false
+    },
+    {
+      "part": "left_arm",
+      "texture": "characters/char2/parts/left_arm.png",
+      "sha256": "14482737dd15e9587b0b59e883f410d84eb91f474313023befa64a176bbae69b",
+      "classification": "Segments-split",
+      "scripted_fallback": false
+    },
+    {
+      "part": "left_fore",
+      "texture": "characters/char2/parts/left_fore.png",
+      "sha256": "9447d272801d089a3d3a208474c10c4fef93caffc11d452467fdae187522590a",
+      "classification": "Segments-split",
+      "scripted_fallback": false
+    },
+    {
+      "part": "left_hand",
+      "texture": "characters/char2/parts/left_hand.png",
+      "sha256": "153b45d388697bf35957074c369031f18907e9655311b860d968db9fa728fd8f",
+      "classification": "Segments-merged",
+      "scripted_fallback": false
+    },
+    {
+      "part": "leg_left",
+      "texture": "characters/char2/parts/leg_left.png",
+      "sha256": "101e0119fe57c16f57d7294515cda5f763ca8b0323c2385888a818e142a9d463",
+      "classification": "Segments-merged",
+      "scripted_fallback": false
+    },
+    {
+      "part": "shin_left",
+      "texture": "characters/char2/parts/shin_left.png",
+      "sha256": "f971806e056e4cfdc0a4543646a1cab463bd550e3456183a2e80f1a4a8617975",
+      "classification": "Segments-split",
+      "scripted_fallback": false
+    },
+    {
+      "part": "leg_right",
+      "texture": "characters/char2/parts/leg_right.png",
+      "sha256": "62382b42c7460ac6c39272b9f94ca5768359da7ba612f00be970c21ed2cb7e4d",
+      "classification": "Segments-merged",
+      "scripted_fallback": false
+    },
+    {
+      "part": "shin_right",
+      "texture": "characters/char2/parts/shin_right.png",
+      "sha256": "922969fd1b7eb219e19de1dbca27d1df2059adf7b7d1996b1ee90966857d1708",
+      "classification": "Segments-split",
+      "scripted_fallback": false
+    },
+    {
+      "part": "boot_left",
+      "texture": "characters/char2/parts/boot_left.png",
+      "sha256": "631cc869531a48181e6431c4a4ac75583e9dca5aa3e9de7f194160f7d360611f",
+      "classification": "Segments-split",
+      "scripted_fallback": false
+    },
+    {
+      "part": "boot_right",
+      "texture": "characters/char2/parts/boot_right.png",
+      "sha256": "ecbdadf1f041a371ce6d1ec45f5f94d99d7e0d0a217dc0574f6b0b0444e03b7d",
+      "classification": "Segments-split",
+      "scripted_fallback": false
+    },
+    {
+      "part": "torso",
+      "texture": "characters/char2/parts/torso.png",
+      "sha256": "8f98b7b880d04c16dcdd0c35a9412e1e482f1c03f1682bc38c2477a7ee194880",
+      "classification": "Segments-merged",
+      "scripted_fallback": false
+    },
+    {
+      "part": "head",
+      "texture": "characters/char2/parts/head.png",
+      "sha256": "8817fab32f4719cc7a7f7149edd20a3ef330eb62bc1c8d9e204cd7151f8b7772",
+      "classification": "Segments-split",
+      "scripted_fallback": false
+    },
+    {
+      "part": "right_upper",
+      "texture": "characters/char2/parts/right_upper.png",
+      "sha256": "8050de7f3407b5f5c25a3ef6b50ff68b9a43d2d214761f669121e187478c8b03",
+      "classification": "Segments-split",
+      "scripted_fallback": false
+    },
+    {
+      "part": "right_fore",
+      "texture": "characters/char2/parts/right_fore.png",
+      "sha256": "d84b20b5054ea10d4e69ed66ca7c5a1f64799ca36d6c6062fdf6cf2a8fd4cfad",
+      "classification": "Segments-split",
+      "scripted_fallback": false
+    },
+    {
+      "part": "satchel",
+      "texture": "characters/char2/parts/satchel.png",
+      "sha256": "c5b3918022e19f93c6d2ef45f41e6af72a6c6ba19d006968bce06858fe384888",
+      "classification": "SCRIPTED (flagged)",
+      "scripted_fallback": true,
+      "fallback_reason": "The supplied Imagine base has no held prop and neither Segments run supplied a satchel. All three allowed calls were already used; this rigid satchel is a wholly scripted fallback."
+    },
+    {
+      "part": "right_hand",
+      "texture": "characters/char2/parts/right_hand.png",
+      "sha256": "14c80124ad4ad2691b0ad02b0198796ce3950e09cf94a9f7c7ce50deb279d050",
+      "classification": "Segments-merged",
+      "scripted_fallback": false
+    }
+  ],
+  "scripted_fallback_parts": [
+    "satchel"
+  ],
+  "scripted_effects": [
+    {
+      "name": "MuzzleFlash",
+      "description": "Existing procedural compatibility-clip flash effect; tracked separately from body-part slots."
+    }
+  ],
+  "inputs": {
+    "scene": {
+      "file": "scenes/char2.tscn",
+      "sha256": "7ee11427db59dc083f50c24be62f067e8d11e4de5b64bf6f71e79337763e50de"
+    },
+    "subject": {
+      "file": "characters/char2/parts.json",
+      "sha256": "bdba97a7d610799a8e65679380bb4b63de8a1cf928ce6061aebabb26fa115f84"
+    },
+    "manifest": {
+      "file": "tests/data/characters/char2/body_parts.yml",
+      "sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4"
+    },
+    "capture_script": {
+      "file": "scripts/capture_v2.gd",
+      "sha256": "0d7fa66fc14ae7d5b1ad8971cbc5300b93f69bf2f1e9268f2a3d1fc8a513dcea"
+    },
+    "flash_script": {
+      "file": "scripts/muzzle_flash.gd",
+      "sha256": "4a330dcf39fc48ba2c1ee85334047cee023cf785c52568e5c01e2767a61e535d"
+    }
+  }
+}

@@ -290,24 +290,14 @@
         400
       ],
       "offset": [
-        -91,
-        -60
+        -84,
+        -23
       ],
       "bbox": [
-        165,
+        172,
+        377,
         340,
-        348,
-        476
-      ],
-      "source_bbox": [
-        165,
-        340,
-        348,
-        476
-      ],
-      "source_to_rig_translation": [
-        0,
-        0
+        458
       ],
       "texture_hd": "characters/char2/parts/hip_backing.png",
       "z_order": 0,
@@ -317,8 +307,9 @@
         4
       ],
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
-      "classification": "scripted original",
-      "derived_from": "procedural torso and pelvis backing"
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of seg-be6a-black-shorts.png; composited in listed order; no joint dilation."
     },
     {
       "id": "left_arm",
@@ -329,24 +320,14 @@
         250
       ],
       "offset": [
-        -36,
-        -36
+        -28,
+        -30
       ],
       "bbox": [
-        294,
-        214,
+        302,
+        220,
         369,
-        365
-      ],
-      "source_bbox": [
-        294,
-        214,
-        369,
-        365
-      ],
-      "source_to_rig_translation": [
-        0,
-        0
+        357
       ],
       "texture_hd": "characters/char2/parts/left_arm.png",
       "z_order": 3,
@@ -356,8 +337,9 @@
         35
       ],
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
-      "classification": "scripted original",
-      "derived_from": "far teal sleeve capsule; proximal round backing and manifest dilation"
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of seg-be6a-teal-cropped-jacket.png; composited in listed order; uniform source-interior material elliptical proximal cap radii [16, 18]px and joint-only 12px dilation."
     },
     {
       "id": "left_fore",
@@ -368,24 +350,14 @@
         340
       ],
       "offset": [
-        -36,
-        -36
+        -24,
+        -30
       ],
       "bbox": [
-        308,
-        304,
-        381,
-        455
-      ],
-      "source_bbox": [
-        308,
-        304,
-        381,
-        455
-      ],
-      "source_to_rig_translation": [
-        0,
-        0
+        320,
+        310,
+        371,
+        438
       ],
       "texture_hd": "characters/char2/parts/left_fore.png",
       "z_order": 3,
@@ -395,8 +367,9 @@
         45
       ],
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
-      "classification": "scripted original",
-      "derived_from": "far teal forearm capsule and cuff; proximal backing and manifest dilation"
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; uniform source-interior material elliptical proximal cap radii [12, 18]px and joint-only 12px dilation."
     },
     {
       "id": "left_hand",
@@ -407,24 +380,14 @@
         430
       ],
       "offset": [
-        -36,
-        -36
+        -22,
+        -24
       ],
       "bbox": [
-        316,
-        394,
-        389,
-        470
-      ],
-      "source_bbox": [
-        316,
-        394,
-        389,
-        470
-      ],
-      "source_to_rig_translation": [
-        0,
-        0
+        330,
+        406,
+        386,
+        487
       ],
       "texture_hd": "characters/char2/parts/left_hand.png",
       "z_order": 4,
@@ -434,8 +397,9 @@
         12
       ],
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
-      "classification": "scripted original",
-      "derived_from": "far mitten with thumb; proximal backing and manifest dilation"
+      "classification": "Segments-merged",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg, seg-be6a-black-fingerless-gloves-2.png; composited in listed order; uniform source-interior material elliptical proximal cap radii [10, 12]px and joint-only 12px dilation."
     },
     {
       "id": "leg_left",
@@ -446,24 +410,14 @@
         420
       ],
       "offset": [
-        -40,
-        -40
+        -38,
+        -32
       ],
       "bbox": [
-        176,
-        380,
-        257,
-        579
-      ],
-      "source_bbox": [
-        176,
-        380,
-        257,
-        579
-      ],
-      "source_to_rig_translation": [
-        0,
-        0
+        178,
+        388,
+        256,
+        577
       ],
       "texture_hd": "characters/char2/parts/leg_left.png",
       "z_order": 5,
@@ -473,8 +427,9 @@
         10
       ],
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
-      "classification": "scripted original",
-      "derived_from": "navy trouser capsule; proximal backing and manifest dilation"
+      "classification": "Segments-merged",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of seg-be6a-black-shorts.png, seg-be6a-gray-leggings.png; composited in listed order; uniform source-interior material elliptical proximal cap radii [20, 20]px and joint-only 12px dilation."
     },
     {
       "id": "shin_left",
@@ -485,24 +440,14 @@
         550
       ],
       "offset": [
-        -40,
-        -40
+        -31,
+        -30
       ],
       "bbox": [
-        176,
-        510,
-        257,
-        709
-      ],
-      "source_bbox": [
-        176,
-        510,
-        257,
-        709
-      ],
-      "source_to_rig_translation": [
-        0,
-        0
+        185,
+        520,
+        243,
+        691
       ],
       "texture_hd": "characters/char2/parts/shin_left.png",
       "z_order": 5,
@@ -512,8 +457,9 @@
         60
       ],
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
-      "classification": "scripted original",
-      "derived_from": "navy trouser calf capsule; proximal backing and manifest dilation"
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of seg-be6a-gray-leggings.png; composited in listed order; uniform source-interior material elliptical proximal cap radii [14, 18]px and joint-only 12px dilation."
     },
     {
       "id": "leg_right",
@@ -524,24 +470,14 @@
         420
       ],
       "offset": [
-        -40,
-        -40
+        -39,
+        -32
       ],
       "bbox": [
-        256,
-        380,
-        337,
-        579
-      ],
-      "source_bbox": [
-        256,
-        380,
-        337,
-        579
-      ],
-      "source_to_rig_translation": [
-        0,
-        0
+        257,
+        388,
+        334,
+        578
       ],
       "texture_hd": "characters/char2/parts/leg_right.png",
       "z_order": 5,
@@ -551,8 +487,9 @@
         10
       ],
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
-      "classification": "scripted original",
-      "derived_from": "navy trouser capsule; proximal backing and manifest dilation"
+      "classification": "Segments-merged",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of seg-be6a-black-shorts.png, seg-be6a-gray-leggings.png; composited in listed order; uniform source-interior material elliptical proximal cap radii [20, 20]px and joint-only 12px dilation."
     },
     {
       "id": "shin_right",
@@ -563,24 +500,14 @@
         550
       ],
       "offset": [
-        -40,
-        -40
+        -26,
+        -30
       ],
       "bbox": [
-        256,
-        510,
-        337,
-        709
-      ],
-      "source_bbox": [
-        256,
-        510,
-        337,
-        709
-      ],
-      "source_to_rig_translation": [
-        0,
-        0
+        270,
+        520,
+        325,
+        690
       ],
       "texture_hd": "characters/char2/parts/shin_right.png",
       "z_order": 5,
@@ -590,8 +517,9 @@
         60
       ],
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
-      "classification": "scripted original",
-      "derived_from": "navy trouser calf capsule; proximal backing and manifest dilation"
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of seg-be6a-gray-leggings.png; composited in listed order; uniform source-interior material elliptical proximal cap radii [14, 18]px and joint-only 12px dilation."
     },
     {
       "id": "boot_left",
@@ -602,24 +530,14 @@
         680
       ],
       "offset": [
-        -36,
-        -36
+        -35,
+        -26
       ],
       "bbox": [
-        180,
-        644,
-        269,
-        725
-      ],
-      "source_bbox": [
-        180,
-        644,
-        269,
-        725
-      ],
-      "source_to_rig_translation": [
-        0,
-        0
+        181,
+        654,
+        248,
+        747
       ],
       "texture_hd": "characters/char2/parts/boot_left.png",
       "z_order": 6,
@@ -629,8 +547,9 @@
         8
       ],
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
-      "classification": "scripted original",
-      "derived_from": "right-pointing leather boot and sole; ankle backing and manifest dilation"
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; uniform source-interior material elliptical proximal cap radii [12, 14]px and joint-only 12px dilation."
     },
     {
       "id": "boot_right",
@@ -641,24 +560,14 @@
         680
       ],
       "offset": [
-        -36,
-        -36
+        -32,
+        -26
       ],
       "bbox": [
-        260,
-        644,
-        349,
-        725
-      ],
-      "source_bbox": [
-        260,
-        644,
-        349,
-        725
-      ],
-      "source_to_rig_translation": [
-        0,
-        0
+        264,
+        654,
+        331,
+        747
       ],
       "texture_hd": "characters/char2/parts/boot_right.png",
       "z_order": 6,
@@ -668,8 +577,9 @@
         8
       ],
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
-      "classification": "scripted original",
-      "derived_from": "right-pointing leather boot and sole; ankle backing and manifest dilation"
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; uniform source-interior material elliptical proximal cap radii [12, 14]px and joint-only 12px dilation."
     },
     {
       "id": "torso",
@@ -680,24 +590,14 @@
         240
       ],
       "offset": [
-        -92,
-        -48
+        -80,
+        -63
       ],
       "bbox": [
-        164,
-        192,
-        349,
-        431
-      ],
-      "source_bbox": [
-        164,
-        192,
-        349,
-        431
-      ],
-      "source_to_rig_translation": [
-        0,
-        0
+        176,
+        177,
+        341,
+        423
       ],
       "texture_hd": "characters/char2/parts/torso.png",
       "z_order": 8,
@@ -707,8 +607,9 @@
         6
       ],
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
-      "classification": "scripted original",
-      "derived_from": "procedural torso and pelvis backing"
+      "classification": "Segments-merged",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg, seg-be6a-teal-cropped-jacket.png; composited in listed order; no joint dilation."
     },
     {
       "id": "head",
@@ -719,24 +620,14 @@
         160
       ],
       "offset": [
-        -49,
-        -111
+        -59,
+        -116
       ],
       "bbox": [
-        207,
-        49,
+        197,
+        44,
         316,
         197
-      ],
-      "source_bbox": [
-        207,
-        49,
-        316,
-        197
-      ],
-      "source_to_rig_translation": [
-        0,
-        0
       ],
       "texture_hd": "characters/char2/parts/head.png",
       "z_order": 12,
@@ -746,8 +637,9 @@
         10
       ],
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
-      "classification": "scripted original",
-      "derived_from": "profile face, nose, ear, hair and courier cap; rounded neck backing"
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; uniform source-interior material elliptical proximal cap radii [8, 24]px and joint-only 12px dilation."
     },
     {
       "id": "right_upper",
@@ -758,24 +650,14 @@
         250
       ],
       "offset": [
-        -38,
-        -36
+        -41,
+        -30
       ],
       "bbox": [
-        144,
-        214,
-        219,
-        365
-      ],
-      "source_bbox": [
-        144,
-        214,
-        219,
-        365
-      ],
-      "source_to_rig_translation": [
-        0,
-        0
+        141,
+        220,
+        211,
+        358
       ],
       "texture_hd": "characters/char2/parts/right_upper.png",
       "z_order": 14,
@@ -785,8 +667,9 @@
         35
       ],
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
-      "classification": "scripted original",
-      "derived_from": "near teal sleeve capsule; proximal round backing and manifest dilation"
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of seg-be6a-teal-cropped-jacket.png; composited in listed order; uniform source-interior material elliptical proximal cap radii [16, 18]px and joint-only 12px dilation."
     },
     {
       "id": "right_fore",
@@ -797,24 +680,14 @@
         340
       ],
       "offset": [
-        -36,
-        -36
+        -24,
+        -30
       ],
       "bbox": [
-        132,
-        304,
-        205,
-        455
-      ],
-      "source_bbox": [
-        132,
-        304,
-        205,
-        455
-      ],
-      "source_to_rig_translation": [
-        0,
-        0
+        144,
+        310,
+        193,
+        436
       ],
       "texture_hd": "characters/char2/parts/right_fore.png",
       "z_order": 14,
@@ -824,8 +697,9 @@
         45
       ],
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
-      "classification": "scripted original",
-      "derived_from": "near teal forearm capsule and cuff; proximal backing and manifest dilation"
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; uniform source-interior material elliptical proximal cap radii [12, 18]px and joint-only 12px dilation."
     },
     {
       "id": "satchel",
@@ -845,16 +719,6 @@
         257,
         535
       ],
-      "source_bbox": [
-        144,
-        422,
-        257,
-        535
-      ],
-      "source_to_rig_translation": [
-        0,
-        0
-      ],
       "texture_hd": "characters/char2/parts/satchel.png",
       "z_order": 16,
       "joint_overlap_px": 0,
@@ -863,8 +727,10 @@
         12
       ],
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
-      "classification": "scripted original",
-      "derived_from": "ochre satchel, flap, buckle and handle; rigid undilated prop"
+      "classification": "SCRIPTED (flagged)",
+      "scripted_fallback": true,
+      "derived_from": "Wholly scripted satchel, flap, buckle and handle; no Imagine pixels.",
+      "fallback_reason": "The supplied Imagine base has no held prop and neither Segments run supplied a satchel. All three allowed calls were already used; this rigid satchel is a wholly scripted fallback."
     },
     {
       "id": "right_hand",
@@ -875,24 +741,14 @@
         430
       ],
       "offset": [
-        -36,
-        -36
+        -33,
+        -24
       ],
       "bbox": [
-        124,
-        394,
-        197,
-        470
-      ],
-      "source_bbox": [
-        124,
-        394,
-        197,
-        470
-      ],
-      "source_to_rig_translation": [
-        0,
-        0
+        127,
+        406,
+        183,
+        487
       ],
       "texture_hd": "characters/char2/parts/right_hand.png",
       "z_order": 18,
@@ -902,8 +758,9 @@
         12
       ],
       "source": "prototypes/imagine-cutout/tools/prep_char2.py",
-      "classification": "scripted original",
-      "derived_from": "near gripping mitten; proximal backing and manifest dilation"
+      "classification": "Segments-merged",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg, seg-be6a-black-fingerless-gloves-1.png; composited in listed order; uniform source-interior material elliptical proximal cap radii [10, 12]px and joint-only 12px dilation."
     }
   ]
 }

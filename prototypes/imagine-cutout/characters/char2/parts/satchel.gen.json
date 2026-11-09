@@ -1,10 +1,27 @@
 {
-  "tool": "Python/Pillow/OpenCV procedural cutout authoring",
-  "model": "none (scripted)",
-  "date": "2026-11-01T15:17:33.491488Z",
+  "tool": "Python/Pillow/OpenCV scripted derivation from Grok Imagine (SpaceXAI)",
+  "model": "no generative model used; source model not disclosed",
+  "date": "2026-11-09T20:39:10.154307Z",
+  "date_source": "scripted artifact creation time UTC",
   "source": "prototypes/imagine-cutout/tools/prep_char2.py",
-  "prompt": "not applicable (scripted)",
-  "image_sha256": "c5b3918022e19f93c6d2ef45f41e6af72a6c6ba19d006968bce06858fe384888",
-  "license": "CC0-1.0",
-  "description": "Original fictional courier; scripted shapes only"
+  "license": "CC0 1.0",
+  "credit": "Generated with Grok Imagine (SpaceXAI); scripted derivation where stated",
+  "rights": "Original fictional art only; no real-person likeness.",
+  "description": "Derived fictional courier part: satchel",
+  "output_sha256": "c5b3918022e19f93c6d2ef45f41e6af72a6c6ba19d006968bce06858fe384888",
+  "tool_sha256": "56f3577e9a57910350df831fe9ac0e4a338f008685031cf8d5e14e9eb23feacd",
+  "manifest_sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4",
+  "classification": "SCRIPTED (flagged)",
+  "scripted_fallback": true,
+  "derived_from": "Wholly scripted satchel, flap, buckle and handle; no Imagine pixels.",
+  "imagine_sources": [],
+  "operations": [
+    {
+      "operation": "scripted rounded rectangles; texture grip (16,8)"
+    }
+  ],
+  "joint_completion_added_pixels": 0,
+  "backing_material": null,
+  "joint_cap_radii_px": null,
+  "fallback_reason": "The supplied Imagine base has no held prop and neither Segments run supplied a satchel. All three allowed calls were already used; this rigid satchel is a wholly scripted fallback."
 }

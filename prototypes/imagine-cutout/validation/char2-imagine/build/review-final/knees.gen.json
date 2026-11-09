@@ -1,14 +1,14 @@
 {
   "tool": "Godot scripted scene capture",
   "model": "no generative model used; source model not disclosed",
-  "date": "2026-11-09T22:34:14.406230Z",
+  "date": "2026-11-09T22:53:25.793953Z",
   "date_source": "scripted artifact creation time UTC",
   "source": "prototypes/imagine-cutout/scripts/capture_v2.gd",
   "license": "CC0 1.0",
   "credit": "Generated with Grok Imagine (SpaceXAI); scripted derivation where stated",
   "rights": "Original fictional art only; no real-person likeness.",
   "description": "Unretouched Imagine courier review pose: knees",
-  "output_sha256": "a87da654827a87f7db52d1dce27202549f2061aa9377f3564ba3bdfc18afc983",
+  "output_sha256": "dd51613ea99733120811f8c6afb3d5ba2bfa7074aaffc9bd314cf9da75084be6",
   "pose": "knees",
   "artifact_kind": "rendered assembly",
   "derived_from": "Godot capture of scenes/char2.tscn; textures declared in characters/char2/parts.json; Imagine-derived cutouts plus the explicitly listed scripted fallback parts.",
@@ -53,27 +53,6 @@
       "scripted_fallback": false
     },
     {
-      "part": "left_arm",
-      "texture": "characters/char2/parts/left_arm.png",
-      "sha256": "4748da6f530a5f5a60a983ad6bf15366bbc254f739efc430202b6d3aa2fb43c4",
-      "classification": "Segments-split",
-      "scripted_fallback": false
-    },
-    {
-      "part": "left_fore",
-      "texture": "characters/char2/parts/left_fore.png",
-      "sha256": "cdc54fbae0cf2d5f1dea89bb3204e7743502bcd304536ae08c77a9974b5302dd",
-      "classification": "Segments-split",
-      "scripted_fallback": false
-    },
-    {
-      "part": "left_hand",
-      "texture": "characters/char2/parts/left_hand.png",
-      "sha256": "c4a5a5d4ae222a44a41547b214db345aaa242538fdf8cfde64d71c5bf6b950f6",
-      "classification": "Segments-merged",
-      "scripted_fallback": false
-    },
-    {
       "part": "leg_left",
       "texture": "characters/char2/parts/leg_left.png",
       "sha256": "101e0119fe57c16f57d7294515cda5f763ca8b0323c2385888a818e142a9d463",
@@ -83,7 +62,7 @@
     {
       "part": "shin_left",
       "texture": "characters/char2/parts/shin_left.png",
-      "sha256": "f971806e056e4cfdc0a4543646a1cab463bd550e3456183a2e80f1a4a8617975",
+      "sha256": "6e6d79ec620a78b44fd1be9b656825be1d6f19562c22f0fa0a6a45db1317ca1b",
       "classification": "Segments-split",
       "scripted_fallback": false
     },
@@ -97,28 +76,49 @@
     {
       "part": "shin_right",
       "texture": "characters/char2/parts/shin_right.png",
-      "sha256": "922969fd1b7eb219e19de1dbca27d1df2059adf7b7d1996b1ee90966857d1708",
+      "sha256": "18cb0f12f2bbf0fcfa1ddd6fa1d6a4bd8ac863f91b1b5ae93b3d31a3741c7cc3",
       "classification": "Segments-split",
       "scripted_fallback": false
     },
     {
       "part": "boot_left",
       "texture": "characters/char2/parts/boot_left.png",
-      "sha256": "703ffad8f0b1d2316897ceffaa58af3c2b757cf6754e8c8473c4b6b43b7123c3",
+      "sha256": "1e9cfe9c3b23c08b5527be4e5e83c8ff224b16dc0f94318f944b62ae5e344e89",
       "classification": "Segments-split",
       "scripted_fallback": false
     },
     {
       "part": "boot_right",
       "texture": "characters/char2/parts/boot_right.png",
-      "sha256": "c32646c738e503a1f302756dcad2cf5dece179a125fc37a666c3091d5f64cf03",
+      "sha256": "aa4417d8220619253305b8b6e17eb5cb15bc90ea975c98a6a2f1ba3121ab2e2c",
       "classification": "Segments-split",
       "scripted_fallback": false
     },
     {
       "part": "torso",
       "texture": "characters/char2/parts/torso.png",
-      "sha256": "8f98b7b880d04c16dcdd0c35a9412e1e482f1c03f1682bc38c2477a7ee194880",
+      "sha256": "c94a23b86931800fc0d24b746fee236d4aa226df337ad09afc3463e85cf6eb0f",
+      "classification": "Segments-merged",
+      "scripted_fallback": false
+    },
+    {
+      "part": "left_arm",
+      "texture": "characters/char2/parts/left_arm.png",
+      "sha256": "d06f33dbdcdd2094823e946c234f4463f08763873569cc6d9b9778fda9ab14fb",
+      "classification": "Segments-split",
+      "scripted_fallback": false
+    },
+    {
+      "part": "left_fore",
+      "texture": "characters/char2/parts/left_fore.png",
+      "sha256": "627161b6bdcb347240c20f7ee64bcf8063d84b10b04d2a50b3a159eb37d188bc",
+      "classification": "Segments-split",
+      "scripted_fallback": false
+    },
+    {
+      "part": "left_hand",
+      "texture": "characters/char2/parts/left_hand.png",
+      "sha256": "a5eccfae731f0a6a9ff399550d963bc11e53fb2783c9eb8c5bedddf3a39fdb77",
       "classification": "Segments-merged",
       "scripted_fallback": false
     },
@@ -132,14 +132,14 @@
     {
       "part": "right_upper",
       "texture": "characters/char2/parts/right_upper.png",
-      "sha256": "038849f77a5f8369c6ab4c9fcb85faa4afb2bd9b5cd3260feafcfcebeebb437f",
+      "sha256": "e9d1ce92f7fe009ad007d5d8b652ff9e0e90919133369cffded8515e58476492",
       "classification": "Segments-split",
       "scripted_fallback": false
     },
     {
       "part": "right_fore",
       "texture": "characters/char2/parts/right_fore.png",
-      "sha256": "e5a58e40990b05038fa903d1438d6d5c64541a09134a056065a9c4f00a3d934d",
+      "sha256": "1221b020967256ba8b738199071a13a00c15aca7cd6d6bd99f8e6bc44499adc6",
       "classification": "Segments-split",
       "scripted_fallback": false
     },
@@ -154,7 +154,7 @@
     {
       "part": "right_hand",
       "texture": "characters/char2/parts/right_hand.png",
-      "sha256": "1835dd87829f2519fdc02fdca07efd32b2b8182469e54a02e54a79d91cd22e09",
+      "sha256": "43e9a5a1a346459a88e159ecf29196f539258e94c474093eb1fc3527c95f9c4b",
       "classification": "Segments-merged",
       "scripted_fallback": false
     }
@@ -171,11 +171,11 @@
   "inputs": {
     "scene": {
       "file": "scenes/char2.tscn",
-      "sha256": "6d50e75bed16173a1553b6116756c2c1dee8a455e22b65a2d88d56cfba5fe6ea"
+      "sha256": "81e3aea667129ca2986f8c082d8258e117ccc0b2d910dd551ea4078f45665500"
     },
     "subject": {
       "file": "characters/char2/parts.json",
-      "sha256": "0fd1e64eb1169ec01a3753b43fde37cd48e4fa2e9ed426cfd9b01a7ab0444b46"
+      "sha256": "c13f09f2e1128c05aba9b46f6ea7d91cd8100c052bbb7278c9d595dc7efa0b5d"
     },
     "manifest": {
       "file": "tests/data/characters/char2/body_parts.yml",

@@ -1,217 +1,281 @@
 #!/usr/bin/env python3
-"""Author an original courier from layered shapes and the frozen rig manifest.
+"""Fit supplied Imagine cutouts to the frozen courier kit without model calls.
 
-Run through heavy-run with an existing Python providing Pillow/NumPy/OpenCV.
-All drawing uses the manifest canvas. Only saved textures are tightly cropped;
-their source origins remain in parts.json. No external artwork or model is used.
+Deterministic polygon splits, affine fitting, compositing and nearest-material
+joint completion. Run through heavy-run with two workers; requires Pillow,
+NumPy and OpenCV. The source directory is read only.
 """
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 from datetime import datetime, timezone
 import hashlib
 import json
 from pathlib import Path
 
+import cv2
 import numpy as np
 from PIL import Image, ImageDraw
-
-from gap_finder import scripted_audit
 from prep_parts import extend_joint_pixels, fill_attachment
 
+cv2.setNumThreads(2)
 PROJECT = Path(__file__).resolve().parents[1]
 SOURCE = "prototypes/imagine-cutout/tools/prep_char2.py"
-RECIPES = {
-    "head": "profile face, nose, ear, hair and courier cap; rounded neck backing",
-    "left_arm": "far teal sleeve capsule; proximal round backing and manifest dilation",
-    "left_fore": "far teal forearm capsule and cuff; proximal backing and manifest dilation",
-    "left_hand": "far mitten with thumb; proximal backing and manifest dilation",
-    "right_upper": "near teal sleeve capsule; proximal round backing and manifest dilation",
-    "right_fore": "near teal forearm capsule and cuff; proximal backing and manifest dilation",
-    "right_hand": "near gripping mitten; proximal backing and manifest dilation",
-    "leg_left": "navy trouser capsule; proximal backing and manifest dilation",
-    "shin_left": "navy trouser calf capsule; proximal backing and manifest dilation",
-    "boot_left": "right-pointing leather boot and sole; ankle backing and manifest dilation",
-    "leg_right": "navy trouser capsule; proximal backing and manifest dilation",
-    "shin_right": "navy trouser calf capsule; proximal backing and manifest dilation",
-    "boot_right": "right-pointing leather boot and sole; ankle backing and manifest dilation",
-    "satchel": "ochre satchel, flap, buckle and handle; rigid undilated prop",
-}
-INK = '#243447'
-TEAL = '#338f92'
-FAR_TEAL = '#286e79'
-SKIN = '#eab185'
-NAVY = '#334860'
-LEATHER = '#815435'
+BASE = "call1-base-best.jpg"
+JACKET = "seg-be6a-teal-cropped-jacket.png"
+SHORTS = "seg-be6a-black-shorts.png"
+LEGGINGS = "seg-be6a-gray-leggings.png"
+SCRIPTED = "SCRIPTED (flagged)"
+LICENSE = "CC0 1.0"
+CREDIT = "Generated with Grok Imagine (SpaceXAI); scripted derivation where stated"
+RIGHTS = "Original fictional art only; no real-person likeness."
+FALLBACK = ("The supplied Imagine base has no held prop and neither Segments "
+            "run supplied a satchel. All three allowed calls were already used; "
+            "this rigid satchel is a wholly scripted fallback.")
 
 
-def circle(draw, point, radius, fill):
-    x, y = point
-    draw.ellipse((x-radius, y-radius, x+radius, y+radius), fill=fill)
+def digest(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def capsule(draw, start, end, radius, fill):
-    draw.line((tuple(start), tuple(end)), fill=fill, width=2*radius+1)
-    circle(draw, start, radius, fill)
-    circle(draw, end, radius, fill)
+def provenance(path, date, *, source=SOURCE,
+               tool="Python/Pillow/OpenCV scripted derivation from Grok Imagine (SpaceXAI)",
+               description="Imagine courier cutout derivation", **metadata):
+    """Also used for review captures; the date describes derivation only."""
+    data = dict(tool=tool, model="no generative model used; source model not disclosed",
+                date=date, date_source="scripted artifact creation time UTC", source=source,
+                license=LICENSE, credit=CREDIT, rights=RIGHTS,
+                description=description, output_sha256=digest(path))
+    data.update(metadata)
+    path.with_suffix(".gen.json").write_text(json.dumps(data, indent=2)+"\n")
 
 
-def provenance(path, date, *, source=SOURCE, tool="Python/Pillow/OpenCV procedural cutout authoring",
-               description="Original fictional courier; scripted shapes only"):
-    path.with_suffix('.gen.json').write_text(json.dumps(dict(
-        tool=tool, model="none (scripted)", date=date, source=source,
-        prompt="not applicable (scripted)",
-        image_sha256=hashlib.sha256(path.read_bytes()).hexdigest(),
-        license="CC0-1.0", description=description), indent=2)+'\n')
+def white_background(image):
+    """Remove border-connected near-white; preserve enclosed eyes/shoe whites."""
+    array = np.array(image.convert("RGBA"))
+    rgb = array[:, :, :3].astype(np.int16)
+    candidate = ((rgb.min(axis=2) >= 235) & (np.ptp(rgb, axis=2) <= 20)).astype(np.uint8)
+    _, labels = cv2.connectedComponents(candidate, connectivity=8)
+    border = np.unique(np.concatenate((labels[0], labels[-1], labels[:, 0], labels[:, -1])))
+    array[np.isin(labels, border[border != 0])] = 0
+    return Image.fromarray(array)
+
+
+def split(image, polygon):
+    mask = Image.new("L", image.size)
+    ImageDraw.Draw(mask).polygon([tuple(p) for p in polygon], fill=255)
+    array = np.array(image)
+    array[:, :, 3] = np.minimum(array[:, :, 3], np.array(mask))
+    array[array[:, :, 3] == 0, :3] = 0
+    return Image.fromarray(array)
+
+
+def fit(image, start, end, target_start, target_end, width_scale, canvas):
+    """Fit limb centreline and perpendicular independently, in premultiplied RGBA."""
+    start, end, dest, finish = [np.array(p, np.float32) for p in (start,end,target_start,target_end)]
+    axis, target_axis = end-start, finish-dest
+    normal = np.array([-axis[1], axis[0]])/np.linalg.norm(axis)
+    target_normal = np.array([-target_axis[1], target_axis[0]])/np.linalg.norm(target_axis)
+    matrix = cv2.getAffineTransform(np.array([start,end,start+normal*100], np.float32),
+                                   np.array([dest,finish,dest+target_normal*100*width_scale], np.float32))
+    pixels = np.array(image).astype(np.float32)/255
+    pixels[:, :, :3] *= pixels[:, :, 3:4]
+    result = cv2.warpAffine(pixels, matrix, canvas, flags=cv2.INTER_CUBIC,
+                           borderMode=cv2.BORDER_CONSTANT, borderValue=(0,0,0,0))
+    result = np.clip(result, 0, 1)
+    np.divide(result[:, :, :3], result[:, :, 3:4], out=result[:, :, :3], where=result[:, :, 3:4] > 0)
+    return Image.fromarray(np.rint(np.clip(result,0,1)*255).astype(np.uint8)), matrix.tolist()
 
 
 def prepare(project, audit_only=False):
-    config = json.loads((project/'characters.yml').read_text())['characters']['char2']
-    manifest_path = project / config['manifest']
+    config = json.loads((project/"characters.yml").read_text())["characters"]["char2"]
+    manifest_path = project / config["manifest"]
     manifest = json.loads(manifest_path.read_text())
-    destination = project/'characters/char2'
-    destination.mkdir(parents=True, exist_ok=True)
-    report = scripted_audit(manifest_path, RECIPES, SOURCE)
-    (destination/'gap-report.json').write_text(json.dumps(report, indent=2)+'\n')
-    for slot in report['slots']:
-        print(f"{slot['slot']}: {slot['action']} ({slot['method']})")
+    contract = json.loads((project / config["imagine_contract"]).read_text())
+    destination, sources = project/"characters/char2", project/contract["source_directory"]
+    for name, record in contract["sources"].items():
+        if digest(sources/name) != record["sha256"]:
+            raise ValueError(f"{name}: source hash differs from the frozen contract")
+    report = dict(schema_version=2, manifest_sha256=digest(manifest_path),
+                  source_kind="supplied Grok Imagine base and Segments; scripted fitting",
+                  source_post_id=contract["calls"]["1"]["post_id"], generation_calls_used=3,
+                  generation_calls_remaining=0, generation_requested=False, slots=[])
+    for slot in manifest["slots"]:
+        rule = contract["slots"][slot["slot"]]
+        item = dict(slot=slot["slot"], part=slot["part"], bone=slot["bone"], pivot=slot["pivot"],
+                    parent=slot["parent_bone"], overlap_px=slot["overlap_px"],
+                    classification=rule["classification"], scripted_fallback=rule["classification"] == SCRIPTED,
+                    imagine_sources=rule["required_sources"], method=rule["reason"])
+        if item["scripted_fallback"]:
+            item["fallback_reason"] = FALLBACK
+        report["slots"].append(item)
+        print(f"{slot['slot']}: {rule['classification']}")
+    report["slot_tally"] = dict.fromkeys(contract["classifications"], 0)
+    report["slot_tally"].update(Counter(s["classification"] for s in report["slots"]))
+    (destination/"gap-report.json").write_text(json.dumps(report,indent=2)+"\n")
     if audit_only:
         return
-    if report['generation_requested']:
-        raise ValueError('unsupported slots require artwork; see gap report')
-    joints = {j['name']: j for j in manifest['joints']}
-    slots = {s['part']: s for s in manifest['slots']}
-    size = tuple(manifest['source_canvas_px'])
-    date = datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z')
-    parts = []
-    textures = destination/'parts'
+    joints = {j["name"]:j for j in manifest["joints"]}
+    slots = {s["part"]:s for s in manifest["slots"]}
+    size = tuple(manifest["source_canvas_px"])
+    images = {name:Image.open(sources/name).convert("RGBA") for name in contract["sources"]}
+    images[BASE] = white_background(images[BASE])
+    textures = destination/"parts"
     textures.mkdir(exist_ok=True)
+    date = datetime.now(timezone.utc).isoformat().replace("+00:00","Z")
+    parts, ledger = [], {}
 
-    def save(name, image, bone, order, overlap=0, slot=None):
-        pivot = joints[bone]['pivot']
+    def layer(name, polygon, start, end, target_start, target_end, width):
+        image, matrix = fit(split(images[name],polygon),start,end,target_start,target_end,width,size)
+        return image, dict(file=name, polygon=polygon, source_axis=[start,end],
+                           target_axis=[target_start,target_end], width_scale=width,
+                           affine_source_to_rig=matrix)
+
+    def save(name, layers, bone, order, *, classification=None, radius=24):
+        slot = slots.get(name)
+        classification = classification or contract["slots"][slot["slot"]]["classification"]
+        scripted, pivot = classification == SCRIPTED, joints[bone]["pivot"]
+        image, recipes = Image.new("RGBA",size), []
+        for pixels, recipe in layers:
+            image.alpha_composite(pixels)
+            recipes.append(recipe)
+        overlap, added = slot["overlap_px"] if slot else 0, 0
+        if overlap:
+            x,y = pivot
+            yy,xx = np.ogrid[:size[1],:size[0]]
+            array = np.array(image)
+            before = array[:,:,3] > 0
+            array = fill_attachment(array,(xx-x)**2+(yy-y)**2 <= radius**2)
+            authored = array[:,:,3] > 0
+            reach = radius+overlap+1
+            array = extend_joint_pixels(array,overlap,[(x-reach,y-reach,x+reach,y+reach)])
+            rounded = (xx-x)**2+(yy-y)**2 <= (radius+overlap)**2
+            array[:,:,3][~(authored | rounded)] = 0
+            added = int(((array[:,:,3] > 0) & ~before).sum())
+            image = Image.fromarray(array)
         bbox = image.getbbox()
         if bbox is None:
-            raise ValueError(f'{name}: empty procedural part')
-        path = textures/(name+'.png')
+            raise ValueError(f"{name}: empty derived part")
+        path = textures/(name+".png")
         image.crop(bbox).save(path)
-        provenance(path, date)
-        parts.append(dict(id=name, bone=bone,
-            parent_bone=slot['part_parent_bone'] if slot else bone,
-            pivot=slot['pivot'] if slot else pivot,
-            offset=[bbox[0]-pivot[0], bbox[1]-pivot[1]], bbox=list(bbox),
-            source_bbox=list(bbox), source_to_rig_translation=[0, 0],
-            texture_hd=path.relative_to(project).as_posix(), z_order=order,
-            joint_overlap_px=overlap, rotation_limits_deg=joints[bone]['rotation_limits_deg'],
-            source=SOURCE, classification='scripted original',
-            derived_from=RECIPES.get(name, 'procedural torso and pelvis backing')))
+        names = sorted({r["file"] for r in recipes if "file" in r})
+        refs = [dict(file=n,sha256=contract["sources"][n]["sha256"]) for n in names]
+        derivation = ("Wholly scripted satchel, flap, buckle and handle; no Imagine pixels." if scripted else
+                      "Polygon split and affine fit of "+", ".join(names)+"; composited in listed order; "+
+                      (f"nearest-source material proximal cap radius {radius}px and joint-only {overlap}px dilation."
+                       if overlap else "no joint dilation."))
+        metadata = dict(classification=classification,scripted_fallback=scripted,
+                        derived_from=derivation,imagine_sources=refs,operations=recipes,
+                        joint_completion_added_pixels=added)
+        if not scripted:
+            metadata["source_post_url"] = contract["calls"]["1"]["post_url"]
+        if scripted:
+            metadata["fallback_reason"] = FALLBACK
+        provenance(path,date,description="Derived fictional courier part: "+name,**metadata)
+        part = dict(id=name,bone=bone,parent_bone=slot["part_parent_bone"] if slot else bone,
+                    pivot=pivot,offset=[bbox[0]-pivot[0],bbox[1]-pivot[1]],bbox=list(bbox),
+                    texture_hd=path.relative_to(project).as_posix(),z_order=order,joint_overlap_px=overlap,
+                    rotation_limits_deg=joints[bone]["rotation_limits_deg"],source=SOURCE,
+                    classification=classification,scripted_fallback=scripted,derived_from=derivation)
+        if scripted:
+            part["fallback_reason"] = FALLBACK
+        parts.append(part)
+        ledger[name] = dict(classification=classification,imagine_sources=refs,
+                            output_sha256=digest(path),operations=recipes,joint_completion_added_pixels=added)
 
-    # These are actual clothing panels, with complete hidden silhouettes.
-    for name, bone, half_width, top, bottom, color, order in (
-        ('hip_backing', 'hip', 91, -15, 45, NAVY, 0),
-        ('torso', 'torso', 92, 0, 160, TEAL, 8),
+    torso = layer(BASE,[[625,218],[665,235],[741,235],[783,218],[813,275],
+                        [795,465],[780,510],[625,510],[605,465],[593,275]],
+                  [700,300],[700,500],[256,240],[256,412],.74)
+    jacket = layer(JACKET,[[113,0],[304,0],[315,70],[302,170],[310,260],[100,260],[112,170],[100,70]],
+                   [209,75],[209,240],[256,240],[256,371],.67)
+    save("torso",[torso,jacket],"torso",8,classification="Segments-merged")
+    hip = layer(SHORTS,[[0,0],[254,0],[254,135],[0,135]],[127,42],[127,140],[256,400],[256,459],.68)
+    save("hip_backing",[hip],"hip",0,classification="Segments-split")
+    head = layer(BASE,[[570,15],[825,15],[825,223],[747,229],[747,277],[663,277],[663,229],[570,223]],
+                 [700,260],[700,60],[256,160],[256,60],.50)
+    save("head",[head],"head",12,radius=20)
+
+    # Left hand is image-right. Leg labels retain the frozen image-side convention.
+    for name,start,end,polygon in (
+        ("right_upper",[112,70],[46,239],[[78,48],[127,66],[126,146],[102,205],[97,256],[56,280],[0,257],[21,205],[35,145],[54,96]]),
+        ("left_arm",[302,70],[377,239],[[289,64],[337,48],[365,96],[385,145],[400,205],[418,257],[363,280],[322,256],[316,205],[290,146]]),
     ):
-        image = Image.new('RGBA', size)
-        draw = ImageDraw.Draw(image)
-        x, y = joints[bone]['pivot']
-        draw.rounded_rectangle((x-half_width, y+top-45, x+half_width, y+bottom+30),
-                               radius=48, fill=INK)
-        draw.rounded_rectangle((x-half_width+5, y+top-40, x+half_width-5, y+bottom+25),
-                               radius=43, fill=color)
-        if bone == 'torso':
-            draw.polygon([(x-45,y-35),(x,y+5),(x+45,y-35),(x+30,y-48),(x-30,y-48)], fill='#e9c65e')
-            draw.line((x,y+8,x,y+bottom+18), fill='#276d78', width=5)
-            draw.rounded_rectangle((x+25,y+45,x+65,y+75), radius=6, fill='#e9c65e')
-            draw.line((x-80,y+bottom,x+80,y+bottom), fill=LEATHER, width=18)
-            draw.rectangle((x-8,y+bottom-9,x+8,y+bottom+9), fill='#e9c65e')
-        save(name, image, bone, order)
+        bone = slots[name]["bone"]
+        end_pivot = next(j["pivot"] for j in joints.values() if j["parent"] == bone)
+        save(name,[layer(JACKET,polygon,start,end,joints[bone]["pivot"],end_pivot,.70)],bone,
+             14 if name == "right_upper" else 3)
+    for name,start,end,polygon in (
+        ("right_fore",[520,482],[458,574],[[503,455],[546,481],[477,585],[435,569]]),
+        ("left_fore",[884,482],[946,574],[[862,481],[905,455],[973,569],[931,585]]),
+    ):
+        bone = slots[name]["bone"]
+        end_pivot = next(j["pivot"] for j in joints.values() if j["parent"] == bone)
+        save(name,[layer(BASE,polygon,start,end,joints[bone]["pivot"],end_pivot,.78)],bone,
+             14 if name == "right_fore" else 3)
+    for name,start,end,polygon,glove,glove_axis in (
+        ("right_hand",[451,585],[424,665],[[436,563],[479,581],[464,641],[448,679],[409,704],[389,696],[407,640]],
+         "seg-be6a-black-fingerless-gloves-1.png",[[51,17],[26,79]]),
+        ("left_hand",[953,585],[980,665],[[925,581],[968,563],[997,640],[1015,696],[995,704],[956,679],[940,641]],
+         "seg-be6a-black-fingerless-gloves-2.png",[[27,17],[53,79]]),
+    ):
+        bone = slots[name]["bone"]
+        x,y = joints[bone]["pivot"]
+        target_end = [x+(-13 if name == "right_hand" else 13),y+39]
+        pixels = layer(BASE,polygon,start,end,[x,y],target_end,.68)
+        overlay = layer(glove,[[0,0],[79,0],[79,102],[0,102]],*glove_axis,[x,y+1],[target_end[0],y+27],.58)
+        save(name,[pixels,overlay],bone,18 if name == "right_hand" else 4)
 
-    for name, slot in slots.items():
-        bone = slot['bone']
-        pivot = joints[bone]['pivot']
-        x, y = pivot
-        image = Image.new('RGBA', size)
-        draw = ImageDraw.Draw(image)
-        radius = 24
-        order = 14
-        if name == 'head':
-            circle(draw, pivot, radius, SKIN)
-            draw.rounded_rectangle((x-44,y-106,x+42,y+6), radius=37, fill=INK)
-            draw.rounded_rectangle((x-39,y-101,x+38,y+1), radius=34, fill=SKIN)
-            draw.polygon([(x+34,y-66),(x+57,y-46),(x+34,y-40)], fill=SKIN)
-            draw.pieslice((x-42,y-105,x+40,y-25),180,350,fill='#473d3a')
-            circle(draw,(x-26,y-44),12,'#d39370')
-            draw.rounded_rectangle((x-49,y-111,x+37,y-81),radius=12,fill=TEAL)
-            draw.rounded_rectangle((x-7,y-88,x+59,y-79),radius=4,fill=INK)
-            draw.ellipse((x+21,y-65,x+28,y-57),fill=INK)
-            draw.line((x+21,y-29,x+35,y-29),fill=INK,width=3)
-            order = 12
-        elif name == 'satchel':
-            # Match the frozen grip (16,8) and endpoint (48,8) in the
-            # cropped texture. The wrist sits at the grip; the bag hangs below.
-            origin = (x-16, y-8)
-            ox, oy = origin
-            draw.rounded_rectangle((ox,oy+25,ox+112,oy+112),radius=12,fill=INK)
-            draw.rounded_rectangle((ox+4,oy+29,ox+108,oy+108),radius=9,fill='#c58b45')
-            draw.rounded_rectangle((ox+13,oy,ox+51,oy+40),radius=10,outline=LEATHER,width=7)
-            draw.rounded_rectangle((ox+5,oy+29,ox+107,oy+65),radius=7,fill='#a96d38')
-            draw.rectangle((ox+48,oy+53,ox+62,oy+75),fill='#edcd73')
-            order = 16
-        elif 'hand' in name:
-            circle(draw,pivot,radius,SKIN)
-            draw.rounded_rectangle((x-21,y-5,x+24,y+39),radius=15,fill=SKIN)
-            circle(draw,(x+24,y+10),11,'#d39370')
-            draw.line((x-12,y+22,x+14,y+22),fill='#bc7c5e',width=2)
-            order = 18 if name == 'right_hand' else 4
-        elif name.startswith('boot'):
-            circle(draw,pivot,radius,LEATHER)
-            draw.rounded_rectangle((x-26,y-8,x+52,y+44),radius=17,fill=INK)
-            draw.rounded_rectangle((x-21,y-5,x+48,y+36),radius=14,fill=LEATHER)
-            draw.line((x-19,y+35,x+47,y+35),fill='#c38d54',width=5)
-            order = 6
+    for side,image_left in (("left",True),("right",False)):
+        x = joints["leg_"+side]["pivot"][0]
+        if image_left:
+            axis = [[78,18],[61,220],[47,398]]
+            half = [[0,0],[155,0],[155,417],[0,417]]
+            shorts_half = [[0,0],[130,0],[130,246],[0,246]]
+            shorts_start,shorts_end = [68,42],[65,220]
         else:
-            children = [j for j in joints.values() if j['parent'] == bone]
-            if len(children) != 1:
-                raise ValueError(f'{name}: expected one distal joint')
-            end = children[0]['pivot']
-            leg = name.startswith(('leg_', 'shin_'))
-            radius = 28 if leg else 24
-            color = NAVY if leg else (TEAL if name.startswith('right') else FAR_TEAL)
-            capsule(draw,pivot,end,radius,INK)
-            capsule(draw,pivot,end,radius-4,color)
-            # Hidden proximal backing is cloth, rather than an enlarged ink
-            # outline. The distal contour retains its thin authored edge.
-            circle(draw,pivot,radius,color)
-            draw.line((x-10,y+14,end[0]-10,end[1]-14),fill='#4e677b' if leg else '#55aaa5',width=4)
-            order = 5 if leg else (14 if name.startswith('right') else 3)
-        if slot['overlap_px']:
-            # Reuse the v2 material completion and joint-gated dilation. The
-            # round proximal backing is sized from this part's cross-section;
-            # the extra margin is exactly the slot's manifest overlap.
-            yy, xx = np.ogrid[:size[1], :size[0]]
-            mask = (xx-x)**2+(yy-y)**2 <= radius**2
-            array = fill_attachment(np.array(image), mask)
-            authored = array[:, :, 3] > 0
-            reach = radius+slot['overlap_px']+1
-            array = extend_joint_pixels(array, slot['overlap_px'],
-                                        [(x-reach,y-reach,x+reach,y+reach)])
-            # A rectangular seam gate bounds the existing v2 dilation helper.
-            # Clip only newly added backing to the rounded attachment, so its
-            # gate boundary cannot leave square tabs on the outer silhouette.
-            rounded = (xx-x)**2+(yy-y)**2 <= (radius+slot['overlap_px'])**2
-            array[:, :, 3][~(authored | rounded)] = 0
-            image = Image.fromarray(array)
-        save(name,image,bone,order,slot['overlap_px'],slot)
-    data = dict(canvas=list(size), character='char2', rig_template=2,
-                manifest=config['manifest'], bones=manifest['joints'],
-                overlap_px=slots['head']['overlap_px'], pixel_scale=1,
-                parts=sorted(parts,key=lambda p:p['z_order']))
-    (project / config['subject']).write_text(json.dumps(data,indent=2)+'\n')
-    print(f'Prepared original courier: {len(parts)} parts, {len(joints)} manifest joints')
+            axis = [[233,18],[249,220],[268,398]]
+            half = [[155,0],[311,0],[311,417],[155,417]]
+            shorts_half = [[124,0],[254,0],[254,246],[124,246]]
+            shorts_start,shorts_end = [186,42],[190,220]
+        upper_polygon = [[a,b] for a,b in half]
+        upper_polygon[2][1] = upper_polygon[3][1] = 248
+        legging = layer(LEGGINGS,upper_polygon,axis[0],axis[1],[x,420],[x,550],.60)
+        shorts = layer(SHORTS,shorts_half,shorts_start,shorts_end,[x,420],[x,493],.60)
+        save("leg_"+side,[legging,shorts],"leg_"+side,5,radius=28)
+        lower_polygon = [[a,b] for a,b in half]
+        lower_polygon[0][1] = lower_polygon[1][1] = 185
+        shin = layer(LEGGINGS,lower_polygon,axis[1],axis[2],[x,550],[x,680],.60)
+        save("shin_"+side,[shin],"knee_"+side,5,radius=28)
+        if image_left:
+            polygon,start,end = [[497,1127],[608,1127],[608,1344],[497,1344]],[569,1182],[550,1305]
+        else:
+            polygon,start,end = [[799,1127],[910,1127],[910,1344],[799,1344]],[836,1182],[856,1305]
+        save("boot_"+side,[layer(BASE,polygon,start,end,[x,680],[x,732],.70)],"boot_"+side,6)
+
+    satchel = Image.new("RGBA",size)
+    draw = ImageDraw.Draw(satchel)
+    x,y = joints["right_hand"]["pivot"]
+    ox,oy = x-16,y-8
+    draw.rounded_rectangle((ox,oy+25,ox+112,oy+112),radius=12,fill="#243447")
+    draw.rounded_rectangle((ox+4,oy+29,ox+108,oy+108),radius=9,fill="#c58b45")
+    draw.rounded_rectangle((ox+13,oy,ox+51,oy+40),radius=10,outline="#815435",width=7)
+    draw.rounded_rectangle((ox+5,oy+29,ox+107,oy+65),radius=7,fill="#a96d38")
+    draw.rectangle((ox+48,oy+53,ox+62,oy+75),fill="#edcd73")
+    save("satchel",[(satchel,dict(operation="scripted rounded rectangles; texture grip (16,8)"))],"right_hand",16)
+    data = dict(canvas=list(size),character="char2",rig_template=2,manifest=config["manifest"],
+                bones=manifest["joints"],overlap_px=slots["head"]["overlap_px"],pixel_scale=1,
+                parts=sorted(parts,key=lambda p:p["z_order"]))
+    (project / config["subject"]).write_text(json.dumps(data,indent=2)+"\n")
+    (destination/"derivation.json").write_text(json.dumps(dict(schema_version=1,tool=SOURCE,
+        source_post_id=contract["calls"]["1"]["post_id"],manifest_sha256=digest(manifest_path),
+        source_sha256={n:r["sha256"] for n,r in contract["sources"].items()},parts=ledger),indent=2)+"\n")
+    print(f"Prepared Imagine courier: {len(parts)} parts, {len(joints)} frozen joints")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--project', type=Path, default=PROJECT)
-    parser.add_argument('--audit-only', action='store_true')
+    parser.add_argument("--project",type=Path,default=PROJECT)
+    parser.add_argument("--audit-only",action="store_true")
     options = parser.parse_args()
-    prepare(options.project, options.audit_only)
+    prepare(options.project,options.audit_only)

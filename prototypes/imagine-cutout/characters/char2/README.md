@@ -37,13 +37,17 @@ material from those parts; it is scripted derivation, not recovered unseen art.
 the base, preserving enclosed shoe/eye whites. Explicit source polygons split
 limbs; an affine centreline fit adapts their proportions to the frozen rig.
 Premultiplied-alpha interpolation avoids dark fringes during fitting. Hands and
-upper legs composite their declared sources. Each proximal attachment receives
+upper legs composite their declared sources. Each attachment receives
 uniform source-interior material completion and the exact manifest overlap, clipped to a
 joint-local oval boundary. `derivation.json` and every texture sidecar retain source hashes,
 polygons, fitted axes, affine matrices, output hashes, sampled material colors/locations
-and completion pixel counts. Added backing samples an actual opaque interior
+and completion pixel counts. At shoulders, elbows, wrists and ankles the parent
+and child carry paired local support shapes, each sampled from its own
+retained source material. This closes rotating seams on both sides without
+expanding only the child edge. Added backing samples an actual opaque interior
 pixel closest to the local median; it avoids spreading source outlines into
-striped joint caps.
+striped joint caps. Elbow supports select existing low-chroma cuff material
+above the pivot; the sampled pixel and criterion are recorded.
 Source sidecars retain their original call metadata; derived dates describe
 artifact creation only.
 

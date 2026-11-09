@@ -109,7 +109,7 @@ wrapper's core scan, as disclosed in PR #29.
 
 The inherited procedural kit was RED with 174 provenance errors despite
 authentic source inputs. Earlier actual body attempts remain in body/, body-2/
-and body-3/: 212, 74 and 1 exposed pixels respectively. Geometry and source
+and body-3/: 213, 75 and 1 exposed pixels respectively. Geometry and source
 material completion were fixed while keeping the observers unchanged.
 Legacy failed images and all source-mutation attempts are also retained.
 

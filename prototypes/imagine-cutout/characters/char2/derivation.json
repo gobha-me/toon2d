@@ -3,7 +3,7 @@
   "tool": "prototypes/imagine-cutout/tools/prep_char2.py",
   "source_post_id": "be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8",
   "manifest_sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4",
-  "tool_sha256": "56f3577e9a57910350df831fe9ac0e4a338f008685031cf8d5e14e9eb23feacd",
+  "tool_sha256": "516d91f357de30b76a8cf66a855217117be999c7239ec5dc895261f27ba1ecee",
   "dependencies": {
     "OpenCV": "4.12.0",
     "NumPy": "2.5.4",
@@ -590,7 +590,7 @@
           "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
         }
       ],
-      "output_sha256": "d84b20b5054ea10d4e69ed66ca7c5a1f64799ca36d6c6062fdf6cf2a8fd4cfad",
+      "output_sha256": "fa684550148e3e81d1934bdcaf9cda761d6cc93e447341aca7b3ef69b442da13",
       "operations": [
         {
           "file": "call1-base-best.jpg",
@@ -647,7 +647,7 @@
           ]
         }
       ],
-      "joint_completion_added_pixels": 782,
+      "joint_completion_added_pixels": 1050,
       "backing_material": {
         "rgb": [
           252,
@@ -660,11 +660,11 @@
         ],
         "selection": "retained opaque interior pixel closest to local median RGB",
         "minimum_core_depth_px": 3,
-        "search_radius_px": 50
+        "search_radius_px": 52
       },
       "joint_cap_radii_px": [
-        12,
-        18
+        14,
+        20
       ]
     },
     "left_fore": {
@@ -675,7 +675,7 @@
           "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
         }
       ],
-      "output_sha256": "9447d272801d089a3d3a208474c10c4fef93caffc11d452467fdae187522590a",
+      "output_sha256": "025e30f7a427cbda2dcc2a0afb54e66335bca1b8f16d2d9f49444a82e45dfeaf",
       "operations": [
         {
           "file": "call1-base-best.jpg",
@@ -732,24 +732,24 @@
           ]
         }
       ],
-      "joint_completion_added_pixels": 923,
+      "joint_completion_added_pixels": 1181,
       "backing_material": {
         "rgb": [
           252,
           211,
-          181
+          182
         ],
         "sample_rig_px": [
-          347,
-          338
+          349,
+          340
         ],
         "selection": "retained opaque interior pixel closest to local median RGB",
         "minimum_core_depth_px": 3,
-        "search_radius_px": 50
+        "search_radius_px": 52
       },
       "joint_cap_radii_px": [
-        12,
-        18
+        14,
+        20
       ]
     },
     "right_hand": {
@@ -1298,7 +1298,7 @@
           "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
         }
       ],
-      "output_sha256": "631cc869531a48181e6431c4a4ac75583e9dca5aa3e9de7f194160f7d360611f",
+      "output_sha256": "79d43c6241501237189ce01ab395f4154d0ba111f24cd8f386641d83a588fcd9",
       "operations": [
         {
           "file": "call1-base-best.jpg",
@@ -1355,7 +1355,7 @@
           ]
         }
       ],
-      "joint_completion_added_pixels": 286,
+      "joint_completion_added_pixels": 476,
       "backing_material": {
         "rgb": [
           200,
@@ -1368,11 +1368,11 @@
         ],
         "selection": "retained opaque interior pixel closest to local median RGB",
         "minimum_core_depth_px": 3,
-        "search_radius_px": 46
+        "search_radius_px": 48
       },
       "joint_cap_radii_px": [
-        12,
-        14
+        14,
+        16
       ]
     },
     "leg_right": {
@@ -1611,7 +1611,7 @@
           "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
         }
       ],
-      "output_sha256": "ecbdadf1f041a371ce6d1ec45f5f94d99d7e0d0a217dc0574f6b0b0444e03b7d",
+      "output_sha256": "06046b8e57f43ad6793300ef9f64e23c68df3d95031f8e39b53ee0a826b76953",
       "operations": [
         {
           "file": "call1-base-best.jpg",
@@ -1668,7 +1668,7 @@
           ]
         }
       ],
-      "joint_completion_added_pixels": 298,
+      "joint_completion_added_pixels": 487,
       "backing_material": {
         "rgb": [
           193,
@@ -1681,11 +1681,11 @@
         ],
         "selection": "retained opaque interior pixel closest to local median RGB",
         "minimum_core_depth_px": 3,
-        "search_radius_px": 46
+        "search_radius_px": 48
       },
       "joint_cap_radii_px": [
-        12,
-        14
+        14,
+        16
       ]
     },
     "satchel": {

@@ -1,14 +1,14 @@
 {
   "tool": "Godot scripted scene capture",
   "model": "no generative model used; source model not disclosed",
-  "date": "2026-11-09T20:39:17.793151Z",
+  "date": "2026-11-09T22:28:43.737175Z",
   "date_source": "scripted artifact creation time UTC",
   "source": "prototypes/imagine-cutout/scripts/capture_v2.gd",
   "license": "CC0 1.0",
   "credit": "Generated with Grok Imagine (SpaceXAI); scripted derivation where stated",
   "rights": "Original fictional art only; no real-person likeness.",
   "description": "Unretouched Imagine courier review pose: knees",
-  "output_sha256": "ed79935af6e131df61ceccd7c31d36075749e5f474dfa355dfb96b93add6d0b5",
+  "output_sha256": "d0216f2228bbc90326d8e9ef405f0016e8f6a12f55c57fa682eb21878aa00f21",
   "pose": "knees",
   "artifact_kind": "rendered assembly",
   "derived_from": "Godot capture of scenes/char2.tscn; textures declared in characters/char2/parts.json; Imagine-derived cutouts plus the explicitly listed scripted fallback parts.",
@@ -62,7 +62,7 @@
     {
       "part": "left_fore",
       "texture": "characters/char2/parts/left_fore.png",
-      "sha256": "9447d272801d089a3d3a208474c10c4fef93caffc11d452467fdae187522590a",
+      "sha256": "025e30f7a427cbda2dcc2a0afb54e66335bca1b8f16d2d9f49444a82e45dfeaf",
       "classification": "Segments-split",
       "scripted_fallback": false
     },
@@ -104,14 +104,14 @@
     {
       "part": "boot_left",
       "texture": "characters/char2/parts/boot_left.png",
-      "sha256": "631cc869531a48181e6431c4a4ac75583e9dca5aa3e9de7f194160f7d360611f",
+      "sha256": "79d43c6241501237189ce01ab395f4154d0ba111f24cd8f386641d83a588fcd9",
       "classification": "Segments-split",
       "scripted_fallback": false
     },
     {
       "part": "boot_right",
       "texture": "characters/char2/parts/boot_right.png",
-      "sha256": "ecbdadf1f041a371ce6d1ec45f5f94d99d7e0d0a217dc0574f6b0b0444e03b7d",
+      "sha256": "06046b8e57f43ad6793300ef9f64e23c68df3d95031f8e39b53ee0a826b76953",
       "classification": "Segments-split",
       "scripted_fallback": false
     },
@@ -139,7 +139,7 @@
     {
       "part": "right_fore",
       "texture": "characters/char2/parts/right_fore.png",
-      "sha256": "d84b20b5054ea10d4e69ed66ca7c5a1f64799ca36d6c6062fdf6cf2a8fd4cfad",
+      "sha256": "fa684550148e3e81d1934bdcaf9cda761d6cc93e447341aca7b3ef69b442da13",
       "classification": "Segments-split",
       "scripted_fallback": false
     },
@@ -171,11 +171,11 @@
   "inputs": {
     "scene": {
       "file": "scenes/char2.tscn",
-      "sha256": "7ee11427db59dc083f50c24be62f067e8d11e4de5b64bf6f71e79337763e50de"
+      "sha256": "3af5f529bd886a4d361adb16941814c469941e04bbc85efb6b3638701c1d13e1"
     },
     "subject": {
       "file": "characters/char2/parts.json",
-      "sha256": "bdba97a7d610799a8e65679380bb4b63de8a1cf928ce6061aebabb26fa115f84"
+      "sha256": "f5629435772ab4837e18ed2630c10753acbc3ab41bf0b7ef40a721aaafed4c53"
     },
     "manifest": {
       "file": "tests/data/characters/char2/body_parts.yml",

@@ -1,17 +1,17 @@
 {
-  "created_utc": "2026-11-09T20:42:57.188650Z",
-  "head": "d68bf956392218e2173b4410246ef19305a69596",
-  "requested_mode": "oracle",
-  "passed": true,
-  "exit": 0,
+  "created_utc": "2026-11-09T22:26:25.637727Z",
+  "head": "79cf87c98f0f9f1d488c9cad009aca090bc303ab",
+  "requested_mode": "legacy",
+  "passed": false,
+  "exit": 1,
   "records": [
     {
-      "mode": "oracle",
-      "started_utc": "2026-11-09T20:42:53.195685Z",
-      "head": "d68bf956392218e2173b4410246ef19305a69596",
+      "mode": "legacy",
+      "started_utc": "2026-11-09T22:26:16.242346Z",
+      "head": "79cf87c98f0f9f1d488c9cad009aca090bc303ab",
       "cwd": "<PROJECT>",
-      "command": "bash tests/runner.sh oracle --character char2",
-      "output": "validation/char2-imagine/oracle-3",
+      "command": "bash tests/run_tests.sh --character char2",
+      "output": "validation/char2-imagine/legacy",
       "state": "completed",
       "inputs": {
         ".gitattributes": "8889e1ac19544f2247dc10ce23bfa085474e070fb78ca0b848b053a382cfd52a",
@@ -392,13 +392,15 @@
         "tools/render_sheet.py": "9c21aca369a0fc1ed0423a5d1a9e5421bd3dc8479dab42610b4818e5dfe8b24b",
         "tools/run": "8d7603a453c5b47aaea7480ff9afdd40b42d56781d857cd15ca543c18dbf73e2",
         "tools/validate_char2.py": "3abf0dbb83a11d2cde468a3536cf05313b046adc2f9c06bb5c7a7fb16b0e56bd",
-        "tools/validate_v2.py": "8611f445329b2358958ae1d7c3fd5ce8b3c611f2bb446667f61b0fc3ccdfe2be",
-        "tests/results/body-parts/red-first.poses.json": "816d2b27cf17b760a4d84191590c8e02a578d7435a7ee0c8b0929923e9965ce5"
+        "tools/validate_v2.py": "8611f445329b2358958ae1d7c3fd5ce8b3c611f2bb446667f61b0fc3ccdfe2be"
       },
-      "finished_utc": "2026-11-09T20:42:57.187189Z",
-      "command_exit": 0,
-      "exit": 0,
-      "evidence": [],
+      "finished_utc": "2026-11-09T22:26:25.633183Z",
+      "command_exit": 1,
+      "exit": 1,
+      "evidence": [
+        "char2/legacy.godot.txt",
+        "char2/legacy.json"
+      ],
       "core_dumps": [],
       "core_scan_scope": "Surviving outer scratch only; nested harness cleanup can remove its own dumps before this scan."
     }

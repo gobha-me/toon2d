@@ -241,7 +241,7 @@ def prepare(project, audit_only=False):
         bone = slots[name]["bone"]
         end_pivot = next(j["pivot"] for j in joints.values() if j["parent"] == bone)
         save(name,[layer(BASE,polygon,start,end,joints[bone]["pivot"],end_pivot,.78)],bone,
-             14 if name == "right_fore" else 3,radius=(12,18))
+             14 if name == "right_fore" else 3,radius=(14,20))
     for name,start,end,polygon,glove,glove_axis in (
         ("right_hand",[451,585],[424,665],[[436,563],[479,581],[464,641],[448,679],[409,704],[389,696],[407,640]],
          "seg-be6a-black-fingerless-gloves-1.png",[[51,17],[26,79]]),
@@ -280,7 +280,7 @@ def prepare(project, audit_only=False):
             polygon,start,end = [[497,1127],[608,1127],[608,1344],[497,1344]],[569,1182],[550,1305]
         else:
             polygon,start,end = [[799,1127],[910,1127],[910,1344],[799,1344]],[836,1182],[856,1305]
-        save("boot_"+side,[layer(BASE,polygon,start,end,[x,680],[x,732],.70)],"boot_"+side,6,radius=(12,14))
+        save("boot_"+side,[layer(BASE,polygon,start,end,[x,680],[x,732],.70)],"boot_"+side,6,radius=(14,16))
 
     satchel = Image.new("RGBA",size)
     draw = ImageDraw.Draw(satchel)

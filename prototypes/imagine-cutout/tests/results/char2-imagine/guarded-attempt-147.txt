@@ -1,0 +1,7 @@
+heavy-run: memory ok: memory.current 13.26 GiB, working set (minus inactive_file) 4.96 GiB, non-reclaimable 4.08 GiB; limits 10.00 GiB working set / 14.00 GiB non-reclaimable (memory.max 16.00 GiB x 10/16, 14/16)
+heavy-run: both slots busy, waiting (18:40:47Z)
+slot1 BUSY <other guarded job>
+slot2 BUSY <other guarded job>
+heavy-run: no free slot after 30s
+slot1 BUSY <other guarded job>
+slot2 BUSY <other guarded job>

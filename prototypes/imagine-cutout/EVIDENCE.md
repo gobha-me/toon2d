@@ -105,3 +105,33 @@ faster because `tools/` is reusable.
 - Checkerboard matting was tested on a synthetic sample
   (`diagnostics/matted-checker-demo.png`) and real parts on flat backgrounds only.
 - CI runs lint only and skips `prototypes/**`; the Godot tests run locally.
+
+
+## Second character: supplied Imagine courier (#18)
+
+This conversion retains the supplied base image and 14 Segments exports, with
+source sidecars and the three-call history in the character's source README.
+Calls 2 and 3 were not timestamped at invocation; call 3 was an unintended extra
+Segments run. There are no generation calls in this implementation.
+
+The required-slot tally is **0 usable + 4 merged + 9 split = 13 Imagine-derived
+slots; 1 SCRIPTED (flagged)** satchel, using six distinct source files. The
+additional torso and pelvis backing bring the runtime tally to **0 usable + 5
+merged + 10 split = 15 sourced parts; 1 flagged scripted part**. Every source-free
+kit fallback is the satchel. Source-derived material completion is scripted
+derivation, with the exact source pixel and geometry recorded; it is not an
+untouched Segments limb export. The existing procedural flash is disclosed
+separately in capture metadata and is not a body-part slot.
+
+[Current commands and results](validation/char2-imagine/SUMMARY.md) retain the
+full 650-pose acceptance result, actual source mutations, rendered mutations
+and legacy checks. Earlier red reports remain alongside the final result. The
+frozen observers and their historical evidence are unchanged. Four native Godot
+captures and their unretouched contact sheet are in
+[the current review directory](validation/char2-imagine/build/review-final/).
+
+The character remains a rigid front-view cutout. Passing joint-interior tests
+does not certify all silhouettes, collisions, walk cycles or finished animation
+appeal. This character required substantial scripted fitting and seam cleanup;
+no two-hour end-to-end result is claimed. No human intervention was requested
+during this conversion; earlier browser sourcing time is not measured here.

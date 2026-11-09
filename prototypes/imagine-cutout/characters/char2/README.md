@@ -38,9 +38,12 @@ the base, preserving enclosed shoe/eye whites. Explicit source polygons split
 limbs; an affine centreline fit adapts their proportions to the frozen rig.
 Premultiplied-alpha interpolation avoids dark fringes during fitting. Hands and
 upper legs composite their declared sources. Each proximal attachment receives
-nearest-source material completion and the exact manifest overlap, clipped to a
-round boundary. `derivation.json` and every texture sidecar retain source hashes,
-polygons, fitted axes, affine matrices, output hashes and completion pixel counts.
+uniform source-interior material completion and the exact manifest overlap, clipped to a
+joint-local oval boundary. `derivation.json` and every texture sidecar retain source hashes,
+polygons, fitted axes, affine matrices, output hashes, sampled material colors/locations
+and completion pixel counts. Added backing samples an actual opaque interior
+pixel closest to the local median; it avoids spreading source outlines into
+striped joint caps.
 Source sidecars retain their original call metadata; derived dates describe
 artifact creation only.
 
@@ -82,7 +85,7 @@ Open `scenes/char2.tscn` for the HD rig. Keys 1–4 select idle, aim, fire and
 cooldown; Space presents and lowers the satchel. Compatibility clip names retain
 the existing sampler. The fire capture also contains the pre-existing procedural
 `MuzzleFlash` effect; its script hash and effect disclosure accompany captures,
-separately from the body-part slot tally. Rounded seam backing and proportion changes are visible
+separately from the body-part slot tally. Local oval seam backing and proportion changes are visible
 at large diagnostic angles. This is a rigid cutout study, with no locomotion,
 expressions or reverse/side art. Historical procedural-courier captures in
 `validation/char2-rig/` predate this Imagine conversion.

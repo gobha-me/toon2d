@@ -16,7 +16,7 @@ judged a procedural character and does not certify this conversion.
 - `verification.json`: latest wrapper invocation; each attempt also retains its
   own `verification.json` with timestamps, commands, return codes and input hashes.
 
-Source fitting/baking, visual review, full 650-pose acceptance and the real
+Source fitting/baking, visual review, five legacy checks, full 650-pose acceptance and the real
 mutant suites are pending shared guarded admission. No deferred command is
 counted as a pass. Required completion is a green full baseline, 4/4 rendered
 mutants KILLED and 12/12 actual-source provenance mutants KILLED.

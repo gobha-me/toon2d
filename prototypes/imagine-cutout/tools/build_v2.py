@@ -118,12 +118,16 @@ def capture_lineage(project, config):
     inputs = {key: dict(file=config[key], sha256=digest(project / config[key]))
               for key in ('scene', 'subject', 'manifest')}
     inputs['capture_script'] = dict(file='scripts/capture_v2.gd', sha256=digest(project / 'scripts/capture_v2.gd'))
+    inputs['flash_script'] = dict(file='scripts/muzzle_flash.gd', sha256=digest(project / 'scripts/muzzle_flash.gd'))
     return dict(artifact_kind='rendered assembly',
                 derived_from='Godot capture of ' + config['scene'] + '; textures declared in ' + config['subject'] +
                              '; Imagine-derived cutouts plus the explicitly listed scripted fallback parts.',
                 imagine_sources=[references[name] for name in sorted(references)],
                 source_posts=[posts[name] for name in sorted(posts)], rendered_parts=components,
-                scripted_fallback_parts=sorted(fallbacks), inputs=inputs)
+                scripted_fallback_parts=sorted(fallbacks),
+                scripted_effects=[dict(name='MuzzleFlash',
+                    description='Existing procedural compatibility-clip flash effect; tracked separately from body-part slots.')],
+                inputs=inputs)
 
 
 def main():

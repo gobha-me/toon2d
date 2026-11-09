@@ -10,6 +10,9 @@ Oracle and harness controls read the checkout and write only to private scratch.
 The oracle needs the real Git index to authenticate committed source inventory.
 Body and mutation checks use a disposable prototype snapshot, and their default
 tests/results outputs are copied only to validation/char2-imagine.
+Legacy mode runs the unchanged char2 hierarchy, clip timing, flash, rigidity and
+rendered gap checks in that snapshot. Full mode runs legacy after harness and
+before body acceptance, followed by provenance and rendered body mutants.
 
 Interrupted/error attempts retain sanitized transcripts, available reports and
 private scratch for investigation. The core scan covers only dumps surviving in
@@ -36,7 +39,7 @@ import tempfile
 PROJECT = Path(__file__).resolve().parents[1]
 REPO = PROJECT.parents[1]
 DESTINATION = PROJECT / "validation/char2-imagine"
-MODES = ("oracle", "harness", "body", "provenance-mutants", "body-mutants")
+MODES = ("oracle", "harness", "legacy", "body", "provenance-mutants", "body-mutants")
 IGNORED = {"validation", "results", "renders", ".godot", "__pycache__", ".git"}
 CORE_SCAN_SCOPE = "Surviving outer scratch only; nested harness cleanup can remove its own dumps before this scan."
 
@@ -118,6 +121,7 @@ def command_for(mode: str) -> list[str]:
     return {
         "oracle": ["bash", "tests/runner.sh", "oracle", "--character", "char2"],
         "harness": [sys.executable, "tests/test_harness_policy.py"],
+        "legacy": ["bash", "tests/run_tests.sh", "--character", "char2"],
         "body": ["bash", "tests/run_body_tests.sh", "--character", "char2"],
         "provenance-mutants": [sys.executable, "tests/run_imagine_mutants.py",
                                "--output", "tests/results/char2/provenance-mutants.json"],
@@ -127,6 +131,14 @@ def command_for(mode: str) -> list[str]:
 
 def verdict(mode: str, results: Path) -> dict:
     """Summarize real reports, including the rendered mutants' green control."""
+    if mode == "legacy":
+        report = json.loads((results / "char2/legacy.json").read_text())
+        tests = report["tests"]
+        return {"baseline_passed": report["passed"],
+                "tests": {number: case["passed"] for number, case in tests.items()},
+                "test_names": {number: case["name"] for number, case in tests.items()},
+                "passed": report["passed"] is True and set(tests) == {"1", "2", "3", "4", "5"} and
+                          all(case["passed"] is True for case in tests.values())}
     if mode in ("body", "body-mutants"):
         baseline = json.loads((results / "char2/body.json").read_text())
         summary = {"baseline_passed": baseline["passed"],

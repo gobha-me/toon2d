@@ -88,6 +88,9 @@ func observe_body() -> void:
 			reject(key + "/declaration", "part declaration missing or duplicated")
 			continue
 		var part: Dictionary = declarations[0]
+		if manifest._character.has("imagine_contract"):
+			if sprite.texture.resource_path != "res://" + str(part.get("texture_hd", "")):
+				reject(key + "/texture-source", "rendered slot texture differs from its provenance declaration")
 		if part.parent_bone != slot.part_parent_bone or part.bone != slot.bone:
 			reject(key + "/declared-parent", "declared part parent differs from manifest")
 		if Vector2(part.pivot[0], part.pivot[1]).distance_to(Vector2(slot.pivot[0], slot.pivot[1])) > tolerance:

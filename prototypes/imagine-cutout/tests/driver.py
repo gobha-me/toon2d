@@ -328,7 +328,7 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("mode", choices=("suite", "mutants", "body", "body-mutants", "all-mutants", "oracle"))
     parser.add_argument("--output", type=Path, default=PROTOTYPE / "tests" / "results" / "real.json")
-    parser.add_argument("--src", type=Path,
+    parser.add_argument("--src", type=lambda value: Path(value).expanduser().resolve(),
                         help="Segments src tree containing parts/raw-hd (mutants and all-mutants)")
     args = parser.parse_args()
     guard()

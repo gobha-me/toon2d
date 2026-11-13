@@ -443,7 +443,7 @@ def main() -> int:
     parser.add_argument("mode", choices=("suite", "mutants", "body", "body-mutants", "all-mutants", "oracle"))
     parser.add_argument("--character", default="trenchcoat")
     parser.add_argument("--output", type=Path)
-    parser.add_argument("--src", type=Path,
+    parser.add_argument("--src", type=lambda value: Path(value).expanduser().resolve(),
                         help="Segments src tree containing parts/raw-hd (mutants and all-mutants)")
     args = parser.parse_args()
     replay = []

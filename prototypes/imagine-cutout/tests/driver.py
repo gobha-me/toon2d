@@ -91,10 +91,10 @@ def public_log(text: str) -> str:
                      if not line.startswith("heavy-run: holding slot")) + "\n"
 
 
-def overlap_inputs() -> tuple[Path, Path, list[str]]:
+def overlap_inputs(src: Path | None = None) -> tuple[Path, Path, list[str]]:
     """Resolve the packaged tool; source exports are optional, never invented."""
     tool = PROTOTYPE / "tools" / "prep_parts.py"
-    candidates = (PROTOTYPE / "src", REPO / "src")
+    candidates = (src,) if src is not None else (PROTOTYPE / "src", REPO / "src")
     source = next((p for p in candidates if (p / "parts" / "raw-hd").is_dir()), candidates[0])
     missing = []
     if not tool.is_file():
@@ -339,7 +339,7 @@ def asset_hashes(project: Path) -> dict[str, str]:
             for path in paths}
 
 
-def mutants(character: str = "trenchcoat") -> bool:
+def mutants(character: str = "trenchcoat", src: Path | None = None) -> bool:
     from body_driver import read_manifest
     config = read_manifest(PROTOTYPE, character)["_character"]
     result_dir = PROTOTYPE / "tests" / "results" / character
@@ -352,6 +352,8 @@ def mutants(character: str = "trenchcoat") -> bool:
         (result_dir / "legacy-mutants.json").write_text(json.dumps(report, indent=2) + "\n")
         print(f"{character}: mutants a,b,d CANNOT_PLANT; missing rig/scene", flush=True)
         return False
+    # Keep historical trenchcoat evidence available alongside character outputs.
+    result_dirs = (result_dir, result_dir.parent) if character == "trenchcoat" else (result_dir,)
     phase("mutants", "start")
     baseline = suite(PROTOTYPE, TEMP / "baseline.json", announce=False, character=character)
     baseline_joints = {(j["mode"], j["joint"], j["limit"]): j for j in baseline["joints"]}
@@ -368,7 +370,7 @@ def mutants(character: str = "trenchcoat") -> bool:
         if kind == "overlap":
             guard()
             before_hashes = asset_hashes(project)
-            tool, source, missing = overlap_inputs()
+            tool, source, missing = overlap_inputs(src)
             if missing:
                 reason = "; ".join(missing)
                 report.append({"mutant": name, "kind": kind, "status": "SKIPPED",
@@ -377,9 +379,10 @@ def mutants(character: str = "trenchcoat") -> bool:
                 print(f"SKIP mutant {name}: missing {reason}", flush=True)
                 # Replace historical success evidence too: a skipped trial must
                 # never leave an old KILLED result under its current filename.
-                (result_dir / f"mutant-{name}.json").write_text(json.dumps(report[-1], indent=2) + "\n")
-                for suffix in ("godot.txt", "prep.txt"):
-                    (result_dir / f"mutant-{name}.{suffix}").write_text(f"SKIPPED: missing {reason}\n")
+                for destination in result_dirs:
+                    (destination / f"mutant-{name}.json").write_text(json.dumps(report[-1], indent=2) + "\n")
+                    for suffix in ("godot.txt", "prep.txt"):
+                        (destination / f"mutant-{name}.{suffix}").write_text(f"SKIPPED: missing {reason}\n")
                 shutil.rmtree(work)
                 continue
             shutil.copytree(tool.parent, work / "tools", ignore=shutil.ignore_patterns("__pycache__"))
@@ -410,11 +413,12 @@ def mutants(character: str = "trenchcoat") -> bool:
                        "worsened_joints": worsened, "status": "KILLED" if killed else "SURVIVED"})
         print(f"{'PASS' if killed else 'FAIL'} mutant {name}: expected {expected}; red {','.join(red)}; "
               f"{'KILLED' if killed else 'SURVIVED'}; increased-gap joints {len(worsened)}", flush=True)
-        shutil.copy2(TEMP / f"mutant-{name}.json", result_dir / f"mutant-{name}.json")
-        shutil.copy2((TEMP / f"mutant-{name}.json").with_suffix(".godot.txt"),
-                     result_dir / f"mutant-{name}.godot.txt")
-        if kind == "overlap":
-            shutil.copy2(prep_log, result_dir / "mutant-c.prep.txt")
+        for destination in result_dirs:
+            shutil.copy2(TEMP / f"mutant-{name}.json", destination / f"mutant-{name}.json")
+            shutil.copy2((TEMP / f"mutant-{name}.json").with_suffix(".godot.txt"),
+                         destination / f"mutant-{name}.godot.txt")
+            if kind == "overlap":
+                shutil.copy2(prep_log, destination / "mutant-c.prep.txt")
         shutil.rmtree(work)
     lines = ["mutant | file changed | expected test | observed red tests | result",
              "--- | --- | --- | --- | ---"]
@@ -426,6 +430,9 @@ def mutants(character: str = "trenchcoat") -> bool:
                   "", json.dumps(report, indent=2)])
     (result_dir / "mutants.txt").write_text("\n".join(lines) + "\n")
     (result_dir / "legacy-mutants.json").write_text(json.dumps(report, indent=2) + "\n")
+    if character == "trenchcoat":
+        shutil.copy2(result_dir / "mutants.txt", PROTOTYPE / "mutants.log")
+        shutil.copy2(result_dir / "legacy-mutants.json", result_dir.parent / "mutants.json")
     phase("mutants", "end")
     return all(item["status"] in ("KILLED", "SKIPPED") for item in report)
 
@@ -436,6 +443,8 @@ def main() -> int:
     parser.add_argument("mode", choices=("suite", "mutants", "body", "body-mutants", "all-mutants", "oracle"))
     parser.add_argument("--character", default="trenchcoat")
     parser.add_argument("--output", type=Path)
+    parser.add_argument("--src", type=Path,
+                        help="Segments src tree containing parts/raw-hd (mutants and all-mutants)")
     args = parser.parse_args()
     replay = []
     for arg in sys.argv[1:]:
@@ -460,7 +469,7 @@ def main() -> int:
                                                  ImagineProvenanceControls))
         return 0 if unittest.TextTestRunner(verbosity=2).run(checks).wasSuccessful() else 1
     if args.mode in ("mutants", "all-mutants"):
-        legacy_passed = mutants(args.character)
+        legacy_passed = mutants(args.character, args.src)
         if args.mode == "mutants":
             return 0 if legacy_passed else 1
         from body_driver import body_mutants

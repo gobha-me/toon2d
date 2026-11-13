@@ -22,8 +22,12 @@ class MutantSourceArgument(unittest.TestCase):
                 with (
                     patch.object(sys, "argv", ["driver.py", mode, "--src", "segments-exports"]),
                     patch.object(driver, "guard"),
+                    patch.object(driver, "mutation_guard"),
                     patch.object(driver, "mutants", return_value=True) as run_mutants,
-                    patch.dict(sys.modules, {"body_driver": SimpleNamespace(body_mutants=body_mutants)}),
+                    patch.dict(sys.modules, {"body_driver": SimpleNamespace(
+                        body_mutants=body_mutants,
+                        character_index=Mock(return_value={"characters": {"trenchcoat": {}}}),
+                    )}),
                     contextlib.redirect_stderr(stderr),
                 ):
                     try:
@@ -43,6 +47,8 @@ class MutantRunnerInputs(unittest.TestCase):
             prototype = root / "prototypes" / "imagine-cutout"
             results = prototype / "tests" / "results"
             results.mkdir(parents=True)
+            (prototype / "scene.tscn").write_text("# mocked character scene\n")
+            (prototype / "parts.json").write_text('{"overlap_px": 12}\n')
             (prototype / "tools").mkdir()
             (prototype / "tools" / "prep_parts.py").write_text("# packaged preparation stub\n")
             (results / "mutant-c.json").write_text('{"status": "KILLED", "stale": true}\n')
@@ -57,7 +63,7 @@ class MutantRunnerInputs(unittest.TestCase):
             self.assertFalse((root / "src").exists())
             calls = []
 
-            def suite(project, output, *, announce):
+            def suite(project, output, *, announce, character):
                 calls.append(output.stem)
                 expected = {"mutant-a": "3", "mutant-b": "1",
                             "mutant-c": "5", "mutant-d": "2"}.get(output.stem)
@@ -93,12 +99,19 @@ class MutantRunnerInputs(unittest.TestCase):
                 patch.object(driver, "REPO", root),
                 patch.object(driver, "TEMP", Path(scratch)),
                 patch.object(driver, "guard"),
+                patch.object(driver, "mutation_guard"),
                 patch.object(driver, "phase"),
                 patch.object(driver, "clone", side_effect=clone),
                 patch.object(driver, "suite", side_effect=suite),
                 patch.object(driver, "animation_edit", return_value=["scene.tscn"]),
                 patch.object(driver, "heavy", side_effect=prepare) as preparer,
-                patch.dict(sys.modules, {"body_driver": SimpleNamespace(body_mutants=Mock(return_value=True))}),
+                patch.dict(sys.modules, {"body_driver": SimpleNamespace(
+                    body_mutants=Mock(return_value=True),
+                    character_index=Mock(return_value={"characters": {"trenchcoat": {}}}),
+                    read_manifest=Mock(return_value={"_character": {
+                        "scene": "scene.tscn", "subject": "parts.json",
+                    }}),
+                )}),
                 contextlib.redirect_stdout(io.StringIO()),
                 contextlib.redirect_stderr(stderr),
             ):

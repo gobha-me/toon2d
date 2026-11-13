@@ -1,0 +1,161 @@
+{
+  "tool": "Python/Pillow/OpenCV scripted derivation from Grok Imagine (SpaceXAI)",
+  "model": "no generative model used; source model not disclosed",
+  "date": "2026-11-09T22:56:43.303087Z",
+  "date_source": "scripted artifact creation time UTC",
+  "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+  "license": "CC0 1.0",
+  "credit": "Generated with Grok Imagine (SpaceXAI); scripted derivation where stated",
+  "rights": "Original fictional art only; no real-person likeness.",
+  "description": "Derived fictional courier part: shin_left",
+  "output_sha256": "6e6d79ec620a78b44fd1be9b656825be1d6f19562c22f0fa0a6a45db1317ca1b",
+  "tool_sha256": "358baa5072012b7431f3b1cdb109fc465f6261808a1a6d99ac0223b78ebe47a1",
+  "manifest_sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4",
+  "classification": "Segments-split",
+  "scripted_fallback": false,
+  "derived_from": "Polygon split and affine fit of seg-be6a-gray-leggings.png; composited in listed order; source-interior material joint supports knee_left proximal [14, 18]px with 12px local overlap margin, boot_left distal seam support [16, 18]px with 12px local overlap margin.",
+  "imagine_sources": [
+    {
+      "file": "seg-be6a-gray-leggings.png",
+      "sha256": "81cb16c6055b844919accf9b9e14d17d1853ab6a28163c2e982e555661441a3d"
+    }
+  ],
+  "operations": [
+    {
+      "file": "seg-be6a-gray-leggings.png",
+      "polygon": [
+        [
+          0,
+          148
+        ],
+        [
+          155,
+          148
+        ],
+        [
+          155,
+          417
+        ],
+        [
+          0,
+          417
+        ]
+      ],
+      "source_axis": [
+        [
+          64,
+          175
+        ],
+        [
+          47,
+          398
+        ]
+      ],
+      "target_axis": [
+        [
+          216,
+          550
+        ],
+        [
+          216,
+          680
+        ]
+      ],
+      "width_scale": 0.6,
+      "affine_source_to_rig": [
+        [
+          0.5982641140758655,
+          0.04560757820309289,
+          169.72977051360334
+        ],
+        [
+          -0.044184060707155304,
+          0.57959134963219,
+          451.3992936996247
+        ]
+      ]
+    }
+  ],
+  "joint_completion_added_pixels": 2526,
+  "backing_material": {
+    "rgb": [
+      137,
+      137,
+      142
+    ],
+    "sample_rig_px": [
+      220,
+      582
+    ],
+    "selection": "authored opaque interior pixel closest to local median RGB",
+    "minimum_core_depth_px": 3,
+    "search_radius_px": 50
+  },
+  "joint_cap_radii_px": [
+    14,
+    18
+  ],
+  "joint_backings": [
+    {
+      "joint": "knee_left",
+      "role": "proximal",
+      "pivot": [
+        216,
+        550
+      ],
+      "source_part": "shin_left",
+      "rasterization": "clipped source-edge dilation",
+      "cap_radii_px": [
+        14,
+        18
+      ],
+      "overlap_px": 12,
+      "material": {
+        "rgb": [
+          137,
+          137,
+          142
+        ],
+        "sample_rig_px": [
+          220,
+          582
+        ],
+        "selection": "authored opaque interior pixel closest to local median RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 50
+      },
+      "added_opaque_pixels": 816
+    },
+    {
+      "joint": "boot_left",
+      "role": "distal seam support",
+      "pivot": [
+        216,
+        680
+      ],
+      "source_part": "shin_left",
+      "rasterization": "opaque pixel-centred source-material underlay",
+      "cap_radii_px": [
+        16,
+        18
+      ],
+      "overlap_px": 12,
+      "material": {
+        "rgb": [
+          138,
+          139,
+          143
+        ],
+        "sample_rig_px": [
+          207,
+          631
+        ],
+        "selection": "authored opaque interior pixel closest to local median RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 50
+      },
+      "added_opaque_pixels": 1710
+    }
+  ],
+  "source_post_url": "https://grok.com/imagine/post/be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8"
+}

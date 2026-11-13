@@ -5,7 +5,8 @@ Run `prototypes/imagine-cutout/tests/run_tests.sh` from any directory. Run
 The repository's `.venv/bin/python`, Godot, Xvfb, Pillow and NumPy are required.
 The runners enforce quiet hours, at least 5 GiB free on the repository and `/tmp`,
 two CPU workers, a fresh `/tmp/tween-<runid>` and EXIT cleanup. Every Godot process
-and preparation run goes through `heavy-run`; exit 75 is retried after 30 seconds.
+and preparation run goes through `heavy-run`; exit 75 is retried after 30 minutes
+(up to four attempts, stopping before 23:40 ET), then reported DEFERRED/79.
 Only temporary copies are imported or mutated. No existing render is an oracle.
 
 ## Frozen acceptance rules (written before the first joint test)
@@ -565,3 +566,262 @@ There are no NOT-RUN items among the four supplied ledger rows; any NOT-RUN
 result is deferred. No refusal 75/78 or retry is recorded. Clip acceptance stays
 RED, and **REVIEW=required** applies to the final evidence head because the
 runner modes changed. No final launcher completion verdict was supplied.
+
+## Issue 18: recorded Xvfb ownership (M1)
+
+The runner starts Xvfb with `-displayfd`, writes its child PID immediately to
+`$TMPDIR/xvfb.pid`, exports DISPLAY, then stops and waits for that recorded
+child before removing scratch. EXIT, INT and TERM share this cleanup. Drivers
+render on this display without `xvfb-run`. An active heavy child receives TERM
+through its recorded process group and is waited for before X server cleanup.
+
+The allowlisted `xvfb_no_orphan_normal_exit` and `xvfb_no_orphan_on_term` checks
+use a quick consumer in a disposable copy of the runner. They require a real
+X server, retain the PID from its pidfile, and assert that `kill(pid, 0)` fails,
+its display lock is absent and scratch is removed after the runner exits.
+The old runner fails the recorded-PID ownership contract before any process
+lookup; these controls never discover a server by name or display number.
+
+`driver_heavy_defer_policy` invokes the real `driver.heavy` with a PATH stub:
+75/0 must succeed after two attempts, persistent 75 must produce DEFERRED/79
+at four attempts, and 78 must stop immediately. The default retry interval is
+1,800 seconds, injectable through `DRIVER_HEAVY_RETRY_SECONDS` for this test.
+Retries stop before 23:40 ET and never enter quiet hours. Every 75 is UTC dated.
+
+Red-first command (exported old harness at dffcb51):
+
+```bash
+heavy-run <PYTHON> prototypes/imagine-cutout/tests/test_harness_policy.py --baseline dffcb51
+heavy-run <PYTHON> prototypes/imagine-cutout/tests/test_harness_policy.py
+```
+
+Execution is **deferred (heavy-run 75)**, including red-first proof and current
+lifecycle/policy verification. The refusal is retained in
+`tests/results/harness-policy-red-first.txt`; it is not a red test result.
+Shell syntax and Python parsing pass. No existing assertion was edited in M1.
+
+## Issue 18: character contracts (M2)
+
+`characters.yml` is a test-owned JSON-compatible YAML index. It selects the
+manifest, HD scene, subject declaration, legacy scene modes, required slot/joint
+inventories, random count and seed. Every runner accepts `--character` (default
+`trenchcoat`). Evidence now goes to `tests/results/<character>/`, preserving the
+historical PoC red-first evidence. `--output` selects the body/legacy result file.
+The observer receives the selected contract through scratch `manifest.json`;
+no production manifest, scene, script or part is rewritten.
+
+| Character | Canvas | Joints | Required slots | Singles | Pair extremes | Random N / seed |
+|---|---|---|---|---|---|---|
+| trenchcoat | 1152 x 1728 | 21 | 14 | 42 | 840 | 200 / 20261030 |
+| char2 | 512 x 768 | 15 | 14 | 30 | 420 | 200 / 20261031 |
+
+Trenchcoat's original `body_parts.yml`, pivots, limits, overlap, tolerances and
+pose generation order/values are unchanged. The parameterized coverage control
+compares its entire pose plan with the retained historical plan. The fresh
+trenchcoat verdict comparison requires a heavy-run execution and is pending.
+
+Char2 is an original fictional stocky courier carrying a rigid satchel. Each
+pivot, limit and overlap has a reason and `v2-new, chosen` basis. The head axis
+and satchel handle axis are provisional design requirements until actual art
+can be reviewed. No artwork or rig is invented, and no placeholder is needed
+for the missing-scene test. The same zero-pixel tolerance and oracle apply.
+
+Mutants a,b,d use character-selected scene paths; e,f,g,h use the selected
+manifest, head part, knee, arm textures and subject declaration. A non-gun prop
+uses `Part_<id>` rather than `Gun`. Char2 mutants cannot be planted until its
+rig and subject declaration exist; no missing-scene result counts as a kill.
+Mutation comparisons still require newly relevant failures or increased gaps.
+
+Existing assertion edits in M2 (line numbers refer to this commit):
+
+- `tests/body_driver.py:88-90`: fixed slot count/inventory and joint tuple ->
+  character-index inventory; the trenchcoat index is additionally checked
+  against the same frozen Python constants. Reason: independent per-character
+  inventories while preserving the old trenchcoat requirements.
+- `tests/body_driver.py:139`: fixed random count in pose-count assertion ->
+  selected count (index validates N >= 200); trenchcoat remains exactly 200.
+- `tests/body_driver.py:214-216`: fixed atlas joint tuple/width -> selected
+  manifest tuple/width. Reason: char2 has 15 joints, trenchcoat still has 21.
+- `tests/test_body_oracle.py:62-71`: fixed 200 random poses, 840 pairs and
+  fixed joint-name set -> selected N, exhaustive pair formula and selected
+  inventory. The full historical trenchcoat pose equality assertion is added.
+- `tests/driver.py` animation mutation's fixed hair removal assertion keeps
+  the same removal count (two nodes), with a character-selected leaf name.
+
+No numerical tolerance, gap rule, alpha threshold or mutation kill criterion
+was relaxed. All new checks are the brief's allowlisted schema, parameterized
+existing acceptance/coverage checks, or lifecycle/heavy-policy checks.
+
+## Issue 18: char2 red-first admission (M3)
+
+The char2 command is recorded in `tests/results/char2/red-first.txt`.
+It is **deferred (heavy-run 75)**: the guard refused to start, so no acceptance
+verdict is reported. On admission, the expected results are manifest GREEN and
+completeness, per-joint, combined and facing RED because `scenes/char2.tscn`
+and `characters/char2/parts.json` do not exist. This is an expected missing-rig
+failure, with zero captured poses; no synthetic raster results are substituted.
+The planned schedule remains 30 singles + 420 pair extremes + 200 random poses.
+
+M4, including fresh trenchcoat legacy/body verdicts, byte-equivalent verdict
+comparison, all mutants, current lifecycle proof, and old-harness red-first
+policy proof, remains **deferred (heavy-run 75)**. Exact guarded reruns and last
+refusal timestamps are in the local `.codex-q/DEFERRED.md` handoff.
+The driver also appends capped deferrals there automatically for runner calls.
+The mutation entrypoints inspect `ps -eo pid,pgid,sid,etime,args` first and
+refuse concurrent mutation work from another invocation. They never signal
+those processes. No existing assertion changed in this M3 follow-up; the new
+source-canvas equality check adds a completeness failure when a subject uses
+the wrong selected canvas. Static shell/Python/JSON checks pass; runtime
+verification remains deferred and the overall status is DEFERRED, not PASS.
+
+The refused current-validation batch is retained in
+`tests/results/current-validation-deferred.txt`. No command in that batch
+executed. `tests/compare_body_verdicts.py` compares fresh trenchcoat `tests`
+objects as canonical JSON bytes, plus the complete pose hash, against the
+retained v2 acceptance. It requires a full green run and returns DEFERRED/79
+when that fresh result is absent. This is the existing acceptance regression
+comparison, not an additional kind of rig test.
+
+The final static audit parsed every Python test/helper, checked every shell
+runner with `bash -n`, parsed both new manifest files, and confirmed the
+trenchcoat manifest is byte-identical to the starting revision. Stubbed policy
+cases inject a fixed daytime clock so the 75/0, 75-forever and 78 expectations
+are deterministic without replacing `driver.heavy`. These static checks do
+not establish runtime green or red results. Refusal logs survive scratch
+cleanup, and the driver enforces the 23:40 ET cutoff before starting an attempt.
+
+## Verification evidence review
+
+The runtime deferrals above are superseded by the [Phase B evidence review](tests/results/verify-char2/README.md). All eight scheduled commands completed in one attempt each on 2026-10-31, 12:26:50Z-12:33:14Z. Launcher STATUS=COMPLETE; overall verification **FAIL**. The current harness policy returned rc 1: normal-exit and TERM lifecycle checks both failed because the real X server lock was absent. The driver retry-policy control passed, but lifecycle cleanup remains unproved and the cause is unresolved. No assertions or tolerances were changed.
+
+The old harness dffcb51 and char2 missing-rig acceptance are **expected-RED** (rc 1 each). Char2 manifest passed; its four runtime acceptance groups rejected missing inputs and captured zero poses. Oracle controls, trenchcoat legacy 1-5 in both modes, full trenchcoat body acceptance and verdict/pose-hash equality all **PASS** (rc 0 each). Trenchcoat mutation **PASS** (rc 0): a,b,d,e,f,g,h killed, c explicitly skipped for absent raw source PNGs. Char2 mutants remain **not-run / CANNOT_PLANT** without a rig; no kill is claimed.
+
+Exact ledger commands, return codes, attempt counts, UTC intervals and sanitized per-attempt logs are retained under `tests/results/verify-char2/`. Phase B executed no tests or heavy commands. The lifecycle failure leaves the rig evidence gate unresolved.
+
+## Issue 18: real Xvfb lock repair verification
+
+The [Xvfb lock evidence](tests/results/xvfb-lock/README.md) supersedes the earlier
+unresolved lifecycle result. The verification controller recorded item **03
+GREEN**: the fixed harness returned **0**, with normal-exit, TERM and retry-policy
+checks all passing; old harness `dffcb51` returned **1**, with both lifecycle
+checks failing at the recorded-PID assertion (plus three retry-policy failures).
+All five scheduled probe/policy items ran once, from **2026-10-31T21:38:55Z**
+to **2026-10-31T21:42:52Z**. The evidence records each command, rc and UTC interval.
+
+The initial display-fd server had a socket but no real lock. Change commit
+`4141db3e6a2dfa12b957945ee82ae51603d69882` uses an explicit display candidate and
+SIGUSR1 readiness while retaining recorded-PID ownership. The fixed probe shows
+its real lock contains that PID. Existing desktop resources remained unchanged.
+No assertions or timing budgets changed. This evidence review ran no tests or
+heavy commands; sanitized logs and controller-verdict hashes are retained beside
+the report. Any controller completion or review gate is recorded separately.
+
+## Issue 18: authenticated Imagine inputs and provenance acceptance
+
+The chosen source is post `be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8`. All 15 chosen outputs (one base JPEG and 14 Segments PNGs) and their sidecars are committed under [imagine-source](characters/char2/imagine-source/README.md). Their SHA-256 values match the supplied checksum list. The provenance README records all three used calls, the unintended alternate Segments run, and the approximate times for calls 2 and 3. No generation call remains and no generator was invoked.
+
+The new test-owned [source contract](tests/data/characters/char2/imagine_contract.json) pins every chosen output hash and the verbatim call metadata. `imagine_provenance.py` adds a separate `provenance` acceptance group to the existing char2 body suite. It checks source bytes and sidecars, slot-to-source links, derived texture hashes, licence/credit, and explicit scripted fallback flags. All additional declared torso, hair and backing parts must also disclose provenance. The light controls also require the source files and sidecars to be tracked in Git.
+
+These are declared-provenance checks. They do not prove a claimed algorithm produced particular pixels, certify visual quality, or replace the existing real-scene completeness/gap/facing observers. In particular the supplied head faces front: the unchanged facing test measures the frozen sprite-axis convention and held-prop transforms, not a visibly established sideways gaze.
+
+### Reviewed slot map
+
+The issue-18 convention calls a scripted split from either a Segments export **or the Imagine base image** `Segments-split`. A wholly scripted part with no Imagine-derived input must instead be `SCRIPTED (flagged)`. The gloves must be merged with base-image fingers; jacket sleeves and paired leg layers are not pre-separated limbs. Left/right below use the frozen rig names: left hand is image-right.
+
+| Slot | Part | Classification | Required authenticated sources |
+|---|---|---|---|
+| head_face | `head` | Segments-split | `call1-base-best.jpg` |
+| upper_arm_left | `left_arm` | Segments-split | `seg-be6a-teal-cropped-jacket.png` |
+| lower_arm_left | `left_fore` | Segments-split | `call1-base-best.jpg` |
+| hand_left | `left_hand` | Segments-merged | `call1-base-best.jpg`, `seg-be6a-black-fingerless-gloves-2.png` |
+| upper_arm_right | `right_upper` | Segments-split | `seg-be6a-teal-cropped-jacket.png` |
+| lower_arm_right | `right_fore` | Segments-split | `call1-base-best.jpg` |
+| hand_right | `right_hand` | Segments-merged | `call1-base-best.jpg`, `seg-be6a-black-fingerless-gloves-1.png` |
+| upper_leg_left | `leg_left` | Segments-merged | `seg-be6a-black-shorts.png`, `seg-be6a-gray-leggings.png` |
+| lower_leg_left | `shin_left` | Segments-split | `seg-be6a-gray-leggings.png` |
+| foot_left | `boot_left` | Segments-split | `call1-base-best.jpg` |
+| upper_leg_right | `leg_right` | Segments-merged | `seg-be6a-black-shorts.png`, `seg-be6a-gray-leggings.png` |
+| lower_leg_right | `shin_right` | Segments-split | `seg-be6a-gray-leggings.png` |
+| foot_right | `boot_right` | Segments-split | `call1-base-best.jpg` |
+| held_prop_satchel | `satchel` | SCRIPTED (flagged) | None; explicit scripted fallback reason required |
+
+Planned required-slot tally, in the same form as #17: **0 usable + 4 merged + 9 split = 13 Imagine-derived required slots**, from **6 distinct required source files**; **1 SCRIPTED (flagged) fallback**. This includes base-image derivations and does not claim 13 direct Segments limbs. Hair, torso and other backing parts are outside the 14 required slots and get a separate declaration check. The current rig is absent, so its **observed slot tally is zero**, not the planned tally.
+
+The existing 512 x 768 rig canvas, all 15 pivots, joint parents, limits, overlaps, tolerances, N=200, seed=20261031 and 650-pose order/values remain frozen. The source image is 1408 x 1408; implementation must describe its coordinate mapping. Manifest text now describes the supplied red-haired courier and the absent satchel rather than the earlier provisional stocky design.
+
+### Runtime part/sidecar interface
+
+Each `characters/char2/parts.json` part retains the existing geometry/texture fields and adds `classification` and Boolean `scripted_fallback`. Required-slot classifications and source sets are frozen in the map above. Optional extra Imagine sources may be listed; required sources may not be omitted. A scripted part also has a nonempty `fallback_reason`.
+
+When a char2 rig is present, completeness also requires each actual Sprite2D texture path to match that part's authenticated `texture_hd`. This binds the provenance declaration to the texture actually rendered. The existing geometry, alpha coverage and facing checks remain unchanged.
+
+Each derived `texture_hd` is a PNG below `characters/char2/`, outside `imagine-source/`, with a sibling `<stem>.gen.json`. The sidecar includes the same classification and fallback flag, the output file SHA-256 as `output_sha256`, a nonempty `derived_from` description of the split/merge/matte, and the existing source licence/credit/rights strings. `imagine_sources` is a list of `{"file": "call1-base-best.jpg", "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"}` records (file names only). Each record must match a committed source and its authenticated sidecar. `Segments-usable` requires one call-2 Segments output; `Segments-merged` requires at least two disclosed inputs. A wholly scripted fallback has `imagine_sources: []` and the same `fallback_reason` in both records.
+
+Unsafe relative paths and symlinks escaping the declared directories fail before reading the selected artifact. No credential location is used in controls. Source files remain unmodified. The wrapper still records its spawned Xvfb PID immediately and terminates/waits for exactly that child on EXIT; scratch now lives under the caller-provided private `TMPDIR`.
+
+### Planted provenance mutants and rendered rig mutants
+
+`run_imagine_mutants.py --fixture` plants twelve independent regressions into disposable provenance-only control subjects made from the committed inputs. The control is explicitly labelled **NOT rig acceptance**; its small derivative textures are never committed or supplied as a character rig. Each kill requires its specific newly failing case, with a green control. Missing baseline, zero mutants, CANNOT_PLANT or a surviving mutant returns failure.
+
+| Mutant | Planted regression | Required rejection |
+|---|---|---|
+| i | Remove base source | source image |
+| j | Remove source sidecar | source sidecar |
+| k | Change source bytes | authenticated source hash |
+| l | Drop approximate-time flag | approximate timestamp disclosure |
+| m | Remove derived sidecar | derived sidecar |
+| n | Erase head source trace | required Imagine inputs |
+| o | Clear scripted satchel flag | explicit fallback flag |
+| p | Replace Imagine head with scripted fallback | reviewed slot class |
+| q | Remove head declaration | required head slot |
+| r | Add unclassified backing | all-part provenance |
+| s | Change runtime texture bytes | output hash |
+| t | Invent a recorded prompt | verbatim source prompt |
+
+The existing rendered char2 mutants remain **e missing head sprite, f flipped head, g removed knee, h zero physical elbow overlap**. They are evaluated against the real rig, never the provenance fixture. The char2 runner now requires **4/4 KILLED**; an absent rig or CANNOT_PLANT does not count as success. Trenchcoat historical skip policy is unchanged. Every planted mutant must be killed; existing baseline reds are never counted as a kill. The actual-source provenance run (without `--fixture`) similarly returns failure until its baseline is green.
+
+### Commands and current observations
+
+From the repository root, with a private `TMPDIR` and Python/Pillow/NumPy available:
+
+```bash
+TEST_PYTHON=python3 prototypes/imagine-cutout/tests/runner.sh oracle --character char2
+python3 prototypes/imagine-cutout/tests/test_harness_policy.py
+TEST_PYTHON=python3 prototypes/imagine-cutout/tests/run_body_tests.sh --character char2
+```
+
+The last command currently takes only the missing-input path and starts no Godot process. Run it under the required heavy guard once a rig exists. Run each mutation command under the shared mutation lock and absolute heavy wrapper, with two workers:
+
+```bash
+python3 prototypes/imagine-cutout/tests/run_imagine_mutants.py --fixture --output prototypes/imagine-cutout/tests/results/char2-imagine/provenance-fixture-mutants.json
+python3 prototypes/imagine-cutout/tests/run_imagine_mutants.py --output prototypes/imagine-cutout/tests/results/char2-imagine/provenance-mutants.json
+TEST_PYTHON=python3 prototypes/imagine-cutout/tests/runner.sh body-mutants --character char2
+```
+
+Light verification: **23/23 oracle/source controls PASS** and **3/3 harness policy/lifecycle controls PASS**. The real char2 acceptance run returns **1 (expected RED)**: manifest passes; provenance rejects missing `characters/char2/parts.json` and all 14 missing slot declarations; completeness, per-joint, combined and facing reject missing `scenes/char2.tscn` and `characters/char2/parts.json`. It captures zero poses and fabricates no rasters. Source authentication itself is green.
+
+Existing test edits and reasons: `body_driver.py` adds provenance to acceptance and tightens char2 mutation success from allowed CANNOT_PLANT to four required kills; `driver.py` includes the new provenance controls in the existing oracle entrypoint and resolves the heavy executable to an absolute path; `runner.sh` uses the caller-provided private temporary root. No existing numerical or geometry assertion is deleted, no timeout/deadline changes, and no production rig, tool or CI change is included.
+
+### Guarded Imagine verification completed
+
+The [Imagine verification evidence](tests/results/char2-imagine/README.md)
+records the completed guarded batch on code `37a544b`, ending
+**2026-11-09T19:35:24Z**. Godot observer syntax **PASS**; provenance-only fixture
+mutants **12/12 KILLED** with a green control. All planted mutants are killed.
+The prior **23/23 light** and **3/3 lifecycle/policy** controls remain green.
+
+Actual char2 provenance and rendered-mutation commands both return **1**:
+the actual provenance control is red and its twelve scenarios are CANNOT_PLANT;
+the four real rendered mutants e/f/g/h are CANNOT_PLANT without the scene and
+subject. These are failures, with zero actual mutants planted, and are never
+credited as kills. Actual acceptance remains expected-RED in provenance,
+completeness, per-joint, combined and facing, with zero captured poses.
+All fifteen committed sources authenticate; the fresh 650-pose plan/hash
+matches the retained source-aware red-first admission.
+
+The observer now binds each real char2 Sprite2D texture to the authenticated
+declaration; syntax passes, while execution of that assertion awaits the actual
+rig. The executed commands, two-worker adapter, selected sanitized admission
+logs, individual exits and source-code hashes are retained beside the reports.
+Queued refusals did not execute tests. No existing assertion, tolerance or
+timeout changed in this evidence-only update.

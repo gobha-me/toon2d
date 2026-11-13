@@ -355,7 +355,8 @@ JSON evidence are under `validation/v2/`; optional source-backed trials use
 The independent test lane's frozen 42 individual limits, 840 pairwise extreme
 poses, 200 random poses, seed and zero-pixel tolerance are unchanged.
 
-A second new character from the broader plan is **not supplied or validated**.
+At that earlier checkpoint, a second new character from the broader plan was
+**not supplied or validated**; the later #18 work is recorded below.
 No new character artwork, browser generation or paid call was made. That later
 step needs a different source character/Segments export, its provenance and a
 separate test-owned articulation contract; it is not represented by a recolour
@@ -379,6 +380,27 @@ explicitly skip c; that skip is not counted as a kill.
 
 Preparation repeatability and all 20 unchanged pixel PNG hashes are recorded.
 The existing character took about 30 minutes wall time including validation,
-with no human intervention during the run. The broader plan's second character
-and the documented visual polish limits remain pending; they are not claimed
-as validated by these results. No test/manifest dispute was raised.
+with no human intervention during the run. Those results cover the first character. The later second-character work is
+recorded below; the documented visual polish limits still apply. No test/manifest dispute was raised.
+
+
+### Second character from supplied Imagine art (#18)
+
+The courier now uses the committed source image and Segments exports, with no
+new generation calls. The required slots total 0 usable + 4 merged + 9 split,
+plus one flagged scripted satchel. The torso and pelvis backing add two sourced
+runtime parts. The unchanged 15-joint contract retains all pivots, hierarchy,
+limits, 12px overlap, N=200, seed=20261031 and zero-gap assertions.
+
+Segments supplied clothing rather than isolated limbs. Scripted polygon splitting,
+affine fitting, premultiplied resampling and local source-material backing are
+therefore part of this conversion. The parent and child support rotating seams
+with material sampled from each part's immutable fitted source interior. The
+ledger records every source hash, polygon, transform, RGB sample and added pixel
+count. These supports complete hidden material; they do not recover unseen folds.
+
+The character README maps every slot and discloses front-view/facing limits.
+[Current evidence](validation/char2-imagine/SUMMARY.md) distinguishes actual
+source/rendered mutations from oracle fixtures and preserves failed iterations.
+Test-owned sources and their recorded evidence were not edited. No tolerance,
+pose count, joint limit, test deadline or runner retry policy was relaxed.

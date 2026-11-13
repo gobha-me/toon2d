@@ -1,0 +1,2365 @@
+{
+  "schema_version": 1,
+  "tool": "prototypes/imagine-cutout/tools/prep_char2.py",
+  "source_post_id": "be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8",
+  "manifest_sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4",
+  "tool_sha256": "358baa5072012b7431f3b1cdb109fc465f6261808a1a6d99ac0223b78ebe47a1",
+  "dependencies": {
+    "OpenCV": "4.12.0",
+    "NumPy": "2.5.4",
+    "Pillow": "13.0.0"
+  },
+  "source_sha256": {
+    "call1-base-best.jpg": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2",
+    "seg-be6a-1.png": "73844c78312c2e1b21cab406c045e879cce74bd0d7c7da2f7aa628075ebb3106",
+    "seg-be6a-black-fingerless-gloves-1.png": "e025fbdac73f9d49457bdeee719e0f9b624cf2e703f5b8188abe78f0672b2d76",
+    "seg-be6a-black-fingerless-gloves-2.png": "39cd9a3cabacf5f36cddd9adbe7473de3ca55729cd45eeb9cc23e99dd4ec1c50",
+    "seg-be6a-black-shorts.png": "4b9ca939c6ba004b5a568220f49a4ae7b633bebd3715558ba6c8549740e87c2e",
+    "seg-be6a-black-sports-bra.png": "66ec253fc0081f59e40c8d175b0b0a08f521b7cff051283dd7305ff867b753be",
+    "seg-be6a-gray-leggings.png": "81cb16c6055b844919accf9b9e14d17d1853ab6a28163c2e982e555661441a3d",
+    "seg-be6a-orange-high-top-sneakers.png": "103c597706330554412e18942083d43a637eb6d588fa4f7d64368585111e90cd",
+    "seg-be6a-orange-sleeve-patch.png": "0756d883c6315875901e55e5fcb18f47dcae62980df3a9f8e494d16c3216b9cc",
+    "seg-be6a-red-eyes-1.png": "30614fc6039c0fb31784dad95007b4fbc50349f08d7d619ca8f23c03cdbcc569",
+    "seg-be6a-red-eyes-2.png": "55ccb35bc27d4e22eafece6f86339a0e46f9108375ea7ec49f39bba37e692e65",
+    "seg-be6a-red-hair.png": "de2c53df1a1be6878144494cf967b8bb234be3e76ffd14c76d3a39a83c72cf41",
+    "seg-be6a-teal-cropped-jacket.png": "975ae1b378e11ca1cd1f3ce26a74b4714a4357ceaa4ef52955f3d7627d98f416",
+    "seg-be6a-white-shoelaces-1.png": "e2ec4230d0d37ff5971ed2b789db8f7ba048b3d95437a382ae1839679427d259",
+    "seg-be6a-white-shoelaces-2.png": "794176d2f0737cc9b1f2e9f3385af6c4cf130ace80cfc20a6fea6173021db45b"
+  },
+  "parts": {
+    "torso": {
+      "classification": "Segments-merged",
+      "imagine_sources": [
+        {
+          "file": "call1-base-best.jpg",
+          "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
+        },
+        {
+          "file": "seg-be6a-teal-cropped-jacket.png",
+          "sha256": "975ae1b378e11ca1cd1f3ce26a74b4714a4357ceaa4ef52955f3d7627d98f416"
+        }
+      ],
+      "output_sha256": "c94a23b86931800fc0d24b746fee236d4aa226df337ad09afc3463e85cf6eb0f",
+      "operations": [
+        {
+          "file": "call1-base-best.jpg",
+          "polygon": [
+            [
+              625,
+              218
+            ],
+            [
+              665,
+              235
+            ],
+            [
+              741,
+              235
+            ],
+            [
+              783,
+              218
+            ],
+            [
+              813,
+              275
+            ],
+            [
+              795,
+              465
+            ],
+            [
+              780,
+              510
+            ],
+            [
+              625,
+              510
+            ],
+            [
+              605,
+              465
+            ],
+            [
+              593,
+              275
+            ]
+          ],
+          "source_axis": [
+            [
+              700,
+              300
+            ],
+            [
+              700,
+              500
+            ]
+          ],
+          "target_axis": [
+            [
+              256,
+              240
+            ],
+            [
+              256,
+              412
+            ]
+          ],
+          "width_scale": 0.74,
+          "affine_source_to_rig": [
+            [
+              0.7399999999999997,
+              0.0,
+              -261.99999999999983
+            ],
+            [
+              -1.7256037868459576e-16,
+              0.86,
+              -17.99999999999988
+            ]
+          ]
+        },
+        {
+          "file": "seg-be6a-teal-cropped-jacket.png",
+          "polygon": [
+            [
+              113,
+              0
+            ],
+            [
+              304,
+              0
+            ],
+            [
+              315,
+              70
+            ],
+            [
+              302,
+              170
+            ],
+            [
+              310,
+              260
+            ],
+            [
+              100,
+              260
+            ],
+            [
+              112,
+              170
+            ],
+            [
+              100,
+              70
+            ]
+          ],
+          "source_axis": [
+            [
+              209,
+              75
+            ],
+            [
+              209,
+              240
+            ]
+          ],
+          "target_axis": [
+            [
+              256,
+              240
+            ],
+            [
+              256,
+              371
+            ]
+          ],
+          "width_scale": 0.67,
+          "affine_source_to_rig": [
+            [
+              0.6699999999999998,
+              0.0,
+              115.97000000000001
+            ],
+            [
+              -1.3598904033686127e-16,
+              0.793939393939394,
+              180.45454545454547
+            ]
+          ]
+        }
+      ],
+      "joint_completion_added_pixels": 2290,
+      "backing_material": null,
+      "joint_cap_radii_px": null,
+      "joint_backings": [
+        {
+          "joint": "right_upper",
+          "role": "distal seam support",
+          "pivot": [
+            182,
+            250
+          ],
+          "source_part": "torso",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            18,
+            20
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              18,
+              118,
+              133
+            ],
+            "sample_rig_px": [
+              198,
+              225
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 52
+          },
+          "added_opaque_pixels": 1289
+        },
+        {
+          "joint": "left_arm",
+          "role": "distal seam support",
+          "pivot": [
+            330,
+            250
+          ],
+          "source_part": "torso",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            18,
+            20
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              18,
+              119,
+              134
+            ],
+            "sample_rig_px": [
+              311,
+              226
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 52
+          },
+          "added_opaque_pixels": 1001
+        }
+      ]
+    },
+    "hip_backing": {
+      "classification": "Segments-split",
+      "imagine_sources": [
+        {
+          "file": "seg-be6a-black-shorts.png",
+          "sha256": "4b9ca939c6ba004b5a568220f49a4ae7b633bebd3715558ba6c8549740e87c2e"
+        }
+      ],
+      "output_sha256": "d47e18f4ca796ffd124fa237a5053764cb22dc9f7ee6f43ea5677ab37a10f55e",
+      "operations": [
+        {
+          "file": "seg-be6a-black-shorts.png",
+          "polygon": [
+            [
+              0,
+              0
+            ],
+            [
+              254,
+              0
+            ],
+            [
+              254,
+              135
+            ],
+            [
+              0,
+              135
+            ]
+          ],
+          "source_axis": [
+            [
+              127,
+              42
+            ],
+            [
+              127,
+              140
+            ]
+          ],
+          "target_axis": [
+            [
+              256,
+              400
+            ],
+            [
+              256,
+              459
+            ]
+          ],
+          "width_scale": 0.68,
+          "affine_source_to_rig": [
+            [
+              0.6800000000000002,
+              0.0,
+              169.64
+            ],
+            [
+              -4.475859752819529e-16,
+              0.6020408163265306,
+              374.7142857142858
+            ]
+          ]
+        }
+      ],
+      "joint_completion_added_pixels": 0,
+      "backing_material": null,
+      "joint_cap_radii_px": null,
+      "joint_backings": []
+    },
+    "head": {
+      "classification": "Segments-split",
+      "imagine_sources": [
+        {
+          "file": "call1-base-best.jpg",
+          "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
+        }
+      ],
+      "output_sha256": "8817fab32f4719cc7a7f7149edd20a3ef330eb62bc1c8d9e204cd7151f8b7772",
+      "operations": [
+        {
+          "file": "call1-base-best.jpg",
+          "polygon": [
+            [
+              570,
+              15
+            ],
+            [
+              825,
+              15
+            ],
+            [
+              825,
+              223
+            ],
+            [
+              734,
+              229
+            ],
+            [
+              734,
+              277
+            ],
+            [
+              676,
+              277
+            ],
+            [
+              676,
+              229
+            ],
+            [
+              570,
+              223
+            ]
+          ],
+          "source_axis": [
+            [
+              700,
+              260
+            ],
+            [
+              700,
+              60
+            ]
+          ],
+          "target_axis": [
+            [
+              256,
+              160
+            ],
+            [
+              256,
+              60
+            ]
+          ],
+          "width_scale": 0.5,
+          "affine_source_to_rig": [
+            [
+              0.5,
+              -1.0605115459105973e-17,
+              -94.00000000000001
+            ],
+            [
+              0.0,
+              0.5,
+              30.0
+            ]
+          ]
+        }
+      ],
+      "joint_completion_added_pixels": 1002,
+      "backing_material": {
+        "rgb": [
+          246,
+          207,
+          176
+        ],
+        "sample_rig_px": [
+          274,
+          120
+        ],
+        "selection": "authored opaque interior pixel closest to local median RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 56
+      },
+      "joint_cap_radii_px": [
+        8,
+        24
+      ],
+      "joint_backings": [
+        {
+          "joint": "head",
+          "role": "proximal",
+          "pivot": [
+            256,
+            160
+          ],
+          "source_part": "head",
+          "rasterization": "clipped source-edge dilation",
+          "cap_radii_px": [
+            8,
+            24
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              246,
+              207,
+              176
+            ],
+            "sample_rig_px": [
+              274,
+              120
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 56
+          },
+          "added_opaque_pixels": 1002
+        }
+      ]
+    },
+    "right_upper": {
+      "classification": "Segments-split",
+      "imagine_sources": [
+        {
+          "file": "seg-be6a-teal-cropped-jacket.png",
+          "sha256": "975ae1b378e11ca1cd1f3ce26a74b4714a4357ceaa4ef52955f3d7627d98f416"
+        }
+      ],
+      "output_sha256": "e9d1ce92f7fe009ad007d5d8b652ff9e0e90919133369cffded8515e58476492",
+      "operations": [
+        {
+          "file": "seg-be6a-teal-cropped-jacket.png",
+          "polygon": [
+            [
+              78,
+              48
+            ],
+            [
+              127,
+              66
+            ],
+            [
+              126,
+              146
+            ],
+            [
+              102,
+              205
+            ],
+            [
+              97,
+              256
+            ],
+            [
+              56,
+              280
+            ],
+            [
+              0,
+              257
+            ],
+            [
+              21,
+              205
+            ],
+            [
+              35,
+              145
+            ],
+            [
+              54,
+              96
+            ]
+          ],
+          "source_axis": [
+            [
+              112,
+              70
+            ],
+            [
+              46,
+              239
+            ]
+          ],
+          "target_axis": [
+            [
+              182,
+              250
+            ],
+            [
+              168,
+              340
+            ]
+          ],
+          "width_scale": 0.7,
+          "affine_source_to_rig": [
+            [
+              0.6723626330742082,
+              0.17973925315324105,
+              94.11363737496181
+            ],
+            [
+              -0.08023067008031402,
+              0.5012116909745519,
+              223.90101668077654
+            ]
+          ]
+        }
+      ],
+      "joint_completion_added_pixels": 2725,
+      "backing_material": {
+        "rgb": [
+          17,
+          118,
+          134
+        ],
+        "sample_rig_px": [
+          184,
+          249
+        ],
+        "selection": "authored opaque interior pixel closest to local median RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 52
+      },
+      "joint_cap_radii_px": [
+        18,
+        20
+      ],
+      "joint_backings": [
+        {
+          "joint": "right_upper",
+          "role": "proximal",
+          "pivot": [
+            182,
+            250
+          ],
+          "source_part": "right_upper",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            18,
+            20
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              17,
+              118,
+              134
+            ],
+            "sample_rig_px": [
+              184,
+              249
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 52
+          },
+          "added_opaque_pixels": 1932
+        },
+        {
+          "joint": "right_fore",
+          "role": "distal seam support",
+          "pivot": [
+            168,
+            340
+          ],
+          "source_part": "right_upper",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            16,
+            16
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              99,
+              108,
+              115
+            ],
+            "sample_rig_px": [
+              148,
+              331
+            ],
+            "selection": "local authored low-chroma opaque interior above elbow; median-nearest RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 48
+          },
+          "added_opaque_pixels": 793
+        }
+      ]
+    },
+    "left_arm": {
+      "classification": "Segments-split",
+      "imagine_sources": [
+        {
+          "file": "seg-be6a-teal-cropped-jacket.png",
+          "sha256": "975ae1b378e11ca1cd1f3ce26a74b4714a4357ceaa4ef52955f3d7627d98f416"
+        }
+      ],
+      "output_sha256": "d06f33dbdcdd2094823e946c234f4463f08763873569cc6d9b9778fda9ab14fb",
+      "operations": [
+        {
+          "file": "seg-be6a-teal-cropped-jacket.png",
+          "polygon": [
+            [
+              289,
+              64
+            ],
+            [
+              337,
+              48
+            ],
+            [
+              365,
+              96
+            ],
+            [
+              385,
+              145
+            ],
+            [
+              400,
+              205
+            ],
+            [
+              418,
+              257
+            ],
+            [
+              363,
+              280
+            ],
+            [
+              322,
+              256
+            ],
+            [
+              316,
+              205
+            ],
+            [
+              290,
+              146
+            ]
+          ],
+          "source_axis": [
+            [
+              302,
+              70
+            ],
+            [
+              377,
+              239
+            ]
+          ],
+          "target_axis": [
+            [
+              330,
+              250
+            ],
+            [
+              344,
+              340
+            ]
+          ],
+          "width_scale": 0.7,
+          "affine_source_to_rig": [
+            [
+              0.6629350664121479,
+              -0.2113617158633795,
+              144.5889300539679
+            ],
+            [
+              0.09910380127800024,
+              0.4885634017997039,
+              185.87121388806466
+            ]
+          ]
+        }
+      ],
+      "joint_completion_added_pixels": 2719,
+      "backing_material": {
+        "rgb": [
+          18,
+          118,
+          133
+        ],
+        "sample_rig_px": [
+          326,
+          250
+        ],
+        "selection": "authored opaque interior pixel closest to local median RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 52
+      },
+      "joint_cap_radii_px": [
+        18,
+        20
+      ],
+      "joint_backings": [
+        {
+          "joint": "left_arm",
+          "role": "proximal",
+          "pivot": [
+            330,
+            250
+          ],
+          "source_part": "left_arm",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            18,
+            20
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              18,
+              118,
+              133
+            ],
+            "sample_rig_px": [
+              326,
+              250
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 52
+          },
+          "added_opaque_pixels": 1880
+        },
+        {
+          "joint": "left_fore",
+          "role": "distal seam support",
+          "pivot": [
+            344,
+            340
+          ],
+          "source_part": "left_arm",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            16,
+            16
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              100,
+              108,
+              113
+            ],
+            "sample_rig_px": [
+              339,
+              334
+            ],
+            "selection": "local authored low-chroma opaque interior above elbow; median-nearest RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 48
+          },
+          "added_opaque_pixels": 839
+        }
+      ]
+    },
+    "right_fore": {
+      "classification": "Segments-split",
+      "imagine_sources": [
+        {
+          "file": "call1-base-best.jpg",
+          "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
+        }
+      ],
+      "output_sha256": "74dc11d1062ff9bd8677a3b2b6dee422af76f1b8d6a172c363d90d36a2880067",
+      "operations": [
+        {
+          "file": "call1-base-best.jpg",
+          "polygon": [
+            [
+              503,
+              455
+            ],
+            [
+              546,
+              481
+            ],
+            [
+              477,
+              585
+            ],
+            [
+              435,
+              569
+            ]
+          ],
+          "source_axis": [
+            [
+              520,
+              482
+            ],
+            [
+              458,
+              574
+            ]
+          ],
+          "target_axis": [
+            [
+              168,
+              340
+            ],
+            [
+              160,
+              430
+            ]
+          ],
+          "width_scale": 0.78,
+          "affine_source_to_rig": [
+            [
+              0.684586511168639,
+              0.37439525752669117,
+              -368.44349993555744
+            ],
+            [
+              -0.39609373724754166,
+              0.7113281335940483,
+              203.10858297639035
+            ]
+          ]
+        }
+      ],
+      "joint_completion_added_pixels": 3588,
+      "backing_material": {
+        "rgb": [
+          93,
+          67,
+          60
+        ],
+        "sample_rig_px": [
+          182,
+          332
+        ],
+        "selection": "local authored low-chroma opaque interior above elbow; median-nearest RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 54
+      },
+      "joint_cap_radii_px": [
+        22,
+        22
+      ],
+      "joint_backings": [
+        {
+          "joint": "right_fore",
+          "role": "proximal",
+          "pivot": [
+            168,
+            340
+          ],
+          "source_part": "right_fore",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            22,
+            22
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              93,
+              67,
+              60
+            ],
+            "sample_rig_px": [
+              182,
+              332
+            ],
+            "selection": "local authored low-chroma opaque interior above elbow; median-nearest RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 54
+          },
+          "added_opaque_pixels": 2046
+        },
+        {
+          "joint": "right_hand",
+          "role": "distal seam support",
+          "pivot": [
+            160,
+            430
+          ],
+          "source_part": "right_fore",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            14,
+            16
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              252,
+              211,
+              181
+            ],
+            "sample_rig_px": [
+              167,
+              387
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 48
+          },
+          "added_opaque_pixels": 1542
+        }
+      ]
+    },
+    "left_fore": {
+      "classification": "Segments-split",
+      "imagine_sources": [
+        {
+          "file": "call1-base-best.jpg",
+          "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
+        }
+      ],
+      "output_sha256": "522a58595422f28333bfa2d551a61a3bb1398d916d71ce6a6e58eaf07c7cf6f5",
+      "operations": [
+        {
+          "file": "call1-base-best.jpg",
+          "polygon": [
+            [
+              862,
+              481
+            ],
+            [
+              905,
+              455
+            ],
+            [
+              973,
+              569
+            ],
+            [
+              931,
+              585
+            ]
+          ],
+          "source_axis": [
+            [
+              884,
+              482
+            ],
+            [
+              946,
+              574
+            ]
+          ],
+          "target_axis": [
+            [
+              344,
+              340
+            ],
+            [
+              352,
+              430
+            ]
+          ],
+          "width_scale": 0.78,
+          "affine_source_to_rig": [
+            [
+              0.6845864164196815,
+              -0.3743951936741329,
+              -80.71590876406655
+            ],
+            [
+              0.39609391726477683,
+              0.711328012278085,
+              -353.0071247800996
+            ]
+          ]
+        }
+      ],
+      "joint_completion_added_pixels": 3695,
+      "backing_material": {
+        "rgb": [
+          61,
+          43,
+          29
+        ],
+        "sample_rig_px": [
+          363,
+          332
+        ],
+        "selection": "local authored low-chroma opaque interior above elbow; median-nearest RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 54
+      },
+      "joint_cap_radii_px": [
+        22,
+        22
+      ],
+      "joint_backings": [
+        {
+          "joint": "left_fore",
+          "role": "proximal",
+          "pivot": [
+            344,
+            340
+          ],
+          "source_part": "left_fore",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            22,
+            22
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              61,
+              43,
+              29
+            ],
+            "sample_rig_px": [
+              363,
+              332
+            ],
+            "selection": "local authored low-chroma opaque interior above elbow; median-nearest RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 54
+          },
+          "added_opaque_pixels": 2190
+        },
+        {
+          "joint": "left_hand",
+          "role": "distal seam support",
+          "pivot": [
+            352,
+            430
+          ],
+          "source_part": "left_fore",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            14,
+            16
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              252,
+              212,
+              183
+            ],
+            "sample_rig_px": [
+              351,
+              399
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 48
+          },
+          "added_opaque_pixels": 1505
+        }
+      ]
+    },
+    "right_hand": {
+      "classification": "Segments-merged",
+      "imagine_sources": [
+        {
+          "file": "call1-base-best.jpg",
+          "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
+        },
+        {
+          "file": "seg-be6a-black-fingerless-gloves-1.png",
+          "sha256": "e025fbdac73f9d49457bdeee719e0f9b624cf2e703f5b8188abe78f0672b2d76"
+        }
+      ],
+      "output_sha256": "a7853288e3c556864b7480a06a885694d415890a0fe463da6d30ecd52283a4b0",
+      "operations": [
+        {
+          "file": "call1-base-best.jpg",
+          "polygon": [
+            [
+              436,
+              563
+            ],
+            [
+              479,
+              581
+            ],
+            [
+              464,
+              641
+            ],
+            [
+              448,
+              679
+            ],
+            [
+              409,
+              704
+            ],
+            [
+              389,
+              696
+            ],
+            [
+              407,
+              640
+            ]
+          ],
+          "source_axis": [
+            [
+              451,
+              585
+            ],
+            [
+              424,
+              665
+            ]
+          ],
+          "target_axis": [
+            [
+              160,
+              430
+            ],
+            [
+              147,
+              469
+            ]
+          ],
+          "width_scale": 0.68,
+          "affine_source_to_rig": [
+            [
+              0.660467170096626,
+              0.060407669907611046,
+              -173.20918060953085
+            ],
+            [
+              0.05603734451906976,
+              0.5064126037751864,
+              108.4757844134155
+            ]
+          ]
+        },
+        {
+          "file": "seg-be6a-black-fingerless-gloves-1.png",
+          "polygon": [
+            [
+              0,
+              0
+            ],
+            [
+              79,
+              0
+            ],
+            [
+              79,
+              102
+            ],
+            [
+              0,
+              102
+            ]
+          ],
+          "source_axis": [
+            [
+              51,
+              17
+            ],
+            [
+              26,
+              79
+            ]
+          ],
+          "target_axis": [
+            [
+              160,
+              431
+            ],
+            [
+              147,
+              457
+            ]
+          ],
+          "width_scale": 0.58,
+          "affine_source_to_rig": [
+            [
+              0.5538498786667735,
+              0.013649144623699087,
+              131.52162072939166
+            ],
+            [
+              0.09511693888425034,
+              0.45770844309848785,
+              418.36799258422894
+            ]
+          ]
+        }
+      ],
+      "joint_completion_added_pixels": 1375,
+      "backing_material": {
+        "rgb": [
+          46,
+          47,
+          50
+        ],
+        "sample_rig_px": [
+          151,
+          451
+        ],
+        "selection": "authored opaque interior pixel closest to local median RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 48
+      },
+      "joint_cap_radii_px": [
+        14,
+        16
+      ],
+      "joint_backings": [
+        {
+          "joint": "right_hand",
+          "role": "proximal",
+          "pivot": [
+            160,
+            430
+          ],
+          "source_part": "right_hand",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            14,
+            16
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              46,
+              47,
+              50
+            ],
+            "sample_rig_px": [
+              151,
+              451
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 48
+          },
+          "added_opaque_pixels": 1375
+        }
+      ]
+    },
+    "left_hand": {
+      "classification": "Segments-merged",
+      "imagine_sources": [
+        {
+          "file": "call1-base-best.jpg",
+          "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
+        },
+        {
+          "file": "seg-be6a-black-fingerless-gloves-2.png",
+          "sha256": "39cd9a3cabacf5f36cddd9adbe7473de3ca55729cd45eeb9cc23e99dd4ec1c50"
+        }
+      ],
+      "output_sha256": "590f9d243d8c63cee90c3cb119d3a446913ad8a6dbe7f87d3334d5b4ea3b4690",
+      "operations": [
+        {
+          "file": "call1-base-best.jpg",
+          "polygon": [
+            [
+              925,
+              581
+            ],
+            [
+              968,
+              563
+            ],
+            [
+              997,
+              640
+            ],
+            [
+              1015,
+              696
+            ],
+            [
+              995,
+              704
+            ],
+            [
+              956,
+              679
+            ],
+            [
+              940,
+              641
+            ]
+          ],
+          "source_axis": [
+            [
+              953,
+              585
+            ],
+            [
+              980,
+              665
+            ]
+          ],
+          "target_axis": [
+            [
+              352,
+              430
+            ],
+            [
+              365,
+              469
+            ]
+          ],
+          "width_scale": 0.68,
+          "affine_source_to_rig": [
+            [
+              0.6604673610718799,
+              -0.060407734361758135,
+              -242.0868704998731
+            ],
+            [
+              -0.056037360722367466,
+              0.5064126092437986,
+              187.15222836079406
+            ]
+          ]
+        },
+        {
+          "file": "seg-be6a-black-fingerless-gloves-2.png",
+          "polygon": [
+            [
+              0,
+              0
+            ],
+            [
+              79,
+              0
+            ],
+            [
+              79,
+              102
+            ],
+            [
+              0,
+              102
+            ]
+          ],
+          "source_axis": [
+            [
+              27,
+              17
+            ],
+            [
+              53,
+              79
+            ]
+          ],
+          "target_axis": [
+            [
+              352,
+              431
+            ],
+            [
+              365,
+              457
+            ]
+          ],
+          "width_scale": 0.58,
+          "affine_source_to_rig": [
+            [
+              0.553183387622333,
+              -0.022302710938399365,
+              337.4431946201498
+            ],
+            [
+              -0.08964478255614289,
+              0.45694781203967266,
+              425.6522963243414
+            ]
+          ]
+        }
+      ],
+      "joint_completion_added_pixels": 1381,
+      "backing_material": {
+        "rgb": [
+          46,
+          46,
+          48
+        ],
+        "sample_rig_px": [
+          344,
+          431
+        ],
+        "selection": "authored opaque interior pixel closest to local median RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 48
+      },
+      "joint_cap_radii_px": [
+        14,
+        16
+      ],
+      "joint_backings": [
+        {
+          "joint": "left_hand",
+          "role": "proximal",
+          "pivot": [
+            352,
+            430
+          ],
+          "source_part": "left_hand",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            14,
+            16
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              46,
+              46,
+              48
+            ],
+            "sample_rig_px": [
+              344,
+              431
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 48
+          },
+          "added_opaque_pixels": 1381
+        }
+      ]
+    },
+    "leg_left": {
+      "classification": "Segments-merged",
+      "imagine_sources": [
+        {
+          "file": "seg-be6a-black-shorts.png",
+          "sha256": "4b9ca939c6ba004b5a568220f49a4ae7b633bebd3715558ba6c8549740e87c2e"
+        },
+        {
+          "file": "seg-be6a-gray-leggings.png",
+          "sha256": "81cb16c6055b844919accf9b9e14d17d1853ab6a28163c2e982e555661441a3d"
+        }
+      ],
+      "output_sha256": "101e0119fe57c16f57d7294515cda5f763ca8b0323c2385888a818e142a9d463",
+      "operations": [
+        {
+          "file": "seg-be6a-gray-leggings.png",
+          "polygon": [
+            [
+              0,
+              0
+            ],
+            [
+              155,
+              0
+            ],
+            [
+              155,
+              203
+            ],
+            [
+              0,
+              203
+            ]
+          ],
+          "source_axis": [
+            [
+              78,
+              18
+            ],
+            [
+              64,
+              175
+            ]
+          ],
+          "target_axis": [
+            [
+              216,
+              420
+            ],
+            [
+              216,
+              550
+            ]
+          ],
+          "width_scale": 0.6,
+          "affine_source_to_rig": [
+            [
+              0.5976286342725391,
+              0.053291725349143615,
+              168.42571547045736
+            ],
+            [
+              -0.07325417410120484,
+              0.8214932583604024,
+              410.9269469294067
+            ]
+          ]
+        },
+        {
+          "file": "seg-be6a-black-shorts.png",
+          "polygon": [
+            [
+              0,
+              0
+            ],
+            [
+              130,
+              0
+            ],
+            [
+              130,
+              246
+            ],
+            [
+              0,
+              246
+            ]
+          ],
+          "source_axis": [
+            [
+              68,
+              42
+            ],
+            [
+              65,
+              220
+            ]
+          ],
+          "target_axis": [
+            [
+              216,
+              420
+            ],
+            [
+              216,
+              493
+            ]
+          ],
+          "width_scale": 0.6,
+          "affine_source_to_rig": [
+            [
+              0.5999148388572509,
+              0.010110924250403046,
+              174.78113213919002
+            ],
+            [
+              -0.006910043754331241,
+              0.4099958981389719,
+              403.2500552534577
+            ]
+          ]
+        }
+      ],
+      "joint_completion_added_pixels": 925,
+      "backing_material": {
+        "rgb": [
+          43,
+          44,
+          48
+        ],
+        "sample_rig_px": [
+          214,
+          410
+        ],
+        "selection": "authored opaque interior pixel closest to local median RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 52
+      },
+      "joint_cap_radii_px": [
+        20,
+        20
+      ],
+      "joint_backings": [
+        {
+          "joint": "leg_left",
+          "role": "proximal",
+          "pivot": [
+            216,
+            420
+          ],
+          "source_part": "leg_left",
+          "rasterization": "clipped source-edge dilation",
+          "cap_radii_px": [
+            20,
+            20
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              43,
+              44,
+              48
+            ],
+            "sample_rig_px": [
+              214,
+              410
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 52
+          },
+          "added_opaque_pixels": 925
+        }
+      ]
+    },
+    "shin_left": {
+      "classification": "Segments-split",
+      "imagine_sources": [
+        {
+          "file": "seg-be6a-gray-leggings.png",
+          "sha256": "81cb16c6055b844919accf9b9e14d17d1853ab6a28163c2e982e555661441a3d"
+        }
+      ],
+      "output_sha256": "6e6d79ec620a78b44fd1be9b656825be1d6f19562c22f0fa0a6a45db1317ca1b",
+      "operations": [
+        {
+          "file": "seg-be6a-gray-leggings.png",
+          "polygon": [
+            [
+              0,
+              148
+            ],
+            [
+              155,
+              148
+            ],
+            [
+              155,
+              417
+            ],
+            [
+              0,
+              417
+            ]
+          ],
+          "source_axis": [
+            [
+              64,
+              175
+            ],
+            [
+              47,
+              398
+            ]
+          ],
+          "target_axis": [
+            [
+              216,
+              550
+            ],
+            [
+              216,
+              680
+            ]
+          ],
+          "width_scale": 0.6,
+          "affine_source_to_rig": [
+            [
+              0.5982641140758655,
+              0.04560757820309289,
+              169.72977051360334
+            ],
+            [
+              -0.044184060707155304,
+              0.57959134963219,
+              451.3992936996247
+            ]
+          ]
+        }
+      ],
+      "joint_completion_added_pixels": 2526,
+      "backing_material": {
+        "rgb": [
+          137,
+          137,
+          142
+        ],
+        "sample_rig_px": [
+          220,
+          582
+        ],
+        "selection": "authored opaque interior pixel closest to local median RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 50
+      },
+      "joint_cap_radii_px": [
+        14,
+        18
+      ],
+      "joint_backings": [
+        {
+          "joint": "knee_left",
+          "role": "proximal",
+          "pivot": [
+            216,
+            550
+          ],
+          "source_part": "shin_left",
+          "rasterization": "clipped source-edge dilation",
+          "cap_radii_px": [
+            14,
+            18
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              137,
+              137,
+              142
+            ],
+            "sample_rig_px": [
+              220,
+              582
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 50
+          },
+          "added_opaque_pixels": 816
+        },
+        {
+          "joint": "boot_left",
+          "role": "distal seam support",
+          "pivot": [
+            216,
+            680
+          ],
+          "source_part": "shin_left",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            16,
+            18
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              138,
+              139,
+              143
+            ],
+            "sample_rig_px": [
+              207,
+              631
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 50
+          },
+          "added_opaque_pixels": 1710
+        }
+      ]
+    },
+    "boot_left": {
+      "classification": "Segments-split",
+      "imagine_sources": [
+        {
+          "file": "call1-base-best.jpg",
+          "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
+        }
+      ],
+      "output_sha256": "1e9cfe9c3b23c08b5527be4e5e83c8ff224b16dc0f94318f944b62ae5e344e89",
+      "operations": [
+        {
+          "file": "call1-base-best.jpg",
+          "polygon": [
+            [
+              497,
+              1127
+            ],
+            [
+              608,
+              1127
+            ],
+            [
+              608,
+              1344
+            ],
+            [
+              497,
+              1344
+            ]
+          ],
+          "source_axis": [
+            [
+              569,
+              1182
+            ],
+            [
+              550,
+              1305
+            ]
+          ],
+          "target_axis": [
+            [
+              216,
+              680
+            ],
+            [
+              216,
+              732
+            ]
+          ],
+          "width_scale": 0.7,
+          "affine_source_to_rig": [
+            [
+              0.6917948908778858,
+              0.10686262542016145,
+              -303.9429161561479
+            ],
+            [
+              -0.06378315875954105,
+              0.41291154458185936,
+              228.2311716384211
+            ]
+          ]
+        }
+      ],
+      "joint_completion_added_pixels": 780,
+      "backing_material": {
+        "rgb": [
+          200,
+          112,
+          70
+        ],
+        "sample_rig_px": [
+          221,
+          715
+        ],
+        "selection": "authored opaque interior pixel closest to local median RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 50
+      },
+      "joint_cap_radii_px": [
+        16,
+        18
+      ],
+      "joint_backings": [
+        {
+          "joint": "boot_left",
+          "role": "proximal",
+          "pivot": [
+            216,
+            680
+          ],
+          "source_part": "boot_left",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            16,
+            18
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              200,
+              112,
+              70
+            ],
+            "sample_rig_px": [
+              221,
+              715
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 50
+          },
+          "added_opaque_pixels": 780
+        }
+      ]
+    },
+    "leg_right": {
+      "classification": "Segments-merged",
+      "imagine_sources": [
+        {
+          "file": "seg-be6a-black-shorts.png",
+          "sha256": "4b9ca939c6ba004b5a568220f49a4ae7b633bebd3715558ba6c8549740e87c2e"
+        },
+        {
+          "file": "seg-be6a-gray-leggings.png",
+          "sha256": "81cb16c6055b844919accf9b9e14d17d1853ab6a28163c2e982e555661441a3d"
+        }
+      ],
+      "output_sha256": "62382b42c7460ac6c39272b9f94ca5768359da7ba612f00be970c21ed2cb7e4d",
+      "operations": [
+        {
+          "file": "seg-be6a-gray-leggings.png",
+          "polygon": [
+            [
+              155,
+              0
+            ],
+            [
+              311,
+              0
+            ],
+            [
+              311,
+              203
+            ],
+            [
+              155,
+              203
+            ]
+          ],
+          "source_axis": [
+            [
+              233,
+              18
+            ],
+            [
+              249,
+              175
+            ]
+          ],
+          "target_axis": [
+            [
+              296,
+              420
+            ],
+            [
+              296,
+              550
+            ]
+          ],
+          "width_scale": 0.6,
+          "affine_source_to_rig": [
+            [
+              0.5969083689573291,
+              -0.060831426135779056,
+              158.0153157033864
+            ],
+            [
+              0.08351736301934108,
+              0.8195141540872011,
+              385.7891996429239
+            ]
+          ]
+        },
+        {
+          "file": "seg-be6a-black-shorts.png",
+          "polygon": [
+            [
+              124,
+              0
+            ],
+            [
+              254,
+              0
+            ],
+            [
+              254,
+              246
+            ],
+            [
+              124,
+              246
+            ]
+          ],
+          "source_axis": [
+            [
+              186,
+              42
+            ],
+            [
+              190,
+              220
+            ]
+          ],
+          "target_axis": [
+            [
+              296,
+              420
+            ],
+            [
+              296,
+              493
+            ]
+          ],
+          "width_scale": 0.6,
+          "affine_source_to_rig": [
+            [
+              0.5998485508658248,
+              -0.01347974271608611,
+              184.99431873303226
+            ],
+            [
+              0.009211356993822499,
+              0.40990536276418366,
+              401.0706623630533
+            ]
+          ]
+        }
+      ],
+      "joint_completion_added_pixels": 944,
+      "backing_material": {
+        "rgb": [
+          43,
+          44,
+          48
+        ],
+        "sample_rig_px": [
+          297,
+          409
+        ],
+        "selection": "authored opaque interior pixel closest to local median RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 52
+      },
+      "joint_cap_radii_px": [
+        20,
+        20
+      ],
+      "joint_backings": [
+        {
+          "joint": "leg_right",
+          "role": "proximal",
+          "pivot": [
+            296,
+            420
+          ],
+          "source_part": "leg_right",
+          "rasterization": "clipped source-edge dilation",
+          "cap_radii_px": [
+            20,
+            20
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              43,
+              44,
+              48
+            ],
+            "sample_rig_px": [
+              297,
+              409
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 52
+          },
+          "added_opaque_pixels": 944
+        }
+      ]
+    },
+    "shin_right": {
+      "classification": "Segments-split",
+      "imagine_sources": [
+        {
+          "file": "seg-be6a-gray-leggings.png",
+          "sha256": "81cb16c6055b844919accf9b9e14d17d1853ab6a28163c2e982e555661441a3d"
+        }
+      ],
+      "output_sha256": "18cb0f12f2bbf0fcfa1ddd6fa1d6a4bd8ac863f91b1b5ae93b3d31a3741c7cc3",
+      "operations": [
+        {
+          "file": "seg-be6a-gray-leggings.png",
+          "polygon": [
+            [
+              155,
+              148
+            ],
+            [
+              311,
+              148
+            ],
+            [
+              311,
+              417
+            ],
+            [
+              155,
+              417
+            ]
+          ],
+          "source_axis": [
+            [
+              249,
+              175
+            ],
+            [
+              268,
+              398
+            ]
+          ],
+          "target_axis": [
+            [
+              296,
+              550
+            ],
+            [
+              296,
+              680
+            ]
+          ],
+          "width_scale": 0.6,
+          "affine_source_to_rig": [
+            [
+              0.5978339170190486,
+              -0.05093652207785623,
+              156.05324602588178
+            ],
+            [
+              0.04931125989230347,
+              0.5787582334620909,
+              436.4388054309505
+            ]
+          ]
+        }
+      ],
+      "joint_completion_added_pixels": 2496,
+      "backing_material": {
+        "rgb": [
+          137,
+          138,
+          142
+        ],
+        "sample_rig_px": [
+          284,
+          536
+        ],
+        "selection": "authored opaque interior pixel closest to local median RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 50
+      },
+      "joint_cap_radii_px": [
+        14,
+        18
+      ],
+      "joint_backings": [
+        {
+          "joint": "knee_right",
+          "role": "proximal",
+          "pivot": [
+            296,
+            550
+          ],
+          "source_part": "shin_right",
+          "rasterization": "clipped source-edge dilation",
+          "cap_radii_px": [
+            14,
+            18
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              137,
+              138,
+              142
+            ],
+            "sample_rig_px": [
+              284,
+              536
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 50
+          },
+          "added_opaque_pixels": 785
+        },
+        {
+          "joint": "boot_right",
+          "role": "distal seam support",
+          "pivot": [
+            296,
+            680
+          ],
+          "source_part": "shin_right",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            16,
+            18
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              139,
+              140,
+              144
+            ],
+            "sample_rig_px": [
+              298,
+              631
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 50
+          },
+          "added_opaque_pixels": 1711
+        }
+      ]
+    },
+    "boot_right": {
+      "classification": "Segments-split",
+      "imagine_sources": [
+        {
+          "file": "call1-base-best.jpg",
+          "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
+        }
+      ],
+      "output_sha256": "aa4417d8220619253305b8b6e17eb5cb15bc90ea975c98a6a2f1ba3121ab2e2c",
+      "operations": [
+        {
+          "file": "call1-base-best.jpg",
+          "polygon": [
+            [
+              799,
+              1127
+            ],
+            [
+              910,
+              1127
+            ],
+            [
+              910,
+              1344
+            ],
+            [
+              799,
+              1344
+            ]
+          ],
+          "source_axis": [
+            [
+              836,
+              1182
+            ],
+            [
+              856,
+              1305
+            ]
+          ],
+          "target_axis": [
+            [
+              296,
+              680
+            ],
+            [
+              296,
+              732
+            ]
+          ],
+          "width_scale": 0.7,
+          "affine_source_to_rig": [
+            [
+              0.6909258012358264,
+              -0.112345658737533,
+              -148.8214012053868
+            ],
+            [
+              0.06697171884062812,
+              0.41187451726168667,
+              137.1759636459212
+            ]
+          ]
+        }
+      ],
+      "joint_completion_added_pixels": 790,
+      "backing_material": {
+        "rgb": [
+          206,
+          111,
+          73
+        ],
+        "sample_rig_px": [
+          304,
+          706
+        ],
+        "selection": "authored opaque interior pixel closest to local median RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 50
+      },
+      "joint_cap_radii_px": [
+        16,
+        18
+      ],
+      "joint_backings": [
+        {
+          "joint": "boot_right",
+          "role": "proximal",
+          "pivot": [
+            296,
+            680
+          ],
+          "source_part": "boot_right",
+          "rasterization": "opaque pixel-centred source-material underlay",
+          "cap_radii_px": [
+            16,
+            18
+          ],
+          "overlap_px": 12,
+          "material": {
+            "rgb": [
+              206,
+              111,
+              73
+            ],
+            "sample_rig_px": [
+              304,
+              706
+            ],
+            "selection": "authored opaque interior pixel closest to local median RGB",
+            "minimum_core_depth_px": 3,
+            "search_radius_px": 50
+          },
+          "added_opaque_pixels": 790
+        }
+      ]
+    },
+    "satchel": {
+      "classification": "SCRIPTED (flagged)",
+      "imagine_sources": [],
+      "output_sha256": "c5b3918022e19f93c6d2ef45f41e6af72a6c6ba19d006968bce06858fe384888",
+      "operations": [
+        {
+          "operation": "scripted rounded rectangles; texture grip (16,8)"
+        }
+      ],
+      "joint_completion_added_pixels": 0,
+      "backing_material": null,
+      "joint_cap_radii_px": null,
+      "joint_backings": []
+    }
+  }
+}

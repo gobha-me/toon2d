@@ -1,0 +1,13 @@
+i missing source image: KILLED
+j missing source sidecar: KILLED
+k changed source bytes: KILLED
+l approximate call presented as exact: KILLED
+m missing derived sidecar: KILLED
+n lost Imagine trace: KILLED
+o unflagged scripted satchel: KILLED
+p Imagine head replaced with scripted fallback: KILLED
+q missing head declaration: KILLED
+r unclassified extra backing: KILLED
+s changed runtime texture bytes: KILLED
+t invented recorded prompt: KILLED
+12/12 KILLED; provenance-only control fixture; NOT rig acceptance

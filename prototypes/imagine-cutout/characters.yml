@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "default": "trenchcoat",
+  "characters": {
+    "trenchcoat": {
+      "manifest": "body_parts.yml",
+      "scene": "scenes/hd.tscn",
+      "subject": "parts.json",
+      "legacy_scenes": {
+        "hd": "scenes/hd.tscn",
+        "pixel": "scenes/pixel.tscn"
+      },
+      "combined_random_n": 200,
+      "combined_seed": 20261030,
+      "required_slots": [
+        "head_face",
+        "upper_arm_left",
+        "lower_arm_left",
+        "hand_left",
+        "upper_arm_right",
+        "lower_arm_right",
+        "hand_right",
+        "upper_leg_left",
+        "lower_leg_left",
+        "foot_left",
+        "upper_leg_right",
+        "lower_leg_right",
+        "foot_right",
+        "held_prop_gun"
+      ],
+      "required_joints": [
+        "hip",
+        "torso",
+        "head",
+        "hair",
+        "collar",
+        "coat",
+        "hem_left",
+        "hem_center",
+        "hem_right",
+        "right_upper",
+        "right_fore",
+        "right_hand",
+        "left_arm",
+        "leg_left",
+        "leg_right",
+        "boot_left",
+        "boot_right",
+        "left_fore",
+        "left_hand",
+        "knee_left",
+        "knee_right"
+      ]
+    },
+    "char2": {
+      "manifest": "tests/data/characters/char2/body_parts.yml",
+      "scene": "scenes/char2.tscn",
+      "subject": "characters/char2/parts.json",
+      "legacy_scenes": {
+        "hd": "scenes/char2.tscn"
+      },
+      "combined_random_n": 200,
+      "combined_seed": 20261031,
+      "required_slots": [
+        "head_face",
+        "upper_arm_left",
+        "lower_arm_left",
+        "hand_left",
+        "upper_arm_right",
+        "lower_arm_right",
+        "hand_right",
+        "upper_leg_left",
+        "lower_leg_left",
+        "foot_left",
+        "upper_leg_right",
+        "lower_leg_right",
+        "foot_right",
+        "held_prop_satchel"
+      ],
+      "required_joints": [
+        "hip",
+        "torso",
+        "head",
+        "right_upper",
+        "right_fore",
+        "right_hand",
+        "left_arm",
+        "left_fore",
+        "left_hand",
+        "leg_left",
+        "leg_right",
+        "knee_left",
+        "knee_right",
+        "boot_left",
+        "boot_right"
+      ],
+      "imagine_contract": "tests/data/characters/char2/imagine_contract.json"
+    }
+  }
+}

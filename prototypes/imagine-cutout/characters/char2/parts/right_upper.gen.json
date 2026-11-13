@@ -1,0 +1,185 @@
+{
+  "tool": "Python/Pillow/OpenCV scripted derivation from Grok Imagine (SpaceXAI)",
+  "model": "no generative model used; source model not disclosed",
+  "date": "2026-11-09T22:56:43.303087Z",
+  "date_source": "scripted artifact creation time UTC",
+  "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+  "license": "CC0 1.0",
+  "credit": "Generated with Grok Imagine (SpaceXAI); scripted derivation where stated",
+  "rights": "Original fictional art only; no real-person likeness.",
+  "description": "Derived fictional courier part: right_upper",
+  "output_sha256": "e9d1ce92f7fe009ad007d5d8b652ff9e0e90919133369cffded8515e58476492",
+  "tool_sha256": "358baa5072012b7431f3b1cdb109fc465f6261808a1a6d99ac0223b78ebe47a1",
+  "manifest_sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4",
+  "classification": "Segments-split",
+  "scripted_fallback": false,
+  "derived_from": "Polygon split and affine fit of seg-be6a-teal-cropped-jacket.png; composited in listed order; source-interior material joint supports right_upper proximal [18, 20]px with 12px local overlap margin, right_fore distal seam support [16, 16]px with 12px local overlap margin.",
+  "imagine_sources": [
+    {
+      "file": "seg-be6a-teal-cropped-jacket.png",
+      "sha256": "975ae1b378e11ca1cd1f3ce26a74b4714a4357ceaa4ef52955f3d7627d98f416"
+    }
+  ],
+  "operations": [
+    {
+      "file": "seg-be6a-teal-cropped-jacket.png",
+      "polygon": [
+        [
+          78,
+          48
+        ],
+        [
+          127,
+          66
+        ],
+        [
+          126,
+          146
+        ],
+        [
+          102,
+          205
+        ],
+        [
+          97,
+          256
+        ],
+        [
+          56,
+          280
+        ],
+        [
+          0,
+          257
+        ],
+        [
+          21,
+          205
+        ],
+        [
+          35,
+          145
+        ],
+        [
+          54,
+          96
+        ]
+      ],
+      "source_axis": [
+        [
+          112,
+          70
+        ],
+        [
+          46,
+          239
+        ]
+      ],
+      "target_axis": [
+        [
+          182,
+          250
+        ],
+        [
+          168,
+          340
+        ]
+      ],
+      "width_scale": 0.7,
+      "affine_source_to_rig": [
+        [
+          0.6723626330742082,
+          0.17973925315324105,
+          94.11363737496181
+        ],
+        [
+          -0.08023067008031402,
+          0.5012116909745519,
+          223.90101668077654
+        ]
+      ]
+    }
+  ],
+  "joint_completion_added_pixels": 2725,
+  "backing_material": {
+    "rgb": [
+      17,
+      118,
+      134
+    ],
+    "sample_rig_px": [
+      184,
+      249
+    ],
+    "selection": "authored opaque interior pixel closest to local median RGB",
+    "minimum_core_depth_px": 3,
+    "search_radius_px": 52
+  },
+  "joint_cap_radii_px": [
+    18,
+    20
+  ],
+  "joint_backings": [
+    {
+      "joint": "right_upper",
+      "role": "proximal",
+      "pivot": [
+        182,
+        250
+      ],
+      "source_part": "right_upper",
+      "rasterization": "opaque pixel-centred source-material underlay",
+      "cap_radii_px": [
+        18,
+        20
+      ],
+      "overlap_px": 12,
+      "material": {
+        "rgb": [
+          17,
+          118,
+          134
+        ],
+        "sample_rig_px": [
+          184,
+          249
+        ],
+        "selection": "authored opaque interior pixel closest to local median RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 52
+      },
+      "added_opaque_pixels": 1932
+    },
+    {
+      "joint": "right_fore",
+      "role": "distal seam support",
+      "pivot": [
+        168,
+        340
+      ],
+      "source_part": "right_upper",
+      "rasterization": "opaque pixel-centred source-material underlay",
+      "cap_radii_px": [
+        16,
+        16
+      ],
+      "overlap_px": 12,
+      "material": {
+        "rgb": [
+          99,
+          108,
+          115
+        ],
+        "sample_rig_px": [
+          148,
+          331
+        ],
+        "selection": "local authored low-chroma opaque interior above elbow; median-nearest RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 48
+      },
+      "added_opaque_pixels": 793
+    }
+  ],
+  "source_post_url": "https://grok.com/imagine/post/be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8"
+}

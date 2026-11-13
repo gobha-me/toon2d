@@ -1,0 +1,5 @@
+Command: TEST_PYTHON=$TEST_PYTHON heavy-run prototypes/imagine-cutout/tests/run_body_tests.sh --character char2 --output prototypes/imagine-cutout/tests/results/char2/red-first.json
+Timestamp UTC: 2026-10-31T03:24:55.296040+00:00 (refusal transcript write time)
+Status: DEFERRED (heavy-run 75); no acceptance tests executed.
+Expected after admission: manifest GREEN; completeness/per_joint/combined/facing RED for missing rig inputs. No captured poses or mutant kills claimed.
+heavy-run: refusing to start: memory.current 24.56 GiB, working set (minus inactive_file) 13.16 GiB; limits 17.50 GiB working set / 24.50 GiB memory.current (memory.max 28.00 GiB x 10/16, 14/16); memory.current over limit

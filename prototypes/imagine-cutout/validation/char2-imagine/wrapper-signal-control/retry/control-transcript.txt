@@ -1,0 +1,2 @@
+synthetic-term: started 2026-11-09T20:16:10.533739Z
+Private validation scratch retained for investigation: <TMPDIR>/char2-validation-h9gr5y9p

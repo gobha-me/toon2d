@@ -1,0 +1,210 @@
+{
+  "tool": "Python/Pillow contact sheet",
+  "model": "no generative model used; source model not disclosed",
+  "date": "2026-11-09T20:34:54.415804Z",
+  "date_source": "scripted artifact creation time UTC",
+  "source": "prototypes/imagine-cutout/tools/build_v2.py",
+  "license": "CC0 1.0",
+  "credit": "Generated with Grok Imagine (SpaceXAI); scripted derivation where stated",
+  "rights": "Original fictional art only; no real-person likeness.",
+  "description": "Imagine courier Godot review poses reduced to half size",
+  "output_sha256": "1db9899fa0327578b67409df337ab82944ffb2108a7d1a36564eef979b8e22b8",
+  "artifact_kind": "contact sheet",
+  "derived_from": "Half-size LANCZOS contact sheet of the four unretouched Godot capture PNGs; captured component and source hashes are retained below.",
+  "imagine_sources": [
+    {
+      "file": "call1-base-best.jpg",
+      "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
+    },
+    {
+      "file": "seg-be6a-black-fingerless-gloves-1.png",
+      "sha256": "e025fbdac73f9d49457bdeee719e0f9b624cf2e703f5b8188abe78f0672b2d76"
+    },
+    {
+      "file": "seg-be6a-black-fingerless-gloves-2.png",
+      "sha256": "39cd9a3cabacf5f36cddd9adbe7473de3ca55729cd45eeb9cc23e99dd4ec1c50"
+    },
+    {
+      "file": "seg-be6a-black-shorts.png",
+      "sha256": "4b9ca939c6ba004b5a568220f49a4ae7b633bebd3715558ba6c8549740e87c2e"
+    },
+    {
+      "file": "seg-be6a-gray-leggings.png",
+      "sha256": "81cb16c6055b844919accf9b9e14d17d1853ab6a28163c2e982e555661441a3d"
+    },
+    {
+      "file": "seg-be6a-teal-cropped-jacket.png",
+      "sha256": "975ae1b378e11ca1cd1f3ce26a74b4714a4357ceaa4ef52955f3d7627d98f416"
+    }
+  ],
+  "source_posts": [
+    {
+      "post_id": "be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8",
+      "post_url": "https://grok.com/imagine/post/be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8"
+    }
+  ],
+  "rendered_parts": [
+    {
+      "part": "hip_backing",
+      "texture": "characters/char2/parts/hip_backing.png",
+      "sha256": "d47e18f4ca796ffd124fa237a5053764cb22dc9f7ee6f43ea5677ab37a10f55e",
+      "classification": "Segments-split",
+      "scripted_fallback": false
+    },
+    {
+      "part": "left_arm",
+      "texture": "characters/char2/parts/left_arm.png",
+      "sha256": "99b9a9b5d4a81bef06b8e1ce72e55232e642095717e3770b25dc04ebb49cadda",
+      "classification": "Segments-split",
+      "scripted_fallback": false
+    },
+    {
+      "part": "left_fore",
+      "texture": "characters/char2/parts/left_fore.png",
+      "sha256": "047120d51dfc9c13b11fdbf5d8cd1e6d24c42e7086bb51ef0f8a65a05f0776f9",
+      "classification": "Segments-split",
+      "scripted_fallback": false
+    },
+    {
+      "part": "left_hand",
+      "texture": "characters/char2/parts/left_hand.png",
+      "sha256": "61b7e7f5fd4f782e2d47ca89c796705b8feeca760dce5b5ae9c4d016b7c373e6",
+      "classification": "Segments-merged",
+      "scripted_fallback": false
+    },
+    {
+      "part": "leg_left",
+      "texture": "characters/char2/parts/leg_left.png",
+      "sha256": "6b82eadc7560ff978923bf4b9d0d872aff24b30a686b5868f58bbda828bac152",
+      "classification": "Segments-merged",
+      "scripted_fallback": false
+    },
+    {
+      "part": "shin_left",
+      "texture": "characters/char2/parts/shin_left.png",
+      "sha256": "7cc1e9d613c2dd41dc2cff9e300380a72b00da9a33a20614b4d0d24b45753021",
+      "classification": "Segments-split",
+      "scripted_fallback": false
+    },
+    {
+      "part": "leg_right",
+      "texture": "characters/char2/parts/leg_right.png",
+      "sha256": "690ee32f9e05b3f22ef6af6a80c593cf8e8760bbd4438a9211f10a4eb3d1a591",
+      "classification": "Segments-merged",
+      "scripted_fallback": false
+    },
+    {
+      "part": "shin_right",
+      "texture": "characters/char2/parts/shin_right.png",
+      "sha256": "338ddd889919a0d6c8a3feb1034b7158ca41ffdf99c3586287642c26bee0492c",
+      "classification": "Segments-split",
+      "scripted_fallback": false
+    },
+    {
+      "part": "boot_left",
+      "texture": "characters/char2/parts/boot_left.png",
+      "sha256": "c8ba52c78e87a9c2e8a80aeec7c6f9b8e198478468ea5be2f62549bfa90006f0",
+      "classification": "Segments-split",
+      "scripted_fallback": false
+    },
+    {
+      "part": "boot_right",
+      "texture": "characters/char2/parts/boot_right.png",
+      "sha256": "d2d7d1832dc20eabb50620a94a50a0c8bb0a53a1805ba4dd800590a03febc8fd",
+      "classification": "Segments-split",
+      "scripted_fallback": false
+    },
+    {
+      "part": "torso",
+      "texture": "characters/char2/parts/torso.png",
+      "sha256": "8f98b7b880d04c16dcdd0c35a9412e1e482f1c03f1682bc38c2477a7ee194880",
+      "classification": "Segments-merged",
+      "scripted_fallback": false
+    },
+    {
+      "part": "head",
+      "texture": "characters/char2/parts/head.png",
+      "sha256": "9fc6f9477fc81c7f25537fe65c1696db2f8e4aae4f28342f5d0ba6fb46a2d6e7",
+      "classification": "Segments-split",
+      "scripted_fallback": false
+    },
+    {
+      "part": "right_upper",
+      "texture": "characters/char2/parts/right_upper.png",
+      "sha256": "f0ef2700b36a0fe7e302d74dba474b177d78a2295ea21eb5c1168c258930f19f",
+      "classification": "Segments-split",
+      "scripted_fallback": false
+    },
+    {
+      "part": "right_fore",
+      "texture": "characters/char2/parts/right_fore.png",
+      "sha256": "09c68b4ebf8e87d15f8bed2764c8592314415a0bd365967b5b11ed937e618c6c",
+      "classification": "Segments-split",
+      "scripted_fallback": false
+    },
+    {
+      "part": "satchel",
+      "texture": "characters/char2/parts/satchel.png",
+      "sha256": "c5b3918022e19f93c6d2ef45f41e6af72a6c6ba19d006968bce06858fe384888",
+      "classification": "SCRIPTED (flagged)",
+      "scripted_fallback": true,
+      "fallback_reason": "The supplied Imagine base has no held prop and neither Segments run supplied a satchel. All three allowed calls were already used; this rigid satchel is a wholly scripted fallback."
+    },
+    {
+      "part": "right_hand",
+      "texture": "characters/char2/parts/right_hand.png",
+      "sha256": "7c2bafd6e77be0a59e0e9c33766d154588f6f0ca878123c58eb8053ce8ac8ae3",
+      "classification": "Segments-merged",
+      "scripted_fallback": false
+    }
+  ],
+  "scripted_fallback_parts": [
+    "satchel"
+  ],
+  "scripted_effects": [
+    {
+      "name": "MuzzleFlash",
+      "description": "Existing procedural compatibility-clip flash effect; tracked separately from body-part slots."
+    }
+  ],
+  "inputs": {
+    "scene": {
+      "file": "scenes/char2.tscn",
+      "sha256": "0e4f4340209056d08ad2a18245037703bc66f22327a4b14d56d9a16d2852cdb7"
+    },
+    "subject": {
+      "file": "characters/char2/parts.json",
+      "sha256": "31cc02e7473d102ebb1a80aa9f5aba9416a166755c714914c4974858b88c4b60"
+    },
+    "manifest": {
+      "file": "tests/data/characters/char2/body_parts.yml",
+      "sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4"
+    },
+    "capture_script": {
+      "file": "scripts/capture_v2.gd",
+      "sha256": "0d7fa66fc14ae7d5b1ad8971cbc5300b93f69bf2f1e9268f2a3d1fc8a513dcea"
+    },
+    "flash_script": {
+      "file": "scripts/muzzle_flash.gd",
+      "sha256": "4a330dcf39fc48ba2c1ee85334047cee023cf785c52568e5c01e2767a61e535d"
+    }
+  },
+  "capture_inputs": [
+    {
+      "file": "rest.png",
+      "sha256": "e7dfc37e2bdd5b4418c3026752ac0d40ab0d92d14b9e63b3018c9dda2a05c077"
+    },
+    {
+      "file": "aim.png",
+      "sha256": "5ceb0a0cb35945591693061b9ff5ddeb1b4f01a5713e8f4dda64bd2ce2c5ada8"
+    },
+    {
+      "file": "fire.png",
+      "sha256": "daeee3eeecdbe152934115f8959c64900017a4fdee7a47b0e4b92d5fb330ba61"
+    },
+    {
+      "file": "knees.png",
+      "sha256": "92f4212b1c4e57ee7fcac9c02eec4661d145e9733d8984958ddcdb863cfd6bbd"
+    }
+  ]
+}

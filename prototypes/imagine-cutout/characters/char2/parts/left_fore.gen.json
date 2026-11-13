@@ -1,0 +1,161 @@
+{
+  "tool": "Python/Pillow/OpenCV scripted derivation from Grok Imagine (SpaceXAI)",
+  "model": "no generative model used; source model not disclosed",
+  "date": "2026-11-09T22:56:43.303087Z",
+  "date_source": "scripted artifact creation time UTC",
+  "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+  "license": "CC0 1.0",
+  "credit": "Generated with Grok Imagine (SpaceXAI); scripted derivation where stated",
+  "rights": "Original fictional art only; no real-person likeness.",
+  "description": "Derived fictional courier part: left_fore",
+  "output_sha256": "522a58595422f28333bfa2d551a61a3bb1398d916d71ce6a6e58eaf07c7cf6f5",
+  "tool_sha256": "358baa5072012b7431f3b1cdb109fc465f6261808a1a6d99ac0223b78ebe47a1",
+  "manifest_sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4",
+  "classification": "Segments-split",
+  "scripted_fallback": false,
+  "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; source-interior material joint supports left_fore proximal [22, 22]px with 12px local overlap margin, left_hand distal seam support [14, 16]px with 12px local overlap margin.",
+  "imagine_sources": [
+    {
+      "file": "call1-base-best.jpg",
+      "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
+    }
+  ],
+  "operations": [
+    {
+      "file": "call1-base-best.jpg",
+      "polygon": [
+        [
+          862,
+          481
+        ],
+        [
+          905,
+          455
+        ],
+        [
+          973,
+          569
+        ],
+        [
+          931,
+          585
+        ]
+      ],
+      "source_axis": [
+        [
+          884,
+          482
+        ],
+        [
+          946,
+          574
+        ]
+      ],
+      "target_axis": [
+        [
+          344,
+          340
+        ],
+        [
+          352,
+          430
+        ]
+      ],
+      "width_scale": 0.78,
+      "affine_source_to_rig": [
+        [
+          0.6845864164196815,
+          -0.3743951936741329,
+          -80.71590876406655
+        ],
+        [
+          0.39609391726477683,
+          0.711328012278085,
+          -353.0071247800996
+        ]
+      ]
+    }
+  ],
+  "joint_completion_added_pixels": 3695,
+  "backing_material": {
+    "rgb": [
+      61,
+      43,
+      29
+    ],
+    "sample_rig_px": [
+      363,
+      332
+    ],
+    "selection": "local authored low-chroma opaque interior above elbow; median-nearest RGB",
+    "minimum_core_depth_px": 3,
+    "search_radius_px": 54
+  },
+  "joint_cap_radii_px": [
+    22,
+    22
+  ],
+  "joint_backings": [
+    {
+      "joint": "left_fore",
+      "role": "proximal",
+      "pivot": [
+        344,
+        340
+      ],
+      "source_part": "left_fore",
+      "rasterization": "opaque pixel-centred source-material underlay",
+      "cap_radii_px": [
+        22,
+        22
+      ],
+      "overlap_px": 12,
+      "material": {
+        "rgb": [
+          61,
+          43,
+          29
+        ],
+        "sample_rig_px": [
+          363,
+          332
+        ],
+        "selection": "local authored low-chroma opaque interior above elbow; median-nearest RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 54
+      },
+      "added_opaque_pixels": 2190
+    },
+    {
+      "joint": "left_hand",
+      "role": "distal seam support",
+      "pivot": [
+        352,
+        430
+      ],
+      "source_part": "left_fore",
+      "rasterization": "opaque pixel-centred source-material underlay",
+      "cap_radii_px": [
+        14,
+        16
+      ],
+      "overlap_px": 12,
+      "material": {
+        "rgb": [
+          252,
+          212,
+          183
+        ],
+        "sample_rig_px": [
+          351,
+          399
+        ],
+        "selection": "authored opaque interior pixel closest to local median RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 48
+      },
+      "added_opaque_pixels": 1505
+    }
+  ],
+  "source_post_url": "https://grok.com/imagine/post/be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8"
+}

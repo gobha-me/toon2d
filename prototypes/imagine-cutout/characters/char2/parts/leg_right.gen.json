@@ -1,0 +1,189 @@
+{
+  "tool": "Python/Pillow/OpenCV scripted derivation from Grok Imagine (SpaceXAI)",
+  "model": "no generative model used; source model not disclosed",
+  "date": "2026-11-09T22:56:43.303087Z",
+  "date_source": "scripted artifact creation time UTC",
+  "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+  "license": "CC0 1.0",
+  "credit": "Generated with Grok Imagine (SpaceXAI); scripted derivation where stated",
+  "rights": "Original fictional art only; no real-person likeness.",
+  "description": "Derived fictional courier part: leg_right",
+  "output_sha256": "62382b42c7460ac6c39272b9f94ca5768359da7ba612f00be970c21ed2cb7e4d",
+  "tool_sha256": "358baa5072012b7431f3b1cdb109fc465f6261808a1a6d99ac0223b78ebe47a1",
+  "manifest_sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4",
+  "classification": "Segments-merged",
+  "scripted_fallback": false,
+  "derived_from": "Polygon split and affine fit of seg-be6a-black-shorts.png, seg-be6a-gray-leggings.png; composited in listed order; source-interior material joint supports leg_right proximal [20, 20]px with 12px local overlap margin.",
+  "imagine_sources": [
+    {
+      "file": "seg-be6a-black-shorts.png",
+      "sha256": "4b9ca939c6ba004b5a568220f49a4ae7b633bebd3715558ba6c8549740e87c2e"
+    },
+    {
+      "file": "seg-be6a-gray-leggings.png",
+      "sha256": "81cb16c6055b844919accf9b9e14d17d1853ab6a28163c2e982e555661441a3d"
+    }
+  ],
+  "operations": [
+    {
+      "file": "seg-be6a-gray-leggings.png",
+      "polygon": [
+        [
+          155,
+          0
+        ],
+        [
+          311,
+          0
+        ],
+        [
+          311,
+          203
+        ],
+        [
+          155,
+          203
+        ]
+      ],
+      "source_axis": [
+        [
+          233,
+          18
+        ],
+        [
+          249,
+          175
+        ]
+      ],
+      "target_axis": [
+        [
+          296,
+          420
+        ],
+        [
+          296,
+          550
+        ]
+      ],
+      "width_scale": 0.6,
+      "affine_source_to_rig": [
+        [
+          0.5969083689573291,
+          -0.060831426135779056,
+          158.0153157033864
+        ],
+        [
+          0.08351736301934108,
+          0.8195141540872011,
+          385.7891996429239
+        ]
+      ]
+    },
+    {
+      "file": "seg-be6a-black-shorts.png",
+      "polygon": [
+        [
+          124,
+          0
+        ],
+        [
+          254,
+          0
+        ],
+        [
+          254,
+          246
+        ],
+        [
+          124,
+          246
+        ]
+      ],
+      "source_axis": [
+        [
+          186,
+          42
+        ],
+        [
+          190,
+          220
+        ]
+      ],
+      "target_axis": [
+        [
+          296,
+          420
+        ],
+        [
+          296,
+          493
+        ]
+      ],
+      "width_scale": 0.6,
+      "affine_source_to_rig": [
+        [
+          0.5998485508658248,
+          -0.01347974271608611,
+          184.99431873303226
+        ],
+        [
+          0.009211356993822499,
+          0.40990536276418366,
+          401.0706623630533
+        ]
+      ]
+    }
+  ],
+  "joint_completion_added_pixels": 944,
+  "backing_material": {
+    "rgb": [
+      43,
+      44,
+      48
+    ],
+    "sample_rig_px": [
+      297,
+      409
+    ],
+    "selection": "authored opaque interior pixel closest to local median RGB",
+    "minimum_core_depth_px": 3,
+    "search_radius_px": 52
+  },
+  "joint_cap_radii_px": [
+    20,
+    20
+  ],
+  "joint_backings": [
+    {
+      "joint": "leg_right",
+      "role": "proximal",
+      "pivot": [
+        296,
+        420
+      ],
+      "source_part": "leg_right",
+      "rasterization": "clipped source-edge dilation",
+      "cap_radii_px": [
+        20,
+        20
+      ],
+      "overlap_px": 12,
+      "material": {
+        "rgb": [
+          43,
+          44,
+          48
+        ],
+        "sample_rig_px": [
+          297,
+          409
+        ],
+        "selection": "authored opaque interior pixel closest to local median RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 52
+      },
+      "added_opaque_pixels": 944
+    }
+  ],
+  "source_post_url": "https://grok.com/imagine/post/be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8"
+}

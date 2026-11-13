@@ -1,0 +1,766 @@
+{
+  "canvas": [
+    512,
+    768
+  ],
+  "character": "char2",
+  "rig_template": 2,
+  "manifest": "tests/data/characters/char2/body_parts.yml",
+  "bones": [
+    {
+      "name": "hip",
+      "parent": null,
+      "pivot": [
+        256,
+        400
+      ],
+      "rotation_limits_deg": [
+        -4,
+        4
+      ],
+      "pivot_reason": "v2-new, chosen: pelvis centre.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "torso",
+      "parent": "hip",
+      "pivot": [
+        256,
+        240
+      ],
+      "rotation_limits_deg": [
+        -6,
+        6
+      ],
+      "pivot_reason": "v2-new, chosen: broad upper torso.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "head",
+      "parent": "torso",
+      "pivot": [
+        256,
+        160
+      ],
+      "rotation_limits_deg": [
+        -10,
+        10
+      ],
+      "pivot_reason": "v2-new, chosen: neck base.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "right_upper",
+      "parent": "torso",
+      "pivot": [
+        182,
+        250
+      ],
+      "rotation_limits_deg": [
+        -15,
+        35
+      ],
+      "pivot_reason": "v2-new, chosen: left image shoulder.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "right_fore",
+      "parent": "right_upper",
+      "pivot": [
+        168,
+        340
+      ],
+      "rotation_limits_deg": [
+        -20,
+        45
+      ],
+      "pivot_reason": "v2-new, chosen: elbow below shoulder.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "right_hand",
+      "parent": "right_fore",
+      "pivot": [
+        160,
+        430
+      ],
+      "rotation_limits_deg": [
+        -12,
+        12
+      ],
+      "pivot_reason": "v2-new, chosen: wrist at sleeve end.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "left_arm",
+      "parent": "torso",
+      "pivot": [
+        330,
+        250
+      ],
+      "rotation_limits_deg": [
+        -15,
+        35
+      ],
+      "pivot_reason": "v2-new, chosen: right image shoulder.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "left_fore",
+      "parent": "left_arm",
+      "pivot": [
+        344,
+        340
+      ],
+      "rotation_limits_deg": [
+        -20,
+        45
+      ],
+      "pivot_reason": "v2-new, chosen: elbow below shoulder.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "left_hand",
+      "parent": "left_fore",
+      "pivot": [
+        352,
+        430
+      ],
+      "rotation_limits_deg": [
+        -12,
+        12
+      ],
+      "pivot_reason": "v2-new, chosen: wrist at sleeve end.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "leg_left",
+      "parent": "hip",
+      "pivot": [
+        216,
+        420
+      ],
+      "rotation_limits_deg": [
+        -10,
+        10
+      ],
+      "pivot_reason": "v2-new, chosen: left hip under pelvis.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "leg_right",
+      "parent": "hip",
+      "pivot": [
+        296,
+        420
+      ],
+      "rotation_limits_deg": [
+        -10,
+        10
+      ],
+      "pivot_reason": "v2-new, chosen: right hip under pelvis.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "knee_left",
+      "parent": "leg_left",
+      "pivot": [
+        216,
+        550
+      ],
+      "rotation_limits_deg": [
+        0,
+        60
+      ],
+      "pivot_reason": "v2-new, chosen: left knee at leg midpoint.",
+      "limit_reasons": [
+        "v2-new, chosen: no knee hyperextension.",
+        "v2-new, chosen: moderate flexion before cloth deformation."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "knee_right",
+      "parent": "leg_right",
+      "pivot": [
+        296,
+        550
+      ],
+      "rotation_limits_deg": [
+        0,
+        60
+      ],
+      "pivot_reason": "v2-new, chosen: right knee at leg midpoint.",
+      "limit_reasons": [
+        "v2-new, chosen: no knee hyperextension.",
+        "v2-new, chosen: moderate flexion before cloth deformation."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "boot_left",
+      "parent": "knee_left",
+      "pivot": [
+        216,
+        680
+      ],
+      "rotation_limits_deg": [
+        -8,
+        8
+      ],
+      "pivot_reason": "v2-new, chosen: left ankle above foot.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    },
+    {
+      "name": "boot_right",
+      "parent": "knee_right",
+      "pivot": [
+        296,
+        680
+      ],
+      "rotation_limits_deg": [
+        -8,
+        8
+      ],
+      "pivot_reason": "v2-new, chosen: right ankle above foot.",
+      "limit_reasons": [
+        "v2-new, chosen: conservative reverse rotation for short, broad limbs.",
+        "v2-new, chosen: limited forward rotation to retain broad seam backing."
+      ],
+      "basis": "v2-new, chosen"
+    }
+  ],
+  "overlap_px": 12,
+  "pixel_scale": 1,
+  "parts": [
+    {
+      "id": "hip_backing",
+      "bone": "hip",
+      "parent_bone": "hip",
+      "pivot": [
+        256,
+        400
+      ],
+      "offset": [
+        -84,
+        -23
+      ],
+      "bbox": [
+        172,
+        377,
+        340,
+        458
+      ],
+      "texture_hd": "characters/char2/parts/hip_backing.png",
+      "z_order": 0,
+      "joint_overlap_px": 0,
+      "rotation_limits_deg": [
+        -4,
+        4
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of seg-be6a-black-shorts.png; composited in listed order; no joint dilation."
+    },
+    {
+      "id": "leg_left",
+      "bone": "leg_left",
+      "parent_bone": "leg_left",
+      "pivot": [
+        216,
+        420
+      ],
+      "offset": [
+        -38,
+        -32
+      ],
+      "bbox": [
+        178,
+        388,
+        256,
+        577
+      ],
+      "texture_hd": "characters/char2/parts/leg_left.png",
+      "z_order": 5,
+      "joint_overlap_px": 12,
+      "rotation_limits_deg": [
+        -10,
+        10
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "Segments-merged",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of seg-be6a-black-shorts.png, seg-be6a-gray-leggings.png; composited in listed order; source-interior material joint supports leg_left proximal [20, 20]px with 12px local overlap margin."
+    },
+    {
+      "id": "shin_left",
+      "bone": "knee_left",
+      "parent_bone": "knee_left",
+      "pivot": [
+        216,
+        550
+      ],
+      "offset": [
+        -31,
+        -30
+      ],
+      "bbox": [
+        185,
+        520,
+        244,
+        710
+      ],
+      "texture_hd": "characters/char2/parts/shin_left.png",
+      "z_order": 5,
+      "joint_overlap_px": 12,
+      "rotation_limits_deg": [
+        0,
+        60
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of seg-be6a-gray-leggings.png; composited in listed order; source-interior material joint supports knee_left proximal [14, 18]px with 12px local overlap margin, boot_left distal seam support [16, 18]px with 12px local overlap margin."
+    },
+    {
+      "id": "leg_right",
+      "bone": "leg_right",
+      "parent_bone": "leg_right",
+      "pivot": [
+        296,
+        420
+      ],
+      "offset": [
+        -39,
+        -32
+      ],
+      "bbox": [
+        257,
+        388,
+        334,
+        578
+      ],
+      "texture_hd": "characters/char2/parts/leg_right.png",
+      "z_order": 5,
+      "joint_overlap_px": 12,
+      "rotation_limits_deg": [
+        -10,
+        10
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "Segments-merged",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of seg-be6a-black-shorts.png, seg-be6a-gray-leggings.png; composited in listed order; source-interior material joint supports leg_right proximal [20, 20]px with 12px local overlap margin."
+    },
+    {
+      "id": "shin_right",
+      "bone": "knee_right",
+      "parent_bone": "knee_right",
+      "pivot": [
+        296,
+        550
+      ],
+      "offset": [
+        -28,
+        -30
+      ],
+      "bbox": [
+        268,
+        520,
+        325,
+        710
+      ],
+      "texture_hd": "characters/char2/parts/shin_right.png",
+      "z_order": 5,
+      "joint_overlap_px": 12,
+      "rotation_limits_deg": [
+        0,
+        60
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of seg-be6a-gray-leggings.png; composited in listed order; source-interior material joint supports knee_right proximal [14, 18]px with 12px local overlap margin, boot_right distal seam support [16, 18]px with 12px local overlap margin."
+    },
+    {
+      "id": "boot_left",
+      "bone": "boot_left",
+      "parent_bone": "boot_left",
+      "pivot": [
+        216,
+        680
+      ],
+      "offset": [
+        -35,
+        -30
+      ],
+      "bbox": [
+        181,
+        650,
+        248,
+        747
+      ],
+      "texture_hd": "characters/char2/parts/boot_left.png",
+      "z_order": 6,
+      "joint_overlap_px": 12,
+      "rotation_limits_deg": [
+        -8,
+        8
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; source-interior material joint supports boot_left proximal [16, 18]px with 12px local overlap margin."
+    },
+    {
+      "id": "boot_right",
+      "bone": "boot_right",
+      "parent_bone": "boot_right",
+      "pivot": [
+        296,
+        680
+      ],
+      "offset": [
+        -32,
+        -30
+      ],
+      "bbox": [
+        264,
+        650,
+        331,
+        747
+      ],
+      "texture_hd": "characters/char2/parts/boot_right.png",
+      "z_order": 6,
+      "joint_overlap_px": 12,
+      "rotation_limits_deg": [
+        -8,
+        8
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; source-interior material joint supports boot_right proximal [16, 18]px with 12px local overlap margin."
+    },
+    {
+      "id": "torso",
+      "bone": "torso",
+      "parent_bone": "torso",
+      "pivot": [
+        256,
+        240
+      ],
+      "offset": [
+        -104,
+        -63
+      ],
+      "bbox": [
+        152,
+        177,
+        360,
+        423
+      ],
+      "texture_hd": "characters/char2/parts/torso.png",
+      "z_order": 8,
+      "joint_overlap_px": 0,
+      "rotation_limits_deg": [
+        -6,
+        6
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "Segments-merged",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg, seg-be6a-teal-cropped-jacket.png; composited in listed order; source-interior material joint supports right_upper distal seam support [18, 20]px with 12px local overlap margin, left_arm distal seam support [18, 20]px with 12px local overlap margin."
+    },
+    {
+      "id": "left_arm",
+      "bone": "left_arm",
+      "parent_bone": "left_arm",
+      "pivot": [
+        330,
+        250
+      ],
+      "offset": [
+        -30,
+        -32
+      ],
+      "bbox": [
+        300,
+        218,
+        372,
+        368
+      ],
+      "texture_hd": "characters/char2/parts/left_arm.png",
+      "z_order": 9,
+      "joint_overlap_px": 12,
+      "rotation_limits_deg": [
+        -15,
+        35
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of seg-be6a-teal-cropped-jacket.png; composited in listed order; source-interior material joint supports left_arm proximal [18, 20]px with 12px local overlap margin, left_fore distal seam support [16, 16]px with 12px local overlap margin."
+    },
+    {
+      "id": "left_fore",
+      "bone": "left_fore",
+      "parent_bone": "left_fore",
+      "pivot": [
+        344,
+        340
+      ],
+      "offset": [
+        -34,
+        -34
+      ],
+      "bbox": [
+        310,
+        306,
+        378,
+        458
+      ],
+      "texture_hd": "characters/char2/parts/left_fore.png",
+      "z_order": 9,
+      "joint_overlap_px": 12,
+      "rotation_limits_deg": [
+        -20,
+        45
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; source-interior material joint supports left_fore proximal [22, 22]px with 12px local overlap margin, left_hand distal seam support [14, 16]px with 12px local overlap margin."
+    },
+    {
+      "id": "left_hand",
+      "bone": "left_hand",
+      "parent_bone": "left_hand",
+      "pivot": [
+        352,
+        430
+      ],
+      "offset": [
+        -26,
+        -28
+      ],
+      "bbox": [
+        326,
+        402,
+        386,
+        487
+      ],
+      "texture_hd": "characters/char2/parts/left_hand.png",
+      "z_order": 10,
+      "joint_overlap_px": 12,
+      "rotation_limits_deg": [
+        -12,
+        12
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "Segments-merged",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg, seg-be6a-black-fingerless-gloves-2.png; composited in listed order; source-interior material joint supports left_hand proximal [14, 16]px with 12px local overlap margin."
+    },
+    {
+      "id": "head",
+      "bone": "head",
+      "parent_bone": "head",
+      "pivot": [
+        256,
+        160
+      ],
+      "offset": [
+        -59,
+        -116
+      ],
+      "bbox": [
+        197,
+        44,
+        316,
+        197
+      ],
+      "texture_hd": "characters/char2/parts/head.png",
+      "z_order": 12,
+      "joint_overlap_px": 12,
+      "rotation_limits_deg": [
+        -10,
+        10
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; source-interior material joint supports head proximal [8, 24]px with 12px local overlap margin."
+    },
+    {
+      "id": "right_upper",
+      "bone": "right_upper",
+      "parent_bone": "right_upper",
+      "pivot": [
+        182,
+        250
+      ],
+      "offset": [
+        -42,
+        -32
+      ],
+      "bbox": [
+        140,
+        218,
+        212,
+        368
+      ],
+      "texture_hd": "characters/char2/parts/right_upper.png",
+      "z_order": 14,
+      "joint_overlap_px": 12,
+      "rotation_limits_deg": [
+        -15,
+        35
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of seg-be6a-teal-cropped-jacket.png; composited in listed order; source-interior material joint supports right_upper proximal [18, 20]px with 12px local overlap margin, right_fore distal seam support [16, 16]px with 12px local overlap margin."
+    },
+    {
+      "id": "right_fore",
+      "bone": "right_fore",
+      "parent_bone": "right_fore",
+      "pivot": [
+        168,
+        340
+      ],
+      "offset": [
+        -34,
+        -34
+      ],
+      "bbox": [
+        134,
+        306,
+        202,
+        458
+      ],
+      "texture_hd": "characters/char2/parts/right_fore.png",
+      "z_order": 14,
+      "joint_overlap_px": 12,
+      "rotation_limits_deg": [
+        -20,
+        45
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; source-interior material joint supports right_fore proximal [22, 22]px with 12px local overlap margin, right_hand distal seam support [14, 16]px with 12px local overlap margin."
+    },
+    {
+      "id": "satchel",
+      "bone": "right_hand",
+      "parent_bone": "right_hand",
+      "pivot": [
+        160,
+        430
+      ],
+      "offset": [
+        -16,
+        -8
+      ],
+      "bbox": [
+        144,
+        422,
+        257,
+        535
+      ],
+      "texture_hd": "characters/char2/parts/satchel.png",
+      "z_order": 16,
+      "joint_overlap_px": 0,
+      "rotation_limits_deg": [
+        -12,
+        12
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "SCRIPTED (flagged)",
+      "scripted_fallback": true,
+      "derived_from": "Wholly scripted satchel, flap, buckle and handle; no Imagine pixels.",
+      "fallback_reason": "The supplied Imagine base has no held prop and neither Segments run supplied a satchel. All three allowed calls were already used; this rigid satchel is a wholly scripted fallback."
+    },
+    {
+      "id": "right_hand",
+      "bone": "right_hand",
+      "parent_bone": "right_hand",
+      "pivot": [
+        160,
+        430
+      ],
+      "offset": [
+        -33,
+        -28
+      ],
+      "bbox": [
+        127,
+        402,
+        186,
+        487
+      ],
+      "texture_hd": "characters/char2/parts/right_hand.png",
+      "z_order": 18,
+      "joint_overlap_px": 12,
+      "rotation_limits_deg": [
+        -12,
+        12
+      ],
+      "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+      "classification": "Segments-merged",
+      "scripted_fallback": false,
+      "derived_from": "Polygon split and affine fit of call1-base-best.jpg, seg-be6a-black-fingerless-gloves-1.png; composited in listed order; source-interior material joint supports right_hand proximal [14, 16]px with 12px local overlap margin."
+    }
+  ]
+}

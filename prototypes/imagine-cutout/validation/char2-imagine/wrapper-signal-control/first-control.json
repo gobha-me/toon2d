@@ -1,0 +1,21 @@
+{
+  "scope": "First synthetic wrapper TERM control; NOT oracle, provenance, rendered-rig or mutant acceptance.",
+  "timestamp_utc": "2026-11-09T20:16:05.446944Z",
+  "wrapper_sha256": "88fe358606c681a496172e5c4b2dce7ad390cfecf459281eabd1cbaba141c839",
+  "controller_sha256": "ef88baa2562d79e405fa2967f2e0ea6b3c62fb88d6436bec07f70b704bfa6972",
+  "controller_termination_bound_seconds": 15,
+  "expected_wrapper_exit": 143,
+  "observed": "No wrapper exit within 15 seconds after TERM; controller killed only its recorded wrapper PID.",
+  "controller_cleanup_signal": "SIGKILL",
+  "recorded_wrapper_pid": 173179,
+  "recorded_synthetic_child_pid": 173181,
+  "child_pid_stopped": true,
+  "wrapper_pid_stopped": true,
+  "wrapper_attempt_verification_persisted": false,
+  "wrapper_public_transcript_persisted": false,
+  "private_child_transcript_available": true,
+  "private_scratch_retained": true,
+  "real_acceptance_executed": false,
+  "passed": false,
+  "failure": "Signal handler reentered Popen.wait while the interrupted wait held its non-reentrant waitpid lock."
+}

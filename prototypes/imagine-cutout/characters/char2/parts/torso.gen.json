@@ -1,0 +1,243 @@
+{
+  "tool": "Python/Pillow/OpenCV scripted derivation from Grok Imagine (SpaceXAI)",
+  "model": "no generative model used; source model not disclosed",
+  "date": "2026-11-09T22:56:43.303087Z",
+  "date_source": "scripted artifact creation time UTC",
+  "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+  "license": "CC0 1.0",
+  "credit": "Generated with Grok Imagine (SpaceXAI); scripted derivation where stated",
+  "rights": "Original fictional art only; no real-person likeness.",
+  "description": "Derived fictional courier part: torso",
+  "output_sha256": "c94a23b86931800fc0d24b746fee236d4aa226df337ad09afc3463e85cf6eb0f",
+  "tool_sha256": "358baa5072012b7431f3b1cdb109fc465f6261808a1a6d99ac0223b78ebe47a1",
+  "manifest_sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4",
+  "classification": "Segments-merged",
+  "scripted_fallback": false,
+  "derived_from": "Polygon split and affine fit of call1-base-best.jpg, seg-be6a-teal-cropped-jacket.png; composited in listed order; source-interior material joint supports right_upper distal seam support [18, 20]px with 12px local overlap margin, left_arm distal seam support [18, 20]px with 12px local overlap margin.",
+  "imagine_sources": [
+    {
+      "file": "call1-base-best.jpg",
+      "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
+    },
+    {
+      "file": "seg-be6a-teal-cropped-jacket.png",
+      "sha256": "975ae1b378e11ca1cd1f3ce26a74b4714a4357ceaa4ef52955f3d7627d98f416"
+    }
+  ],
+  "operations": [
+    {
+      "file": "call1-base-best.jpg",
+      "polygon": [
+        [
+          625,
+          218
+        ],
+        [
+          665,
+          235
+        ],
+        [
+          741,
+          235
+        ],
+        [
+          783,
+          218
+        ],
+        [
+          813,
+          275
+        ],
+        [
+          795,
+          465
+        ],
+        [
+          780,
+          510
+        ],
+        [
+          625,
+          510
+        ],
+        [
+          605,
+          465
+        ],
+        [
+          593,
+          275
+        ]
+      ],
+      "source_axis": [
+        [
+          700,
+          300
+        ],
+        [
+          700,
+          500
+        ]
+      ],
+      "target_axis": [
+        [
+          256,
+          240
+        ],
+        [
+          256,
+          412
+        ]
+      ],
+      "width_scale": 0.74,
+      "affine_source_to_rig": [
+        [
+          0.7399999999999997,
+          0.0,
+          -261.99999999999983
+        ],
+        [
+          -1.7256037868459576e-16,
+          0.86,
+          -17.99999999999988
+        ]
+      ]
+    },
+    {
+      "file": "seg-be6a-teal-cropped-jacket.png",
+      "polygon": [
+        [
+          113,
+          0
+        ],
+        [
+          304,
+          0
+        ],
+        [
+          315,
+          70
+        ],
+        [
+          302,
+          170
+        ],
+        [
+          310,
+          260
+        ],
+        [
+          100,
+          260
+        ],
+        [
+          112,
+          170
+        ],
+        [
+          100,
+          70
+        ]
+      ],
+      "source_axis": [
+        [
+          209,
+          75
+        ],
+        [
+          209,
+          240
+        ]
+      ],
+      "target_axis": [
+        [
+          256,
+          240
+        ],
+        [
+          256,
+          371
+        ]
+      ],
+      "width_scale": 0.67,
+      "affine_source_to_rig": [
+        [
+          0.6699999999999998,
+          0.0,
+          115.97000000000001
+        ],
+        [
+          -1.3598904033686127e-16,
+          0.793939393939394,
+          180.45454545454547
+        ]
+      ]
+    }
+  ],
+  "joint_completion_added_pixels": 2290,
+  "backing_material": null,
+  "joint_cap_radii_px": null,
+  "joint_backings": [
+    {
+      "joint": "right_upper",
+      "role": "distal seam support",
+      "pivot": [
+        182,
+        250
+      ],
+      "source_part": "torso",
+      "rasterization": "opaque pixel-centred source-material underlay",
+      "cap_radii_px": [
+        18,
+        20
+      ],
+      "overlap_px": 12,
+      "material": {
+        "rgb": [
+          18,
+          118,
+          133
+        ],
+        "sample_rig_px": [
+          198,
+          225
+        ],
+        "selection": "authored opaque interior pixel closest to local median RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 52
+      },
+      "added_opaque_pixels": 1289
+    },
+    {
+      "joint": "left_arm",
+      "role": "distal seam support",
+      "pivot": [
+        330,
+        250
+      ],
+      "source_part": "torso",
+      "rasterization": "opaque pixel-centred source-material underlay",
+      "cap_radii_px": [
+        18,
+        20
+      ],
+      "overlap_px": 12,
+      "material": {
+        "rgb": [
+          18,
+          119,
+          134
+        ],
+        "sample_rig_px": [
+          311,
+          226
+        ],
+        "selection": "authored opaque interior pixel closest to local median RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 52
+      },
+      "added_opaque_pixels": 1001
+    }
+  ],
+  "source_post_url": "https://grok.com/imagine/post/be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8"
+}

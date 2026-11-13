@@ -1,0 +1,7 @@
+runner rc=0
+recorded xvfb 1610996 gone after runner exit
+## after 2026-10-31T21:38:57.903003655Z
+lock <TMPDIR>/.X10-lock uid=<UID> mtime=1793137458 holder=43 alive comm=Xorg
+socket <TMPDIR>/.X11-unix/X10 uid=<UID> mtime=1793137458
+x-servers (read-only ps):
+     43      32       1  <UID>  3-23:54:39 Xorg

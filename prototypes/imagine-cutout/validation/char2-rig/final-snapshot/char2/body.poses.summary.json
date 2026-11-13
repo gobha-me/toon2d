@@ -1,0 +1,9 @@
+{
+  "projection": "pose vectors omitted; source digest retained in inventory",
+  "pose_count": 650,
+  "kind_counts": {
+    "single": 30,
+    "pair": 420,
+    "random": 200
+  }
+}

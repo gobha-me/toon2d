@@ -1,0 +1,21 @@
+{
+  "scope": "Synthetic wrapper TERM control only; NOT oracle, provenance, rendered-rig or mutant acceptance.",
+  "timestamp_utc": "2026-11-09T20:16:10.617138Z",
+  "wrapper_sha256": "0c59bcdaca67c3c0c99f0c61218c6cb613e5a582ab0d8b1bcc56657f6471f93d",
+  "wrapper_exit": 143,
+  "recorded_wrapper_pid": 174113,
+  "recorded_synthetic_child_pid": 174115,
+  "child_pid_stopped": true,
+  "attempt_exit": 143,
+  "attempt_state": "interrupted",
+  "sanitized_transcript_persisted": true,
+  "attempt_verification_persisted": true,
+  "private_scratch_retained": true,
+  "available_report_files": [],
+  "real_acceptance_executed": false,
+  "passed": true,
+  "controller_sha256": "ef88baa2562d79e405fa2967f2e0ea6b3c62fb88d6436bec07f70b704bfa6972",
+  "controller_termination_bound_seconds": 15,
+  "existing_child_termination_grace_seconds": 10,
+  "same_private_controller_and_fixture_as_first_attempt": true
+}

@@ -1,0 +1,131 @@
+{
+  "tool": "Python/Pillow/OpenCV scripted derivation from Grok Imagine (SpaceXAI)",
+  "model": "no generative model used; source model not disclosed",
+  "date": "2026-11-09T22:56:43.303087Z",
+  "date_source": "scripted artifact creation time UTC",
+  "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+  "license": "CC0 1.0",
+  "credit": "Generated with Grok Imagine (SpaceXAI); scripted derivation where stated",
+  "rights": "Original fictional art only; no real-person likeness.",
+  "description": "Derived fictional courier part: boot_right",
+  "output_sha256": "aa4417d8220619253305b8b6e17eb5cb15bc90ea975c98a6a2f1ba3121ab2e2c",
+  "tool_sha256": "358baa5072012b7431f3b1cdb109fc465f6261808a1a6d99ac0223b78ebe47a1",
+  "manifest_sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4",
+  "classification": "Segments-split",
+  "scripted_fallback": false,
+  "derived_from": "Polygon split and affine fit of call1-base-best.jpg; composited in listed order; source-interior material joint supports boot_right proximal [16, 18]px with 12px local overlap margin.",
+  "imagine_sources": [
+    {
+      "file": "call1-base-best.jpg",
+      "sha256": "5078c4f3b201620847503a9b9c2b12812fd72c5cde8f5ba0388998f587d609d2"
+    }
+  ],
+  "operations": [
+    {
+      "file": "call1-base-best.jpg",
+      "polygon": [
+        [
+          799,
+          1127
+        ],
+        [
+          910,
+          1127
+        ],
+        [
+          910,
+          1344
+        ],
+        [
+          799,
+          1344
+        ]
+      ],
+      "source_axis": [
+        [
+          836,
+          1182
+        ],
+        [
+          856,
+          1305
+        ]
+      ],
+      "target_axis": [
+        [
+          296,
+          680
+        ],
+        [
+          296,
+          732
+        ]
+      ],
+      "width_scale": 0.7,
+      "affine_source_to_rig": [
+        [
+          0.6909258012358264,
+          -0.112345658737533,
+          -148.8214012053868
+        ],
+        [
+          0.06697171884062812,
+          0.41187451726168667,
+          137.1759636459212
+        ]
+      ]
+    }
+  ],
+  "joint_completion_added_pixels": 790,
+  "backing_material": {
+    "rgb": [
+      206,
+      111,
+      73
+    ],
+    "sample_rig_px": [
+      304,
+      706
+    ],
+    "selection": "authored opaque interior pixel closest to local median RGB",
+    "minimum_core_depth_px": 3,
+    "search_radius_px": 50
+  },
+  "joint_cap_radii_px": [
+    16,
+    18
+  ],
+  "joint_backings": [
+    {
+      "joint": "boot_right",
+      "role": "proximal",
+      "pivot": [
+        296,
+        680
+      ],
+      "source_part": "boot_right",
+      "rasterization": "opaque pixel-centred source-material underlay",
+      "cap_radii_px": [
+        16,
+        18
+      ],
+      "overlap_px": 12,
+      "material": {
+        "rgb": [
+          206,
+          111,
+          73
+        ],
+        "sample_rig_px": [
+          304,
+          706
+        ],
+        "selection": "authored opaque interior pixel closest to local median RGB",
+        "minimum_core_depth_px": 3,
+        "search_radius_px": 50
+      },
+      "added_opaque_pixels": 790
+    }
+  ],
+  "source_post_url": "https://grok.com/imagine/post/be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8"
+}

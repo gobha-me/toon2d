@@ -1,0 +1,1 @@
+NOT STARTED: missing rig input: scenes/char2.tscn, characters/char2/parts.json

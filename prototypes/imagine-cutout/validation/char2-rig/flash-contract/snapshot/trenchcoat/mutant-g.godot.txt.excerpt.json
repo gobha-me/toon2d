@@ -1,0 +1,69 @@
+{
+  "line_count": 41059,
+  "first_lines": [
+    "COMMAND ['godot', '--single-threaded-scene', '--headless', '--path', '<TMPDIR>/body-suite-vxstz1cy/prototype', '--editor', '--import']",
+    "heavy-run: memory ok: memory.current 21.22 GiB, working set (minus inactive_file) 8.09 GiB; limits 17.50 GiB working set / 24.50 GiB memory.current (memory.max 28.00 GiB x 10/16, 14/16)",
+    "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org",
+    "",
+    "[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Started Project initialization (5 steps)\u001b[39m\u001b[0m",
+    "[   0% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Scanning file structure...\u001b[39m\u001b[0m",
+    "[  16% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Loading global class names...\u001b[39m\u001b[0m",
+    "[  33% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Verifying GDExtensions...\u001b[39m\u001b[0m",
+    "[  50% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Creating autoload scripts...\u001b[39m\u001b[0m",
+    "[  66% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Initializing plugins...\u001b[39m\u001b[0m",
+    "[  83% ] \u001b[90m\u001b[1mfirst_scan_filesystem\u001b[22m | Starting file scan...\u001b[39m\u001b[0m",
+    "\u001b[92m[ DONE ]\u001b[39m \u001b[1mfirst_scan_filesystem\u001b[22m"
+  ],
+  "last_lines": [
+    "     GDScript backtrace (most recent call first):",
+    "         [0] rest_all (res://tests/check_body_parts.gd:40)",
+    "         [1] pose_atlas (res://tests/check_body_parts.gd:194)",
+    "         [2] capture (res://tests/check_rig.gd:177)",
+    "WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/leg_left/knee_left/boot_left:rotation'. This warning can be disabled in Project Settings.",
+    "     at: _update_caches (scene/animation/animation_mixer.cpp:725)",
+    "     GDScript backtrace (most recent call first):",
+    "         [0] rest_all (res://tests/check_body_parts.gd:40)",
+    "         [1] pose_atlas (res://tests/check_body_parts.gd:194)",
+    "         [2] capture (res://tests/check_rig.gd:177)",
+    "",
+    "EXIT 0"
+  ],
+  "diagnostics": [
+    {
+      "line": "WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/leg_left/knee_left/boot_left:rotation'. This warning can be disabled in Project Settings.",
+      "count": 850
+    },
+    {
+      "line": "WARNING: AnimationMixer (at: hd.tscn): 'aim', couldn't resolve track:  'Skeleton2D/hip/leg_left/knee_left:rotation'. This warning can be disabled in Project Settings.",
+      "count": 850
+    },
+    {
+      "line": "WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/leg_left/knee_left/boot_left:rotation'. This warning can be disabled in Project Settings.",
+      "count": 850
+    },
+    {
+      "line": "WARNING: AnimationMixer (at: hd.tscn): 'cooldown', couldn't resolve track:  'Skeleton2D/hip/leg_left/knee_left:rotation'. This warning can be disabled in Project Settings.",
+      "count": 850
+    },
+    {
+      "line": "WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/leg_left/knee_left/boot_left:rotation'. This warning can be disabled in Project Settings.",
+      "count": 850
+    },
+    {
+      "line": "WARNING: AnimationMixer (at: hd.tscn): 'fire', couldn't resolve track:  'Skeleton2D/hip/leg_left/knee_left:rotation'. This warning can be disabled in Project Settings.",
+      "count": 850
+    },
+    {
+      "line": "WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/leg_left/knee_left/boot_left:rotation'. This warning can be disabled in Project Settings.",
+      "count": 850
+    },
+    {
+      "line": "WARNING: AnimationMixer (at: hd.tscn): 'idle', couldn't resolve track:  'Skeleton2D/hip/leg_left/knee_left:rotation'. This warning can be disabled in Project Settings.",
+      "count": 850
+    },
+    {
+      "line": "WARNING: Could not set V-Sync mode, as changing V-Sync mode is not supported by the graphics driver.",
+      "count": 1
+    }
+  ]
+}

@@ -1,0 +1,258 @@
+{
+  "schema_version": 2,
+  "manifest_sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4",
+  "source_kind": "supplied Grok Imagine base and Segments; scripted fitting",
+  "source_post_id": "be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8",
+  "generation_calls_used": 3,
+  "generation_calls_remaining": 0,
+  "generation_requested": false,
+  "slots": [
+    {
+      "slot": "head_face",
+      "part": "head",
+      "bone": "head",
+      "pivot": [
+        256,
+        160
+      ],
+      "parent": "torso",
+      "overlap_px": 12,
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "imagine_sources": [
+        "call1-base-best.jpg"
+      ],
+      "method": "Scripted crop/matte from the chosen full-body source; no separate Segments limb exists."
+    },
+    {
+      "slot": "upper_arm_left",
+      "part": "left_arm",
+      "bone": "left_arm",
+      "pivot": [
+        330,
+        250
+      ],
+      "parent": "torso",
+      "overlap_px": 12,
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "imagine_sources": [
+        "seg-be6a-teal-cropped-jacket.png"
+      ],
+      "method": "Split the jacket sleeve from the combined jacket layer; bare seam backing may also use the base."
+    },
+    {
+      "slot": "lower_arm_left",
+      "part": "left_fore",
+      "bone": "left_fore",
+      "pivot": [
+        344,
+        340
+      ],
+      "parent": "left_arm",
+      "overlap_px": 12,
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "imagine_sources": [
+        "call1-base-best.jpg"
+      ],
+      "method": "Scripted crop/matte from the chosen full-body source; no separate Segments limb exists."
+    },
+    {
+      "slot": "hand_left",
+      "part": "left_hand",
+      "bone": "left_hand",
+      "pivot": [
+        352,
+        430
+      ],
+      "parent": "left_fore",
+      "overlap_px": 12,
+      "classification": "Segments-merged",
+      "scripted_fallback": false,
+      "imagine_sources": [
+        "call1-base-best.jpg",
+        "seg-be6a-black-fingerless-gloves-2.png"
+      ],
+      "method": "Merge the isolated glove with fingers recovered from the base; left means image-right in the frozen rig."
+    },
+    {
+      "slot": "upper_arm_right",
+      "part": "right_upper",
+      "bone": "right_upper",
+      "pivot": [
+        182,
+        250
+      ],
+      "parent": "torso",
+      "overlap_px": 12,
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "imagine_sources": [
+        "seg-be6a-teal-cropped-jacket.png"
+      ],
+      "method": "Split the jacket sleeve from the combined jacket layer; bare seam backing may also use the base."
+    },
+    {
+      "slot": "lower_arm_right",
+      "part": "right_fore",
+      "bone": "right_fore",
+      "pivot": [
+        168,
+        340
+      ],
+      "parent": "right_upper",
+      "overlap_px": 12,
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "imagine_sources": [
+        "call1-base-best.jpg"
+      ],
+      "method": "Scripted crop/matte from the chosen full-body source; no separate Segments limb exists."
+    },
+    {
+      "slot": "hand_right",
+      "part": "right_hand",
+      "bone": "right_hand",
+      "pivot": [
+        160,
+        430
+      ],
+      "parent": "right_fore",
+      "overlap_px": 12,
+      "classification": "Segments-merged",
+      "scripted_fallback": false,
+      "imagine_sources": [
+        "call1-base-best.jpg",
+        "seg-be6a-black-fingerless-gloves-1.png"
+      ],
+      "method": "Merge the isolated glove with fingers recovered from the base; left means image-right in the frozen rig."
+    },
+    {
+      "slot": "upper_leg_left",
+      "part": "leg_left",
+      "bone": "leg_left",
+      "pivot": [
+        216,
+        420
+      ],
+      "parent": "hip",
+      "overlap_px": 12,
+      "classification": "Segments-merged",
+      "scripted_fallback": false,
+      "imagine_sources": [
+        "seg-be6a-black-shorts.png",
+        "seg-be6a-gray-leggings.png"
+      ],
+      "method": "Split the paired shorts and leggings by leg, then merge the upper-leg clothing layers."
+    },
+    {
+      "slot": "lower_leg_left",
+      "part": "shin_left",
+      "bone": "knee_left",
+      "pivot": [
+        216,
+        550
+      ],
+      "parent": "leg_left",
+      "overlap_px": 12,
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "imagine_sources": [
+        "seg-be6a-gray-leggings.png"
+      ],
+      "method": "Split one lower leg from the paired leggings layer."
+    },
+    {
+      "slot": "foot_left",
+      "part": "boot_left",
+      "bone": "boot_left",
+      "pivot": [
+        216,
+        680
+      ],
+      "parent": "knee_left",
+      "overlap_px": 12,
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "imagine_sources": [
+        "call1-base-best.jpg"
+      ],
+      "method": "Split/matte the corresponding shoe and exposed ankle from the base; paired/nonspecific Segments shoe exports are supplemental."
+    },
+    {
+      "slot": "upper_leg_right",
+      "part": "leg_right",
+      "bone": "leg_right",
+      "pivot": [
+        296,
+        420
+      ],
+      "parent": "hip",
+      "overlap_px": 12,
+      "classification": "Segments-merged",
+      "scripted_fallback": false,
+      "imagine_sources": [
+        "seg-be6a-black-shorts.png",
+        "seg-be6a-gray-leggings.png"
+      ],
+      "method": "Split the paired shorts and leggings by leg, then merge the upper-leg clothing layers."
+    },
+    {
+      "slot": "lower_leg_right",
+      "part": "shin_right",
+      "bone": "knee_right",
+      "pivot": [
+        296,
+        550
+      ],
+      "parent": "leg_right",
+      "overlap_px": 12,
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "imagine_sources": [
+        "seg-be6a-gray-leggings.png"
+      ],
+      "method": "Split one lower leg from the paired leggings layer."
+    },
+    {
+      "slot": "foot_right",
+      "part": "boot_right",
+      "bone": "boot_right",
+      "pivot": [
+        296,
+        680
+      ],
+      "parent": "knee_right",
+      "overlap_px": 12,
+      "classification": "Segments-split",
+      "scripted_fallback": false,
+      "imagine_sources": [
+        "call1-base-best.jpg"
+      ],
+      "method": "Split/matte the corresponding shoe and exposed ankle from the base; paired/nonspecific Segments shoe exports are supplemental."
+    },
+    {
+      "slot": "held_prop_satchel",
+      "part": "satchel",
+      "bone": "right_hand",
+      "pivot": [
+        160,
+        430
+      ],
+      "parent": "right_fore",
+      "overlap_px": 0,
+      "classification": "SCRIPTED (flagged)",
+      "scripted_fallback": true,
+      "imagine_sources": [],
+      "method": "The chosen base and all chosen Segments exports contain no satchel; flag a wholly scripted fallback.",
+      "fallback_reason": "The supplied Imagine base has no held prop and neither Segments run supplied a satchel. All three allowed calls were already used; this rigid satchel is a wholly scripted fallback."
+    }
+  ],
+  "slot_tally": {
+    "Segments-usable": 0,
+    "Segments-merged": 4,
+    "Segments-split": 9,
+    "SCRIPTED (flagged)": 1
+  }
+}

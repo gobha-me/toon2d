@@ -1,0 +1,6 @@
+PASS body char2 manifest: validated
+FAIL body char2 provenance: missing or invalid char2 part declarations; Imagine-derived parts are required; required Imagine/scripted part missing or duplicated; required Imagine/scripted part missing or duplicated; required Imagine/scripted part missing or duplicated; required Imagine/scripted part missing or duplicated; required Imagine/scripted part missing or duplicated; required Imagine/scripted part missing or duplicated; required Imagine/scripted part missing or duplicated; required Imagine/scripted part missing or duplicated; required Imagine/scripted part missing or duplicated; required Imagine/scripted part missing or duplicated; required Imagine/scripted part missing or duplicated; required Imagine/scripted part missing or duplicated; required Imagine/scripted part missing or duplicated; required Imagine/scripted part missing or duplicated
+FAIL body char2 completeness: missing rig input: scenes/char2.tscn, characters/char2/parts.json
+FAIL body char2 per_joint: missing rig input: scenes/char2.tscn, characters/char2/parts.json
+FAIL body char2 combined: missing rig input: scenes/char2.tscn, characters/char2/parts.json
+FAIL body char2 facing: missing rig input: scenes/char2.tscn, characters/char2/parts.json

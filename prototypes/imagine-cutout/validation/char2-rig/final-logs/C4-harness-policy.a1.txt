@@ -1,0 +1,87 @@
+heavy-run: memory ok: memory.current 19.49 GiB, working set (minus inactive_file) 7.96 GiB; limits 17.50 GiB working set / 24.50 GiB memory.current (memory.max 28.00 GiB x 10/16, 14/16)
+heavy-run: holding slot1 on <HOST>, hard stop in 48530s (11:55 PM ET)
+test_driver_heavy_defer_policy (__main__.HarnessPolicy.test_driver_heavy_defer_policy) ...
+  test_driver_heavy_defer_policy (__main__.HarnessPolicy.test_driver_heavy_defer_policy) (exits=[75, 0]) ... ERROR
+  test_driver_heavy_defer_policy (__main__.HarnessPolicy.test_driver_heavy_defer_policy) (exits=[75]) ... ERROR
+  test_driver_heavy_defer_policy (__main__.HarnessPolicy.test_driver_heavy_defer_policy) (exits=[78]) ... ERROR
+test_xvfb_no_orphan_normal_exit (__main__.HarnessPolicy.test_xvfb_no_orphan_normal_exit) ... ERROR
+test_xvfb_no_orphan_on_term (__main__.HarnessPolicy.test_xvfb_no_orphan_on_term) ... ERROR
+
+======================================================================
+ERROR: test_driver_heavy_defer_policy (__main__.HarnessPolicy.test_driver_heavy_defer_policy) (exits=[75, 0])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO>/prototypes/imagine-cutout/tests/test_harness_policy.py", line 90, in test_driver_heavy_defer_policy
+    with self.subTest(exits=exits), tempfile.TemporaryDirectory(dir=os.environ['TMPDIR']) as scratch:
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<PYTHON>/lib/tempfile.py", line 1021, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<PYTHON>/lib/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '<TMPDIR>/<SCRATCH>'
+
+======================================================================
+ERROR: test_driver_heavy_defer_policy (__main__.HarnessPolicy.test_driver_heavy_defer_policy) (exits=[75])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO>/prototypes/imagine-cutout/tests/test_harness_policy.py", line 90, in test_driver_heavy_defer_policy
+    with self.subTest(exits=exits), tempfile.TemporaryDirectory(dir=os.environ['TMPDIR']) as scratch:
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<PYTHON>/lib/tempfile.py", line 1021, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<PYTHON>/lib/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '<TMPDIR>/<SCRATCH>'
+
+======================================================================
+ERROR: test_driver_heavy_defer_policy (__main__.HarnessPolicy.test_driver_heavy_defer_policy) (exits=[78])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO>/prototypes/imagine-cutout/tests/test_harness_policy.py", line 90, in test_driver_heavy_defer_policy
+    with self.subTest(exits=exits), tempfile.TemporaryDirectory(dir=os.environ['TMPDIR']) as scratch:
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<PYTHON>/lib/tempfile.py", line 1021, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<PYTHON>/lib/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '<TMPDIR>/<SCRATCH>'
+
+======================================================================
+ERROR: test_xvfb_no_orphan_normal_exit (__main__.HarnessPolicy.test_xvfb_no_orphan_normal_exit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO>/prototypes/imagine-cutout/tests/test_harness_policy.py", line 83, in test_xvfb_no_orphan_normal_exit
+    self.lifecycle(False)
+  File "<REPO>/prototypes/imagine-cutout/tests/test_harness_policy.py", line 18, in lifecycle
+    with tempfile.TemporaryDirectory(dir=os.environ['TMPDIR']) as scratch:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<PYTHON>/lib/tempfile.py", line 1021, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<PYTHON>/lib/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '<TMPDIR>/<SCRATCH>'
+
+======================================================================
+ERROR: test_xvfb_no_orphan_on_term (__main__.HarnessPolicy.test_xvfb_no_orphan_on_term)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO>/prototypes/imagine-cutout/tests/test_harness_policy.py", line 86, in test_xvfb_no_orphan_on_term
+    self.lifecycle(True)
+  File "<REPO>/prototypes/imagine-cutout/tests/test_harness_policy.py", line 18, in lifecycle
+    with tempfile.TemporaryDirectory(dir=os.environ['TMPDIR']) as scratch:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<PYTHON>/lib/tempfile.py", line 1021, in __init__
+    self.name = mkdtemp(suffix, prefix, dir)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<PYTHON>/lib/tempfile.py", line 523, in mkdtemp
+    _os.mkdir(file, 0o700)
+FileNotFoundError: [Errno 2] No such file or directory: '<TMPDIR>/<SCRATCH>'
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.004s
+
+FAILED (errors=5)

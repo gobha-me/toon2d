@@ -1,0 +1,84 @@
+{
+  "tool": "Python/Pillow/OpenCV scripted derivation from Grok Imagine (SpaceXAI)",
+  "model": "no generative model used; source model not disclosed",
+  "date": "2026-11-09T22:56:43.303087Z",
+  "date_source": "scripted artifact creation time UTC",
+  "source": "prototypes/imagine-cutout/tools/prep_char2.py",
+  "license": "CC0 1.0",
+  "credit": "Generated with Grok Imagine (SpaceXAI); scripted derivation where stated",
+  "rights": "Original fictional art only; no real-person likeness.",
+  "description": "Derived fictional courier part: hip_backing",
+  "output_sha256": "d47e18f4ca796ffd124fa237a5053764cb22dc9f7ee6f43ea5677ab37a10f55e",
+  "tool_sha256": "358baa5072012b7431f3b1cdb109fc465f6261808a1a6d99ac0223b78ebe47a1",
+  "manifest_sha256": "0f85468bed3e00588992e890280ad1555f0d8a061f5dbd3d65b4ef9448c621e4",
+  "classification": "Segments-split",
+  "scripted_fallback": false,
+  "derived_from": "Polygon split and affine fit of seg-be6a-black-shorts.png; composited in listed order; no joint dilation.",
+  "imagine_sources": [
+    {
+      "file": "seg-be6a-black-shorts.png",
+      "sha256": "4b9ca939c6ba004b5a568220f49a4ae7b633bebd3715558ba6c8549740e87c2e"
+    }
+  ],
+  "operations": [
+    {
+      "file": "seg-be6a-black-shorts.png",
+      "polygon": [
+        [
+          0,
+          0
+        ],
+        [
+          254,
+          0
+        ],
+        [
+          254,
+          135
+        ],
+        [
+          0,
+          135
+        ]
+      ],
+      "source_axis": [
+        [
+          127,
+          42
+        ],
+        [
+          127,
+          140
+        ]
+      ],
+      "target_axis": [
+        [
+          256,
+          400
+        ],
+        [
+          256,
+          459
+        ]
+      ],
+      "width_scale": 0.68,
+      "affine_source_to_rig": [
+        [
+          0.6800000000000002,
+          0.0,
+          169.64
+        ],
+        [
+          -4.475859752819529e-16,
+          0.6020408163265306,
+          374.7142857142858
+        ]
+      ]
+    }
+  ],
+  "joint_completion_added_pixels": 0,
+  "backing_material": null,
+  "joint_cap_radii_px": null,
+  "joint_backings": [],
+  "source_post_url": "https://grok.com/imagine/post/be6a80c1-cdb2-43ee-848c-8b8d1d0cd7a8"
+}

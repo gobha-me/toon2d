@@ -30,6 +30,25 @@ CARRIERS = {"left_fore": "left_arm", "left_hand": "left_arm",
             "shin_left": "leg_left", "shin_right": "leg_right"}
 
 
+def scripted_audit(manifest_path: Path, recipes: dict, source: str) -> dict:
+    """Classify original procedural designs without claiming source cutouts.
+
+    A recipe is explicit authoring support, not evidence of existing artwork.
+    Unsupported slots remain generation requests, never placeholder textures.
+    """
+    manifest = json.loads(manifest_path.read_text())
+    return dict(schema_version=1,
+                manifest_sha256=hashlib.sha256(manifest_path.read_bytes()).hexdigest(),
+                source_kind="original scripted design; no Segments export supplied",
+                source=source, slots=[dict(slot=s['slot'], part=s['part'],
+                    bone=s['bone'], pivot=s['pivot'], parent=s['parent_bone'],
+                    overlap_px=s['overlap_px'],
+                    action="scripted" if s['part'] in recipes else "generate",
+                    method=recipes.get(s['part'], "no procedural recipe; artwork required"))
+                    for s in manifest['slots']],
+                generation_requested=any(s['part'] not in recipes for s in manifest['slots']))
+
+
 def audit_bounds(slot: dict, by_part: dict, joints: dict, inputs: Path, ledger: dict, prepared: dict):
     part = by_part.get(slot["part"])
     if part is not None:

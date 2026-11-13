@@ -25,11 +25,15 @@ class MutantSourceDispatch(unittest.TestCase):
             body_mutants = Mock(return_value=True)
             with (
                 patch.object(driver, "guard"),
+                patch.object(driver, "mutation_guard"),
                 patch.object(driver, "mutants", return_value=True) as run_mutants,
-                patch.dict(sys.modules, {"body_driver": SimpleNamespace(body_mutants=body_mutants)}),
+                patch.dict(sys.modules, {"body_driver": SimpleNamespace(
+                    body_mutants=body_mutants,
+                    character_index=Mock(return_value={"characters": {"trenchcoat": {}}}),
+                )}),
             ):
                 self.assertEqual(invoke_main(mode, source), 0)
-            run_mutants.assert_called_once_with(source)
+            run_mutants.assert_called_once_with("trenchcoat", source)
             self.assertEqual(body_mutants.call_count, int(mode == "all-mutants"))
 
     def test_mutants_dispatches_exact_explicit_source(self):
@@ -50,6 +54,8 @@ class MutantSourceFollowups(unittest.TestCase):
             prototype = root / "prototypes" / "imagine-cutout"
             results = prototype / "tests" / "results"
             results.mkdir(parents=True)
+            (prototype / "scene.tscn").write_text("# mocked character scene\n")
+            (prototype / "parts.json").write_text('{"overlap_px": 12}\n')
             tools = prototype / "tools"
             tools.mkdir()
             (tools / "prep_parts.py").write_text("# packaged preparation stub\n")
@@ -73,7 +79,8 @@ class MutantSourceFollowups(unittest.TestCase):
             calls = []
             copied_sources = []
 
-            def suite(project, output, *, announce):
+            def suite(project, output, *, announce, character):
+                self.assertEqual(character, "trenchcoat")
                 calls.append(output.stem)
                 expected = {"mutant-a": "3", "mutant-b": "1",
                             "mutant-c": "5", "mutant-d": "2"}.get(output.stem)
@@ -106,6 +113,7 @@ class MutantSourceFollowups(unittest.TestCase):
                 patch.object(driver, "REPO", root),
                 patch.object(driver, "TEMP", scratch),
                 patch.object(driver, "guard") as guard,
+                patch.object(driver, "mutation_guard"),
                 patch.object(driver, "phase"),
                 patch.object(driver, "clone", side_effect=clone),
                 patch.object(driver, "suite", side_effect=suite),
@@ -113,7 +121,13 @@ class MutantSourceFollowups(unittest.TestCase):
                 patch.object(driver, "heavy", side_effect=prepare) as preparer,
                 patch.object(driver, "mutants", wraps=driver.mutants) as run_mutants,
                 patch.object(driver, "overlap_inputs", wraps=driver.overlap_inputs) as inputs,
-                patch.dict(sys.modules, {"body_driver": SimpleNamespace(body_mutants=body_mutants)}),
+                patch.dict(sys.modules, {"body_driver": SimpleNamespace(
+                    body_mutants=body_mutants,
+                    character_index=Mock(return_value={"characters": {"trenchcoat": {}}}),
+                    read_manifest=Mock(return_value={"_character": {
+                        "scene": "scene.tscn", "subject": "parts.json",
+                    }}),
+                )}),
                 contextlib.redirect_stdout(io.StringIO()),
                 contextlib.redirect_stderr(io.StringIO()),
             ):
@@ -125,9 +139,9 @@ class MutantSourceFollowups(unittest.TestCase):
                 )
 
     def assert_explicit_overlap_ran(self, run):
-        run.run_mutants.assert_called_once_with(run.source)
+        run.run_mutants.assert_called_once_with("trenchcoat", run.source)
         run.inputs.assert_called_once_with(run.source)
-        self.assertTrue(run.run_mutants.call_args.args[0].is_absolute())
+        self.assertTrue(run.run_mutants.call_args.args[1].is_absolute())
         self.assertTrue(run.inputs.call_args.args[0].is_absolute())
         self.assertEqual(run.calls, ["baseline", "mutant-a", "mutant-b", "mutant-c", "mutant-d"])
         self.assertEqual(run.copied_sources, ["explicit source sentinel\n"])
@@ -149,7 +163,7 @@ class MutantSourceFollowups(unittest.TestCase):
             for default in (run.prototype / "src", run.root / "src"):
                 self.assertTrue((default / "parts" / "raw-hd" / "original.png").is_file())
             self.assertEqual(invoke_main(mode, run.source), int(surviving_mutant is not None))
-            run.run_mutants.assert_called_once_with(run.source)
+            run.run_mutants.assert_called_once_with("trenchcoat", run.source)
             run.inputs.assert_called_once_with(run.source)
             self.assertEqual(run.calls, ["baseline", "mutant-a", "mutant-b", "mutant-d"])
             run.preparer.assert_not_called()

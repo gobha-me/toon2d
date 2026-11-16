@@ -5,6 +5,7 @@ from pathlib import Path
 import subprocess
 import tempfile
 import unittest
+from unittest.mock import patch
 
 from body_driver import read_manifest
 from driver import PROTOTYPE
@@ -23,7 +24,9 @@ class ImagineProvenanceControls(unittest.TestCase):
         self.scratch = tempfile.TemporaryDirectory(dir=os.environ["TMPDIR"])
         self.addCleanup(self.scratch.cleanup)
         self.root = Path(self.scratch.name)
-        self.manifest = make_fixture(PROTOTYPE, self.root, read_manifest(PROTOTYPE, "char2"))
+        with patch("imagine_fixture.Image.open", side_effect=AssertionError(
+                "provenance fixtures must not decode source artwork")):
+            self.manifest = make_fixture(PROTOTYPE, self.root, read_manifest(PROTOTYPE, "char2"))
         self.subject = self.root / self.manifest["_character"]["subject"]
         self.images = self.root / "characters/char2/imagine-source"
         self.parts = self.root / "characters/char2/parts"

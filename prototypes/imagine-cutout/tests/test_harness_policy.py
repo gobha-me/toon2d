@@ -21,6 +21,15 @@ class HarnessPolicy(unittest.TestCase):
             tests.mkdir(parents=True)
             subject = Path(os.environ.get('HARNESS_SUBJECT', TESTS))
             shutil.copy2(subject / 'runner.sh', tests / 'runner.sh')
+            # Only the clock is fixed: this lightweight consumer may run at any
+            # hour, while the runner still owns a real Xvfb and its cleanup.
+            bin_dir = root / 'bin'
+            bin_dir.mkdir()
+            date = bin_dir / 'date'
+            date.write_text('#!/bin/sh\n'
+                            '[ "$#" -eq 1 ] && [ "$1" = "+%H%M" ] || exit 2\n'
+                            'printf "%s\\n" 1200\n')
+            date.chmod(0o755)
             # A quick consumer of the runner's real X server, without a render.
             (tests / 'driver.py').write_text('''import json, os, pathlib, time
 root = pathlib.Path(os.environ['TMPDIR'])
@@ -37,11 +46,12 @@ else:
         time.sleep(.01)
 ''')
             audit = root / 'audit.json'
-            env = dict(os.environ, TEST_PYTHON=sys.executable,
+            env = dict(os.environ, TEST_PYTHON=sys.executable, TMPDIR=str(root),
+                       PATH=str(bin_dir) + os.pathsep + os.environ['PATH'],
                        LIFECYCLE_AUDIT=str(audit), LIFECYCLE_TERM=str(int(terminate)),
                        LIFECYCLE_RELEASE=str(root / 'release'))
             process = subprocess.Popen(['bash', str(tests / 'runner.sh'), 'oracle'],
-                                       env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                                       cwd=root, env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                                        text=True, start_new_session=True)
             recorded = None
             try:
@@ -56,6 +66,8 @@ else:
                 self.assertTrue(display and display.startswith(':'))
                 lock = Path('/tmp') / ('.X' + display[1:].split('.')[0] + '-lock')
                 self.assertTrue(lock.exists(), 'real X server did not acquire its lock')
+                socket = Path('/tmp/.X11-unix') / ('X' + display[1:].split('.')[0])
+                self.assertTrue(socket.exists(), 'real X server did not create its socket')
                 os.kill(recorded, 0)
                 if terminate:
                     process.send_signal(signal.SIGTERM)
@@ -66,6 +78,7 @@ else:
                 with self.assertRaises(ProcessLookupError):
                     os.kill(recorded, 0)
                 self.assertFalse(lock.exists(), 'recorded server lock survived runner exit')
+                self.assertFalse(socket.exists(), 'recorded server socket survived runner exit')
                 self.assertFalse(Path(data['scratch']).exists(), 'runner scratch survived exit')
                 print(('TERM' if terminate else 'NORMAL') +
                       ': recorded PID gone; display lock gone; scratch removed', flush=True)
@@ -100,7 +113,8 @@ sys.exit(codes[min(n, len(codes)-1)])
 ''')
                 stub.chmod(0o755)
                 subject = Path(os.environ.get('HARNESS_SUBJECT', TESTS))
-                env = dict(os.environ, PATH=str(root) + os.pathsep + os.environ['PATH'],
+                env = dict(os.environ, TMPDIR=str(root),
+                           PATH=str(root) + os.pathsep + os.environ['PATH'],
                            PYTHONPATH=str(subject), STUB_STATE=str(root / 'count'),
                            STUB_EXITS=json.dumps(exits), DRIVER_HEAVY_RETRY_SECONDS='0.01',
                            OMP_NUM_THREADS='2', OPENBLAS_NUM_THREADS='2', MAKEFLAGS='-j2')

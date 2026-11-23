@@ -186,6 +186,22 @@ for (const [intent, shape] of [['talk', 'talk'], ['yell', 'yell'],
   });
 }
 
+for (const intent of ['talk', 'yell', 'project', 'interject']) {
+  test(`${intent} remains a layer on top of the selected sad expression`, () => {
+    const sim = manualSim();
+    sim.setExpr('sad');
+    sim.setSpeech(intent);
+    let layeredFrames = 0;
+    for (let tick = 0; tick < 180; tick += 1) {
+      sim.step(dt);
+      const state = sim.state();
+      if (state.talk > 0 && state.wu[3] > 0 && state.wl[3] > 0) layeredFrames += 1;
+      boundedState(state);
+    }
+    assert.ok(layeredFrames > 0, 'speech and the requested expression must coexist');
+  });
+}
+
 test('off speech switches intent and lets an active yell decay', () => {
   const sim = manualSim();
   sim.setSpeech('yell');
@@ -258,6 +274,24 @@ test('sustained hurt adds pain and distressed keys plus labored breathing', () =
   boundedState(state);
 });
 
+test('opposite explicit hit sides produce different directional head responses', () => {
+  const left = manualSim();
+  const right = manualSim();
+  left.hit(0.8, -1);
+  right.hit(0.8, 1);
+  let differentDirection = false;
+  for (let tick = 0; tick < 60; tick += 1) {
+    left.step(dt);
+    right.step(dt);
+    const a = left.state();
+    const b = right.state();
+    differentDirection ||= a.tilt !== b.tilt || a.turn !== b.turn;
+    finiteState(a);
+    finiteState(b);
+  }
+  assert.ok(differentDirection, 'the explicit side must affect directional pose');
+});
+
 for (const side of [-1, 1]) {
   test(`glance ${side} moves the gaze to the requested side`, () => {
     const sim = manualSim();
@@ -267,6 +301,26 @@ for (const side of [-1, 1]) {
     boundedState(state);
   });
 }
+
+test('distraction makes gaze wander rather than ignoring the requested behavior', () => {
+  const quiet = manualSim();
+  const distracted = manualSim();
+  distracted.distract = 0.7;
+  distracted.eyesOnly = true;
+  const gazeValues = new Set();
+  let responds = false;
+  for (let tick = 0; tick < 3600; tick += 1) {
+    quiet.step(dt);
+    distracted.step(dt);
+    const normal = quiet.state();
+    const wandering = distracted.state();
+    gazeValues.add(wandering.gaze);
+    responds ||= wandering.gaze !== normal.gaze || wandering.gazeY !== normal.gazeY;
+    finiteState(wandering);
+  }
+  assert.ok(gazeValues.size > 1, 'gaze must move during distraction');
+  assert.ok(responds, 'the distraction input changes the eye response');
+});
 
 test('the automatic gambit reel advances labels and live speech/expression state', () => {
   const sim = new FaceSim();

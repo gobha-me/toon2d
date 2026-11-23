@@ -8,7 +8,8 @@ python3 prototypes/imagine-cutout/tests/run_python_tests.py --temp-root "$CODEX_
 
 Create the supplied temporary parent first. Omit `--temp-root` to use the
 platform temporary directory. The command discovers every `test_*.py`, with
-no exclusions, and propagates unittest's exit status. It supplies a private
+no exclusions, fails if no tests were discovered, and propagates test failures.
+It supplies a private
 `TMPDIR` before driver imports, private XDG directories, a two-worker cap and
 no inherited `DISPLAY`; its scratch directory is removed on exit. It can be
 called from any working directory using the script's absolute path.

@@ -66,6 +66,12 @@ class PythonRunnerControls(unittest.TestCase):
         self.assertIn("FAILED (failures=1)", result.stderr)
         self.assertFalse(list(self.root.glob("imagine-python-*")))
 
+    def test_empty_discovery_is_not_a_passing_gate(self):
+        result = self.invoke()
+        self.assertEqual(result.returncode, 2, result.stdout + result.stderr)
+        self.assertIn("No Python controls discovered", result.stderr)
+        self.assertFalse(list(self.root.glob("imagine-python-*")))
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

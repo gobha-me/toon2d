@@ -2,10 +2,10 @@
 // mutation targets, and this adds no CI or percentage gate.
 export default {
   mutate: ['prototypes/lifelike/prototype/face.js:356:0-649:0'],
-  ignorePatterns: ['**', '!prototypes/lifelike/prototype/*.js', '!tests/lifelike-face.test.mjs'],
+  ignorePatterns: ['**', '!prototypes/lifelike/prototype/*.js', '!tests/lifelike-face.test.mjs', '!tests/lifelike-face-contracts.test.mjs'],
   testRunner: 'command',
   commandRunner: {
-    command: 'node --test --test-concurrency=2 tests/lifelike-face.test.mjs',
+    command: 'node --test --test-concurrency=2 tests/lifelike-face.test.mjs tests/lifelike-face-contracts.test.mjs',
   },
   coverageAnalysis: 'off',
   concurrency: 2,

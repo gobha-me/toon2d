@@ -43,10 +43,26 @@ exact speech amplitude/timing calibration remain outside this CPU slice. The
 owner still needs to select and wire prototype checks into CI for issue #37.
 
 Local validation recorded 68 passing lifelike CPU cases and a clean repository
-ESLint run. A disposable public-input sensitivity control selecting the
-rejected head-turn mode makes both new head assertions fail; this demonstrates
-sensitivity without substituting the model. The source-mutation baseline was
-resource-busy (guard exit75), so this extension claims no new mutation score
-or actual-source kill. The previous FaceSim results remain historical evidence
-for their original suite. Before/final mutation and a source-mutant red control
-remain deferred until the shared guard is available.
+ESLint run. The 29-case FaceSim baseline and expanded 33-case suite were each
+mutated with the same configuration, complete product source and 741 mutant
+descriptors. Kills/timeouts/survivors changed from 242/6/493 to 261/6/474:
+strict score 32.66% to 35.22%; Stryker including timeouts 33.47% to 36.03%.
+All 242 previous kills and six timeouts were retained; 19 survivors became
+kills. No timeout receives strict credit, and no source/operator/scope/gate
+change contributes to the comparison.
+
+Two actual-source red controls use disposable copies and exact Stryker
+descriptors. Removing the eyes-only distraction condition (mutant 378) leaves
+all 29 old cases passing but fails both new head comparisons. Reversing the
+yell-shape comparison (mutant 599) likewise passes all old cases but fails both
+new speech-key cases. Each expanded run has 31 passes and two ERR_ASSERTION
+failures, without skips, import/runtime errors or model substitution. The real
+source remains unchanged. The earlier public-input head-turn-mode control is
+additional sensitivity evidence, not mutation-score credit.
+
+The remaining 474 survivors stay in the denominator. These checks do not pin
+exact speech amplitudes, random/voice/easing curves, compatibility aliases,
+every reel cue, shared nondirectional head effects or rendered eye masks.
+No equivalence, complete reachability, visual-quality or full-repository claim
+is made. Earlier resource-busy attempts produced no mutation results; only the
+completed guarded runs contribute to these scores.

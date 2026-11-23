@@ -50,6 +50,12 @@ This remains a focused smoke check: compatibility accessors, detailed numeric
 easing/random/voice curves, each individual reel cue and precise pose mixing
 are incomplete. No mutation-complete or visual-quality claim is made.
 
+The later four-case [gaze/speech contract extension](LIFELIKE-FACE-CONTRACTS.md)
+raises the same FaceSim slice to 261 kills, six timeouts and 474 survivors
+(35.22% strict), with all previous kills retained. That document records the
+29-to-33-case comparison and the actual-source red controls; the figures above
+describe the original smoke-suite expansion.
+
 Owner follow-up: select and wire the desired prototype checks into CI. This
 test-side slice changes no workflows, product behavior or design/taste policy,
 and does not close issue #37's CI work.

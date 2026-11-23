@@ -1,0 +1,87 @@
+{
+  "thresholds": {
+    "crouchLeanMin": 5,
+    "crouchLeanMax": 30,
+    "launchLeanMax": 30,
+    "launchSettleMax": 15,
+    "launchLeanBackMax": 15,
+    "launchTicks": 8,
+    "crouchDepthMin": 0.15
+  },
+  "checks": [
+    {
+      "id": "stand.crouch_lean",
+      "pass": true,
+      "detail": "torso 28.0° forward at deepest crouch (target 5-30°)"
+    },
+    {
+      "id": "stand.crouch_depth",
+      "pass": true,
+      "detail": "hip drop 60% of standing hip height (min 15%)"
+    },
+    {
+      "id": "stand.launch_lean",
+      "pass": true,
+      "detail": "torso 3.6..28.0° over the first 8 airborne ticks (target -15..30°)"
+    },
+    {
+      "id": "stand.launch_unwind",
+      "pass": true,
+      "detail": "torso 3.6° forward on airborne tick 8 (max 15°, needs 8 ticks)"
+    },
+    {
+      "id": "run.crouch_lean",
+      "pass": true,
+      "detail": "torso 28.0° forward at deepest crouch (target 5-30°)"
+    },
+    {
+      "id": "run.crouch_depth",
+      "pass": true,
+      "detail": "hip drop 40% of standing hip height (min 15%)"
+    },
+    {
+      "id": "run.launch_lean",
+      "pass": true,
+      "detail": "torso 3.6..28.0° over the first 8 airborne ticks (target -15..30°)"
+    },
+    {
+      "id": "run.launch_unwind",
+      "pass": true,
+      "detail": "torso 3.6° forward on airborne tick 8 (max 15°, needs 8 ticks)"
+    }
+  ],
+  "metrics": {
+    "standHip": 20.007001981464754,
+    "stand": {
+      "crouchTicks": 6,
+      "crouchLean": 28,
+      "crouchDepth": 0.596,
+      "launchLean": [
+        28,
+        26.1,
+        21.4,
+        15.4,
+        9.6,
+        5.3,
+        3.9,
+        3.6
+      ]
+    },
+    "run": {
+      "crouchTicks": 4,
+      "crouchLean": 28,
+      "crouchDepth": 0.404,
+      "launchLean": [
+        28,
+        26.1,
+        21.4,
+        15.4,
+        9.6,
+        5.3,
+        3.9,
+        3.6
+      ]
+    }
+  },
+  "pass": true
+}

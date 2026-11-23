@@ -1,0 +1,12 @@
+{
+  "source_commit": "5d3a5e52415317fe16aacca50c2d5eb62c2ab2d2",
+  "capture_date": "2026-11-09",
+  "project": "skills/toon2d-runtime-animation/templates/starter",
+  "seed": 1,
+  "queries": [
+    "mode=pixel",
+    "mode=smooth"
+  ],
+  "note": "One unchanged rig/animation family; advisory smoke evidence, not independent calibration ratings.",
+  "archive_normalization": "PNG digests are in SHA256SUMS; name-keyed checksum fields are omitted from archived JSON. Numeric metrics and PNG bytes are unchanged."
+}

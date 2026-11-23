@@ -68,3 +68,8 @@ proposed taste floor, then check the frozen configuration on the held-out
 subset. Human approval of the threshold, actual reference images and the blind
 baseline comparison remain required work in #5. This report does not promote
 the advisory take-off check tracked in #13.
+
+The [take-off calibration handoff](takeoff-calibration.md) lists the runtime
+measurements and independent judgments needed for #13. The CPU-only
+[visual diagnostic](visual-signals.md) supplies advisory evidence alongside
+those captures; its warning counts are not human or judge rating vectors.

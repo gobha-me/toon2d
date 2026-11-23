@@ -92,6 +92,39 @@ node scripts/serve.mjs /tmp/my-char     # open the printed URL
 Full workflow, pipeline chooser, recipes, and pitfalls: start at
 [skills/toon2d-runtime-animation/SKILL.md](skills/toon2d-runtime-animation/SKILL.md).
 
+## Visual self-review
+
+Render the existing starter's idle, run and jump into a **new** evidence directory:
+
+```bash
+node skills/toon2d-runtime-animation/scripts/visual-review.mjs \
+  skills/toon2d-runtime-animation/templates/starter --out shots/visual-pixel
+# Another supported style:
+node skills/toon2d-runtime-animation/scripts/visual-review.mjs \
+  skills/toon2d-runtime-animation/templates/starter --query mode=smooth --out shots/visual-smooth
+```
+
+Open `report.md`, the native key poses, nearest-neighbour 3x view, black
+silhouettes and run strip. Seven cheap signals report **pass/warn** for
+silhouette separation, spacing, anticipation, stop overshoot, held-pose timing,
+jitter and pixel edges (pixel styles only). Each signal links to its observed
+frames; `frames.json` lists their order and ticks, and `report.json` records
+thresholds, measurements and image hashes. Headless Chromium runs with the GPU
+disabled. No model, API key, external network service or additional npm package
+is needed. Use plain Chrome/Chromium via `CHROME_PATH` for repeatable pixels;
+the tool rejects modified canvas readback before recording.
+
+These are advisory proxies, not a taste ranking. Warnings exit 0; malformed
+input or capture failures exit 2. Existing evidence is never overwritten.
+Fix the worst visible problem and render again into a fresh directory. For the
+three-round critique log, use the existing
+[bounded self-review loop](skills/toon2d-runtime-animation/reference/self-review.md).
+See [signal definitions and limits](skills/toon2d-runtime-animation/reference/visual-signals.md)
+before interpreting warnings. `score.mjs` and advisory `takeoff.mjs` are unchanged.
+
+An [archived starter sample](evals/taste/visual-proxy-smoke/README.md) includes the
+pixel report, native/smooth evidence and measured take-off margins for #13.
+
 ## What's in the repo
 
 | Path | What |

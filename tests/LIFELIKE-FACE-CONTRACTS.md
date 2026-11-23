@@ -18,7 +18,7 @@ checks use the final user verdict and speech table in
 Run all lifelike CPU checks from the repository root:
 
 ```sh
-HEAVY_WAIT=1 heavy-run node --test --test-concurrency=2 tests/lifelike-face.test.mjs tests/lifelike-face-contracts.test.mjs tests/lifelike-rig.test.mjs
+HEAVY_WAIT=1 heavy-run node --test --test-concurrency=2 tests/lifelike-face.test.mjs tests/lifelike-face-contracts.test.mjs tests/lifelike-rig.test.mjs tests/lifelike-rig-topology.test.mjs
 HEAVY_WAIT=1 heavy-run npm run lint
 git diff --check
 ```
@@ -42,7 +42,7 @@ timeouts and lack of a percentage gate. Shader/rendering/widget behavior and
 exact speech amplitude/timing calibration remain outside this CPU slice. The
 owner still needs to select and wire prototype checks into CI for issue #37.
 
-Local validation recorded 68 passing lifelike CPU cases and a clean repository
+Local validation recorded 74 passing lifelike CPU cases and a clean repository
 ESLint run. The 29-case FaceSim baseline and expanded 33-case suite were each
 mutated with the same configuration, complete product source and 741 mutant
 descriptors. Kills/timeouts/survivors changed from 242/6/493 to 261/6/474:

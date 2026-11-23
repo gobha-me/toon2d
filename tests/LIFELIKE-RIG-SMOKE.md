@@ -81,3 +81,9 @@ limbs, not exact foot-plant acceptance, gait easing, artistic offsets, mesh-weig
 calibration or visual quality. Exact animation envelopes and undocumented edge
 inputs are intentionally not invented by the smoke tests. Owner CI wiring stays
 separate; this PR changes no workflow, gate, dependency or product source.
+
+The additive [grid topology checks](LIFELIKE-RIG-TOPOLOGY.md) extend this body
+suite from 35 to 41 cases without changing its assertions. Their independent
+edge-incidence oracle catches a deliberately seeded overlap/hole fault that
+passes all 35 older cases. A fresh same-397-mutant comparison remains
+244 kills, four timeouts and 149 survivors; no extra Stryker score is claimed.

@@ -11,10 +11,11 @@ export default {
     'prototypes/lifelike/prototype/rig.js:308:0-312:61',
   ],
   ignorePatterns: ['**', '!prototypes/lifelike/prototype/rig.js',
-    '!prototypes/lifelike/prototype/body-rig.json', '!tests/lifelike-rig.test.mjs'],
+    '!prototypes/lifelike/prototype/body-rig.json', '!tests/lifelike-rig.test.mjs',
+    '!tests/lifelike-rig-topology.test.mjs'],
   testRunner: 'command',
   commandRunner: {
-    command: 'node --test --test-concurrency=2 tests/lifelike-rig.test.mjs',
+    command: 'node --test --test-concurrency=2 tests/lifelike-rig.test.mjs tests/lifelike-rig-topology.test.mjs',
   },
   coverageAnalysis: 'off',
   concurrency: 2,

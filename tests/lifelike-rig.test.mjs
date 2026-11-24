@@ -301,7 +301,10 @@ function blendInputs() {
 for (const endpoint of [0, 1]) {
   test(`public static pose blend preserves endpoint ${endpoint}`, () => {
     const inputs = blendInputs();
-    assert.deepEqual(Rig.blend(...inputs, endpoint), inputs[endpoint]);
+    const before = structuredClone(inputs);
+    const result = Rig.blend(...inputs, endpoint);
+    assert.deepEqual(result, before[endpoint]);
+    assert.deepEqual(inputs, before, 'blending leaves both caller poses intact');
   });
 }
 

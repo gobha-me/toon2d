@@ -54,6 +54,33 @@ for (const [distraction, ticks] of [[0, 120], [0.7, 600]]) {
   });
 }
 
+test('the first automatic eyes-only fixation leaves the head on its idle trajectory', () => {
+  const idle = manualEyesOnly();
+  const distracted = manualEyesOnly();
+  distracted.distract = 0.7;
+  const initialHead = head(idle.state());
+  let fixationObserved = false;
+
+  // Three simulated seconds include the first spontaneous fixation. Neither
+  // subject receives a manual glance. Later fixations may consume different
+  // random draws, so this comparison ends at the first gaze divergence.
+  for (let tick = 1; tick <= 180; tick += 1) {
+    idle.step(dt);
+    distracted.step(dt);
+    const quiet = idle.state();
+    const active = distracted.state();
+    assert.deepEqual(head(active), head(quiet), `head differs at tick ${tick}`);
+    if (active.gaze !== quiet.gaze || active.gazeY !== quiet.gazeY) {
+      assert.ok(Number.isFinite(active.gaze) && Number.isFinite(active.gazeY));
+      assert.notDeepEqual(head(quiet), initialHead, 'idle head sway is active');
+      fixationObserved = true;
+      break;
+    }
+  }
+
+  assert.ok(fixationObserved, 'automatic distraction must actually move the eyes');
+});
+
 // Public expression-atlas order: happy, angry, surprised, sad, distressed,
 // winded, pain. Use literal documented slots, not the model's EXPRS lookup.
 for (const [intent, slot, expression] of [['yell', 1, 'angry'], ['project', 2, 'surprised']]) {

@@ -10,7 +10,7 @@ from imagine_provenance import SCRIPTED, digest, read_contract
 
 
 def make_fixture(source: Path, destination: Path, manifest: dict) -> dict:
-    """Use real supplied output bytes and small derivatives to exercise links.
+    """Copy real supplied output bytes and use tiny local PNGs to exercise links.
 
     No bones, scenes, joint geometry or facing are fabricated here. The fixture
     can establish validator sensitivity only, never character acceptance.
@@ -29,15 +29,11 @@ def make_fixture(source: Path, destination: Path, manifest: dict) -> dict:
         texture = destination / "characters/char2/parts" / (part_id + ".png")
         texture.parent.mkdir(parents=True, exist_ok=True)
         scripted = rule["classification"] == SCRIPTED
-        if scripted:
-            Image.new("RGBA", (16, 16), (120, 80, 40, 255)).save(texture)
-        else:
-            # Small image derivatives exercise byte hashes, not cutout quality.
-            image = Image.open(destination / source_directory / rule["required_sources"][0])
-            image.convert("RGBA").resize((16, 16)).save(texture)
+        # Provenance checks need output hashes, not decoded source artwork.
+        Image.new("RGBA", (16, 16), (120, 80, 40, 255)).save(texture)
         part = {"id": part_id, "texture_hd": texture.relative_to(destination).as_posix(),
                 "classification": rule["classification"], "scripted_fallback": scripted}
-        sidecar = {**part, "derived_from": "Provenance-only fixture: resize of the first declared source; not rig artwork.",
+        sidecar = {**part, "derived_from": "Provenance-only fixture: synthetic 16x16 PNG with declared source references; not rig artwork.",
                    "output_sha256": digest(texture),
                    "imagine_sources": [{"file": name, "sha256": contract["sources"][name]["sha256"]}
                                        for name in rule["required_sources"]],
